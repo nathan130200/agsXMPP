@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.extensions.ping
 	/// <summary>
 	/// 
 	/// </summary>
-	public class PingIq : client.Iq
+	public class PingIq : client.IQ
 	{
 		private Ping m_Ping = new Ping();
 

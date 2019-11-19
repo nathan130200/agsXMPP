@@ -72,7 +72,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.get;
+			pIq.Type = client.IqType.Get;
 
 			this.SendStanza(pIq, cb, cbArg);
 		}
@@ -121,7 +121,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.get;
+			pIq.Type = client.IqType.Get;
 			pIq.Query.AddList(new List(name));
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -146,7 +146,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		{
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.set;
+			pIq.Type = client.IqType.Set;
 			pIq.Query.AddList(new List(name));
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -186,7 +186,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.set;
+			pIq.Type = client.IqType.Set;
 			pIq.Query.Active = new Active();
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -242,7 +242,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.set;
+			pIq.Type = client.IqType.Set;
 			pIq.Query.Active = new Active(name);
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -267,7 +267,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		{
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.set;
+			pIq.Type = client.IqType.Set;
 			pIq.Query.Default = new Default(name);
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -290,7 +290,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		{
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IqType.set;
+			pIq.Type = client.IqType.Set;
 			pIq.Query.Default = new Default();
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -326,7 +326,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		public void UpdateList(string name, Item[] rules, IqCB cb, object cbArg)
 		{
 			var pIq = new PrivacyIq();
-			pIq.Type = client.IqType.set;
+			pIq.Type = client.IqType.Set;
 
 			// create a new list with the given name
 			var list = new List(name);

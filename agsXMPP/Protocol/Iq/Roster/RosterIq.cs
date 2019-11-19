@@ -30,7 +30,7 @@ namespace agsXMPP.Protocol.iq.roster
 	/// <summary>
 	/// Build a new roster query, jabber:iq:roster
 	/// </summary>
-	public class RosterIq : client.Iq
+	public class RosterIq : client.IQ
 	{
 		private Roster m_Roster = new Roster();
 

@@ -51,19 +51,19 @@ namespace agsXMPP.Protocol.iq.disco
 		}
 		#endregion
 
-		private void OnIq(object sender, client.Iq iq)
+		private void OnIq(object sender, client.IQ iq)
 		{
 			// DiscoInfo
-			if (this.m_AutoAnswerDiscoInfoRequests && iq.Query is DiscoInfo && iq.Type == IqType.get)
+			if (this.m_AutoAnswerDiscoInfoRequests && iq.Query is DiscoInfo && iq.Type == IqType.Get)
 				this.ProcessDiscoInfo(iq);
 		}
 
-		private void ProcessDiscoInfo(client.Iq iq)
+		private void ProcessDiscoInfo(client.IQ iq)
 		{
-			var diiq = new client.Iq();
+			var diiq = new client.IQ();
 			diiq.To = iq.From;
 			diiq.Id = iq.Id;
-			diiq.Type = IqType.result;
+			diiq.Type = IqType.Result;
 
 			diiq.Query = this.xmppConnection.DiscoInfo;
 
@@ -154,7 +154,7 @@ namespace agsXMPP.Protocol.iq.disco
               </query>
             </iq>
             */
-			var discoIq = new DiscoInfoIq(IqType.get);
+			var discoIq = new DiscoInfoIq(IqType.Get);
 			discoIq.To = to;
 
 			if (from != null)
@@ -225,7 +225,7 @@ namespace agsXMPP.Protocol.iq.disco
 
 		public void DiscoverItems(Jid to, Jid from, string node, IqCB cb, object cbArgs)
 		{
-			var discoIq = new DiscoItemsIq(IqType.get);
+			var discoIq = new DiscoItemsIq(IqType.Get);
 			discoIq.To = to;
 
 			if (from != null)

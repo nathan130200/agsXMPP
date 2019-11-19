@@ -25,7 +25,7 @@ namespace agsXMPP.Protocol.iq.browse
 	/// <summary>
 	/// Summary description for BrowseIq.
 	/// </summary>
-	public class BrowseIq : client.Iq
+	public class BrowseIq : client.IQ
 	{
 		private Browse m_Browse = new Browse();
 

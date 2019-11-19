@@ -25,7 +25,7 @@ namespace agsXMPP.Protocol.iq.register
 	/// <summary>
 	/// Used for registering new usernames on Jabber/XMPP Servers
 	/// </summary>
-	public class RegisterIq : client.Iq
+	public class RegisterIq : client.IQ
 	{
 		private Register m_Register = new Register();
 

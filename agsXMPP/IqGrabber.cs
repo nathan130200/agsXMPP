@@ -24,7 +24,7 @@ using agsXMPP.Protocol.client;
 
 namespace agsXMPP
 {
-	public delegate void IqCB(object sender, Iq iq, object data);
+	public delegate void IqCB(object sender, IQ iq, object data);
 
 	public class IqGrabber : PacketGrabber
 	{
@@ -49,7 +49,7 @@ namespace agsXMPP
 		}
 
 #if !CF
-		private Iq synchronousResponse = null;
+		private IQ synchronousResponse = null;
 
 		private int m_SynchronousTimeout = 5000;
 
@@ -76,7 +76,7 @@ namespace agsXMPP
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public void OnIq(object sender, Iq iq)
+		public void OnIq(object sender, IQ iq)
 		{
 			if (iq == null)
 				return;
@@ -106,7 +106,7 @@ namespace agsXMPP
 		/// </summary>
 		/// <param name="iq">The iq to send</param>
 		/// <param name="cb">the callback function which gets raised for the response</param>
-		public void SendIq(Iq iq, IqCB cb)
+		public void SendIq(IQ iq, IqCB cb)
 		{
 			this.SendIq(iq, cb, null);
 		}
@@ -117,7 +117,7 @@ namespace agsXMPP
 		/// <param name="iq">The iq to send</param>
 		/// <param name="cb">the callback function which gets raised for the response</param>
 		/// <param name="cbArg">additional object for arguments</param>
-		public void SendIq(Iq iq, IqCB cb, object cbArg)
+		public void SendIq(IQ iq, IqCB cb, object cbArg)
 		{
 			// check if the callback is null, in case of wrong usage of this class
 			if (cb != null)
@@ -138,7 +138,7 @@ namespace agsXMPP
 		/// <param name="iq">The IQ to send</param>
 		/// <param name="timeout"></param>
 		/// <returns>The response IQ or null on timeout</returns>
-		public Iq SendIq(Iq iq, int timeout)
+		public IQ SendIq(IQ iq, int timeout)
 		{
 			this.synchronousResponse = null;
 			var are = new AutoResetEvent(false);
@@ -165,7 +165,7 @@ namespace agsXMPP
 		/// </summary>
 		/// <param name="iq">The IQ to send</param>        
 		/// <returns>The response IQ or null on timeout</returns>
-		public Iq SendIq(Iq iq)
+		public IQ SendIq(IQ iq)
 		{
 			return this.SendIq(iq, this.m_SynchronousTimeout);
 		}
@@ -176,7 +176,7 @@ namespace agsXMPP
 		/// <param name="sender"></param>
 		/// <param name="iq"></param>
 		/// <param name="data"></param>
-		private void SynchronousIqResult(object sender, Iq iq, object data)
+		private void SynchronousIqResult(object sender, IQ iq, object data)
 		{
 			this.synchronousResponse = iq;
 

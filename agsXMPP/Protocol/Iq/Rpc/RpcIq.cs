@@ -27,7 +27,7 @@ namespace agsXMPP.Protocol.iq.rpc
 	/// <summary>
 	/// RpcIq.
 	/// </summary>
-	public class RpcIq : client.Iq
+	public class RpcIq : client.IQ
 	{
 		private Rpc m_Rpc = new Rpc();
 

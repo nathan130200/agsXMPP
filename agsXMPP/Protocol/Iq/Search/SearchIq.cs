@@ -36,7 +36,7 @@ namespace agsXMPP.Protocol.iq.search
 	/// <summary>
 	/// Summary description for SearchIq.
 	/// </summary>
-	public class SearchIq : client.Iq
+	public class SearchIq : client.IQ
 	{
 		private Search m_Search = new Search();
 

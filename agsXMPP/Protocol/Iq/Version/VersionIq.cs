@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.version
 	/// <summary>
 	/// Summary description for VersionIq.
 	/// </summary>
-	public class VersionIq : client.Iq
+	public class VersionIq : client.IQ
 	{
 		private Version m_Version = new Version();
 

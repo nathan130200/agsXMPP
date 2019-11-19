@@ -65,7 +65,7 @@ namespace agsXMPP.Protocol.iq.disco
 	/// <summary>
 	/// Discovering the Items Associated with a Jabber Entity
 	/// </summary>
-	public class DiscoItemsIq : client.Iq
+	public class DiscoItemsIq : client.IQ
 	{
 		private DiscoItems m_DiscoItems = new DiscoItems();
 

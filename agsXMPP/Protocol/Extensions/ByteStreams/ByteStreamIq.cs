@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.extensions.bytestreams
 	/// <summary>
 	/// a Bytestream IQ
 	/// </summary>
-	public class ByteStreamIq : client.Iq
+	public class ByteStreamIq : client.IQ
 	{
 		private ByteStream m_ByteStream = new ByteStream();
 

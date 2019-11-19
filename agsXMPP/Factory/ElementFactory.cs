@@ -39,7 +39,7 @@ namespace agsXMPP.Factory
 
 		static ElementFactory()
 		{
-			AddElementType("iq", Namespaces.CLIENT, typeof(Protocol.client.Iq));
+			AddElementType("iq", Namespaces.CLIENT, typeof(Protocol.client.IQ));
 			AddElementType("message", Namespaces.CLIENT, typeof(Protocol.client.Message));
 			AddElementType("presence", Namespaces.CLIENT, typeof(Protocol.client.Presence));
 			AddElementType("error", Namespaces.CLIENT, typeof(Protocol.client.Error));

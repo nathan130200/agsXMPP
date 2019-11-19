@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.session
 	/// <summary>
 	/// Starting the session, this is done after resource binding
 	/// </summary>
-	public class SessionIq : client.Iq
+	public class SessionIq : client.IQ
 	{
 		/*
 		SEND:	<iq xmlns="jabber:client" id="agsXMPP_2" type="set" to="jabber.ru">

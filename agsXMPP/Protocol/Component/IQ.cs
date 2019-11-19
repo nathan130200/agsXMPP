@@ -29,7 +29,7 @@ namespace agsXMPP.Protocol.component
 	/// <summary>
 	/// Summary description for Iq.
 	/// </summary>
-	public class IQ : client.Iq
+	public class IQ : client.IQ
 	{
 		#region << Constructors >>
 		public IQ() : base()

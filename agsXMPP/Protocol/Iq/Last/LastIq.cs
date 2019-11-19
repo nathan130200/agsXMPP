@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.last
 	/// <summary>
 	/// Summary description for LastIq.
 	/// </summary>
-	public class LastIq : client.Iq
+	public class LastIq : client.IQ
 	{
 		private Last m_Last = new Last();
 

@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.bind
 	/// <summary>
 	/// Summary description for BindIq.
 	/// </summary>
-	public class BindIq : client.Iq
+	public class BindIq : client.IQ
 	{
 		private Bind m_Bind = new Bind();
 

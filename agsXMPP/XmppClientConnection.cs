@@ -911,7 +911,7 @@ namespace agsXMPP
 
 		internal void RequestLoginInfo()
 		{
-			var iq = new AuthIq(IqType.get, new Jid(this.Server));
+			var iq = new AuthIq(IqType.Get, new Jid(this.Server));
 			iq.Query.Username = this.m_Username;
 
 			this.IqGrabber.SendIq(iq, new IqCB(this.OnGetAuthInfo), null);
@@ -956,7 +956,7 @@ namespace agsXMPP
 			<iq type='result' id='change1'/>			
 			*/
 
-			var regIq = new RegisterIq(IqType.set, new Jid(this.Server));
+			var regIq = new RegisterIq(IqType.Set, new Jid(this.Server));
 			regIq.Query.Username = this.m_Username;
 			regIq.Query.Password = newPass;
 
@@ -969,16 +969,16 @@ namespace agsXMPP
 		/// <param name="sender"></param>
 		/// <param name="iq"></param>
 		/// <param name="data">contains the new password</param>
-		private void OnChangePasswordResult(object sender, Iq iq, object data)
+		private void OnChangePasswordResult(object sender, IQ iq, object data)
 		{
-			if (iq.Type == IqType.result)
+			if (iq.Type == IqType.Result)
 			{
 				OnPasswordChanged?.Invoke(this);
 
 				// Set the new password in the Password property on sucess
 				this.m_Password = (string)data;
 			}
-			else if (iq.Type == IqType.error)
+			else if (iq.Type == IqType.Error)
 			{
 				/*
 				The server or service SHOULD NOT return the original XML sent in 
@@ -1029,13 +1029,13 @@ namespace agsXMPP
 			//  <query xmlns='jabber:iq:register'/>
 			// </iq>
 
-			var regIq = new RegisterIq(IqType.get, new Jid(this.Server));
+			var regIq = new RegisterIq(IqType.Get, new Jid(this.Server));
 			this.IqGrabber.SendIq(regIq, new IqCB(this.OnRegistrationFieldsResult), data);
 		}
 
-		private void OnRegistrationFieldsResult(object sender, Iq iq, object data)
+		private void OnRegistrationFieldsResult(object sender, IQ iq, object data)
 		{
-			if (iq.Type != IqType.error)
+			if (iq.Type != IqType.Error)
 			{
 				if (iq.Query != null && iq.Query.GetType() == typeof(Register))
 				{
@@ -1044,7 +1044,7 @@ namespace agsXMPP
 
 					this.DoChangeXmppConnectionState(XmppConnectionState.Registering);
 
-					var regIq = new Iq(IqType.set);
+					var regIq = new IQ(IqType.Set);
 					regIq.GenerateId();
 					regIq.To = new Jid(this.Server);
 
@@ -1067,7 +1067,7 @@ namespace agsXMPP
 			}
 		}
 
-		private void OnRegisterResult(object sender, Iq iq, object data)
+		private void OnRegisterResult(object sender, IQ iq, object data)
 		{
 			/*
 			Example 6. Host Informs Entity of Failed Registration (Username Conflict)
@@ -1096,7 +1096,7 @@ namespace agsXMPP
 			</error>
 			</iq>
 			*/
-			if (iq.Type == IqType.result)
+			if (iq.Type == IqType.Result)
 			{
 				this.DoChangeXmppConnectionState(XmppConnectionState.Registered);
 				OnRegistered?.Invoke(this);
@@ -1113,14 +1113,14 @@ namespace agsXMPP
 					this.RequestLoginInfo();
 				}
 			}
-			else if (iq.Type == IqType.error)
+			else if (iq.Type == IqType.Error)
 			{
 				OnRegisterError?.Invoke(this, iq);
 			}
 		}
 		#endregion
 
-		private void OnGetAuthInfo(object sender, Iq iq, object data)
+		private void OnGetAuthInfo(object sender, IQ iq, object data)
 		{
 			// We get smth like this and should add password (digest) and ressource
 			// Recv:<iq type="result" id="MX_7"><query xmlns="jabber:iq:auth"><username>gnauck</username><password/><digest/><resource/></query></iq>
@@ -1131,7 +1131,7 @@ namespace agsXMPP
 
 			iq.GenerateId();
 			iq.SwitchDirection();
-			iq.Type = IqType.set;
+			iq.Type = IqType.Set;
 
 			var auth = (Auth)iq.Query;
 
@@ -1160,11 +1160,11 @@ namespace agsXMPP
 		#region << RequestAgents >>
 		public void RequestAgents()
 		{
-			var iq = new AgentsIq(IqType.get, new Jid(this.Server));
+			var iq = new AgentsIq(IqType.Get, new Jid(this.Server));
 			this.IqGrabber.SendIq(iq, new IqCB(this.OnAgents), null);
 		}
 
-		private void OnAgents(object sender, Iq iq, object data)
+		private void OnAgents(object sender, IQ iq, object data)
 		{
 			OnAgentStart?.Invoke(this);
 
@@ -1184,18 +1184,18 @@ namespace agsXMPP
 		#region << RequestRoster >>
 		public void RequestRoster()
 		{
-			var iq = new RosterIq(IqType.get);
+			var iq = new RosterIq(IqType.Get);
 			this.Send(iq);
 		}
 
-		private void OnRosterIQ(Iq iq)
+		private void OnRosterIQ(IQ iq)
 		{
 			// if type == result then it must be the "FullRoster" we requested
 			// in this case we raise OnRosterStart and OnRosterEnd
 			// 
 			// if type == set its a new added r updated rosteritem. Here we dont raise
 			// OnRosterStart and OnRosterEnd
-			if (iq.Type == IqType.result && OnRosterStart != null)
+			if (iq.Type == IqType.Result && OnRosterStart != null)
 				OnRosterStart(this);
 
 			var r = iq.Query as Roster;
@@ -1207,22 +1207,22 @@ namespace agsXMPP
 				}
 			}
 
-			if (iq.Type == IqType.result && OnRosterEnd != null)
+			if (iq.Type == IqType.Result && OnRosterEnd != null)
 				OnRosterEnd(this);
 
-			if (this.m_AutoPresence && iq.Type == IqType.result)
+			if (this.m_AutoPresence && iq.Type == IqType.Result)
 				this.SendMyPresence();
 		}
 		#endregion
 
-		private void OnAuthenticate(object sender, Iq iq, object data)
+		private void OnAuthenticate(object sender, IQ iq, object data)
 		{
-			if (iq.Type == IqType.result)
+			if (iq.Type == IqType.Result)
 			{
 				this.m_Authenticated = true;
 				this.RaiseOnLogin();
 			}
-			else if (iq.Type == IqType.error)
+			else if (iq.Type == IqType.Error)
 			{
 				/* 
 				 * <iq xmlns="jabber:client" id="agsXMPP_2" type="error">
@@ -1311,11 +1311,11 @@ namespace agsXMPP
 		{
 			base.StreamParserOnStreamElement(sender, e);
 
-			if (e.GetType() == typeof(Iq))
+			if (e.GetType() == typeof(IQ))
 			{
-				OnIq?.Invoke(this, e as Iq);
+				OnIq?.Invoke(this, e as IQ);
 
-				var iq = e as Iq;
+				var iq = e as IQ;
 				if (iq != null && iq.Query != null)
 				{
 					// Roster

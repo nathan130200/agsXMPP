@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.auth
 	/// <summary>
 	/// Summary description for AuthIq.
 	/// </summary>
-	public class AuthIq : client.Iq
+	public class AuthIq : client.IQ
 	{
 		private Auth m_Auth = new Auth();
 

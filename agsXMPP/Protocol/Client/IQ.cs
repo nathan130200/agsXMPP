@@ -25,40 +25,30 @@ using agsXMPP.Xml.Dom;
 
 namespace agsXMPP.Protocol.client
 {
-	// a i know that i shouldnt use keywords for Enums. But its much easier this way
-	// because of enum.ToString() and enum.Parse() Members
-	public enum IqType
-	{
-		get,
-		set,
-		result,
-		error
-	}
-
 	/// <summary>
 	/// Iq Stanza.
 	/// </summary>
-	public class Iq : @base.Stanza
+	public class IQ : @base.Stanza
 	{
 		#region << Constructors >>
-		public Iq()
+		public IQ()
 		{
 			this.TagName = "iq";
 			this.Namespace = Namespaces.CLIENT;
 		}
 
-		public Iq(IqType type) : this()
+		public IQ(IqType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public Iq(Jid from, Jid to) : this()
+		public IQ(Jid from, Jid to) : this()
 		{
 			this.From = from;
 			this.To = to;
 		}
 
-		public Iq(IqType type, Jid from, Jid to) : this()
+		public IQ(IqType type, Jid from, Jid to) : this()
 		{
 			this.Type = type;
 			this.From = from;
@@ -74,7 +64,7 @@ namespace agsXMPP.Protocol.client
 			}
 			get
 			{
-				return (IqType)this.GetAttributeEnum("type", typeof(IqType));
+				return IqType.Of(this.GetAttribute("type"));
 			}
 		}
 

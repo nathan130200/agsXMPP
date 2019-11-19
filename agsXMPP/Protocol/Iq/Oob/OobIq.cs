@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.oob
 	/// <summary>
 	/// Summary description for OobIq.
 	/// </summary>
-	public class OobIq : client.Iq
+	public class OobIq : client.IQ
 	{
 		private Oob m_Oob = new Oob();
 

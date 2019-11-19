@@ -41,7 +41,7 @@ namespace agsXMPP.Protocol.x.muc.iq.admin
 	/// <summary>
 	/// 
 	/// </summary>
-	public class AdminIq : client.Iq
+	public class AdminIq : client.IQ
 	{
 		private Admin m_Admin = new Admin();
 

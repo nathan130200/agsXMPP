@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.@private
 	/// <summary>
 	/// Summary description for PrivateIq.
 	/// </summary>
-	public class PrivateIq : client.Iq
+	public class PrivateIq : client.IQ
 	{
 		Private m_Private = new Private();
 

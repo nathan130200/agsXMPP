@@ -23,7 +23,7 @@ using agsXMPP.Protocol.client;
 
 namespace agsXMPP.Protocol.extensions.pubsub.Owner
 {
-	public class PubSubIq : client.Iq
+	public class PubSubIq : client.IQ
 	{
 		/*
             Example 133. Owner deletes a node

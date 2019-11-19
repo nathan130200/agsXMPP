@@ -23,7 +23,7 @@ using agsXMPP.Protocol.client;
 
 namespace agsXMPP.Protocol.extensions.pubsub
 {
-	public class PubSubIq : client.Iq
+	public class PubSubIq : client.IQ
 	{
 		/*
             Example 1. Entity requests a new node with default configuration.

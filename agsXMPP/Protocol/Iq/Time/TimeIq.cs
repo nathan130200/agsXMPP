@@ -26,7 +26,7 @@ namespace agsXMPP.Protocol.iq.time
 	/// <summary>
 	/// Summary description for TimeIq.
 	/// </summary>
-	public class TimeIq : client.Iq
+	public class TimeIq : client.IQ
 	{
 		private Time m_Time = new Time();
 
