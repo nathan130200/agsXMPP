@@ -47,17 +47,17 @@ namespace agsXMPP.Protocol.extensions.pubsub
 			this.AddChild(this.m_PubSub);
 		}
 
-		public PubSubIq(IqType type) : this()
+		public PubSubIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public PubSubIq(IqType type, Jid to) : this(type)
+		public PubSubIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public PubSubIq(IqType type, Jid to, Jid from) : this(type, to)
+		public PubSubIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

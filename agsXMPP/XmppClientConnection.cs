@@ -911,7 +911,7 @@ namespace agsXMPP
 
 		internal void RequestLoginInfo()
 		{
-			var iq = new AuthIq(IqType.Get, new Jid(this.Server));
+			var iq = new AuthIq(IQType.get, new Jid(this.Server));
 			iq.Query.Username = this.m_Username;
 
 			this.IqGrabber.SendIq(iq, new IqCB(this.OnGetAuthInfo), null);
@@ -956,7 +956,7 @@ namespace agsXMPP
 			<iq type='result' id='change1'/>			
 			*/
 
-			var regIq = new RegisterIq(IqType.Set, new Jid(this.Server));
+			var regIq = new RegisterIq(IQType.set, new Jid(this.Server));
 			regIq.Query.Username = this.m_Username;
 			regIq.Query.Password = newPass;
 
@@ -971,14 +971,14 @@ namespace agsXMPP
 		/// <param name="data">contains the new password</param>
 		private void OnChangePasswordResult(object sender, IQ iq, object data)
 		{
-			if (iq.Type == IqType.Result)
+			if (iq.Type == IQType.result)
 			{
 				OnPasswordChanged?.Invoke(this);
 
 				// Set the new password in the Password property on sucess
 				this.m_Password = (string)data;
 			}
-			else if (iq.Type == IqType.Error)
+			else if (iq.Type == IQType.error)
 			{
 				/*
 				The server or service SHOULD NOT return the original XML sent in 
@@ -1029,13 +1029,13 @@ namespace agsXMPP
 			//  <query xmlns='jabber:iq:register'/>
 			// </iq>
 
-			var regIq = new RegisterIq(IqType.Get, new Jid(this.Server));
+			var regIq = new RegisterIq(IQType.get, new Jid(this.Server));
 			this.IqGrabber.SendIq(regIq, new IqCB(this.OnRegistrationFieldsResult), data);
 		}
 
 		private void OnRegistrationFieldsResult(object sender, IQ iq, object data)
 		{
-			if (iq.Type != IqType.Error)
+			if (iq.Type != IQType.error)
 			{
 				if (iq.Query != null && iq.Query.GetType() == typeof(Register))
 				{
@@ -1044,7 +1044,7 @@ namespace agsXMPP
 
 					this.DoChangeXmppConnectionState(XmppConnectionState.Registering);
 
-					var regIq = new IQ(IqType.Set);
+					var regIq = new IQ(IQType.set);
 					regIq.GenerateId();
 					regIq.To = new Jid(this.Server);
 
@@ -1096,7 +1096,7 @@ namespace agsXMPP
 			</error>
 			</iq>
 			*/
-			if (iq.Type == IqType.Result)
+			if (iq.Type == IQType.result)
 			{
 				this.DoChangeXmppConnectionState(XmppConnectionState.Registered);
 				OnRegistered?.Invoke(this);
@@ -1113,7 +1113,7 @@ namespace agsXMPP
 					this.RequestLoginInfo();
 				}
 			}
-			else if (iq.Type == IqType.Error)
+			else if (iq.Type == IQType.error)
 			{
 				OnRegisterError?.Invoke(this, iq);
 			}
@@ -1131,7 +1131,7 @@ namespace agsXMPP
 
 			iq.GenerateId();
 			iq.SwitchDirection();
-			iq.Type = IqType.Set;
+			iq.Type = IQType.set;
 
 			var auth = (Auth)iq.Query;
 
@@ -1160,7 +1160,7 @@ namespace agsXMPP
 		#region << RequestAgents >>
 		public void RequestAgents()
 		{
-			var iq = new AgentsIq(IqType.Get, new Jid(this.Server));
+			var iq = new AgentsIq(IQType.get, new Jid(this.Server));
 			this.IqGrabber.SendIq(iq, new IqCB(this.OnAgents), null);
 		}
 
@@ -1184,7 +1184,7 @@ namespace agsXMPP
 		#region << RequestRoster >>
 		public void RequestRoster()
 		{
-			var iq = new RosterIq(IqType.Get);
+			var iq = new RosterIq(IQType.get);
 			this.Send(iq);
 		}
 
@@ -1195,7 +1195,7 @@ namespace agsXMPP
 			// 
 			// if type == set its a new added r updated rosteritem. Here we dont raise
 			// OnRosterStart and OnRosterEnd
-			if (iq.Type == IqType.Result && OnRosterStart != null)
+			if (iq.Type == IQType.result && OnRosterStart != null)
 				OnRosterStart(this);
 
 			var r = iq.Query as Roster;
@@ -1207,22 +1207,22 @@ namespace agsXMPP
 				}
 			}
 
-			if (iq.Type == IqType.Result && OnRosterEnd != null)
+			if (iq.Type == IQType.result && OnRosterEnd != null)
 				OnRosterEnd(this);
 
-			if (this.m_AutoPresence && iq.Type == IqType.Result)
+			if (this.m_AutoPresence && iq.Type == IQType.result)
 				this.SendMyPresence();
 		}
 		#endregion
 
 		private void OnAuthenticate(object sender, IQ iq, object data)
 		{
-			if (iq.Type == IqType.Result)
+			if (iq.Type == IQType.result)
 			{
 				this.m_Authenticated = true;
 				this.RaiseOnLogin();
 			}
-			else if (iq.Type == IqType.Error)
+			else if (iq.Type == IQType.error)
 			{
 				/* 
 				 * <iq xmlns="jabber:client" id="agsXMPP_2" type="error">

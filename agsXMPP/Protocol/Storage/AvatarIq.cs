@@ -45,17 +45,17 @@ namespace agsXMPP.Protocol.storage
 			this.GenerateId();
 		}
 
-		public AvatarIq(IqType type) : this()
+		public AvatarIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public AvatarIq(IqType type, Jid to) : this(type)
+		public AvatarIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public AvatarIq(IqType type, Jid to, Jid from) : this(type, to)
+		public AvatarIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

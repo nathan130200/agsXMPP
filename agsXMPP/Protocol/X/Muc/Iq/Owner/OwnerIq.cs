@@ -51,17 +51,17 @@ namespace agsXMPP.Protocol.x.muc.iq.owner
 			this.GenerateId();
 		}
 
-		public OwnerIq(IqType type) : this()
+		public OwnerIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public OwnerIq(IqType type, Jid to) : this(type)
+		public OwnerIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public OwnerIq(IqType type, Jid to, Jid from) : this(type, to)
+		public OwnerIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

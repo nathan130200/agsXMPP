@@ -46,7 +46,7 @@ namespace agsXMPP.Protocol.iq.roster
 		public void RemoveRosterItem(Jid jid)
 		{
 			var riq = new RosterIq();
-			riq.Type = IqType.Set;
+			riq.Type = IQType.set;
 
 			var ri = new RosterItem();
 			ri.Jid = jid;
@@ -126,7 +126,7 @@ namespace agsXMPP.Protocol.iq.roster
 		public void AddRosterItem(Jid jid, string nickname, string[] group)
 		{
 			var riq = new RosterIq();
-			riq.Type = IqType.Set;
+			riq.Type = IQType.set;
 
 			var ri = new RosterItem();
 			ri.Jid = jid;

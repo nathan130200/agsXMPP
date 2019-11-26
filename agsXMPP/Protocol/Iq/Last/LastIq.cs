@@ -36,17 +36,17 @@ namespace agsXMPP.Protocol.iq.last
 			this.GenerateId();
 		}
 
-		public LastIq(IqType type) : this()
+		public LastIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public LastIq(IqType type, Jid to) : this(type)
+		public LastIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public LastIq(IqType type, Jid to, Jid from) : this(type, to)
+		public LastIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

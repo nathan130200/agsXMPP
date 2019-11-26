@@ -36,17 +36,17 @@ namespace agsXMPP.Protocol.iq.auth
 			this.GenerateId();
 		}
 
-		public AuthIq(IqType type) : this()
+		public AuthIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public AuthIq(IqType type, Jid to) : this(type)
+		public AuthIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public AuthIq(IqType type, Jid to, Jid from) : this(type, to)
+		public AuthIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

@@ -36,24 +36,24 @@ namespace agsXMPP.Protocol.extensions.bytestreams
 			this.GenerateId();
 		}
 
-		public ByteStreamIq(IqType type) : this()
+		public ByteStreamIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public ByteStreamIq(IqType type, Jid to)
+		public ByteStreamIq(IQType type, Jid to)
 			: this(type)
 		{
 			this.To = to;
 		}
 
-		public ByteStreamIq(IqType type, Jid to, Jid from)
+		public ByteStreamIq(IQType type, Jid to, Jid from)
 			: this(type, to)
 		{
 			this.From = from;
 		}
 
-		public ByteStreamIq(IqType type, Jid to, Jid from, string Id)
+		public ByteStreamIq(IQType type, Jid to, Jid from, string Id)
 			: this(type, to, from)
 		{
 			this.Id = Id;

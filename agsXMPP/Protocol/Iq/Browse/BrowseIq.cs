@@ -35,17 +35,17 @@ namespace agsXMPP.Protocol.iq.browse
 			this.GenerateId();
 		}
 
-		public BrowseIq(IqType type) : this()
+		public BrowseIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public BrowseIq(IqType type, Jid to) : this(type)
+		public BrowseIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public BrowseIq(IqType type, Jid to, Jid from) : this(type, to)
+		public BrowseIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

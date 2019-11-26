@@ -46,17 +46,17 @@ namespace agsXMPP.Protocol.iq.search
 			this.GenerateId();
 		}
 
-		public SearchIq(IqType type) : this()
+		public SearchIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public SearchIq(IqType type, Jid to) : this(type)
+		public SearchIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public SearchIq(IqType type, Jid to, Jid from) : this(type, to)
+		public SearchIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

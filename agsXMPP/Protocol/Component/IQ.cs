@@ -37,7 +37,7 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public IQ(client.IqType type) : base(type)
+		public IQ(client.IQType type) : base(type)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
@@ -47,7 +47,7 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public IQ(client.IqType type, Jid from, Jid to) : base(type, from, to)
+		public IQ(client.IQType type, Jid from, Jid to) : base(type, from, to)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}

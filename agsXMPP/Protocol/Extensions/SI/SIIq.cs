@@ -51,19 +51,19 @@ namespace agsXMPP.Protocol.extensions.si
 			this.AddChild(this.m_SI);
 		}
 
-		public SIIq(IqType type)
+		public SIIq(IQType type)
 			: this()
 		{
 			this.Type = type;
 		}
 
-		public SIIq(IqType type, Jid to)
+		public SIIq(IQType type, Jid to)
 			: this(type)
 		{
 			this.To = to;
 		}
 
-		public SIIq(IqType type, Jid to, Jid from)
+		public SIIq(IQType type, Jid to, Jid from)
 			: this(type, to)
 		{
 			this.From = from;

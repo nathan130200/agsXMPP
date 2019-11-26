@@ -51,17 +51,17 @@ namespace agsXMPP.Protocol.x.muc.iq.admin
 			this.GenerateId();
 		}
 
-		public AdminIq(IqType type) : this()
+		public AdminIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public AdminIq(IqType type, Jid to) : this(type)
+		public AdminIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public AdminIq(IqType type, Jid to, Jid from) : this(type, to)
+		public AdminIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

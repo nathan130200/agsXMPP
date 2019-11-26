@@ -34,17 +34,17 @@ namespace agsXMPP.Protocol.extensions.bookmarks
 			this.Query.AddChild(new Storage());
 		}
 
-		public StorageIq(IqType type) : this()
+		public StorageIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public StorageIq(IqType type, Jid to) : this(type)
+		public StorageIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public StorageIq(IqType type, Jid to, Jid from) : this(type, to)
+		public StorageIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

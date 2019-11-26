@@ -36,17 +36,17 @@ namespace agsXMPP.Protocol.iq.@private
 			this.GenerateId();
 		}
 
-		public PrivateIq(IqType type) : this()
+		public PrivateIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public PrivateIq(IqType type, Jid to) : this(type)
+		public PrivateIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public PrivateIq(IqType type, Jid to, Jid from) : this(type, to)
+		public PrivateIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

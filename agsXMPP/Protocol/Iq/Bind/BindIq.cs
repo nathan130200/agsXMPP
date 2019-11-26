@@ -36,18 +36,18 @@ namespace agsXMPP.Protocol.iq.bind
 			this.AddChild(this.m_Bind);
 		}
 
-		public BindIq(IqType type) : this()
+		public BindIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public BindIq(IqType type, Jid to) : this()
+		public BindIq(IQType type, Jid to) : this()
 		{
 			this.Type = type;
 			this.To = to;
 		}
 
-		public BindIq(IqType type, Jid to, string resource) : this(type, to)
+		public BindIq(IQType type, Jid to, string resource) : this(type, to)
 		{
 			this.m_Bind.Resource = resource;
 		}

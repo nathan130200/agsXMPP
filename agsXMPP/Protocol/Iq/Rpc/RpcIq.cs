@@ -37,17 +37,17 @@ namespace agsXMPP.Protocol.iq.rpc
 			this.GenerateId();
 		}
 
-		public RpcIq(IqType type) : this()
+		public RpcIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public RpcIq(IqType type, Jid to) : this(type)
+		public RpcIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public RpcIq(IqType type, Jid to, Jid from) : this(type, to)
+		public RpcIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

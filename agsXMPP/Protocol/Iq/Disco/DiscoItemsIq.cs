@@ -75,7 +75,7 @@ namespace agsXMPP.Protocol.iq.disco
 			this.GenerateId();
 		}
 
-		public DiscoItemsIq(IqType type) : this()
+		public DiscoItemsIq(IQType type) : this()
 		{
 			this.Type = type;
 		}

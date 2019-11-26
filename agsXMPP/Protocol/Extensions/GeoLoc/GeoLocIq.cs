@@ -34,17 +34,17 @@ namespace agsXMPP.Protocol.extensions.geoloc
 			this.GenerateId();
 		}
 
-		public GeoLocIq(IqType type) : this()
+		public GeoLocIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public GeoLocIq(IqType type, Jid to) : this(type)
+		public GeoLocIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public GeoLocIq(IqType type, Jid to, Jid from) : this(type, to)
+		public GeoLocIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

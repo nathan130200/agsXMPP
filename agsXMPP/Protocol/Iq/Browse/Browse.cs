@@ -35,7 +35,6 @@ namespace agsXMPP.Protocol.iq.browse
 	/// <para>
 	/// This JEP defines a way to describe information about Jabber entities and the relationships between entities. </para>
 	/// </summary>
-	[Obsolete("This JEP has been deprecated by the Jabber Software Foundation. Most components and gateways still dont implement Service discovery. So we must use jabber:iq:browse for them until everything is replaced with JEP 30 (Service Discovery).")]
 	public class Browse : Element
 	{
 		public Browse()

@@ -36,17 +36,17 @@ namespace agsXMPP.Protocol.iq.time
 			this.GenerateId();
 		}
 
-		public TimeIq(IqType type) : this()
+		public TimeIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public TimeIq(IqType type, Jid to) : this(type)
+		public TimeIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public TimeIq(IqType type, Jid to, Jid from) : this(type, to)
+		public TimeIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

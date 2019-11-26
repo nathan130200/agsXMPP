@@ -44,12 +44,12 @@ namespace agsXMPP.Protocol.iq.session
 			this.AddChild(this.m_Session);
 		}
 
-		public SessionIq(IqType type) : this()
+		public SessionIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public SessionIq(IqType type, Jid to) : this()
+		public SessionIq(IQType type, Jid to) : this()
 		{
 			this.Type = type;
 			this.To = to;

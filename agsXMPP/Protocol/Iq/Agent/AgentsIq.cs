@@ -31,7 +31,7 @@ namespace agsXMPP.Protocol.iq.agent
 	/// <summary>
 	/// Summary description for AgentsIq.
 	/// </summary>
-	public class AgentsIq : client.Iq
+	public class AgentsIq : client.IQ
 	{
 		private Agents m_Agents = new Agents();
 
@@ -41,17 +41,17 @@ namespace agsXMPP.Protocol.iq.agent
 			this.GenerateId();
 		}
 
-		public AgentsIq(IqType type) : this()
+		public AgentsIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public AgentsIq(IqType type, Jid to) : this(type)
+		public AgentsIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public AgentsIq(IqType type, Jid to, Jid from) : this(type, to)
+		public AgentsIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

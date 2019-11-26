@@ -37,7 +37,7 @@ namespace agsXMPP.Protocol.client
 			this.Namespace = Namespaces.CLIENT;
 		}
 
-		public IQ(IqType type) : this()
+		public IQ(IQType type) : this()
 		{
 			this.Type = type;
 		}
@@ -48,7 +48,7 @@ namespace agsXMPP.Protocol.client
 			this.To = to;
 		}
 
-		public IQ(IqType type, Jid from, Jid to) : this()
+		public IQ(IQType type, Jid from, Jid to) : this()
 		{
 			this.Type = type;
 			this.From = from;
@@ -56,7 +56,7 @@ namespace agsXMPP.Protocol.client
 		}
 		#endregion
 
-		public IqType Type
+		public IQType Type
 		{
 			set
 			{
@@ -64,7 +64,7 @@ namespace agsXMPP.Protocol.client
 			}
 			get
 			{
-				return IqType.Of(this.GetAttribute("type"));
+				return IQType.Of(this.GetAttribute("type"));
 			}
 		}
 

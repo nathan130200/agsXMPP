@@ -54,7 +54,7 @@ namespace agsXMPP.Protocol.iq.disco
 		private void OnIq(object sender, client.IQ iq)
 		{
 			// DiscoInfo
-			if (this.m_AutoAnswerDiscoInfoRequests && iq.Query is DiscoInfo && iq.Type == IqType.Get)
+			if (this.m_AutoAnswerDiscoInfoRequests && iq.Query is DiscoInfo && iq.Type == IQType.get)
 				this.ProcessDiscoInfo(iq);
 		}
 
@@ -63,7 +63,7 @@ namespace agsXMPP.Protocol.iq.disco
 			var diiq = new client.IQ();
 			diiq.To = iq.From;
 			diiq.Id = iq.Id;
-			diiq.Type = IqType.Result;
+			diiq.Type = IQType.result;
 
 			diiq.Query = this.xmppConnection.DiscoInfo;
 
@@ -154,7 +154,7 @@ namespace agsXMPP.Protocol.iq.disco
               </query>
             </iq>
             */
-			var discoIq = new DiscoInfoIq(IqType.Get);
+			var discoIq = new DiscoInfoIq(IQType.get);
 			discoIq.To = to;
 
 			if (from != null)
@@ -225,7 +225,7 @@ namespace agsXMPP.Protocol.iq.disco
 
 		public void DiscoverItems(Jid to, Jid from, string node, IqCB cb, object cbArgs)
 		{
-			var discoIq = new DiscoItemsIq(IqType.Get);
+			var discoIq = new DiscoItemsIq(IQType.get);
 			discoIq.To = to;
 
 			if (from != null)

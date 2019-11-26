@@ -35,17 +35,17 @@ namespace agsXMPP.Protocol.iq.register
 			this.GenerateId();
 		}
 
-		public RegisterIq(IqType type) : this()
+		public RegisterIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public RegisterIq(IqType type, Jid to) : this(type)
+		public RegisterIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public RegisterIq(IqType type, Jid to, Jid from) : this(type, to)
+		public RegisterIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

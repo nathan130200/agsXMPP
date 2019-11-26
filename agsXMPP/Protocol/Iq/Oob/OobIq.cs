@@ -36,17 +36,17 @@ namespace agsXMPP.Protocol.iq.oob
 			this.GenerateId();
 		}
 
-		public OobIq(IqType type) : this()
+		public OobIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public OobIq(IqType type, Jid to) : this(type)
+		public OobIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public OobIq(IqType type, Jid to, Jid from) : this(type, to)
+		public OobIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}

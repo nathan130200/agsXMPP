@@ -36,19 +36,19 @@ namespace agsXMPP.Protocol.iq.privacy
 			this.GenerateId();
 		}
 
-		public PrivacyIq(IqType type)
+		public PrivacyIq(IQType type)
 			: this()
 		{
 			this.Type = type;
 		}
 
-		public PrivacyIq(IqType type, Jid to)
+		public PrivacyIq(IQType type, Jid to)
 			: this(type)
 		{
 			this.To = to;
 		}
 
-		public PrivacyIq(IqType type, Jid to, Jid from)
+		public PrivacyIq(IQType type, Jid to, Jid from)
 			: this(type, to)
 		{
 			this.From = from;

@@ -40,7 +40,7 @@ namespace agsXMPP.Protocol.iq.roster
 			this.GenerateId();
 		}
 
-		public RosterIq(IqType type) : this()
+		public RosterIq(IQType type) : this()
 		{
 			this.Type = type;
 		}

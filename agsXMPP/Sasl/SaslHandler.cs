@@ -145,11 +145,11 @@ namespace agsXMPP.Sasl
 
 						BindIq bIq;
 						if (this.m_XmppClient.Resource == null || this.m_XmppClient.Resource.Length == 0)
-							bIq = new BindIq(IqType.Set, new Jid(this.m_XmppClient.Server));
+							bIq = new BindIq(IQType.set, new Jid(this.m_XmppClient.Server));
 						else
-							bIq = new BindIq(IqType.Set, new Jid(this.m_XmppClient.Server), this.m_XmppClient.Resource);
+							bIq = new BindIq(IQType.set, new Jid(this.m_XmppClient.Server), this.m_XmppClient.Resource);
 
-						this.m_XmppClient.IqGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
+						this.m_Xmppclient.IQGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
 					}
 				}
 
@@ -185,11 +185,11 @@ namespace agsXMPP.Sasl
 
 			BindIq bIq;
 			if (this.m_XmppClient.Resource == null || this.m_XmppClient.Resource.Length == 0)
-				bIq = new BindIq(IqType.Set, new Jid(this.m_XmppClient.Server));
+				bIq = new BindIq(IQType.set, new Jid(this.m_XmppClient.Server));
 			else
-				bIq = new BindIq(IqType.Set, new Jid(this.m_XmppClient.Server), this.m_XmppClient.Resource);
+				bIq = new BindIq(IQType.set, new Jid(this.m_XmppClient.Server), this.m_XmppClient.Resource);
 
-			this.m_XmppClient.IqGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
+			this.m_Xmppclient.IQGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
 		}
 
 		private void BindResult(object sender, IQ iq, object data)
@@ -205,7 +205,7 @@ namespace agsXMPP.Sasl
 			//    <jid>somenode@example.com/someresource</jid>
 			//  </bind>
 			// </iq>
-			if (iq.Type == IqType.Result)
+			if (iq.Type == IQType.result)
 			{
 				// i assume the server could assign another resource here to the client
 				// so grep the resource assigned by the server now
@@ -224,11 +224,11 @@ namespace agsXMPP.Sasl
 
 				// success, so start the session now
 				this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.StartSession);
-				var sIq = new SessionIq(IqType.Set, new Jid(this.m_XmppClient.Server));
-				this.m_XmppClient.IqGrabber.SendIq(sIq, new IqCB(this.SessionResult), null);
+				var sIq = new SessionIq(IQType.set, new Jid(this.m_XmppClient.Server));
+				this.m_Xmppclient.IQGrabber.SendIq(sIq, new IqCB(this.SessionResult), null);
 
 			}
-			else if (iq.Type == IqType.Error)
+			else if (iq.Type == IQType.error)
 			{
 				// TODO, handle bind errors
 			}
@@ -236,13 +236,13 @@ namespace agsXMPP.Sasl
 
 		private void SessionResult(object sender, IQ iq, object data)
 		{
-			if (iq.Type == IqType.Result)
+			if (iq.Type == IQType.result)
 			{
 				this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.SessionStarted);
 				this.m_XmppClient.RaiseOnLogin();
 
 			}
-			else if (iq.Type == IqType.Error)
+			else if (iq.Type == IQType.error)
 			{
 
 			}

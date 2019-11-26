@@ -36,17 +36,17 @@ namespace agsXMPP.Protocol.iq.version
 			this.GenerateId();
 		}
 
-		public VersionIq(IqType type) : this()
+		public VersionIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public VersionIq(IqType type, Jid to) : this(type)
+		public VersionIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public VersionIq(IqType type, Jid to, Jid from) : this(type, to)
+		public VersionIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}
