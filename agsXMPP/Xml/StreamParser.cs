@@ -433,7 +433,7 @@ namespace agsXMPP.Xml
 			{
 				var last = this.current.LastNode;
 				if (last != null && last.NodeType == NodeType.Text)
-					last.Value = last.Value + text;
+					last.Value += text;
 				else
 					this.current.AddChild(new Text(text));
 			}

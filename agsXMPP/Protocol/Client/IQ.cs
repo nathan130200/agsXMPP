@@ -19,6 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+using System;
 using agsXMPP.Protocol.iq.bind;
 using agsXMPP.Protocol.iq.session;
 using agsXMPP.Xml.Dom;
@@ -64,7 +65,7 @@ namespace agsXMPP.Protocol.client
 			}
 			get
 			{
-				return IQType.Of(this.GetAttribute("type"));
+				return (IQType) Enum.Parse(typeof(IQType), this.GetAttribute("type"));
 			}
 		}
 

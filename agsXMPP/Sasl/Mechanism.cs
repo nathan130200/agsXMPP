@@ -54,7 +54,7 @@ namespace agsXMPP.Sasl
 		{
 			// lower case that until i implement our c# port of libIDN
 			get { return this.m_Username; }
-			set { this.m_Username = value != null ? value.ToLower() : null; }
+			set { this.m_Username = value?.ToLower(); }
 		}
 
 		/// <summary>
