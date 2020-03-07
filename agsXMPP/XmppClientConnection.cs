@@ -56,7 +56,7 @@ namespace agsXMPP
 	/// <summary>
 	/// Summary description for XmppClient.
 	/// </summary>
-	public class XmppClientConnection : BaseXmppConnection
+	public class XmppClientConnection : XmppConnection
 	{
 
 		//const string SRV_RECORD_PREFIX = "_xmpp-client._tcp.";

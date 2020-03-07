@@ -29,7 +29,7 @@ namespace agsXMPP
 	public class PacketGrabber
 	{
 		internal Hashtable m_grabbing = new Hashtable();
-		internal BaseXmppConnection m_connection = null;
+		internal XmppConnection m_connection = null;
 
 		public PacketGrabber()
 		{

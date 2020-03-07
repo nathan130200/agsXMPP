@@ -46,7 +46,7 @@ namespace agsXMPP
 		{
 		}
 
-		private static long m_id = 0;
+		private static volatile int m_id = 0;
 		private static string m_Prefix = "agsXMPP_";
 		private static IdType m_Type = IdType.Numeric;
 

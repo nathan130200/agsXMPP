@@ -8,14 +8,14 @@
     <DefineConstants>SSL</DefineConstants>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <Version>1.4.5</Version>
+    <Version>1.4.6</Version>
     <PackageProjectUrl>https://www.ag-software.net/agsxmpp-sdk/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StormDevelopmentSoftware/agsXMPP</RepositoryUrl>
     <Description>.NET Core Port to agsXMPP a XMPP library without vCard support.</Description>
     <PackageTags>xmpp, xmpp-client, xmpp-component, xmpp-server, xmpp-service</PackageTags>
     <PackageReleaseNotes />
     <Authors>AG-Software, FRNathan13</Authors>
-    <Copyright>2003-2009 (C) AG-Software, FRNathan13</Copyright>
+    <Copyright>2003-2020 (C) AG-Software, FRNathan13</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>agsXMPP.NetCore</PackageId>
   </PropertyGroup>

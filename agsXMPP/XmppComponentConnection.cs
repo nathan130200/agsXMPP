@@ -36,11 +36,13 @@ namespace agsXMPP
 	/// http://www.xmpp.org/extensions/xep-0114.html
 	/// </para>
 	/// </summary>
-	public class XmppComponentConnection : BaseXmppConnection
+	public class XmppComponentConnection : XmppConnection
 	{
 		// This route stuff is old undocumented jabberd(2) stuff. hopefully we can get rid of this one day
 		// or somebody writes up and XEP
 		public delegate void RouteHandler(object sender, Route r);
+
+		public delegate void ComponentIQHandler(object sender, IQ iq);
 
 		private bool m_CleanUpDone;
 		private bool m_StreamStarted;
@@ -125,6 +127,9 @@ namespace agsXMPP
 		/// </summary>
 		public event ObjectHandler OnLogin;
 
+		/// <summary>
+		/// Fired when connection closes.
+		/// </summary>
 		public event ObjectHandler OnClose;
 
 		/// <summary>
@@ -149,9 +154,9 @@ namespace agsXMPP
 		public event ErrorHandler OnSocketError;
 
 		/// <summary>
-		/// 
+		/// Event occurs on IQ arrives.
 		/// </summary>        
-		public event IqHandler OnIq;
+		public event ComponentIQHandler OnIq;
 
 		/// <summary>
 		/// We received a message. This could be a chat message, headline, normal message or a groupchat message. 
@@ -322,13 +327,15 @@ namespace agsXMPP
 		public override void Send(Element e)
 		{
 			// this is a hack to not send the xmlns="jabber:component:accept" with all packets                
-			var dummyEl = new Element("a");
-			dummyEl.Namespace = Namespaces.ACCEPT;
+			//var dummyEl = new Element("a");
+			//dummyEl.Namespace = Namespaces.ACCEPT;
 
-			dummyEl.AddChild(e);
-			var toSend = dummyEl.ToString();
+			//dummyEl.AddChild(e);
+			//var toSend = dummyEl.ToString();
 
-			this.Send(toSend.Substring(35, toSend.Length - 35 - 4));
+			//this.Send(toSend.Substring(35, toSend.Length - 35 - 4));
+
+			this.Send(e.ToString());
 		}
 
 		private void CleanupSession()

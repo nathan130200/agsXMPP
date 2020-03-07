@@ -78,7 +78,7 @@ namespace agsXMPP.Net
 		private int m_Port = 0;
 		private long m_ConnectTimeout = 10000; // 10 seconds is default
 
-		internal BaseXmppConnection m_XmppCon = null;
+		internal XmppConnection m_XmppCon = null;
 
 		public BaseSocket()
 		{

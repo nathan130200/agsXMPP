@@ -22,9 +22,7 @@
 using System;
 using System.Text;
 using System.Threading;
-
 using agsXMPP.Net;
-
 using agsXMPP.Xml;
 using agsXMPP.Xml.Dom;
 
@@ -37,7 +35,7 @@ namespace agsXMPP
 	/// <summary>
 	/// abstract base class XmppConnection.
 	/// </summary>
-	public abstract class BaseXmppConnection
+	public abstract class XmppConnection
 	{
 
 		private Timer m_KeepaliveTimer = null;
@@ -73,7 +71,7 @@ namespace agsXMPP
 		#endregion
 
 		#region << Constructors >>
-		public BaseXmppConnection()
+		public XmppConnection()
 		{
 			this.InitSocket();
 
@@ -85,7 +83,7 @@ namespace agsXMPP
 			this.m_StreamParser.OnError += new ErrorHandler(this.StreamParserOnError);
 		}
 
-		public BaseXmppConnection(SocketConnectionType type) : this()
+		public XmppConnection(SocketConnectionType type) : this()
 		{
 			this.m_SocketConnectionType = type;
 		}

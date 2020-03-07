@@ -122,7 +122,7 @@ namespace agsXMPP.Net
 
 		private int webRequestId = 1;
 
-		public BoshClientSocket(BaseXmppConnection con)
+		public BoshClientSocket(XmppConnection con)
 		{
 			this.m_XmppCon = con;
 		}
