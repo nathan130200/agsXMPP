@@ -44,7 +44,7 @@ namespace agsXMPP
 #if MONOSSL
             conn.OnIq += new agsXMPP.protocol.component.IqHandler(OnIqComponent);
 #else
-			conn.OnIq += new Protocol.component.IqHandler(this.OnIq);
+			conn.OnIq += new XmppComponentConnection.ComponentIQHandler(this.OnIq);
 #endif
 		}
 
