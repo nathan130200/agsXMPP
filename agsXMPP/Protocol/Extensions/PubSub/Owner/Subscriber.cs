@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -75,14 +75,8 @@ namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 
 		public SubscriptionState SubscriptionState
 		{
-			get
-			{
-				return (SubscriptionState)this.GetAttributeEnum("subscription", typeof(SubscriptionState));
-			}
-			set
-			{
-				this.SetAttribute("subscription", value.ToString());
-			}
+			get => this.GetAttributeEnum<SubscriptionState>("subscription");
+			set => this.SetAttributeEnum("subscription", value);
 		}
 
 		public Jid Jid

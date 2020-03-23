@@ -1,4 +1,4 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
@@ -19,21 +19,26 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.data
+namespace AgsXMPP.Protocol.Query.Roster
 {
-	/// <summary>
-	/// Used in XData seach.
-	/// includes the headers of the search results
-	/// </summary>
-	public class Item : FieldContainer
-	{
+	// jabber:iq:roster
+	// <iq from="user@server.com/Office" id="doroster_1" type="result">
+	//		<query xmlns="jabber:iq:roster">
+	//			<item subscription="both" name="juiliet" jid="11111@icq.myjabber.net"><group>ICQ</group></item>
+	//			<item subscription="both" name="roman" jid="22222@icq.myjabber.net"><group>ICQ</group></item>
+	//			<item subscription="both" name="angie" jid="33333@icq.myjabber.net"><group>ICQ</group></item>
+	//			<item subscription="both" name="bob" jid="44444@icq.myjabber.net"><group>ICQ</group></item>
+	//		</query>
+	// </iq> 
 
-		#region << Constructors >>
-		public Item()
-		{
-			this.TagName = "item";
-			this.Namespace = URI.X_DATA;
-		}
-		#endregion
+	public enum AskType
+	{
+		None = -1,
+
+		[XmppEnumMember("subscribe")]
+		Subscribe,
+
+		[XmppEnumMember("unsubscribe")]
+		Unsubscribe
 	}
 }

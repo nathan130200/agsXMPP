@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -25,9 +25,13 @@ namespace AgsXMPP.Protocol.Query.Disco
 {
 	public enum DiscoAction
 	{
-		NONE = -1,
-		remove,
-		update
+		None = -1,
+
+		[XmppEnumMember("remove")]
+		Remove,
+
+		[XmppEnumMember("update")]
+		Update
 	}
 
 	/// <summary>
@@ -61,13 +65,13 @@ namespace AgsXMPP.Protocol.Query.Disco
 
 		public DiscoAction Action
 		{
-			get { return (DiscoAction)this.GetAttributeEnum("action", typeof(DiscoAction)); }
+			get => this.GetAttributeEnum<DiscoAction>("action");
 			set
 			{
-				if (value == DiscoAction.NONE)
+				if (value == DiscoAction.None)
 					this.RemoveAttribute("action");
 				else
-					this.SetAttribute("action", value.ToString());
+					this.SetAttributeEnum("action", value);
 			}
 		}
 	}

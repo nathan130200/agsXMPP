@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -21,18 +21,6 @@
 
 using System;
 using AgsXMPP.Protocol.Base;
-
-namespace AgsXMPP
-{
-	[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-	public sealed class XmppEnumMemberAttribute : Attribute
-	{
-		public string Value;
-
-		public XmppEnumMemberAttribute(string value)
-			=> this.Value = value;
-	}
-}
 
 namespace AgsXMPP.Protocol.Component
 {

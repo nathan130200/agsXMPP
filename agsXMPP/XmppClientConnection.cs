@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -34,7 +34,7 @@ using AgsXMPP.Protocol.Query.Agent;
 using AgsXMPP.Protocol.Query.Auth;
 using AgsXMPP.Protocol.Query.Disco;
 using AgsXMPP.Protocol.Query.register;
-using AgsXMPP.Protocol.Query.roster;
+using AgsXMPP.Protocol.Query.Roster;
 using AgsXMPP.Protocol.stream;
 using AgsXMPP.Sasl;
 using AgsXMPP.Xml.Dom;

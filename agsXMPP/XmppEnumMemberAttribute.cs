@@ -1,4 +1,4 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
@@ -19,21 +19,16 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.data
-{
-	/// <summary>
-	/// Used in XData seach.
-	/// includes the headers of the search results
-	/// </summary>
-	public class Item : FieldContainer
-	{
+using System;
 
-		#region << Constructors >>
-		public Item()
-		{
-			this.TagName = "item";
-			this.Namespace = URI.X_DATA;
-		}
-		#endregion
+namespace AgsXMPP
+{
+	[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+	public sealed class XmppEnumMemberAttribute : Attribute
+	{
+		public string Value;
+
+		public XmppEnumMemberAttribute(string value)
+			=> this.Value = value;
 	}
 }

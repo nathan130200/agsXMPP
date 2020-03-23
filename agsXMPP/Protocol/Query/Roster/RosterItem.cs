@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -19,40 +19,8 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Query.roster
+namespace AgsXMPP.Protocol.Query.Roster
 {
-	// jabber:iq:roster
-	// <iq from="user@server.com/Office" id="doroster_1" type="result">
-	//		<query xmlns="jabber:iq:roster">
-	//			<item subscription="both" name="juiliet" jid="11111@icq.myjabber.net"><group>ICQ</group></item>
-	//			<item subscription="both" name="roman" jid="22222@icq.myjabber.net"><group>ICQ</group></item>
-	//			<item subscription="both" name="angie" jid="33333@icq.myjabber.net"><group>ICQ</group></item>
-	//			<item subscription="both" name="bob" jid="44444@icq.myjabber.net"><group>ICQ</group></item>
-	//		</query>
-	// </iq> 
-
-	// # "none" -- the user does not have a subscription to the contact's presence information, and the contact does not have a subscription to the user's presence information
-	// # "to" -- the user has a subscription to the contact's presence information, but the contact does not have a subscription to the user's presence information
-	// # "from" -- the contact has a subscription to the user's presence information, but the user does not have a subscription to the contact's presence information
-	// # "both" -- both the user and the contact have subscriptions to each other's presence information
-
-	// TODO rename to Ask and move to a seperate file, so it matches better to all other enums
-	public enum AskType
-	{
-		NONE = -1,
-		subscribe,
-		unsubscribe
-	}
-
-	// TODO rename to Subscription and move to a seperate file, so it matches better to all other enums
-	public enum SubscriptionType
-	{
-		none,
-		to,
-		from,
-		both,
-		remove
-	}
 
 	/// <summary>
 	/// Item is used in jabber:iq:roster, jabber:iq:search
@@ -76,25 +44,17 @@ namespace AgsXMPP.Protocol.Query.roster
 
 		public SubscriptionType Subscription
 		{
-			get
-			{
-				return (SubscriptionType)this.GetAttributeEnum("subscription", typeof(SubscriptionType));
-			}
-			set { this.SetAttribute("subscription", value.ToString()); }
+			get => this.GetAttributeEnum<SubscriptionType>("subscription");
+			set => this.SetAttributeEnum("subscription", value);
 		}
 
 		public AskType Ask
 		{
-			get
-			{
-				return (AskType)this.GetAttributeEnum("ask", typeof(AskType));
-			}
+			get => this.GetAttributeEnum<AskType>("ask");
 			set
 			{
-				if (value == AskType.NONE)
-					this.RemoveAttribute("ask");
-				else
-					this.SetAttribute("ask", value.ToString());
+				if (value == AskType.None) this.RemoveAttribute("ask");
+				else this.SetAttributeEnum("ask", value);
 			}
 		}
 	}

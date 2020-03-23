@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -26,8 +26,12 @@ namespace AgsXMPP.Protocol.Extensions.ByteStreams
 	/// </summary>
 	public enum Mode
 	{
-		NONE = -1,
-		tcp,
-		udp
+		None = -1,
+
+		[XmppEnumMember("tcp")]
+		Tcp,
+
+		[XmppEnumMember("udp")]
+		Udp
 	}
 }

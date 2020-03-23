@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -38,16 +38,13 @@ namespace AgsXMPP.Protocol.Extensions.PubSub
 
 		public Type Type
 		{
-			get
-			{
-				return (Type)this.GetAttributeEnum("type", typeof(Type));
-			}
+			get => this.GetAttributeEnum<Type>("type");
 			set
 			{
-				if (value == Type.NONE)
+				if (value == Type.None)
 					this.RemoveAttribute("type");
 				else
-					this.SetAttribute("type", value.ToString());
+					this.SetAttributeEnum("type", value);
 			}
 		}
 	}

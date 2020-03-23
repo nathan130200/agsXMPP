@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -23,8 +23,12 @@ namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	public enum Type
 	{
-		NONE = -1,
-		collection,
-		leaf
+		None = -1,
+
+		[XmppEnumMember("collection")]
+		Collection,
+
+		[XmppEnumMember("leaf")]
+		Leaf
 	}
 }

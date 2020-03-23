@@ -1,7 +1,7 @@
 #pragma warning disable
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -45,7 +45,7 @@ namespace AgsXMPP.Factory
 
 			AddElementType("agent", URI.IQ_AGENTS, typeof(Protocol.Query.Agent.Agent));
 
-			AddElementType("item", URI.IQ_ROSTER, typeof(Protocol.Query.roster.RosterItem));
+			AddElementType("item", URI.IQ_ROSTER, typeof(Protocol.Query.Roster.RosterItem));
 			AddElementType("group", URI.IQ_ROSTER, typeof(Protocol.Base.Group));
 			AddElementType("group", URI.X_ROSTERX, typeof(Protocol.Base.Group));
 
@@ -57,7 +57,7 @@ namespace AgsXMPP.Factory
 
 			AddElementType("query", URI.IQ_AUTH, typeof(Protocol.Query.Auth.Auth));
 			AddElementType("query", URI.IQ_AGENTS, typeof(Protocol.Query.Agent.Agents));
-			AddElementType("query", URI.IQ_ROSTER, typeof(Protocol.Query.roster.Roster));
+			AddElementType("query", URI.IQ_ROSTER, typeof(Protocol.Query.Roster.Roster));
 			AddElementType("query", URI.IQ_LAST, typeof(Protocol.Query.Last.Last));
 			AddElementType("query", URI.IQ_VERSION, typeof(Protocol.Query.version.Version));
 			AddElementType("query", URI.IQ_TIME, typeof(Protocol.Query.time.Time));
@@ -149,7 +149,7 @@ namespace AgsXMPP.Factory
 			//Extensions (JEPS)
 			AddElementType("headers", URI.SHIM, typeof(Protocol.Extensions.Shim.Header));
 			AddElementType("header", URI.SHIM, typeof(Protocol.Extensions.Shim.Headers));
-			AddElementType("roster", URI.ROSTER_DELIMITER, typeof(Protocol.Query.roster.Delimiter));
+			AddElementType("roster", URI.ROSTER_DELIMITER, typeof(Protocol.Query.Roster.Delimiter));
 			AddElementType("p", URI.PRIMARY, typeof(Protocol.Extensions.Primary.Primary));
 			AddElementType("nick", URI.NICK, typeof(Protocol.Extensions.Nickname.Nickname));
 

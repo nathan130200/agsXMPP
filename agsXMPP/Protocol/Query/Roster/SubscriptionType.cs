@@ -19,13 +19,31 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.server
+namespace AgsXMPP.Protocol.Query.Roster
 {
-	public class Message : Client.Message
+	/// <summary>
+	/// <list type="table">
+	/// <item><see cref="None"/>: the user does not have a subscription to the contact's presence information, and the contact does not have a subscription to the user's presence information</item>
+	/// <item><see cref="To"/>: the user has a subscription to the contact's presence information, but the contact does not have a subscription to the user's presence information</item>
+	/// <item><see cref="From"/>:  the contact has a subscription to the user's presence information, but the user does not have a subscription to the contact's presence information</item>
+	/// <item><see cref="Both"/>: both the user and the contact have subscriptions to each other's presence information</item>
+	/// </list>
+	/// </summary>
+	public enum SubscriptionType
 	{
-		public Message()
-		{
-			this.Namespace = URI.SERVER;
-		}
+		[XmppEnumMember("none")]
+		None,
+
+		[XmppEnumMember("to")]
+		To,
+
+		[XmppEnumMember("from")]
+		From,
+
+		[XmppEnumMember("both")]
+		Both,
+
+		[XmppEnumMember("remove")]
+		Remove
 	}
 }

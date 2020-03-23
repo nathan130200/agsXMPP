@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -79,11 +79,8 @@ namespace AgsXMPP.Protocol.x.data
 		/// </summary>
 		public XDataFormType Type
 		{
-			get
-			{
-				return (XDataFormType)this.GetAttributeEnum("type", typeof(XDataFormType));
-			}
-			set { this.SetAttribute("type", value.ToString()); }
+			get => this.GetAttributeEnum<XDataFormType>("type");
+			set => this.SetAttributeEnum("type", value);
 		}
 
 		public Reported Reported

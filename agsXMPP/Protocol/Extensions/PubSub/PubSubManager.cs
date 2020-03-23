@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -214,7 +214,7 @@ namespace AgsXMPP.Protocol.Extensions.PubSub
 			if (from != null)
 				pubsubIq.From = from;
 
-			pubsubIq.PubSub.Create = new Create(node, Type.collection);
+			pubsubIq.PubSub.Create = new Create(node, Type.Collection);
 
 			if (defaultConfig)
 				pubsubIq.PubSub.Configure = new Configure();

@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -332,7 +332,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public void AcceptDefaultConfiguration(Jid room, IqCB cb, object cbArgs)
 		{
 			var oIq = new OwnerIq(IQType.Set, room);
-			oIq.Query.AddChild(new Data(XDataFormType.submit));
+			oIq.Query.AddChild(new Data(XDataFormType.Submit));
 
 			if (cb == null)
 				this.m_connection.Send(oIq);

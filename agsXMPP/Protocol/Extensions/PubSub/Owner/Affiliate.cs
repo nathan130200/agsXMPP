@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -91,14 +91,8 @@ namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 
 		public AffiliationType Affiliation
 		{
-			get
-			{
-				return (AffiliationType)this.GetAttributeEnum("affiliation", typeof(AffiliationType));
-			}
-			set
-			{
-				this.SetAttribute("affiliation", value.ToString());
-			}
+			get => this.GetAttributeEnum<AffiliationType>("affiliation");
+			set => this.SetAttributeEnum("affiliation", value);
 		}
 	}
 }

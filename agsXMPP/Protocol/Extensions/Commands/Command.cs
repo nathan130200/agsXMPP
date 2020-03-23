@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -71,25 +71,19 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 
 		public Action Action
 		{
-			get
-			{
-				return this.GetAttributeEnum<Action>("action");
-			}
+			get => this.GetAttributeEnum<Action>("action");
 			set
 			{
 				if (value == Action.None)
 					this.RemoveAttribute("action");
 				else
-					this.SetAttribute("action", value.ToString());
+					this.SetAttributeEnum("action", value);
 			}
 		}
 
 		public Status Status
 		{
-			get
-			{
-				return this.GetAttributeEnum<Status>("status");
-			}
+			get => this.GetAttributeEnum<Status>("status");
 			set
 			{
 				if (value == Status.None)

@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -79,13 +79,13 @@ namespace AgsXMPP.Protocol.Extensions.ByteStreams
 
 		public Mode Mode
 		{
-			get { return (Mode)this.GetAttributeEnum("mode", typeof(Mode)); }
+			get => this.GetAttributeEnum<Mode>("mode");
 			set
 			{
-				if (value != Mode.NONE)
-					this.SetAttribute("mode", value.ToString());
-				else
+				if (value == Mode.None)
 					this.RemoveAttribute("mode");
+				else
+					this.SetAttributeEnum("mode", value);
 			}
 		}
 

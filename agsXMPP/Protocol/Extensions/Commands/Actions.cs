@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -61,16 +61,13 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 		/// </summary>
 		public Action Execute
 		{
-			get
-			{
-				return this.GetAttributeEnum<Action>("execute");
-			}
+			get => this.GetAttributeEnum<Action>("execute");
 			set
 			{
 				if (value == Action.None)
 					this.RemoveAttribute("execute");
 				else
-					this.SetAttribute("execute", value.ToString());
+					this.SetAttributeEnum("execute", value);
 			}
 		}
 
@@ -124,11 +121,11 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 				Action res = 0;
 
 				if (this.Complete)
-					res |= Action.complete;
+					res |= Action.Complete;
 				if (this.Previous)
-					res |= Action.prev;
+					res |= Action.Prev;
 				if (this.Next)
-					res |= Action.next;
+					res |= Action.Next;
 
 				if (res == 0)
 					return Action.None;
@@ -145,9 +142,9 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 				}
 				else
 				{
-					this.Complete = ((value & Action.complete) == Action.complete);
-					this.Previous = ((value & Action.prev) == Action.prev);
-					this.Next = ((value & Action.next) == Action.next);
+					this.Complete = ((value & Action.Complete) == Action.Complete);
+					this.Previous = ((value & Action.Prev) == Action.Prev);
+					this.Next = ((value & Action.Next) == Action.Next);
 				}
 			}
 		}

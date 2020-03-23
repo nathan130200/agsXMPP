@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -96,10 +96,7 @@ namespace AgsXMPP.Protocol.Query.Privacy
 
 		public ItemType Type
 		{
-			get
-			{
-				return this.GetAttributeEnum<ItemType>("type");
-			}
+			get => this.GetAttributeEnum<ItemType>("type");
 			set
 			{
 				if (value == ItemType.None)

@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -162,37 +162,21 @@ namespace AgsXMPP.Protocol.Extensions.PubSub
 			}
 		}
 
-		//public Affiliation Affiliation
-		//{
-		//    get 
-		//    {
-		//        return (Affiliation)GetAttributeEnum("affiliation", typeof(Affiliation)); 
-		//    }
-		//    set 
-		//    {
-		//        SetAttribute("affiliation", value.ToString()); 
-		//    }
-		//}
+		public AffiliationType Affiliation
+		{
+			get => this.GetAttributeEnum<AffiliationType>("affiliation");
+			set => this.SetAttributeEnum("affiliation", value);
+		}
 
 		public SubscriptionState SubscriptionState
 		{
-			get
-			{
-				return (SubscriptionState)this.GetAttributeEnum("subscription", typeof(SubscriptionState));
-			}
-			set
-			{
-				this.SetAttribute("subscription", value.ToString());
-			}
+			get => this.GetAttributeEnum<SubscriptionState>("subscription");
+			set => this.SetAttributeEnum("subscription", value);
 		}
 
 		public SubscribeOptions SubscribeOptions
 		{
-			get
-			{
-				return this.SelectSingleElement(typeof(SubscribeOptions)) as SubscribeOptions;
-
-			}
+			get => this.SelectSingleElement(typeof(SubscribeOptions)) as SubscribeOptions;
 			set
 			{
 				if (this.HasTag(typeof(SubscribeOptions)))

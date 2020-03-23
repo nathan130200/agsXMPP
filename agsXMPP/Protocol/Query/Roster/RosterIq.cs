@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Copyright (c) 2003-2019 by AG-Software, FRNathan13								 *
+ * Copyright (c) 2003-2020 by AG-Software, FRNathan13								 *
  * All Rights Reserved.																 *
  * Contact information for AG-Software is available at http://www.ag-software.de	 *
  *																					 *
@@ -25,7 +25,7 @@ using AgsXMPP.Protocol.Client;
 // <iq id='someid' to='myjabber.net' type='get'>
 //		<query xmlns='jabber:iq:roster'/>
 // </iq>
-namespace AgsXMPP.Protocol.Query.roster
+namespace AgsXMPP.Protocol.Query.Roster
 {
 	/// <summary>
 	/// Build a new roster query, jabber:iq:roster
