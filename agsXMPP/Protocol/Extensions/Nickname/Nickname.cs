@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.nickname
+namespace AgsXMPP.Protocol.Extensions.nickname
 {
 	// <nick xmlns='http://jabber.org/protocol/nick'>Ishmael</nick>
 	public class Nickname : Element

@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.oob
+namespace AgsXMPP.Protocol.Iq.oob
 {
 	/// <summary>
 	/// Summary description for OobIq.
 	/// </summary>
-	public class OobIq : client.IQ
+	public class OobIq : Client.IQ
 	{
 		private Oob m_Oob = new Oob();
 

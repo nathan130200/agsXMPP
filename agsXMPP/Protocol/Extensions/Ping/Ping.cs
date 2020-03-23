@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.ping
+namespace AgsXMPP.Protocol.Extensions.ping
 {
 	/*
      * <iq from='capulet.com' to='juliet@capulet.com/balcony' id='ping123' type='get'>

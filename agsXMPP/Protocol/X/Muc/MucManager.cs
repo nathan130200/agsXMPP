@@ -18,12 +18,12 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Protocol.client;
-using agsXMPP.Protocol.x.data;
-using agsXMPP.Protocol.x.muc.iq.admin;
-using agsXMPP.Protocol.x.muc.iq.owner;
+using AgsXMPP.Protocol.Client;
+using AgsXMPP.Protocol.x.data;
+using AgsXMPP.Protocol.x.muc.iq.admin;
+using AgsXMPP.Protocol.x.muc.iq.owner;
 
-namespace agsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.x.muc
 {
 	/// <summary>
 	/// A helper class for Multi User Chat
@@ -161,7 +161,7 @@ namespace agsXMPP.Protocol.x.muc
 		public void ChangeSubject(Jid room, string newSubject, string body)
 		{
 			var msg = new Message();
-			msg.Type = MessageType.groupchat;
+			msg.Type = MessageType.GroupChat;
 			msg.To = room;
 			msg.Subject = newSubject;
 
@@ -282,7 +282,7 @@ namespace agsXMPP.Protocol.x.muc
 
 			var pres = new Presence();
 			pres.To = to;
-			pres.Type = PresenceType.unavailable;
+			pres.Type = PresenceType.Unavailable;
 
 			this.m_connection.Send(pres);
 		}

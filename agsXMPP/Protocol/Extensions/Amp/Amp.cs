@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.amp
+namespace AgsXMPP.Protocol.Extensions.Amp
 {
 	/*
         <xs:element name='amp'>
@@ -37,7 +37,7 @@ namespace agsXMPP.Protocol.extensions.amp
         </xs:element>
     */
 
-	public class Amp : @base.DirectionalElement
+	public class Amp : Base.DirectionalElement
 	{
 		public Amp()
 		{

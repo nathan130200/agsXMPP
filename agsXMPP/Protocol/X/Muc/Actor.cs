@@ -19,10 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 
-namespace agsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.x.muc
 {
 	public class Actor : Element
 	{

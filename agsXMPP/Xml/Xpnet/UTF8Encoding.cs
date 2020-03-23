@@ -32,7 +32,7 @@
  * Jabber-Net can be used under either JOSL or the GPL.  
  * See LICENSE.txt for details.
  * --------------------------------------------------------------------------*/
-namespace agsXMPP.Xml.Xpnet
+namespace AgsXMPP.Xml.Xpnet
 {
 	/// <summary>
 	/// UTF-8 specific tokenizer.

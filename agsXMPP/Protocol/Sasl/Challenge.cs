@@ -19,13 +19,13 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 //<challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
 //cmVhbG09InNvbWVyZWFsbSIsbm9uY2U9Ik9BNk1HOXRFUUdtMmhoIixxb3A9ImF1dGgi
 //LGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNzCg==
 //</challenge>
-namespace agsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.sasl
 {
 	/// <summary>
 	/// Summary description for Challenge.

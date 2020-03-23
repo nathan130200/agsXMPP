@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.amp
+namespace AgsXMPP.Protocol.Extensions.Amp
 {
 	public class Rule : Element
 	{

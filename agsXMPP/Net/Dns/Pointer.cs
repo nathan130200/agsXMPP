@@ -27,7 +27,7 @@
 
 using System.Text;
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// Logical representation of a pointer, but in fact a byte array reference and a position in it. This

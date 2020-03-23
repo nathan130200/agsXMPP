@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol
+namespace AgsXMPP.Protocol
 {
 	/// <summary>
 	/// stream:stream Element
 	/// This is the first Element we receive from the server.
 	/// It encloses our whole xmpp session.
 	/// </summary>
-	public class XmppStream : @base.Stream
+	public class XmppStream : Base.Stream
 	{
 		public XmppStream()
 		{

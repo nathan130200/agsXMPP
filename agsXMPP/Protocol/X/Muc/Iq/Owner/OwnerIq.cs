@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.x.muc.iq.owner
+namespace AgsXMPP.Protocol.x.muc.iq.owner
 {
 	/*
         Example 72. Moderator Kicks Occupant
@@ -41,7 +41,7 @@ namespace agsXMPP.Protocol.x.muc.iq.owner
 	/// <summary>
 	/// 
 	/// </summary>
-	public class OwnerIq : client.IQ
+	public class OwnerIq : Client.IQ
 	{
 		private Owner m_Owner = new Owner();
 

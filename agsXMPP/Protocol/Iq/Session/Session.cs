@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.session
+namespace AgsXMPP.Protocol.Iq.session
 {
 	/// <summary>
 	/// Summary description for Session.

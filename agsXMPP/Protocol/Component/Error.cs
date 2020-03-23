@@ -19,12 +19,12 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP.Protocol.Component
 {
 	/// <summary>
 	/// Summary description for Error.
 	/// </summary>
-	public class Error : client.Error
+	public class Error : Client.Error
 	{
 		public Error() : base()
 		{
@@ -37,13 +37,13 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Error(client.ErrorCode code)
+		public Error(Client.ErrorCode code)
 			: base(code)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Error(client.ErrorType type)
+		public Error(Client.ErrorType type)
 			: base(type)
 		{
 			this.Namespace = Namespaces.ACCEPT;
@@ -55,7 +55,7 @@ namespace agsXMPP.Protocol.component
 		/// This is the prefered way to create error Elements
 		/// </summary>
 		/// <param name="condition"></param>
-		public Error(client.ErrorCondition condition)
+		public Error(Client.ErrorCondition condition)
 			: base(condition)
 		{
 			this.Namespace = Namespaces.ACCEPT;

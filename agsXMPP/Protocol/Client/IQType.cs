@@ -19,10 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using System;
-using agsXMPP.Protocol.extensions.pubsub;
-
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	/// <summary>
 	/// IQ Stanza Type.

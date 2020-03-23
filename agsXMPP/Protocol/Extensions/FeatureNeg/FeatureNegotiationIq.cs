@@ -19,25 +19,25 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.featureneg
+namespace AgsXMPP.Protocol.Extensions.FeatureNeg
 {
 	/// <summary>
 	/// JEP-0020: Feature Negotiation
 	/// This JEP defines a A protocol that enables two Jabber entities to mutually negotiate feature options.
 	/// </summary>
-	public class FeatureNegIq : client.IQ
+	public class FeatureNegotiationIq : Client.IQ
 	{
-		public FeatureNeg FeatureNeg { get; } = new FeatureNeg();
+		public FeatureNegotiation FeatureNeg { get; } = new FeatureNegotiation();
 
-		public FeatureNegIq()
+		public FeatureNegotiationIq()
 		{
 			this.AddChild(this.FeatureNeg);
 			this.GenerateId();
 		}
 
-		public FeatureNegIq(IQType type) : this()
+		public FeatureNegotiationIq(IQType type) : this()
 		{
 			this.Type = type;
 		}

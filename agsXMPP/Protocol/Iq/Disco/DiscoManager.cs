@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.disco
+namespace AgsXMPP.Protocol.Iq.Disco
 {
 	public class DiscoManager
 	{
@@ -51,16 +51,16 @@ namespace agsXMPP.Protocol.iq.disco
 		}
 		#endregion
 
-		private void OnIq(object sender, client.IQ iq)
+		private void OnIq(object sender, Client.IQ iq)
 		{
 			// DiscoInfo
 			if (this.m_AutoAnswerDiscoInfoRequests && iq.Query is DiscoInfo && iq.Type == IQType.get)
 				this.ProcessDiscoInfo(iq);
 		}
 
-		private void ProcessDiscoInfo(client.IQ iq)
+		private void ProcessDiscoInfo(Client.IQ iq)
 		{
-			var diiq = new client.IQ();
+			var diiq = new Client.IQ();
 			diiq.To = iq.From;
 			diiq.Id = iq.Id;
 			diiq.Type = IQType.result;

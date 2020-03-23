@@ -22,16 +22,16 @@
 using System;
 using System.Collections;
 
-using agsXMPP.Sasl;
-using agsXMPP.Sasl.Plain;
+using AgsXMPP.Sasl;
+using AgsXMPP.Sasl.Plain;
 #if !SL
-using agsXMPP.Sasl.DigestMD5;
+using AgsXMPP.Sasl.DigestMD5;
 #endif
-using agsXMPP.Sasl.Anonymous;
-using agsXMPP.Sasl.XGoogleToken;
+using AgsXMPP.Sasl.Anonymous;
+using AgsXMPP.Sasl.XGoogleToken;
 
 
-namespace agsXMPP.Factory
+namespace AgsXMPP.Factory
 {
 	/// <summary>
 	/// SASL factory

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.iq.privacy
+namespace AgsXMPP.Protocol.Iq.privacy
 {
 	/// <summary>
 	/// Helper class for managing server side privacy lists (blocking communication)
@@ -72,7 +72,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.get;
+			pIq.Type = Client.IQType.get;
 
 			this.SendStanza(pIq, cb, cbArg);
 		}
@@ -121,7 +121,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.get;
+			pIq.Type = Client.IQType.get;
 			pIq.Query.AddList(new List(name));
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -146,7 +146,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		{
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.set;
+			pIq.Type = Client.IQType.set;
 			pIq.Query.AddList(new List(name));
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -186,7 +186,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.set;
+			pIq.Type = Client.IQType.set;
 			pIq.Query.Active = new Active();
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -242,7 +242,7 @@ namespace agsXMPP.Protocol.iq.privacy
 
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.set;
+			pIq.Type = Client.IQType.set;
 			pIq.Query.Active = new Active(name);
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -267,7 +267,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		{
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.set;
+			pIq.Type = Client.IQType.set;
 			pIq.Query.Default = new Default(name);
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -290,7 +290,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		{
 			var pIq = new PrivacyIq();
 
-			pIq.Type = client.IQType.set;
+			pIq.Type = Client.IQType.set;
 			pIq.Query.Default = new Default();
 
 			this.SendStanza(pIq, cb, cbArg);
@@ -326,7 +326,7 @@ namespace agsXMPP.Protocol.iq.privacy
 		public void UpdateList(string name, Item[] rules, IqCB cb, object cbArg)
 		{
 			var pIq = new PrivacyIq();
-			pIq.Type = client.IQType.set;
+			pIq.Type = Client.IQType.set;
 
 			// create a new list with the given name
 			var list = new List(name);

@@ -22,13 +22,15 @@
 using System;
 using System.Collections;
 
-namespace agsXMPP.Collections
+namespace AgsXMPP.Collections
 {
 	/// <summary>
 	/// Bare JID comparer.
 	/// </summary>
 	public class BareJidComparer : IComparer
 	{
+		public static readonly BareJidComparer Instance = new BareJidComparer();
+
 		/// <summary>
 		/// 
 		/// </summary>

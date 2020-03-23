@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.x.data
+namespace AgsXMPP.Protocol.x.data
 {
 	/// <summary>
 	/// Used in XData seach.

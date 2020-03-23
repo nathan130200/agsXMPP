@@ -18,14 +18,14 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.browse
+namespace AgsXMPP.Protocol.Iq.browse
 {
 	/// <summary>
 	/// Summary description for BrowseItem.
 	/// </summary>
-	public class BrowseItem : @base.Item
+	public class BrowseItem : Base.Item
 	{
 		/*
 		<item version="0.6.0" name="Public Conferencing" jid="conference.myjabber.net" type="public" category="conference"> 

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Xml.Xpnet
+namespace AgsXMPP.Xml.Xpnet
 {
 	/// <summary>
 	/// Base class for other exceptions

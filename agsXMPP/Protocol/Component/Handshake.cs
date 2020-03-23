@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.@base;
+using AgsXMPP.Protocol.Base;
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP.Protocol.Component
 {
 
 	//<handshake>aaee83c26aeeafcbabeabfcbcd50df997e0a2a1e</handshake>

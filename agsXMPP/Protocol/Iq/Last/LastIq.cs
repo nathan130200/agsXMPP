@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.last
+namespace AgsXMPP.Protocol.Iq.last
 {
 	/// <summary>
 	/// Summary description for LastIq.
 	/// </summary>
-	public class LastIq : client.IQ
+	public class LastIq : Client.IQ
 	{
 		private Last m_Last = new Last();
 

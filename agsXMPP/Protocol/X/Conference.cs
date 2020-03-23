@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.x
+namespace AgsXMPP.Protocol.x
 {
 	/*
 	<message from='crone1@shakespeare.lit/desktop' to='hecate@shakespeare.lit'>

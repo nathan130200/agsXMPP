@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.bind
+namespace AgsXMPP.Protocol.Iq.bind
 {
 	/// <summary>
 	/// Summary description for BindIq.
 	/// </summary>
-	public class BindIq : client.IQ
+	public class BindIq : Client.IQ
 	{
 		private Bind m_Bind = new Bind();
 

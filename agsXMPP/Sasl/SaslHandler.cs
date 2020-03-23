@@ -21,16 +21,16 @@
 
 using System;
 
-using agsXMPP.Protocol.client;
-using agsXMPP.Protocol.iq.bind;
-using agsXMPP.Protocol.iq.session;
-using agsXMPP.Protocol.sasl;
-using agsXMPP.Protocol.stream;
+using AgsXMPP.Protocol.Client;
+using AgsXMPP.Protocol.Iq.bind;
+using AgsXMPP.Protocol.Iq.session;
+using AgsXMPP.Protocol.sasl;
+using AgsXMPP.Protocol.stream;
 
-using agsXMPP.Xml;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Sasl
+namespace AgsXMPP.Sasl
 {
 	/// <summary>
 	/// Summary description for SaslHandler.

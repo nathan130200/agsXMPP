@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.privacy
+namespace AgsXMPP.Protocol.Iq.privacy
 {
 	/// <summary>
 	/// Summary description for PrivateIq.
 	/// </summary>
-	public class PrivacyIq : client.IQ
+	public class PrivacyIq : Client.IQ
 	{
 		Privacy m_Privacy = new Privacy();
 

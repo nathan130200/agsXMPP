@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	public delegate void MessageHandler(object sender, Message msg);
 	public delegate void PresenceHandler(object sender, Presence pres);

@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.pubsub.Event
+namespace AgsXMPP.Protocol.Extensions.pubsub.Event
 {
 	/*
         <message from='pubsub.shakespeare.lit' to='francisco@denmark.lit' id='foo'>

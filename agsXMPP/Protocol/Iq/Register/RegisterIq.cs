@@ -18,14 +18,14 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.register
+namespace AgsXMPP.Protocol.Iq.register
 {
 	/// <summary>
 	/// Used for registering new usernames on Jabber/XMPP Servers
 	/// </summary>
-	public class RegisterIq : client.IQ
+	public class RegisterIq : Client.IQ
 	{
 		private Register m_Register = new Register();
 

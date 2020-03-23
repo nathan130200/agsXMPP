@@ -21,9 +21,9 @@
 
 using System;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.@base
+namespace AgsXMPP.Protocol.Base
 {
 	// Avatar is in multiple Namespaces. So better to work with a Base class
 

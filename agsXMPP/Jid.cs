@@ -22,17 +22,18 @@
 using System;
 using System.Text;
 
-using agsXMPP.Collections;
+using AgsXMPP.Collections;
+using AgsXMPP.Idn;
 #if STRINGPREP
 using agsXMPP.Idn;
 #endif
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	/// <summary>
 	/// Class for building and handling XMPP Id's (JID's)
 	/// </summary>  
-	public class Jid : IComparable
+	public class Jid : IComparable, ICloneable, IEquatable<Jid>
 #if NET_2 || CF_2
         , IEquatable<Jid>
 #endif
@@ -77,6 +78,26 @@ namespace agsXMPP
 		internal string m_Server = null;
 		internal string m_Resource = null;
 
+		public object Clone()
+			=> new Jid(this.User, this.Server, this.Resource, false);
+
+		public bool Equals(Jid other)
+		{
+			return this.Equals(other as object);
+		}
+
+		/// <summary>
+		/// Is bare jid.
+		/// <para>node@domain</para>
+		/// </summary>
+		public bool IsBare => string.IsNullOrEmpty(this.m_Resource);
+
+		/// <summary>
+		/// Is full jid.
+		/// <para>node@domain/resource</para>
+		/// </summary>
+		public bool IsFull => !this.IsBare;
+
 		/// <summary>
 		/// Create a new JID object from a string. The input string must be a valid jabberId and already prepared with stringprep.
 		/// Otherwise use one of the other constructors with escapes the node and prepares the gives balues with the stringprep
@@ -89,41 +110,51 @@ namespace agsXMPP
 			this.Parse(jid);
 		}
 
+		public static bool IsFullEquals(Jid left, Jid right)
+			=> FullJidComparer.Instance.Compare(left, right) == 0;
+
+		public static bool IsBareEquals(Jid left, Jid right)
+			=> BareJidComparer.Instance.Compare(left, right) == 0;
+
 		/// <summary>
 		/// builds a new Jid object
 		/// </summary>
 		/// <param name="user">XMPP User part</param>
 		/// <param name="server">XMPP Domain part</param>
 		/// <param name="resource">XMPP Resource part</param>        
-		public Jid(string user, string server, string resource)
+		public Jid(string user, string server, string resource, bool stringprep = false)
 		{
-#if !STRINGPREP
-			if (user != null)
+			if (!stringprep)
 			{
-				user = EscapeNode(user);
+				if (user != null)
+				{
+					user = EscapeNode(user);
 
-				this.m_User = user.ToLower();
+					this.m_User = user.ToLower();
+				}
+
+				if (server != null)
+					this.m_Server = server.ToLower();
+
+				if (resource != null)
+					this.m_Resource = resource;
+			}
+			else
+			{
+				if (user != null)
+				{
+					user = EscapeNode(user);
+
+					this.m_User = Stringprep.NodePrep(user);
+				}
+
+				if (server != null)
+					this.m_Server = Stringprep.NamePrep(server);
+
+				if (resource != null)
+					this.m_Resource = Stringprep.ResourcePrep(resource);
 			}
 
-			if (server != null)
-				this.m_Server = server.ToLower();
-
-			if (resource != null)
-				this.m_Resource = resource;
-#else
-            if (user != null)
-            {             
-                user = EscapeNode(user);
-
-                m_User = Stringprep.NodePrep(user);
-            }
-
-            if (server != null)
-                m_Server = Stringprep.NamePrep(server);
-
-            if (resource != null)
-                m_Resource = Stringprep.ResourcePrep(resource);
-#endif
 			this.BuildJid();
 		}
 

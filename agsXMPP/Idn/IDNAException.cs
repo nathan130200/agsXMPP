@@ -21,7 +21,7 @@
 /// </summary>
 
 
-namespace agsXMPP.Idn
+namespace AgsXMPP.Idn
 {
 	public class IDNAException : System.Exception
 	{

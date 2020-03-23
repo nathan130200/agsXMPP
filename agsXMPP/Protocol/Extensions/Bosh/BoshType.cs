@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.bosh
+namespace AgsXMPP.Protocol.Extensions.Bosh
 {
 	public enum BoshType
 	{

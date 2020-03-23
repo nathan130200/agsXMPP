@@ -19,10 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.extensions.bookmarks;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Extensions.Bookmarks;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.@private
+namespace AgsXMPP.Protocol.Iq.@private
 {
 	/// <summary>
 	/// Private XML Storage JEP-0049
@@ -48,18 +48,18 @@ namespace agsXMPP.Protocol.iq.@private
 		}
 
 		/// <summary>
-		/// The <see cref="extensions.bookmarks.Storage">Storage</see> object 
+		/// The <see cref="Extensions.Bookmarks.Storage">Storage</see> object 
 		/// </summary>
 		public Storage Storage
 		{
 			get
 			{
-				return this.SelectSingleElement(typeof(extensions.bookmarks.Storage)) as extensions.bookmarks.Storage;
+				return this.SelectSingleElement(typeof(Extensions.Bookmarks.Storage)) as Extensions.Bookmarks.Storage;
 			}
 			set
 			{
-				if (this.HasTag(typeof(extensions.bookmarks.Storage)))
-					this.RemoveTag(typeof(extensions.bookmarks.Storage));
+				if (this.HasTag(typeof(Extensions.Bookmarks.Storage)))
+					this.RemoveTag(typeof(Extensions.Bookmarks.Storage));
 
 				if (value != null)
 					this.AddChild(value);

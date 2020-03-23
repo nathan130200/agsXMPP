@@ -34,7 +34,7 @@
  * --------------------------------------------------------------------------*/
 using System.IO;
 
-namespace agsXMPP.Xml.Xpnet
+namespace AgsXMPP.Xml.Xpnet
 {
 	/// <summary>
 	/// Aggregate byte arrays together, so we can parse across IP packet boundaries

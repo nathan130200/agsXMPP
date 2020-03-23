@@ -20,16 +20,16 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-using agsXMPP.Protocol.iq.bind;
-using agsXMPP.Protocol.iq.session;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Iq.bind;
+using AgsXMPP.Protocol.Iq.session;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	/// <summary>
 	/// Iq Stanza.
 	/// </summary>
-	public class IQ : @base.Stanza
+	public class IQ : Base.Stanza
 	{
 		#region << Constructors >>
 		public IQ()
@@ -65,7 +65,7 @@ namespace agsXMPP.Protocol.client
 			}
 			get
 			{
-				return (IQType) Enum.Parse(typeof(IQType), this.GetAttribute("type"));
+				return (IQType)Enum.Parse(typeof(IQType), this.GetAttribute("type"));
 			}
 		}
 

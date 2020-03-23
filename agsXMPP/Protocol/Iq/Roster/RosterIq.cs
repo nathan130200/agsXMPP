@@ -19,18 +19,18 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
 // Request Roster:
 // <iq id='someid' to='myjabber.net' type='get'>
 //		<query xmlns='jabber:iq:roster'/>
 // </iq>
-namespace agsXMPP.Protocol.iq.roster
+namespace AgsXMPP.Protocol.Iq.roster
 {
 	/// <summary>
 	/// Build a new roster query, jabber:iq:roster
 	/// </summary>
-	public class RosterIq : client.IQ
+	public class RosterIq : Client.IQ
 	{
 		private Roster m_Roster = new Roster();
 

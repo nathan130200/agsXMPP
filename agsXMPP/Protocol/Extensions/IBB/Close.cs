@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.ibb
+namespace AgsXMPP.Protocol.Extensions.IBB
 {
 	/*
          <close xmlns='http://jabber.org/protocol/ibb' sid='mySID'/>      

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.iq.privacy
+namespace AgsXMPP.Protocol.Iq.privacy
 {
 	public enum Type
 	{

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.storage
+namespace AgsXMPP.Protocol.storage
 {
 
 	//	<iq id='0' type='set' to='user@server'>
@@ -33,7 +33,7 @@ namespace agsXMPP.Protocol.storage
 	/// <summary>
 	/// Summary description for Avatar.
 	/// </summary>
-	public class Avatar : @base.Avatar
+	public class Avatar : Base.Avatar
 	{
 		public Avatar() : base()
 		{

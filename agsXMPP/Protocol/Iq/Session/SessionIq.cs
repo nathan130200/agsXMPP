@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.session
+namespace AgsXMPP.Protocol.Iq.session
 {
 	/// <summary>
 	/// Starting the session, this is done after resource binding
 	/// </summary>
-	public class SessionIq : client.IQ
+	public class SessionIq : Client.IQ
 	{
 		/*
 		SEND:	<iq xmlns="jabber:client" id="agsXMPP_2" type="set" to="jabber.ru">

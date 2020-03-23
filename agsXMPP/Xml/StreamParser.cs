@@ -22,11 +22,11 @@
 using System;
 using System.Collections;
 
-using agsXMPP.Factory;
-using agsXMPP.Xml.Dom;
-using agsXMPP.Xml.Xpnet;
+using AgsXMPP.Factory;
+using AgsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Xpnet;
 
-namespace agsXMPP.Xml
+namespace AgsXMPP.Xml
 {
 	public delegate void StreamError(object sender, Exception ex);
 	public delegate void StreamHandler(object sender, Node e);

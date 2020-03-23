@@ -18,7 +18,7 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 // JEP-0086: Error Condition Mappings
 
@@ -42,7 +42,7 @@ using agsXMPP.Xml.Dom;
 //		<item-not-found xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'/>
 // </error>
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	// XMPP error condition  		XMPP error type  	Legacy error code
 	// <bad-request/> 				modify 				400
@@ -102,11 +102,20 @@ namespace agsXMPP.Protocol.client
 	// * wait -- retry after waiting (the error is temporary)
 	public enum ErrorType
 	{
-		cancel,
-		@continue,
-		modify,
-		auth,
-		wait
+		[XmppEnumMember("cancel")]
+		Cancel,
+
+		[XmppEnumMember("continue")]
+		Continue,
+
+		[XmppEnumMember("modify")]
+		Modify,
+
+		[XmppEnumMember("auth")]
+		Auth,
+
+		[XmppEnumMember("wait")]
+		Wait
 	}
 
 
@@ -259,7 +268,7 @@ namespace agsXMPP.Protocol.client
 		{
 			get
 			{
-				return (ErrorType)this.GetAttributeEnum("type", typeof(ErrorType));
+				return this.GetAttributeEnum<ErrorType>("type");
 			}
 			set
 			{
@@ -323,83 +332,83 @@ namespace agsXMPP.Protocol.client
 				{
 					case ErrorCondition.BadRequest:
 						this.SetTag("bad-request", "", Namespaces.STANZAS);
-						this.Type = ErrorType.modify;
+						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.Conflict:
 						this.SetTag("conflict", "", Namespaces.STANZAS);
-						this.Type = ErrorType.cancel;
+						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.FeatureNotImplemented:
 						this.SetTag("feature-not-implemented", "", Namespaces.STANZAS);
-						this.Type = ErrorType.cancel;
+						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.Forbidden:
 						this.SetTag("forbidden", "", Namespaces.STANZAS);
-						this.Type = ErrorType.auth;
+						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.Gone:
 						this.SetTag("gone", "", Namespaces.STANZAS);
-						this.Type = ErrorType.modify;
+						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.InternalServerError:
 						this.SetTag("internal-server-error", "", Namespaces.STANZAS);
-						this.Type = ErrorType.wait;
+						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.ItemNotFound:
 						this.SetTag("item-not-found", "", Namespaces.STANZAS);
-						this.Type = ErrorType.cancel;
+						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.JidMalformed:
 						this.SetTag("jid-malformed", "", Namespaces.STANZAS);
-						this.Type = ErrorType.modify;
+						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.NotAcceptable:
 						this.SetTag("not-acceptable", "", Namespaces.STANZAS);
-						this.Type = ErrorType.modify;
+						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.NotAllowed:
 						this.SetTag("not-allowed", "", Namespaces.STANZAS);
-						this.Type = ErrorType.cancel;
+						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.NotAuthorized:
 						this.SetTag("not-authorized", "", Namespaces.STANZAS);
-						this.Type = ErrorType.auth;
+						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.PaymentRequired:
 						this.SetTag("payment-required", "", Namespaces.STANZAS);
-						this.Type = ErrorType.auth;
+						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.RecipientUnavailable:
 						this.SetTag("recipient-unavailable", "", Namespaces.STANZAS);
-						this.Type = ErrorType.wait;
+						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.Redirect:
 						this.SetTag("redirect", "", Namespaces.STANZAS);
-						this.Type = ErrorType.modify;
+						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.RegistrationRequired:
 						this.SetTag("registration-required", "", Namespaces.STANZAS);
-						this.Type = ErrorType.auth;
+						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.RemoteServerNotFound:
 						this.SetTag("remote-server-not-found", "", Namespaces.STANZAS);
-						this.Type = ErrorType.cancel;
+						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.RemoteServerTimeout:
 						this.SetTag("remote-server-timeout", "", Namespaces.STANZAS);
-						this.Type = ErrorType.wait;
+						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.ResourceConstraint:
 						this.SetTag("resource-constraint", "", Namespaces.STANZAS);
-						this.Type = ErrorType.wait;
+						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.ServiceUnavailable:
 						this.SetTag("service-unavailable", "", Namespaces.STANZAS);
-						this.Type = ErrorType.cancel;
+						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.SubscriptionRequired:
 						this.SetTag("subscription-required", "", Namespaces.STANZAS);
-						this.Type = ErrorType.auth;
+						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.UndefinedCondition:
 						this.SetTag("undefined-condition", "", Namespaces.STANZAS);
@@ -407,7 +416,7 @@ namespace agsXMPP.Protocol.client
 						break;
 					case ErrorCondition.UnexpectedRequest:
 						this.SetTag("unexpected-request", "", Namespaces.STANZAS);
-						this.Type = ErrorType.wait;
+						this.Type = ErrorType.Wait;
 						break;
 
 				}

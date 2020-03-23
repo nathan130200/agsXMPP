@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.x.roster
+namespace AgsXMPP.Protocol.x.roster
 {
 	public enum RosterAction
 	{
@@ -32,7 +32,7 @@ namespace agsXMPP.Protocol.x.roster
 	/// <summary>
 	/// Summary description for RosterItem.
 	/// </summary>
-	public class RosterItem : @base.RosterItem
+	public class RosterItem : Base.RosterItem
 	{
 		/*
 		<item action='delete' jid='rosencrantz@denmark' name='Rosencrantz'>   

@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.extensions.nickname;
+using AgsXMPP.Protocol.Extensions.nickname;
 
-namespace agsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.x.muc
 {
 	/*
     <message

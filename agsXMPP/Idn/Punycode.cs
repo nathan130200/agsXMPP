@@ -20,10 +20,9 @@
 /// USA
 /// </summary>
 
-using System;
 using System.Text;
 
-namespace agsXMPP.Idn
+namespace AgsXMPP.Idn
 {
 
 	public class Punycode

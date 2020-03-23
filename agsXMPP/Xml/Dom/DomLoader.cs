@@ -22,7 +22,7 @@
 using System.IO;
 //using System.Collections.Specialized;
 
-namespace agsXMPP.Xml.Dom
+namespace AgsXMPP.Xml.Dom
 {
 	/// <summary>
 	/// internal class that loads a xml document from a string or stream

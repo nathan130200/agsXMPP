@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.x.muc.iq.owner
+namespace AgsXMPP.Protocol.x.muc.iq.owner
 {
 	/*
         <iq id="jcl_110" to="xxxxxx@conference.jabber.org" type="set">

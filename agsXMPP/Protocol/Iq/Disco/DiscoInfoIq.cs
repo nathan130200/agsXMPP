@@ -18,14 +18,14 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.disco
+namespace AgsXMPP.Protocol.Iq.Disco
 {
 	/// <summary>
 	/// Discovering Information About a Jabber Entity
 	/// </summary>
-	public class DiscoInfoIq : client.IQ
+	public class DiscoInfoIq : Client.IQ
 	{
 		private DiscoInfo m_DiscoInfo = new DiscoInfo();
 

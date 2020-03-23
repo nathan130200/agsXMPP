@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.tls
+namespace AgsXMPP.Protocol.tls
 {
 	// Step 5: Server informs client that it is allowed to proceed:
 	// <proceed xmlns='urn:ietf:params:xml:ns:xmpp-tls'/>

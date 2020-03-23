@@ -19,12 +19,12 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 // <failure xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
 //		<incorrect-encoding/>
 // </failure>
-namespace agsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.sasl
 {
 	/// <summary>
 	/// Summary description for Failure.

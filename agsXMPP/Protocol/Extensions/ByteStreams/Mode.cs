@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.bytestreams
+namespace AgsXMPP.Protocol.Extensions.ByteStreams
 {
 	/// <summary>
 	/// The Mode for the bytestream socket layer (tcp or udp)

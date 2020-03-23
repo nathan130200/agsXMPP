@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.x.roster
+namespace AgsXMPP.Protocol.x.roster
 {
 	/// <summary>
 	/// Roster Item Exchange (JEP-0144)

@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.bytestreams
+namespace AgsXMPP.Protocol.Extensions.ByteStreams
 {
 	/// <summary>
 	/// a Bytestream IQ
 	/// </summary>
-	public class ByteStreamIq : client.IQ
+	public class ByteStreamIq : Client.IQ
 	{
 		private ByteStream m_ByteStream = new ByteStream();
 

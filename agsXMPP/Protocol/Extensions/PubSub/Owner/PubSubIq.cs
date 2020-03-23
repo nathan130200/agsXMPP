@@ -19,11 +19,11 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
 {
-	public class PubSubIq : client.IQ
+	public class PubSubIq : Client.IQ
 	{
 		/*
             Example 133. Owner deletes a node

@@ -21,7 +21,7 @@
 
 using System;
 
-namespace agsXMPP.Exceptions
+namespace AgsXMPP.Exceptions
 {
 	public class XmlRpcException : Exception
 	{

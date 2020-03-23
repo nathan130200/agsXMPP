@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.x.data;
+using AgsXMPP.Protocol.x.data;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 //	Example 1. Requesting Search Fields
 //
@@ -55,7 +55,7 @@ using agsXMPP.Xml.Dom;
 //		</query>
 //	</iq>    
 
-namespace agsXMPP.Protocol.iq.search
+namespace AgsXMPP.Protocol.Iq.search
 {
 	/// <summary>
 	/// http://www.jabber.org/jeps/jep-0055.html

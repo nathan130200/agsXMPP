@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.auth
+namespace AgsXMPP.Protocol.Iq.auth
 {
 	/// <summary>
 	/// Summary description for AuthIq.
 	/// </summary>
-	public class AuthIq : client.IQ
+	public class AuthIq : Client.IQ
 	{
 		private Auth m_Auth = new Auth();
 

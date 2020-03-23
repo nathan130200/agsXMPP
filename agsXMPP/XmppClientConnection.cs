@@ -24,31 +24,30 @@ using System.Collections;
 using System.Net.Sockets;
 using System.Text;
 
-using agsXMPP.Exceptions;
-using agsXMPP.Net;
-using agsXMPP.Net.Dns;
-using agsXMPP.Protocol.client;
-using agsXMPP.Protocol.extensions.caps;
-using agsXMPP.Protocol.extensions.compression;
-using agsXMPP.Protocol.iq.agent;
-using agsXMPP.Protocol.iq.auth;
-using agsXMPP.Protocol.iq.disco;
-using agsXMPP.Protocol.iq.register;
-using agsXMPP.Protocol.iq.roster;
-using agsXMPP.Protocol.stream;
-using agsXMPP.Sasl;
-using agsXMPP.Xml;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Exceptions;
+using AgsXMPP.Net;
+using AgsXMPP.Net.Dns;
+using AgsXMPP.Protocol.Client;
+using AgsXMPP.Protocol.Extensions.Caps;
+using AgsXMPP.Protocol.Extensions.Compression;
+using AgsXMPP.Protocol.Iq.agent;
+using AgsXMPP.Protocol.Iq.auth;
+using AgsXMPP.Protocol.Iq.Disco;
+using AgsXMPP.Protocol.Iq.register;
+using AgsXMPP.Protocol.Iq.roster;
+using AgsXMPP.Protocol.stream;
+using AgsXMPP.Sasl;
+using AgsXMPP.Xml.Dom;
 
 #if MONOSSL
 using  Mono.Security.Protocol.Tls;
 #endif
 
 #if SSL || MONOSSL || BCCRYPTO
-using agsXMPP.Protocol.tls;
+using AgsXMPP.Protocol.tls;
 #endif
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	public delegate void ObjectHandler(object sender);
 	public delegate void XmppElementHandler(object sender, Element e);
@@ -115,7 +114,7 @@ namespace agsXMPP
 		/// <summary>
 		/// The prefered Client Language Attribute
 		/// </summary>
-		/// <seealso cref="Protocol.@base.XmppPacket.Language"/>
+		/// <seealso cref="Protocol.Base.XmppPacket.Language"/>
 		public string ClientLanguage
 		{
 			get { return this.m_ClientLanguage; }
@@ -125,7 +124,7 @@ namespace agsXMPP
 		/// <summary>
 		/// The language which the server decided to use.
 		/// </summary>
-		/// <seealso cref="Protocol.@base.XmppPacket.Language"/>
+		/// <seealso cref="Protocol.Base.XmppPacket.Language"/>
 		public string ServerLanguage
 		{
 			get { return this.m_ServerLanguage; }
@@ -282,7 +281,7 @@ namespace agsXMPP
 			{
 				// Only one of both can be true
 				this.m_UseSSL = value;
-                if (value == true)
+				if (value == true)
 					this.m_UseStartTLS = false;
 			}
 #endif
@@ -301,7 +300,7 @@ namespace agsXMPP
 			{
 				// Only one of both can be true
 				this.m_UseStartTLS = value;
-                if (value == true)
+				if (value == true)
 					this.m_UseSSL = false;
 			}
 #endif
@@ -1368,13 +1367,13 @@ namespace agsXMPP
 				}
 			}
 #if SSL || MONOSSL || BCCRYPTO
-            else if ( e.GetType() == typeof (Proceed) )
+			else if (e.GetType() == typeof(Proceed))
 			{
 				this.StreamParser.Reset();
 				this.ClientSocket.StartTls();
 				this.SendStreamHeader(false);
 				this.DoChangeXmppConnectionState(XmppConnectionState.Authenticating);
-            }
+			}
 #endif
 			else if (e.GetType() == typeof(Compressed))
 			{

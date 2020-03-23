@@ -22,7 +22,7 @@
 using System;
 using System.Collections;
 
-namespace agsXMPP.Xml.Dom
+namespace AgsXMPP.Xml.Dom
 {
 	public class ElementList : CollectionBase
 	{

@@ -28,7 +28,7 @@
 using System;
 using System.Collections;
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// A Request logically consists of a number of questions to ask the DNS Server. Create a request and

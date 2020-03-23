@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.pubsub
 {
 	// Publish and retract looks exactly the same, so inherit from publish here
 	public class Retract : Publish

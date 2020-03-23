@@ -24,12 +24,12 @@
 
 #endregion
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP.Protocol.Component
 {
 	/// <summary>
 	/// Summary description for Message.
 	/// </summary>
-	public class Message : client.Message
+	public class Message : Client.Message
 	{
 		#region << Constructors >>
 		public Message()
@@ -86,37 +86,37 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(string to, client.MessageType type, string body)
+		public Message(string to, Client.MessageType type, string body)
 			: base(to, type, body)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(Jid to, client.MessageType type, string body)
+		public Message(Jid to, Client.MessageType type, string body)
 			: base(to, type, body)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(string to, client.MessageType type, string body, string subject)
+		public Message(string to, Client.MessageType type, string body, string subject)
 			: base(to, type, body, subject)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(Jid to, client.MessageType type, string body, string subject)
+		public Message(Jid to, Client.MessageType type, string body, string subject)
 			: base(to, type, body, subject)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(string to, client.MessageType type, string body, string subject, string thread)
+		public Message(string to, Client.MessageType type, string body, string subject, string thread)
 			: base(to, type, body, subject, thread)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(Jid to, client.MessageType type, string body, string subject, string thread)
+		public Message(Jid to, Client.MessageType type, string body, string subject, string thread)
 			: base(to, type, body, subject, thread)
 		{
 			this.Namespace = Namespaces.ACCEPT;
@@ -140,19 +140,19 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(Jid to, Jid from, client.MessageType type, string body)
+		public Message(Jid to, Jid from, Client.MessageType type, string body)
 			: base(to, from, type, body)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(Jid to, Jid from, client.MessageType type, string body, string subject)
+		public Message(Jid to, Jid from, Client.MessageType type, string body, string subject)
 			: base(to, from, type, body, subject)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Message(Jid to, Jid from, client.MessageType type, string body, string subject, string thread)
+		public Message(Jid to, Jid from, Client.MessageType type, string body, string subject, string thread)
 			: base(to, from, type, body, subject, thread)
 		{
 			this.Namespace = Namespaces.ACCEPT;

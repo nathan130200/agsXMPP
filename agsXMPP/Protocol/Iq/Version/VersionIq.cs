@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.version
+namespace AgsXMPP.Protocol.Iq.version
 {
 	/// <summary>
 	/// Summary description for VersionIq.
 	/// </summary>
-	public class VersionIq : client.IQ
+	public class VersionIq : Client.IQ
 	{
 		private Version m_Version = new Version();
 

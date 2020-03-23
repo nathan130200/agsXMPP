@@ -1,4 +1,4 @@
-namespace agsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.sasl
 {
 	public enum FailureCondition
 	{

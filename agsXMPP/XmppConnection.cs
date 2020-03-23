@@ -22,11 +22,11 @@
 using System;
 using System.Text;
 using System.Threading;
-using agsXMPP.Net;
-using agsXMPP.Xml;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Net;
+using AgsXMPP.Xml;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	public delegate void XmlHandler(object sender, string xml);
 	public delegate void ErrorHandler(object sender, Exception ex);

@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.time
+namespace AgsXMPP.Protocol.Iq.time
 {
 	/// <summary>
 	/// Summary description for TimeIq.
 	/// </summary>
-	public class TimeIq : client.IQ
+	public class TimeIq : Client.IQ
 	{
 		private Time m_Time = new Time();
 

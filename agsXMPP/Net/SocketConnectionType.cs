@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Net
+namespace AgsXMPP.Net
 {
 	/// <summary>
 	/// Summary description for SocketType.

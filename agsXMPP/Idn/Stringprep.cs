@@ -22,7 +22,7 @@
 
 using System.Text;
 
-namespace agsXMPP.Idn
+namespace AgsXMPP.Idn
 {
 	/// <summary> This class offers static methods for preparing internationalized
 	/// strings. It supports the following stringprep profiles:

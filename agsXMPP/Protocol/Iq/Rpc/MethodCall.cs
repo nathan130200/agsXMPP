@@ -23,9 +23,9 @@ using System;
 using System.Collections;
 using System.Globalization;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.rpc
+namespace AgsXMPP.Protocol.Iq.rpc
 {
 
 	/// <summary>

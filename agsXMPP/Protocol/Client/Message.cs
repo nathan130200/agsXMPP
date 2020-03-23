@@ -20,19 +20,18 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
+using AgsXMPP.Protocol.Extensions.ChatStates;
+using AgsXMPP.Protocol.Extensions.nickname;
+using AgsXMPP.Protocol.Extensions.Shim;
+using AgsXMPP.Protocol.Extensions.XHtml;
+using AgsXMPP.Protocol.x;
 
-using agsXMPP.Protocol.extensions.chatstates;
-using agsXMPP.Protocol.extensions.html;
-using agsXMPP.Protocol.extensions.nickname;
-using agsXMPP.Protocol.extensions.Shim;
-using agsXMPP.Protocol.x;
-
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	/// <summary>
 	/// This class represents a XMPP message.
 	/// </summary>
-	public class Message : @base.Stanza
+	public class Message : Base.Stanza
 	{
 		#region << Constructors >>
 		public Message()
@@ -229,11 +228,11 @@ namespace agsXMPP.Protocol.client
 		{
 			get
 			{
-				return (MessageType)this.GetAttributeEnum("type", typeof(MessageType));
+				return this.GetAttributeEnum<MessageType>("type");
 			}
 			set
 			{
-				if (value == MessageType.normal)
+				if (value == MessageType.None)
 					this.RemoveAttribute("type");
 				else
 					this.SetAttribute("type", value.ToString());

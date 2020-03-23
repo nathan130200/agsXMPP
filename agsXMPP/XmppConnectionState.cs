@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	/// <summary>
 	/// Represents the current state of a XMPPConnection
@@ -40,10 +40,12 @@ namespace agsXMPP
 		/// The Socket is Connected
 		/// </summary>
 		Connected,
+
 		/// <summary>
 		/// The XMPP Session is authenticating
 		/// </summary>
 		Authenticating,
+
 		/// <summary>
 		/// The XMPP session is autrhenticated
 		/// </summary>
@@ -59,6 +61,9 @@ namespace agsXMPP
 		/// </summary>
 		Binded,
 
+		/// <summary>
+		/// Initializing session.
+		/// </summary>
 		StartSession,
 
 		/// <summary>
@@ -71,6 +76,9 @@ namespace agsXMPP
 		/// </summary>
 		Compressed,
 
+		/// <summary>
+		/// Session was started.
+		/// </summary>
 		SessionStarted,
 
 		/// <summary>

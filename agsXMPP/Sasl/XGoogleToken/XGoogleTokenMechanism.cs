@@ -24,10 +24,10 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-using agsXMPP.Protocol.sasl;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.sasl;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Sasl.XGoogleToken
+namespace AgsXMPP.Sasl.XGoogleToken
 {
 	/// <summary>
 	/// X-GOOGLE-TOKEN Authentication

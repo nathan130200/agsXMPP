@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.commands
+namespace AgsXMPP.Protocol.Extensions.Commands
 {
 	/*
       <xs:attribute name='action' use='optional'>

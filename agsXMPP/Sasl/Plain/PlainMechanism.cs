@@ -22,9 +22,9 @@
 using System;
 using System.Text;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Sasl.Plain
+namespace AgsXMPP.Sasl.Plain
 {
 	/// <summary>
 	/// Summary description for PlainMechanism.

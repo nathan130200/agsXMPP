@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.agent
+namespace AgsXMPP.Protocol.Iq.agent
 {
 	// Send:<iq id='fullagents' to='myjabber.net' type='get'>
 	//			<query xmlns='jabber:iq:agents'/>

@@ -20,9 +20,9 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System.Threading;
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	public delegate void IqCB(object sender, IQ iq, object data);
 

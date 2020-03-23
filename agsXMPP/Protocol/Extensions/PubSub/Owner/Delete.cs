@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
 {
 	// Only the Namespace is different to Delete in the event Namespace
 

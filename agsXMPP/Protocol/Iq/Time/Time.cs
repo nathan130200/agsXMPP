@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.time
+namespace AgsXMPP.Protocol.Iq.time
 {
 
 	// Send:<iq type='get' id='MX_7' to='jfrankel@coversant.net/SoapBox'>

@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.bookmarks
+namespace AgsXMPP.Protocol.Extensions.Bookmarks
 {
 	/// <summary>
 	/// One of the most common uses of bookmarks will likely be to bookmark 

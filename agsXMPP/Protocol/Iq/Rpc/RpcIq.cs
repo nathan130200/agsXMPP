@@ -19,15 +19,15 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
 
-namespace agsXMPP.Protocol.iq.rpc
+namespace AgsXMPP.Protocol.Iq.rpc
 {
 	/// <summary>
 	/// RpcIq.
 	/// </summary>
-	public class RpcIq : client.IQ
+	public class RpcIq : Client.IQ
 	{
 		private Rpc m_Rpc = new Rpc();
 

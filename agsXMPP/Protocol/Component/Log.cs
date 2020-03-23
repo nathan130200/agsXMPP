@@ -19,18 +19,42 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.@base;
+using System;
+using System.Runtime.Serialization;
+using AgsXMPP.Protocol.Base;
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP
+{
+	[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+	public sealed class XmppEnumMemberAttribute : Attribute
+	{
+		public string Value;
+
+		public XmppEnumMemberAttribute(string value)
+			=> this.Value = value;
+	}
+}
+
+namespace AgsXMPP.Protocol.Component
 {
 	public enum LogType
 	{
-		NONE = -1,
-		warn,
-		info,
-		verbose,
-		debug,
-		notice
+		None = -1,
+
+		[XmppEnumMember("warn")]
+		Warn,
+
+		[XmppEnumMember("info")]
+		Info,
+
+		[XmppEnumMember("verbose")]
+		Verbose,
+
+		[XmppEnumMember("debug")]
+		Debug,
+
+		[XmppEnumMember("notice")]
+		Notice
 	}
 
 	/// <summary>
@@ -61,11 +85,11 @@ namespace agsXMPP.Protocol.component
 		{
 			get
 			{
-				return (LogType)this.GetAttributeEnum("type", typeof(LogType));
+				return this.GetAttributeEnum<LogType>("type");
 			}
 			set
 			{
-				if (value == LogType.NONE)
+				if (value == LogType.None)
 					this.RemoveAttribute("type");
 				else
 					this.SetAttribute("type", value.ToString());
@@ -80,8 +104,5 @@ namespace agsXMPP.Protocol.component
 			get { return this.GetAttribute("ns"); }
 			set { this.SetAttribute("ns", value); }
 		}
-
 	}
-
-
 }

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 
 	/// <summary>
@@ -32,46 +32,54 @@ namespace agsXMPP.Protocol.client
 		/// <summary>
 		/// Used when one wants to send presence to someone/server/transport that you’re available. 
 		/// </summary>
-		available = -1,
+		Available = -1,
 
 		/// <summary>
 		/// Used to send a subscription request to someone.
 		/// </summary>
-		subscribe,
+		[XmppEnumMember("subscribe")]
+		Subscribe,
 
 		/// <summary>
 		/// Used to accept a subscription request.
 		/// </summary>		
+		[XmppEnumMember("subscribed")]
 		subscribed,
 
 		/// <summary>
 		/// Used to unsubscribe someone from your presence. 
 		/// </summary>
-		unsubscribe,
+		[XmppEnumMember("unsubscribe")]
+		Unsubscribe,
 
 		/// <summary>
 		/// Used to deny a subscription request.
 		/// </summary>
-		unsubscribed,
+		[XmppEnumMember("unsubscribed")]
+		Unsubscribed,
 
 		/// <summary>
 		/// Used when one wants to send presence to someone/server/transport that you’re unavailable.
 		/// </summary>
-		unavailable,
+		[XmppEnumMember("unavailable")]
+		Unavailable,
 
 		/// <summary>
 		/// Used when you want to see your roster, but don't want anyone on you roster to see you
 		/// </summary>
-		invisible,
+		[XmppEnumMember("invisible")]
+		Invisible,
 
 		/// <summary>
 		/// presence error
 		/// </summary>
-		error,
+		[XmppEnumMember("error")]
+		Error,
 
 		/// <summary>
 		/// used in server to server protocol to request presences
 		/// </summary>
-		probe
+		[XmppEnumMember("probe")]
+		Probe
 	}
 }

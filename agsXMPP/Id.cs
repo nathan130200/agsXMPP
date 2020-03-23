@@ -21,7 +21,7 @@
 
 using System;
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	public enum IdType
 	{

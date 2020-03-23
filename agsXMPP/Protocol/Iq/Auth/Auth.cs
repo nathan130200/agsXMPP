@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.auth
+namespace AgsXMPP.Protocol.Iq.auth
 {
 	//	Send:<iq type='get' to='myjabber.net' id='MX_7'>
 	//			<query xmlns='jabber:iq:auth'><username>gnauck</username></query>

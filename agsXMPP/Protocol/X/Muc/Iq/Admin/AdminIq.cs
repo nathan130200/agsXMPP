@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.x.muc.iq.admin
+namespace AgsXMPP.Protocol.x.muc.iq.admin
 {
 	/*
         Example 72. Moderator Kicks Occupant
@@ -41,7 +41,7 @@ namespace agsXMPP.Protocol.x.muc.iq.admin
 	/// <summary>
 	/// 
 	/// </summary>
-	public class AdminIq : client.IQ
+	public class AdminIq : Client.IQ
 	{
 		private Admin m_Admin = new Admin();
 

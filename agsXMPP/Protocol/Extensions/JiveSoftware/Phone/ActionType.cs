@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.jivesoftware.Phone
+namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 {
 	/// <summary>
 	/// Action type, Currently supported types are DIAL and FORWARD

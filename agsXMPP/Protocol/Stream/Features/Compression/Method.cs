@@ -21,10 +21,10 @@
 
 using System;
 
-using agsXMPP.Protocol.extensions.compression;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Extensions.Compression;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.stream.features.Compression
+namespace AgsXMPP.Protocol.stream.features.Compression
 {
 	public class Method : Element
 	{
@@ -48,7 +48,7 @@ namespace agsXMPP.Protocol.stream.features.Compression
 			this.Namespace = Namespaces.FEATURE_COMPRESS;
 		}
 
-		public Method(extensions.compression.CompressionMethod method) : this()
+		public Method(Extensions.Compression.CompressionMethod method) : this()
 		{
 			this.Value = method.ToString();
 		}
@@ -61,7 +61,7 @@ namespace agsXMPP.Protocol.stream.features.Compression
 #if CF
 				return (CompressionMethod) util.Enum.Parse(typeof(CompressionMethod), this.Value, true);
 #else
-				return (CompressionMethod) Enum.Parse(typeof(CompressionMethod), this.Value, true);
+				return (CompressionMethod)Enum.Parse(typeof(CompressionMethod), this.Value, true);
 #endif
 			}
 			set { this.Value = value.ToString(); }

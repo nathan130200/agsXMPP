@@ -21,9 +21,9 @@
 
 using System;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.geoloc
+namespace AgsXMPP.Protocol.Extensions.GeoLoc
 {
 	/*
     
@@ -47,13 +47,13 @@ namespace agsXMPP.Protocol.extensions.geoloc
 	/// describing a geographical location that may change fairly frequently, 
 	/// where the geoloc information is provided as Global Positioning System (GPS) coordinates.
 	/// </summary>
-	public class GeoLoc : Element
+	public class GeoLocation : Element
 	{
 		#region << Constructors >>
 		/// <summary>
 		/// 
 		/// </summary>
-		public GeoLoc()
+		public GeoLocation()
 		{
 			this.TagName = "geoloc";
 			this.Namespace = Namespaces.GEOLOC;
@@ -64,7 +64,7 @@ namespace agsXMPP.Protocol.extensions.geoloc
 		/// </summary>
 		/// <param name="Latitude"></param>
 		/// <param name="Longitude"></param>
-		public GeoLoc(double latitude, double longitude) : this()
+		public GeoLocation(double latitude, double longitude) : this()
 		{
 			this.Latitude = latitude;
 			this.Longitude = longitude;

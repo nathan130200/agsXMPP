@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.iq.avatar
+namespace AgsXMPP.Protocol.Iq.avatar
 {
 	//	<iq id='2' type='result' to='user@server/resource'>
 	//		<query xmlns='jabber:iq:avatar'>
@@ -32,7 +32,7 @@ namespace agsXMPP.Protocol.iq.avatar
 	/// <summary>
 	/// Summary description for Avatar.
 	/// </summary>
-	public class Avatar : @base.Avatar
+	public class Avatar : Base.Avatar
 	{
 		public Avatar() : base()
 		{

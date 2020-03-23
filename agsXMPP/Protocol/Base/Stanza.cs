@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.@base
+namespace AgsXMPP.Protocol.Base
 {
 	/// <summary>
 	/// Base XMPP Element
@@ -64,7 +64,7 @@ namespace agsXMPP.Protocol.@base
 		/// <returns></returns>
 		public void GenerateId()
 		{
-			var sId = agsXMPP.Id.GetNextId();
+			var sId = AgsXMPP.Id.GetNextId();
 			this.Id = sId;
 		}
 

@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.iq.roster;
+using AgsXMPP.Protocol.Iq.roster;
 
-namespace agsXMPP.Protocol.iq.privacy
+namespace AgsXMPP.Protocol.Iq.privacy
 {
 	/// <summary>
 	/// Helper class for creating rules for communication blocking

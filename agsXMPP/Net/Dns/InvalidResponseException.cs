@@ -27,7 +27,7 @@
 
 using System;
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// Thrown when the server delivers a response we are not expecting to hear

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
 //	Example 1. Requesting Search Fields
 //
@@ -31,12 +31,12 @@ using agsXMPP.Protocol.client;
 //		<query xmlns='jabber:iq:search'/>
 //	</iq>
 
-namespace agsXMPP.Protocol.iq.search
+namespace AgsXMPP.Protocol.Iq.search
 {
 	/// <summary>
 	/// Summary description for SearchIq.
 	/// </summary>
-	public class SearchIq : client.IQ
+	public class SearchIq : Client.IQ
 	{
 		private Search m_Search = new Search();
 

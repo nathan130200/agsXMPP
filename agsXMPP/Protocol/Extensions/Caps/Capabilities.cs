@@ -23,11 +23,10 @@ using System;
 using System.Collections;
 using System.Text;
 
-using agsXMPP.Protocol.iq.disco;
+using AgsXMPP.Protocol.Iq.Disco;
+using AgsXMPP.Xml.Dom;
 
-using agsXMPP.Xml.Dom;
-
-namespace agsXMPP.Protocol.extensions.caps
+namespace AgsXMPP.Protocol.Extensions.Caps
 {
 	/*
         Example 1. Annotated presence sent

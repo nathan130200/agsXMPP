@@ -19,10 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.extensions.compression;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Extensions.Compression;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.stream.features.Compression
+namespace AgsXMPP.Protocol.stream.features.Compression
 {
 	public class Compression : Element
 	{
@@ -53,12 +53,12 @@ namespace agsXMPP.Protocol.stream.features.Compression
 		{
 			set
 			{
-				if (value != extensions.compression.CompressionMethod.Unknown)
+				if (value != Extensions.Compression.CompressionMethod.Unknown)
 					this.SetTag("method", value.ToString());
 			}
 			get
 			{
-				return this.GetTagEnum<extensions.compression.CompressionMethod>("method");
+				return this.GetTagEnum<Extensions.Compression.CompressionMethod>("method");
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace agsXMPP.Protocol.stream.features.Compression
 		/// Add a compression method/algorithm
 		/// </summary>
 		/// <param name="method"></param>
-		public void AddMethod(extensions.compression.CompressionMethod method)
+		public void AddMethod(Extensions.Compression.CompressionMethod method)
 		{
 			if (!this.SupportsMethod(method))
 				this.AddChild(new Method(method));
@@ -77,7 +77,7 @@ namespace agsXMPP.Protocol.stream.features.Compression
 		/// </summary>
 		/// <param name="method"></param>
 		/// <returns></returns>
-		public bool SupportsMethod(extensions.compression.CompressionMethod method)
+		public bool SupportsMethod(Extensions.Compression.CompressionMethod method)
 		{
 			var nList = this.SelectElements(typeof(Method));
 			foreach (Method m in nList)

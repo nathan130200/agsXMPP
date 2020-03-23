@@ -21,7 +21,7 @@
 
 using System;
 
-namespace agsXMPP.Net
+namespace AgsXMPP.Net
 {
 	/// <summary>
 	/// Summary description for PollingSocketException.

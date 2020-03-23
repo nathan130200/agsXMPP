@@ -27,10 +27,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 
-using agsXMPP.Protocol.extensions.bosh;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Extensions.Bosh;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Net
+namespace AgsXMPP.Net
 {
 
 	public class WebRequestState
@@ -558,8 +558,8 @@ namespace agsXMPP.Net
 
 			if (data.EndsWith("</stream:stream>"))
 			{
-				var pres = new Protocol.client.Presence();
-				pres.Type = Protocol.client.PresenceType.unavailable;
+				var pres = new Protocol.Client.Presence();
+				pres.Type = Protocol.Client.PresenceType.Unavailable;
 				data = pres.ToString(); //= "<presence type='unavailable' xmlns='jabber:client'/>";
 				this.terminate = true;
 			}

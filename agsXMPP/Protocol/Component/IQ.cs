@@ -24,12 +24,12 @@
 
 #endregion
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP.Protocol.Component
 {
 	/// <summary>
 	/// Summary description for Iq.
 	/// </summary>
-	public class IQ : client.IQ
+	public class IQ : Client.IQ
 	{
 		#region << Constructors >>
 		public IQ() : base()
@@ -37,7 +37,7 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public IQ(client.IQType type) : base(type)
+		public IQ(Client.IQType type) : base(type)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}
@@ -47,7 +47,7 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public IQ(client.IQType type, Jid from, Jid to) : base(type, from, to)
+		public IQ(Client.IQType type, Jid from, Jid to) : base(type, from, to)
 		{
 			this.Namespace = Namespaces.ACCEPT;
 		}

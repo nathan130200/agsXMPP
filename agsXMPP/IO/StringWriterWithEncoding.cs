@@ -22,7 +22,7 @@
 using System.IO;
 using System.Text;
 
-namespace agsXMPP.IO
+namespace AgsXMPP.IO
 {
 	/// <summary>
 	/// This class is inherited from the StringWriter Class

@@ -18,9 +18,7 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using System;
-
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 
 // Send:	<iq type='get' id='MX_5' to='jfrankel@coversant.net/SoapBox'>
@@ -30,7 +28,7 @@ using agsXMPP.Xml.Dom;
 //				<query seconds="644" xmlns="jabber:iq:last"/>
 //			</iq> 
 
-namespace agsXMPP.Protocol.iq.last
+namespace AgsXMPP.Protocol.Iq.last
 {
 	/// <summary>
 	/// Zusammenfassung für Last.

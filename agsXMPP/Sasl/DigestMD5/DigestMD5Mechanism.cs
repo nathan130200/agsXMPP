@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Sasl.DigestMD5
+namespace AgsXMPP.Sasl.DigestMD5
 {
 	/// <summary>
 	/// Handels the SASL Digest MD5 authentication

@@ -1,6 +1,6 @@
 using System;
 
-namespace agsXMPP.Util
+namespace AgsXMPP.Util
 {
 	/// <summary>
 	/// Summary description for Exceptions.

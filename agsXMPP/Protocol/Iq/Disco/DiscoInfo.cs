@@ -18,7 +18,7 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 /*
 Example 1. Querying for further information
@@ -70,7 +70,7 @@ Example 3. Target entity does not exist
 </iq>
     
  */
-namespace agsXMPP.Protocol.iq.disco
+namespace AgsXMPP.Protocol.Iq.Disco
 {
 	/// <summary>
 	/// Discovering Information About a Jabber Entity

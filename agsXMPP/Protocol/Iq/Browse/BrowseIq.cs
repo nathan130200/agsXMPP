@@ -18,14 +18,14 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.browse
+namespace AgsXMPP.Protocol.Iq.browse
 {
 	/// <summary>
 	/// Summary description for BrowseIq.
 	/// </summary>
-	public class BrowseIq : client.IQ
+	public class BrowseIq : Client.IQ
 	{
 		private Browse m_Browse = new Browse();
 

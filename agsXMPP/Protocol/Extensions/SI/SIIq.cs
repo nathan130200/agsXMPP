@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.si
+namespace AgsXMPP.Protocol.Extensions.SI
 {
 	/*
     <iq id="jcl_18" to="xxx" type="result" from="yyy">
@@ -41,7 +41,7 @@ namespace agsXMPP.Protocol.extensions.si
 	/// <summary>
 	/// 
 	/// </summary>
-	public class SIIq : client.IQ
+	public class SIIq : Client.IQ
 	{
 		private SI m_SI = new SI();
 

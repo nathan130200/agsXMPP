@@ -21,10 +21,10 @@
 
 using System.Collections;
 
-using agsXMPP.Collections;
-using agsXMPP.Protocol.client;
+using AgsXMPP.Collections;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	public delegate void PresenceCB(object sender, Presence pres, object data);
 

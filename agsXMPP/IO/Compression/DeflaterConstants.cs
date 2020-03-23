@@ -39,7 +39,7 @@
 
 using System;
 
-namespace agsXMPP.IO.Compression
+namespace AgsXMPP.IO.Compression
 {
 
 	/// <summary>

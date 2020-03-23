@@ -20,15 +20,14 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
 
-using agsXMPP.IO;
+using AgsXMPP.IO;
 
-namespace agsXMPP.Xml.Dom
+namespace AgsXMPP.Xml.Dom
 {
 	public enum NodeType
 	{

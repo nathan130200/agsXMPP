@@ -18,9 +18,9 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.Shim
+namespace AgsXMPP.Protocol.Extensions.Shim
 {
 	/// <summary>
 	/// JEP-0131: Stanza Headers and Internet Metadata (SHIM)

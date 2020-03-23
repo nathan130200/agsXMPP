@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.iq.roster
+namespace AgsXMPP.Protocol.Iq.roster
 {
 	// jabber:iq:roster
 	// <iq from="user@server.com/Office" id="doroster_1" type="result">
@@ -57,7 +57,7 @@ namespace agsXMPP.Protocol.iq.roster
 	/// <summary>
 	/// Item is used in jabber:iq:roster, jabber:iq:search
 	/// </summary>
-	public class RosterItem : @base.RosterItem
+	public class RosterItem : Base.RosterItem
 	{
 		public RosterItem() : base()
 		{

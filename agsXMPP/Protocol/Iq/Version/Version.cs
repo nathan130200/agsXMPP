@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.version
+namespace AgsXMPP.Protocol.Iq.version
 {
 	// Send:<iq type='get' id='MX_6' to='jfrankel@coversant.net/SoapBox'>
 	//			<query xmlns='jabber:iq:version'></query>

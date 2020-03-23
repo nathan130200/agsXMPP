@@ -1,5 +1,5 @@
 /* Do not edit - automatically generated */
-namespace agsXMPP.Idn
+namespace AgsXMPP.Idn
 {
 	public class DecompositionMappings
 	{

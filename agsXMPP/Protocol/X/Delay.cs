@@ -21,9 +21,9 @@
 
 using System;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.x
+namespace AgsXMPP.Protocol.x
 {
 	// <presence to="gnauck@myjabber.net/myJabber v3.5" from="yahoo.myjabber.net/registered">
 	//		<status>Extended Away</status>

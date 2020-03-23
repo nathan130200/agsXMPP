@@ -19,13 +19,13 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 //	<mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
 //		<mechanism>DIGEST-MD5</mechanism>
 //		<mechanism>PLAIN</mechanism>
 //	</mechanisms>
-namespace agsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.sasl
 {
 	/// <summary>
 	/// Summary description for Mechanisms.

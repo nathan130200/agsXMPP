@@ -26,7 +26,7 @@ using System;
 using System.Security.Cryptography;
 #endif
 
-namespace agsXMPP.Util
+namespace AgsXMPP.Util
 {
 	/// <summary>
 	/// Summary description for Hash.
@@ -76,10 +76,10 @@ namespace agsXMPP.Util
 #endif
 		}
 
-#endregion
+		#endregion
 
 
-#region << SHA1 Hash Compact Framework >>
+		#region << SHA1 Hash Compact Framework >>
 #if CF
 		
 
@@ -152,7 +152,7 @@ namespace agsXMPP.Util
 		}
 
 #endif
-#endregion
+		#endregion
 
 	}
 }

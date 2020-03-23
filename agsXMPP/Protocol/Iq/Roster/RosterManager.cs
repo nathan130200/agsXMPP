@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.roster
+namespace AgsXMPP.Protocol.Iq.roster
 {
 	/// <summary>
 	/// Helper Class that makes it easier to manage your roster

@@ -19,36 +19,36 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.geoloc
+namespace AgsXMPP.Protocol.Extensions.GeoLoc
 {
 	/// <summary>
 	/// a GeoLoc InfoQuery
 	/// </summary>
-	public class GeoLocIq : client.IQ
+	public class GeoLocationIq : Client.IQ
 	{
-		public GeoLocIq()
+		public GeoLocationIq()
 		{
 			base.Query = this.Query;
 			this.GenerateId();
 		}
 
-		public GeoLocIq(IQType type) : this()
+		public GeoLocationIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
-		public GeoLocIq(IQType type, Jid to) : this(type)
+		public GeoLocationIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
-		public GeoLocIq(IQType type, Jid to, Jid from) : this(type, to)
+		public GeoLocationIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}
 
-        public new GeoLoc Query { get; } = new GeoLoc();
+		public new GeoLocation Query { get; } = new GeoLocation();
 	}
 }

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.amp
+namespace AgsXMPP.Protocol.Extensions.Amp
 {
 	public enum Condition
 	{

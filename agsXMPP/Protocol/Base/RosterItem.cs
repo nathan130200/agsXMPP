@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.@base
+namespace AgsXMPP.Protocol.Base
 {
 	// jabber:iq:roster
 	// <iq from="gnauck@myjabber.net/Office" id="doroster_1" type="result">

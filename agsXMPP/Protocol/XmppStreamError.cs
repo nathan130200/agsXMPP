@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol
+namespace AgsXMPP.Protocol
 {
 	// <stream:error>Invalid handshake</stream:error>
 	// <stream:error>Socket override by another connection.</stream:error>

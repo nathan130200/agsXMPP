@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	//	# away -- The entity or resource is temporarily away.
 	//	# chat -- The entity or resource is actively interested in chatting.

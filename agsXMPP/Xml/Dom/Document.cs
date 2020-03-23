@@ -21,7 +21,7 @@
 
 using System.IO;
 
-namespace agsXMPP.Xml.Dom
+namespace AgsXMPP.Xml.Dom
 {
 	/// <summary>
 	/// 

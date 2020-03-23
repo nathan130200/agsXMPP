@@ -27,7 +27,7 @@ using agsXMPP.util;
 #endif
 using System.Security.Cryptography;
 
-namespace agsXMPP.Sasl.DigestMD5
+namespace AgsXMPP.Sasl.DigestMD5
 {
 	/// <summary>
 	/// Summary description for Step2.
@@ -92,17 +92,17 @@ namespace agsXMPP.Sasl.DigestMD5
 
 		public string Cnonce { get; set; }
 
-        public string Nc { get; set; }
+		public string Nc { get; set; }
 
-        public string DigestUri { get; set; }
+		public string DigestUri { get; set; }
 
-        public string Response { get; set; }
+		public string Response { get; set; }
 
-        public string Authzid { get; set; }
-        #endregion
+		public string Authzid { get; set; }
+		#endregion
 
 
-        public override string ToString()
+		public override string ToString()
 		{
 			return this.GenerateMessage();
 		}
@@ -176,7 +176,7 @@ namespace agsXMPP.Sasl.DigestMD5
 			stbl.Append(this.Password);
 
 #if !CF
-			using(var md5 = new MD5CryptoServiceProvider())
+			using (var md5 = new MD5CryptoServiceProvider())
 				H1 = md5.ComputeHash(Encoding.UTF8.GetBytes(stbl.ToString()));
 #else
 			//H1 = Encoding.Default.GetBytes(util.Hash.MD5Hash(sb.ToString()));
@@ -208,7 +208,7 @@ namespace agsXMPP.Sasl.DigestMD5
 			//Array.Copy(H1, bH1A1, H1.Length);
 			Array.Copy(H1, 0, bH1A1, 0, H1.Length);
 			Array.Copy(bA1, 0, bH1A1, H1.Length, bA1.Length);
-			using(var md5 = new MD5CryptoServiceProvider())
+			using (var md5 = new MD5CryptoServiceProvider())
 				H1 = md5.ComputeHash(bH1A1);
 
 			stbl.Remove(0, stbl.Length);
@@ -221,7 +221,7 @@ namespace agsXMPP.Sasl.DigestMD5
 			A2 = stbl.ToString();
 			H2 = Encoding.ASCII.GetBytes(A2);
 
-			using(var md5 = new MD5CryptoServiceProvider())
+			using (var md5 = new MD5CryptoServiceProvider())
 				H2 = md5.ComputeHash(H2);
 
 			// create p1 and p2 as the hex representation of H1 and H2
@@ -243,7 +243,7 @@ namespace agsXMPP.Sasl.DigestMD5
 
 			A3 = stbl.ToString();
 
-			using(var md5 = new MD5CryptoServiceProvider())
+			using (var md5 = new MD5CryptoServiceProvider())
 				H3 = md5.ComputeHash(Encoding.ASCII.GetBytes(A3));
 
 			this.Response = Util.Hash.HexToString(H3).ToLower();

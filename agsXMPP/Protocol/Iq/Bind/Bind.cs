@@ -20,9 +20,9 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.bind
+namespace AgsXMPP.Protocol.Iq.bind
 {
 	/// <summary>
 	/// Summary description for Bind.

@@ -19,11 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.extensions.featureneg;
-using agsXMPP.Protocol.extensions.filetransfer;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Extensions.FileTransfer;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.si
+namespace AgsXMPP.Protocol.Extensions.SI
 {
 	/// <summary>
 	/// JEP-0095: Stream Initiation.
@@ -79,16 +78,16 @@ namespace agsXMPP.Protocol.extensions.si
 		/// <summary>
 		/// the FeatureNeg Element 
 		/// </summary>
-		public featureneg.FeatureNeg FeatureNeg
+		public FeatureNeg.FeatureNegotiation FeatureNeg
 		{
 			get
 			{
-				return this.SelectSingleElement(typeof(featureneg.FeatureNeg)) as featureneg.FeatureNeg;
+				return this.SelectSingleElement(typeof(FeatureNeg.FeatureNegotiation)) as FeatureNeg.FeatureNegotiation;
 			}
 			set
 			{
-				if (this.HasTag(typeof(featureneg.FeatureNeg)))
-					this.RemoveTag(typeof(featureneg.FeatureNeg));
+				if (this.HasTag(typeof(FeatureNeg.FeatureNegotiation)))
+					this.RemoveTag(typeof(FeatureNeg.FeatureNegotiation));
 
 				if (value != null)
 					this.AddChild(value);

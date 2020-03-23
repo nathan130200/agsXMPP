@@ -26,7 +26,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 #endif
 
-namespace agsXMPP.Net
+namespace AgsXMPP.Net
 {
 	/// <summary>
 	/// Base Socket class
@@ -61,7 +61,7 @@ namespace agsXMPP.Net
 #endif
 
 #if SSL
-        public event RemoteCertificateValidationCallback    OnValidateCertificate;
+		public event RemoteCertificateValidationCallback OnValidateCertificate;
 #endif
 
 #if BCCRYPTO
@@ -123,26 +123,26 @@ namespace agsXMPP.Net
 		}
 
 #if SSL
-        // The following method is invoked by the RemoteCertificateValidationDelegate.
-        protected bool FireOnValidateCertificate(
-              object sender,
-              X509Certificate certificate,
-              X509Chain chain,
-              SslPolicyErrors sslPolicyErrors)
-        {
-            if (OnValidateCertificate != null)
-                return OnValidateCertificate(sender, certificate, chain, sslPolicyErrors);
-            else
-                return true;
+		// The following method is invoked by the RemoteCertificateValidationDelegate.
+		protected bool FireOnValidateCertificate(
+			  object sender,
+			  X509Certificate certificate,
+			  X509Chain chain,
+			  SslPolicyErrors sslPolicyErrors)
+		{
+			if (OnValidateCertificate != null)
+				return OnValidateCertificate(sender, certificate, chain, sslPolicyErrors);
+			else
+				return true;
 
-            //if (sslPolicyErrors == SslPolicyErrors.None)
-            //    return true;
+			//if (sslPolicyErrors == SslPolicyErrors.None)
+			//    return true;
 
-            //Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+			//Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
 
-            // Do not allow this client to communicate with unauthenticated servers.
-            //return false;
-        }
+			// Do not allow this client to communicate with unauthenticated servers.
+			//return false;
+		}
 #endif
 #if MONOSSL
         protected bool FireOnValidateCertificate(X509Certificate certificate, int[] certificateErrors)

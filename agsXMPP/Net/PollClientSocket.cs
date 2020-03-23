@@ -31,7 +31,7 @@ using System.Threading;
 using agsXMPP.util;
 #endif
 
-namespace agsXMPP.Net
+namespace AgsXMPP.Net
 {
 	/// <summary>
 	/// JEP-0025 Jabber HTTP Polling Socket

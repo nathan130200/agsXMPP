@@ -23,10 +23,10 @@ using System;
 using System.Collections;
 using System.Globalization;
 
-using agsXMPP.Exceptions;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Exceptions;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.rpc
+namespace AgsXMPP.Protocol.Iq.rpc
 {
 	/// <summary>
 	/// The method Response element. 

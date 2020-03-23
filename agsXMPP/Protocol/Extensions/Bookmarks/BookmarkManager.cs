@@ -18,9 +18,9 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.bookmarks
+namespace AgsXMPP.Protocol.Extensions.Bookmarks
 {
 	public class BookmarkManager
 	{

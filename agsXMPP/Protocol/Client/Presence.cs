@@ -19,15 +19,15 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.extensions.nickname;
-using agsXMPP.Protocol.extensions.primary;
+using AgsXMPP.Protocol.Extensions.nickname;
+using AgsXMPP.Protocol.Extensions.primary;
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	/// <summary>
 	/// Zusammenfassung für Presence.
 	/// </summary>
-	public class Presence : @base.Stanza
+	public class Presence : Base.Stanza
 	{
 		#region << Constructors >>
 		public Presence()
@@ -70,15 +70,15 @@ namespace agsXMPP.Protocol.client
 		{
 			get
 			{
-				return (PresenceType)this.GetAttributeEnum("type", typeof(PresenceType));
+				return this.GetAttributeEnum<PresenceType>("type");
 			}
 			set
 			{
 				// dont add type="available"
-				if (value == PresenceType.available)
+				if (value == PresenceType.Available)
 					this.RemoveAttribute("type");
 				else
-					this.SetAttribute("type", value.ToString());
+					this.SetAttributeEnum("type", value);
 			}
 
 		}

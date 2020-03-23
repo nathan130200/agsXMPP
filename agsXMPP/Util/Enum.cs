@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Util
+namespace AgsXMPP.Util
 {
 	/// <summary>
 	/// Provides helper functions for Enumerations.

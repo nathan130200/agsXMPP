@@ -19,14 +19,12 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
-
-namespace agsXMPP.Protocol.extensions.ping
+namespace AgsXMPP.Protocol.Extensions.ping
 {
 	/// <summary>
 	/// 
 	/// </summary>
-	public class PingIq : client.IQ
+	public class PingIq : Client.IQ
 	{
 		private Ping m_Ping = new Ping();
 

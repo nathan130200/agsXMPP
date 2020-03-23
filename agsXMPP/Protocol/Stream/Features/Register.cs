@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 //<stream:stream xmlns:stream='http://etherx.jabber.org/streams/'
 //xmlns='jabber:client'
 //from='somedomain'
@@ -29,7 +29,7 @@ using agsXMPP.Xml.Dom;
 //<register xmlns='http://jabber.org/features/iq-register'/>
 //...
 
-namespace agsXMPP.Protocol.stream.features
+namespace AgsXMPP.Protocol.stream.features
 {
 	/// <summary>
 	/// 

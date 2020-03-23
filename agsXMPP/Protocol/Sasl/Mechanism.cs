@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 //	<mechanism>DIGEST-MD5</mechanism>
 //	<mechanism>PLAIN</mechanism>
@@ -49,7 +49,7 @@ using agsXMPP.Xml.Dom;
 //KERBEROS_V5          COMMON   [Josefsson] Simon Josefsson <simon@josefsson.org>
 //NMAS-SAMBA-AUTH      LIMITED  [Brimhall]  Vince Brimhall <vbrimhall@novell.com>
 
-namespace agsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.sasl
 {
 
 	public enum MechanismType

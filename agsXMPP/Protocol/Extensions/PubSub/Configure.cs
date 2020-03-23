@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.x.data;
+using AgsXMPP.Protocol.x.data;
 
-namespace agsXMPP.Protocol.extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.pubsub
 {
 	public class Configure : PubSubAction
 	{

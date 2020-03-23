@@ -19,11 +19,11 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.pubsub
 {
-	public class PubSubIq : client.IQ
+	public class PubSubIq : Client.IQ
 	{
 		/*
             Example 1. Entity requests a new node with default configuration.

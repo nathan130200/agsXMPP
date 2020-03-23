@@ -19,10 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.sasl;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.sasl;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Sasl.Anonymous
+namespace AgsXMPP.Sasl.Anonymous
 {
 	/// <summary>
 	/// SALS ANONYMOUS Mechanism, this allows anonymous logins to a xmpp server.

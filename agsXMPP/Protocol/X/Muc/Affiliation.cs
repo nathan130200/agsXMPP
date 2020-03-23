@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.x.muc
 {
 	/// <summary>
 	/// There are five defined affiliations that a user may have in relation to a room

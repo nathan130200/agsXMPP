@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Xml.Dom
+namespace AgsXMPP.Xml.Dom
 {
 	/// <summary>
 	/// 

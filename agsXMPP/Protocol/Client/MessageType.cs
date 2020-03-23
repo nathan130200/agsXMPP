@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	/// <summary>
 	/// Enumeration that represents the type of a message
@@ -29,27 +29,30 @@ namespace agsXMPP.Protocol.client
 		/// <summary>
 		/// This in a normal message, much like an email. You dont expect a fast
 		/// </summary>
-		normal = -1,
+		None = -1,
 
 		/// <summary>
 		/// a error messages
 		/// </summary>
-		error,
+		[XmppEnumMember("error")]
+		Error,
 
 		/// <summary>
 		/// is for chat like messages, person to person. Send this if you expect a fast reply. reply or no reply at all.
 		/// </summary>
-		chat,
+		[XmppEnumMember("chat")]
+		Chat,
 
 		/// <summary>
 		/// is used for sending/receiving messages from/to a chatroom (IRC style chats) 
 		/// </summary>
-		/// 
-		groupchat,
+		[XmppEnumMember("groupchat")]
+		GroupChat,
 
 		/// <summary>
 		/// Think of this as a news broadcast, or RRS Feed, the message will normally have a URL and Description Associated with it.
 		/// </summary>
-		headline
+		[XmppEnumMember("headline")]
+		Headline
 	}
 }

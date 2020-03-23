@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.@base
+namespace AgsXMPP.Protocol.Base
 {
 	/// <summary>
 	/// Summary description for Stream.

@@ -19,13 +19,13 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.x.muc
 {
 	/// <summary>
 	/// A base class vor Decline and Invite
 	/// We need From, To and SwitchDirection here. This is why we inherit from XmppPacket Base
 	/// </summary>
-	public abstract class Invitation : @base.Stanza
+	public abstract class Invitation : Base.Stanza
 	{
 		public Invitation()
 		{

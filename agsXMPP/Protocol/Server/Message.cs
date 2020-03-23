@@ -19,13 +19,13 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.server
+namespace AgsXMPP.Protocol.server
 {
-    public class Message : client.Message
-    {
-        public Message()
+	public class Message : Client.Message
+	{
+		public Message()
 		{
 			this.Namespace = Namespaces.SERVER;
 		}
-    }
+	}
 }

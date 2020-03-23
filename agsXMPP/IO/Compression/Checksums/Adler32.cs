@@ -37,7 +37,7 @@
 
 using System;
 
-namespace agsXMPP.IO.Compression.Checksums
+namespace AgsXMPP.IO.Compression.Checksums
 {
 
 	/// <summary>

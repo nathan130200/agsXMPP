@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.compression
+namespace AgsXMPP.Protocol.Extensions.Compression
 {
 	public enum CompressionMethod
 	{

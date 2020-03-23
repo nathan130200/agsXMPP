@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.jivesoftware.Phone
+namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 {
 	/// <summary>
 	/// A user's presence is updated when on a phone call.

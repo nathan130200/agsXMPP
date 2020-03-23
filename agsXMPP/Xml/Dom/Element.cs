@@ -22,13 +22,27 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using System.IO;
-using System.Xml;
-using System.Collections.Concurrent;
-using System.Linq;
 
-namespace agsXMPP.Xml.Dom
+/* Unmerged change from project 'agsXMPP (net452)'
+Before:
+using System.Text;
+After:
+using System.Globalization;
+*/
+
+/* Unmerged change from project 'agsXMPP (net472)'
+Before:
+using System.Text;
+After:
+using System.Globalization;
+*/
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Xml;
+
+namespace AgsXMPP.Xml.Dom
 {
 	public class Element : Node
 	{
@@ -115,24 +129,34 @@ namespace agsXMPP.Xml.Dom
 			}
 		}
 
-		public object GetAttributeEnum(string name, Type enumType)
+		public T GetAttributeEnum<T>(string name)
+			where T : struct
+
 		{
-			var att = this.GetAttribute(name);
-			if ((att == null))
-				return -1;
-			try
-			{
-				return Enum.Parse(enumType, att, true);
-			}
-			catch (Exception)
-			{
-				return -1;
-			}
+			var attr = this.GetAttribute(name);
+
+			if (Enum.TryParse<T>(attr, out var value))
+				return value;
+
+			var field = typeof(T).GetFields()
+				.Where(x => x.GetCustomAttribute<XmppEnumMemberAttribute>() != null)
+				.Select(x => new { attr = x.GetCustomAttribute<XmppEnumMemberAttribute>().Value, name = x.Name })
+				.FirstOrDefault(x => x.name.Equals(attr));
+
+			if (Enum.TryParse<T>(field.name, out value))
+				return value;
+
+			return default;
 		}
 
-		public T GetAttributeEnum<T>(string name) where T : Enum
+		public void SetAttributeEnum<T>(string name, T value)
 		{
-			return (T) this.GetAttributeEnum(name, typeof(T));
+			var field = typeof(T).GetFields()
+				.Where(x => x.GetCustomAttribute<XmppEnumMemberAttribute>() != null)
+				.Select(x => new { attr = x.GetCustomAttribute<XmppEnumMemberAttribute>().Value, name = x.Name })
+				.FirstOrDefault(x => x.name.Equals(value.ToString()));
+
+			this.SetAttribute(name, field.attr);
 		}
 
 		public string GetAttribute(string name)
@@ -159,7 +183,7 @@ namespace agsXMPP.Xml.Dom
 		{
 			if (this.HasAttribute(name))
 			{
-				lock(this.m_AttributesLocker)
+				lock (this.m_AttributesLocker)
 					return long.Parse(this.m_Attributes[name]);
 			}
 			else
@@ -233,7 +257,7 @@ namespace agsXMPP.Xml.Dom
 
 		public bool HasAttribute(string name)
 		{
-			lock(this.m_AttributesLocker)
+			lock (this.m_AttributesLocker)
 				return this.m_Attributes.ContainsKey(name);
 		}
 
@@ -918,15 +942,15 @@ namespace agsXMPP.Xml.Dom
 			return this._SelectElement(this, TagName, ns, traverseChildren);
 		}
 
-        public T SelectSingleElement<T>() where T : Element
-        {
-            return (T)this._SelectElement(this, typeof(T));
-        }
+		public T SelectSingleElement<T>() where T : Element
+		{
+			return (T)this._SelectElement(this, typeof(T));
+		}
 
-        public T SelectSingleElement<T>(bool traverseChildren) where T : Element
-        {
-            return (T)this._SelectElement(this, typeof(T), traverseChildren);
-        }
+		public T SelectSingleElement<T>(bool traverseChildren) where T : Element
+		{
+			return (T)this._SelectElement(this, typeof(T), traverseChildren);
+		}
 
 		/// <summary>
 		/// Returns all childNodes with the given Tagname,

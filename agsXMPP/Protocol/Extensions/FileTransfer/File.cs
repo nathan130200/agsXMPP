@@ -21,9 +21,9 @@
 
 using System;
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.filetransfer
+namespace AgsXMPP.Protocol.Extensions.FileTransfer
 {
 	/// <summary>
 	/// Summary description for File.

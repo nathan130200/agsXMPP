@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.x.muc.iq.admin
+namespace AgsXMPP.Protocol.x.muc.iq.admin
 {
 	/*
         <query xmlns='http://jabber.org/protocol/muc#admin'>

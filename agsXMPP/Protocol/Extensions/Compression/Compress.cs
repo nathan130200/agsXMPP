@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.compression
+namespace AgsXMPP.Protocol.Extensions.Compression
 {
 	// <compress xmlns="http://jabber.org/protocol/compress">
 	//      <method>zlib</method>

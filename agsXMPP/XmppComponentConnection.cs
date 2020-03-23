@@ -22,11 +22,11 @@
 using System;
 using System.Text;
 
-using agsXMPP.Protocol.component;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Component;
+using AgsXMPP.Xml.Dom;
 
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	/// <summary>
 	/// <para>

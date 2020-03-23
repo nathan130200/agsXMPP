@@ -19,12 +19,12 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.x.muc
 {
 	/// <summary>
 	/// Summary description for Item.
 	/// </summary>
-	public class Item : @base.Item
+	public class Item : Base.Item
 	{
 		/*
         <x xmlns='http://jabber.org/protocol/muc#user'>

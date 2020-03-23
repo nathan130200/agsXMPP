@@ -24,12 +24,12 @@
 
 #endregion
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP.Protocol.Component
 {
 	/// <summary>
 	/// Summary description for Presence.
 	/// </summary>
-	public class Presence : client.Presence
+	public class Presence : Client.Presence
 	{
 		#region << Constructors >>
 		public Presence() : base()
@@ -37,13 +37,13 @@ namespace agsXMPP.Protocol.component
 			this.Namespace = Namespaces.ACCEPT;
 		}
 
-		public Presence(client.ShowType show, string status) : this()
+		public Presence(Client.ShowType show, string status) : this()
 		{
 			this.Show = show;
 			this.Status = status;
 		}
 
-		public Presence(client.ShowType show, string status, int priority) : this(show, status)
+		public Presence(Client.ShowType show, string status, int priority) : this(show, status)
 		{
 			this.Priority = priority;
 		}

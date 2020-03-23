@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.pubsub.Event
+namespace AgsXMPP.Protocol.Extensions.pubsub.Event
 {
 	/*
         <message from='pubsub.shakespeare.lit' to='francisco@denmark.lit' id='foo'>
@@ -60,7 +60,7 @@ namespace agsXMPP.Protocol.extensions.pubsub.Event
 	// This class is the same as the Item class in the main pubsub namespace,
 	// so inherit it and overwrite some properties and functions
 
-	public class Item : extensions.pubsub.Item
+	public class Item : Extensions.pubsub.Item
 	{
 		#region << Constructors >>
 		public Item() : base()

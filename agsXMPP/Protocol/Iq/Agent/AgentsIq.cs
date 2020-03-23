@@ -19,19 +19,19 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
 // Request Agents:
 // <iq id='someid' to='myjabber.net' type='get'>
 //		<query xmlns='jabber:iq:agents'/>
 // </iq>
 
-namespace agsXMPP.Protocol.iq.agent
+namespace AgsXMPP.Protocol.Iq.agent
 {
 	/// <summary>
 	/// Summary description for AgentsIq.
 	/// </summary>
-	public class AgentsIq : client.IQ
+	public class AgentsIq : Client.IQ
 	{
 		private Agents m_Agents = new Agents();
 

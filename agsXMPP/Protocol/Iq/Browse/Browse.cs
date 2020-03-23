@@ -18,8 +18,7 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using System;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
 // Note: This JEP is superseded by JEP-0030: Service Discovery.
 
@@ -28,7 +27,7 @@ using agsXMPP.Xml.Dom;
 // implement the protocol that supersedes this one (if any).
 
 // Most components and gateways still dont implement Service discovery. So we must use jabber:iq:browse for them until everything is replaced with JEP 30 (Service Discovery).
-namespace agsXMPP.Protocol.iq.browse
+namespace AgsXMPP.Protocol.Iq.browse
 {
 	/// <summary>
 	/// JEP-0011: Jabber Browsing.

@@ -19,11 +19,11 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.iq.bind;
-using agsXMPP.Protocol.stream.features;
-using agsXMPP.Protocol.stream.features.Compression;
-using agsXMPP.Protocol.tls;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Iq.bind;
+using AgsXMPP.Protocol.stream.features;
+using AgsXMPP.Protocol.stream.features.Compression;
+using AgsXMPP.Protocol.tls;
+using AgsXMPP.Xml.Dom;
 
 //</stream:features>
 // <stream:features>
@@ -43,7 +43,7 @@ using agsXMPP.Xml.Dom;
 //		</mechanisms>
 // </stream:features>
 
-namespace agsXMPP.Protocol.stream
+namespace AgsXMPP.Protocol.stream
 {
 	/// <summary>
 	/// Summary description for Features.

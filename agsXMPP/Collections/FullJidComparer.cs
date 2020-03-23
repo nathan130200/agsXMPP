@@ -22,13 +22,15 @@
 using System;
 using System.Collections;
 
-namespace agsXMPP.Collections
+namespace AgsXMPP.Collections
 {
 	/// <summary>
 	/// Full JID comparer.
 	/// </summary>
 	public class FullJidComparer : IComparer
 	{
+		public static readonly FullJidComparer Instance = new FullJidComparer();
+
 		/// <summary>
 		/// 
 		/// </summary>

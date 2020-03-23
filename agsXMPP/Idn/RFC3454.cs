@@ -20,9 +20,8 @@
 /// USA
 /// </summary>
 
-using System;
 
-namespace agsXMPP.Idn
+namespace AgsXMPP.Idn
 {
 
 	public class RFC3454

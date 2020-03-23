@@ -25,7 +25,7 @@
 // distributed and edited without restriction.
 // 
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// The DNS TYPE (RFC1035 3.2.2/3).  Not all are supported

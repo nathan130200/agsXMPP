@@ -39,10 +39,10 @@
 
 using System;
 
-using agsXMPP.IO.Compression.Checksums;
-using agsXMPP.IO.Compression.Streams;
+using AgsXMPP.IO.Compression.Checksums;
+using AgsXMPP.IO.Compression.Streams;
 
-namespace agsXMPP.IO.Compression
+namespace AgsXMPP.IO.Compression
 {
 
 	/// <summary>

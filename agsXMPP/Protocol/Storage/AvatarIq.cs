@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.storage
+namespace AgsXMPP.Protocol.storage
 {
 
 	//	Once such data has been set, the avatar can be retrieved by any requesting client from the avatar-generating client's public XML storage:
@@ -35,7 +35,7 @@ namespace agsXMPP.Protocol.storage
 	/// <summary>
 	/// Summary description for AvatarIq.
 	/// </summary>
-	public class AvatarIq : client.IQ
+	public class AvatarIq : Client.IQ
 	{
 		private Avatar m_Avatar = new Avatar();
 

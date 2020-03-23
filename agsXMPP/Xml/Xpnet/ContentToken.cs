@@ -35,7 +35,7 @@
 
 using System;
 
-namespace agsXMPP.Xml.Xpnet
+namespace AgsXMPP.Xml.Xpnet
 {
 	/// <summary>
 	/// Represents information returned by <code>Encoding.tokenizeContent</code>.

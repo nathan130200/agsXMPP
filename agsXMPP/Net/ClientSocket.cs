@@ -26,7 +26,6 @@ using System.Threading;
 using System.IO;
 using System.Text;
 using System.Collections;
-using System.Diagnostics;
 
 #if SSL
 using System.Net.Security;
@@ -43,9 +42,9 @@ using Mono.Security.Protocol.Tls;
 using Org.BouncyCastle.Crypto.Tls;
 #endif
 
-using agsXMPP.IO.Compression;
+using AgsXMPP.IO.Compression;
 
-namespace agsXMPP.Net
+namespace AgsXMPP.Net
 {
 	public class ConnectTimeoutException : Exception
 	{
@@ -61,7 +60,7 @@ namespace agsXMPP.Net
 	{
 		Socket _socket;
 #if SSL
-        SslStream           m_SSLStream;
+		SslStream m_SSLStream;
 #endif
 #if MONOSSL
         SslClientStream		m_SSLStream;
@@ -108,7 +107,7 @@ namespace agsXMPP.Net
 		{
 			get { return this.m_SSL; }
 #if SSL || MONOSSL
-			set	{ this.m_SSL = value; }
+			set { this.m_SSL = value; }
 #endif
 		}
 
@@ -193,11 +192,7 @@ namespace agsXMPP.Net
 
 			try
 			{
-#if NET_2 || CF_2
-                IPHostEntry ipHostInfo = Dns.GetHostEntry(Address);   
-#else
 				var ipHostInfo = System.Net.Dns.GetHostEntry(this.Address);
-#endif
 				var ipAddress = ipHostInfo.AddressList[0];// IPAddress.Parse(address);
 				var endPoint = new IPEndPoint(ipAddress, this.Port);
 
@@ -209,35 +204,7 @@ namespace agsXMPP.Net
 				var timerDelegate = new TimerCallback(this.connectTimeoutTimerDelegate);
 				this.connectTimeoutTimer = new Timer(timerDelegate, null, this.ConnectTimeout, this.ConnectTimeout);
 
-#if NET_2
-                // IPV6 Support for .NET 2.0
-                if (Socket.OSSupportsIPv6 && (endPoint.AddressFamily == AddressFamily.InterNetworkV6))
-                {
-                    //Debug.WriteLine("IPV6");
-                    _socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);                   
-                }
-                else
-                {
-                    //Debug.WriteLine("IPV4");
-                    _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                }
-#elif NET_11
-                // IPV6 Support for .NET 1.1
-                if (Socket.SupportsIPv6 && (endPoint.AddressFamily == AddressFamily.InterNetworkV6))
-                {
-                    Debug.WriteLine("IPV6");
-                    _socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);                   
-                }
-                else
-                {
-                    Debug.WriteLine("IPV4");
-                    _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                }
-#else
-				// CF, there is no IPV6 support yet
-				Debug.WriteLine("IPV4");
 				this._socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-#endif
 				this._socket.BeginConnect(endPoint, new AsyncCallback(this.EndConnect), null);
 			}
 			catch (Exception ex)
@@ -267,7 +234,7 @@ namespace agsXMPP.Net
 					this.m_NetworkStream = this.m_Stream;
 
 #if SSL || MONOSSL
-                    if (this.m_SSL)
+					if (this.m_SSL)
 						this.InitSSL();
 #endif
 
@@ -302,56 +269,54 @@ namespace agsXMPP.Net
 		public override void StartTls()
 		{
 			base.StartTls();
-			
-            var protocol = SslProtocols.Tls;
-			this.InitSSL(protocol);
-		}           
+			this.InitSSL();
+		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		private void InitSSL()
 		{
-			this.InitSSL(SslProtocols.Default);
-		}        
-        
-        /// <summary>
+			this.InitSSL(SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12);
+		}
+
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="protocol"></param>		
-        private void InitSSL(SslProtocols protocol)
+		private void InitSSL(SslProtocols protocol)
 		{
 			this.m_SSLStream = new SslStream(
 				this.m_Stream,
-                false,
-                new RemoteCertificateValidationCallback(this.ValidateCertificate),
-                null
-                );			
-            try
-            {
-				this.m_SSLStream.AuthenticateAsClient(Address, null, protocol, true);
-                // Display the properties and settings for the authenticated stream.
-                //DisplaySecurityLevel(m_SSLStream);
-                //DisplaySecurityServices(m_SSLStream);
-                //DisplayCertificateInformation(m_SSLStream);
-                //DisplayStreamProperties(m_SSLStream);
+				false,
+				new RemoteCertificateValidationCallback(this.ValidateCertificate),
+				null
+				);
+			try
+			{
+				this.m_SSLStream.AuthenticateAsClient(this.Address, null, protocol, true);
+				// Display the properties and settings for the authenticated stream.
+				//DisplaySecurityLevel(m_SSLStream);
+				//DisplaySecurityServices(m_SSLStream);
+				//DisplayCertificateInformation(m_SSLStream);
+				//DisplayStreamProperties(m_SSLStream);
 
-            } 
-            catch (AuthenticationException e)
-            {
-                //Console.WriteLine("Exception: {0}", e.Message);
-                if (e.InnerException != null)
-                {
-                    //Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
-                }
-                //Console.WriteLine ("Authentication failed - closing the connection.");
-                //client.Close();
-                return;
-            }
+			}
+			catch (AuthenticationException e)
+			{
+				//Console.WriteLine("Exception: {0}", e.Message);
+				if (e.InnerException != null)
+				{
+					//Console.WriteLine("Inner exception: {0}", e.InnerException.Message);
+				}
+				//Console.WriteLine ("Authentication failed - closing the connection.");
+				//client.Close();
+				return;
+			}
 
 			this.m_NetworkStream = this.m_SSLStream;
-			this.m_SSL = true;			
-        }
+			this.m_SSL = true;
+		}
 
 
 		#region << SSL Properties Display stuff >>
@@ -396,7 +361,7 @@ namespace agsXMPP.Net
             }
         }
 		*/
-		
+
 		#endregion
 
 		/// <summary>
@@ -407,9 +372,9 @@ namespace agsXMPP.Net
 		/// <param name="certificateErrors"></param>
 		/// <returns></returns>
 		//private bool ValidateCertificate (X509Certificate certificate, int[] certificateErrors) 
-		private bool ValidateCertificate (object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+		private bool ValidateCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
 		{
-			return FireOnValidateCertificate(sender, certificate, chain, sslPolicyErrors);
+			return this.FireOnValidateCertificate(sender, certificate, chain, sslPolicyErrors);
 		}
 #endif
 

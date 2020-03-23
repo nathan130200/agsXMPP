@@ -28,7 +28,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// Represents a DNS Question, comprising of a domain to query, the type of query (QTYPE) and the class

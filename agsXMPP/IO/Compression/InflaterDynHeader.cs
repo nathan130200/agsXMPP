@@ -37,9 +37,9 @@
 
 using System;
 
-using agsXMPP.IO.Compression.Streams;
+using AgsXMPP.IO.Compression.Streams;
 
-namespace agsXMPP.IO.Compression
+namespace AgsXMPP.IO.Compression
 {
 
 	class InflaterDynHeader

@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.extensions.filetransfer
+namespace AgsXMPP.Protocol.Extensions.FileTransfer
 {
 	/// <summary>
 	/// When range is sent in the offer, it should have no attributes. 

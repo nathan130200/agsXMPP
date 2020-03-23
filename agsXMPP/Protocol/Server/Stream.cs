@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.server
+namespace AgsXMPP.Protocol.server
 {
-    public class Stream : @base.Stream
-    {
-        public Stream() : base()
+	public class Stream : Base.Stream
+	{
+		public Stream() : base()
 		{
 			this.Namespace = Namespaces.STREAM;
 			this.Prefix = "stream";
 		}
-    }
+	}
 }

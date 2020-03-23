@@ -18,9 +18,9 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.iq.browse
+namespace AgsXMPP.Protocol.Iq.browse
 {
 	/// <summary>
 	/// Historically each category was used as the name of an element, 

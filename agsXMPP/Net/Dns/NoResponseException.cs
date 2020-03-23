@@ -27,7 +27,7 @@
 
 using System;
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// Thrown when the server does not respond

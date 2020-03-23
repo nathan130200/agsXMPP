@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.client
+namespace AgsXMPP.Protocol.Client
 {
 	/// <summary>
 	/// Helper class for managing presence and subscriptions
@@ -41,7 +41,7 @@ namespace agsXMPP.Protocol.client
 		{
 			// <presence to='contact@example.org' type='subscribe'/>
 			var pres = new Presence();
-			pres.Type = PresenceType.subscribe;
+			pres.Type = PresenceType.Subscribe;
 			pres.To = to;
 
 			this.m_connection.Send(pres);
@@ -56,7 +56,7 @@ namespace agsXMPP.Protocol.client
 		public void Subscribe(Jid to, string message)
 		{
 			var pres = new Presence();
-			pres.Type = PresenceType.subscribe;
+			pres.Type = PresenceType.Subscribe;
 			pres.To = to;
 			pres.Status = message;
 
@@ -72,7 +72,7 @@ namespace agsXMPP.Protocol.client
 		{
 			// <presence to='contact@example.org' type='subscribe'/>
 			var pres = new Presence();
-			pres.Type = PresenceType.unsubscribe;
+			pres.Type = PresenceType.Unsubscribe;
 			pres.To = to;
 
 			this.m_connection.Send(pres);
@@ -106,7 +106,7 @@ namespace agsXMPP.Protocol.client
 		{
 			// <presence to='contact@example.org' type='subscribe'/>
 			var pres = new Presence();
-			pres.Type = PresenceType.unsubscribed;
+			pres.Type = PresenceType.Unsubscribed;
 			pres.To = to;
 
 			this.m_connection.Send(pres);

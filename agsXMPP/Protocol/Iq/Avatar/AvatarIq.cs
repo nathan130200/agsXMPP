@@ -19,14 +19,14 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Protocol.Client;
 
-namespace agsXMPP.Protocol.iq.avatar
+namespace AgsXMPP.Protocol.Iq.avatar
 {
 	/// <summary>
 	/// Summary description for AvatarIq.
 	/// </summary>
-	public class AvatarIq : client.IQ
+	public class AvatarIq : Client.IQ
 	{
 		private Avatar m_Avatar = new Avatar();
 

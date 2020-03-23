@@ -25,7 +25,7 @@
 // distributed and edited without restriction.
 // 
 
-namespace agsXMPP.Net.Dns
+namespace AgsXMPP.Net.Dns
 {
 	/// <summary>
 	/// Represents a Resource Record as detailed in RFC1035 4.1.3

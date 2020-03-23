@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace agsXMPP.Protocol.extensions.chatstates
+namespace AgsXMPP.Protocol.Extensions.ChatStates
 {
 	/// <summary>
 	/// Enumeration of supported Chatstates (JEP-0085)

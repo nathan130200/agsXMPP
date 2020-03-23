@@ -19,9 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.sasl;
+using AgsXMPP.Protocol.sasl;
 
-namespace agsXMPP.Sasl
+namespace AgsXMPP.Sasl
 {
 	public delegate void SaslEventHandler(object sender, SaslEventArgs args);
 

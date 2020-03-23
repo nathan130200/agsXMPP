@@ -21,7 +21,7 @@
 
 using System.Collections;
 
-namespace agsXMPP
+namespace AgsXMPP
 {
 	/// <summary>
 	/// Summary description for Grabber.

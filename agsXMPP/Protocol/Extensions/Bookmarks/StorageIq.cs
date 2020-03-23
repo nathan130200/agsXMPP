@@ -19,10 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
-using agsXMPP.Protocol.iq.@private;
+using AgsXMPP.Protocol.Client;
+using AgsXMPP.Protocol.Iq.@private;
 
-namespace agsXMPP.Protocol.extensions.bookmarks
+namespace AgsXMPP.Protocol.Extensions.Bookmarks
 {
 	/// <summary>
 	/// 

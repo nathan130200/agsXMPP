@@ -19,11 +19,9 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.client;
+using AgsXMPP.Xml.Dom;
 
-using agsXMPP.Xml.Dom;
-
-namespace agsXMPP.Protocol.iq.disco
+namespace AgsXMPP.Protocol.Iq.Disco
 {
 	/*
 	Example 10. Requesting all items
@@ -77,7 +75,7 @@ namespace agsXMPP.Protocol.iq.disco
 	/// <summary>
 	/// Discovering the Items Associated with a Jabber Entity
 	/// </summary>
-	public class DiscoItems : client.IQ
+	public class DiscoItems : Client.IQ
 	{
 		public DiscoItems()
 		{

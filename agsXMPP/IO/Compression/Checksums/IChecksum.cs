@@ -35,7 +35,7 @@
 // obligated to do so.  If you do not wish to do so, delete this
 // exception statement from your version.
 
-namespace agsXMPP.IO.Compression.Checksums
+namespace AgsXMPP.IO.Compression.Checksums
 {
 
 	/// <summary>

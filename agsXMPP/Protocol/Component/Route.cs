@@ -19,10 +19,10 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using agsXMPP.Protocol.@base;
-using agsXMPP.Xml.Dom;
+using AgsXMPP.Protocol.Base;
+using AgsXMPP.Xml.Dom;
 
-namespace agsXMPP.Protocol.component
+namespace AgsXMPP.Protocol.Component
 {
 	public enum RouteType
 	{
