@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	/// <summary>
 	/// A base class vor Decline and Invite

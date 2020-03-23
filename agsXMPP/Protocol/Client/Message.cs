@@ -24,7 +24,7 @@ using AgsXMPP.Protocol.Extensions.ChatStates;
 using AgsXMPP.Protocol.Extensions.Nickname;
 using AgsXMPP.Protocol.Extensions.Shim;
 using AgsXMPP.Protocol.Extensions.XHtml;
-using AgsXMPP.Protocol.x;
+using AgsXMPP.Protocol.X;
 
 namespace AgsXMPP.Protocol.Client
 {

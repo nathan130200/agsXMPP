@@ -23,7 +23,7 @@ using System;
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.x
+namespace AgsXMPP.Protocol.X
 {
 	// <presence to="gnauck@myjabber.net/myJabber v3.5" from="yahoo.myjabber.net/registered">
 	//		<status>Extended Away</status>

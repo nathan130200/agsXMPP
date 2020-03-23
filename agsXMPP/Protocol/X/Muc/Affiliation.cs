@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	/// <summary>
 	/// There are five defined affiliations that a user may have in relation to a room
@@ -29,10 +29,19 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <summary>
 		/// the absence of an affiliation
 		/// </summary>
-		none,
-		owner,
-		admin,
-		member,
-		outcast
+		[XmppEnumMember("none")]
+		None,
+
+		[XmppEnumMember("owner")]
+		Owner,
+
+		[XmppEnumMember("admin")]
+		Admin,
+
+		[XmppEnumMember("member")]
+		Member,
+
+		[XmppEnumMember("outcast")]
+		Outcast
 	}
 }

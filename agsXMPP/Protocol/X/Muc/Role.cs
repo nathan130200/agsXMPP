@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	/// <summary>
 	/// There are four defined roles that an occupant may have
@@ -29,9 +29,16 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <summary>
 		/// the absence of a role
 		/// </summary>
-		none,
-		moderator,
-		participant,
-		visitor
+		[XmppEnumMember("none")]
+		None,
+
+		[XmppEnumMember("moderator")]
+		Moderator,
+
+		[XmppEnumMember("participant")]
+		Participant,
+
+		[XmppEnumMember("visitor")]
+		Visitor
 	}
 }

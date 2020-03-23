@@ -86,21 +86,21 @@ namespace AgsXMPP.Factory
 			AddElementType("identity", URI.DISCO_INFO, typeof(Protocol.Query.Disco.DiscoIdentity));
 			AddElementType("item", URI.DISCO_ITEMS, typeof(Protocol.Query.Disco.DiscoItem));
 
-			AddElementType("x", URI.X_DELAY, typeof(Protocol.x.Delay));
-			AddElementType("x", URI.X_AVATAR, typeof(Protocol.x.Avatar));
-			AddElementType("x", URI.X_CONFERENCE, typeof(Protocol.x.Conference));
-			AddElementType("x", URI.X_EVENT, typeof(Protocol.x.Event));
+			AddElementType("x", URI.X_DELAY, typeof(Protocol.X.Delay));
+			AddElementType("x", URI.X_AVATAR, typeof(Protocol.X.Avatar));
+			AddElementType("x", URI.X_CONFERENCE, typeof(Protocol.X.Conference));
+			AddElementType("x", URI.X_EVENT, typeof(Protocol.X.Event));
 
 			AddElementType("x", URI.STORAGE_AVATAR, typeof(Protocol.storage.Avatar));
 			AddElementType("query", URI.STORAGE_AVATAR, typeof(Protocol.storage.Avatar));
 
 			// XData Stuff
-			AddElementType("x", URI.X_DATA, typeof(Protocol.x.data.Data));
-			AddElementType("field", URI.X_DATA, typeof(Protocol.x.data.Field));
-			AddElementType("option", URI.X_DATA, typeof(Protocol.x.data.Option));
-			AddElementType("value", URI.X_DATA, typeof(Protocol.x.data.Value));
-			AddElementType("reported", URI.X_DATA, typeof(Protocol.x.data.Reported));
-			AddElementType("item", URI.X_DATA, typeof(Protocol.x.data.Item));
+			AddElementType("x", URI.X_DATA, typeof(Protocol.X.data.Data));
+			AddElementType("field", URI.X_DATA, typeof(Protocol.X.data.Field));
+			AddElementType("option", URI.X_DATA, typeof(Protocol.X.data.Option));
+			AddElementType("value", URI.X_DATA, typeof(Protocol.X.data.Value));
+			AddElementType("reported", URI.X_DATA, typeof(Protocol.X.data.Reported));
+			AddElementType("item", URI.X_DATA, typeof(Protocol.X.data.Item));
 
 			AddElementType("features", URI.STREAM, typeof(Protocol.stream.StreamFeatures));
 
@@ -153,8 +153,8 @@ namespace AgsXMPP.Factory
 			AddElementType("p", URI.PRIMARY, typeof(Protocol.Extensions.Primary.Primary));
 			AddElementType("nick", URI.NICK, typeof(Protocol.Extensions.Nickname.Nickname));
 
-			AddElementType("item", URI.X_ROSTERX, typeof(Protocol.x.roster.RosterItem));
-			AddElementType("x", URI.X_ROSTERX, typeof(Protocol.x.roster.Roster));
+			AddElementType("item", URI.X_ROSTERX, typeof(Protocol.X.roster.RosterItem));
+			AddElementType("x", URI.X_ROSTERX, typeof(Protocol.X.roster.Roster));
 
 			// Filetransfer stuff
 			AddElementType("file", URI.SI_FILE_TRANSFER, typeof(Protocol.Extensions.FileTransfer.File));
@@ -181,18 +181,18 @@ namespace AgsXMPP.Factory
 			AddElementType("failure", URI.COMPRESS, typeof(Protocol.Extensions.Compression.Failure));
 
 			// MUC (JEP-0045 Multi User Chat)
-			AddElementType("x", URI.MUC, typeof(Protocol.x.muc.Muc));
-			AddElementType("x", URI.MUC_USER, typeof(Protocol.x.muc.User));
-			AddElementType("item", URI.MUC_USER, typeof(Protocol.x.muc.Item));
-			AddElementType("status", URI.MUC_USER, typeof(Protocol.x.muc.Status));
-			AddElementType("invite", URI.MUC_USER, typeof(Protocol.x.muc.Invite));
-			AddElementType("decline", URI.MUC_USER, typeof(Protocol.x.muc.Decline));
-			AddElementType("actor", URI.MUC_USER, typeof(Protocol.x.muc.Actor));
-			AddElementType("history", URI.MUC, typeof(Protocol.x.muc.History));
-			AddElementType("query", URI.MUC_ADMIN, typeof(Protocol.x.muc.iq.admin.Admin));
-			AddElementType("item", URI.MUC_ADMIN, typeof(Protocol.x.muc.iq.admin.Item));
-			AddElementType("query", URI.MUC_OWNER, typeof(Protocol.x.muc.iq.owner.Owner));
-			AddElementType("destroy", URI.MUC_OWNER, typeof(Protocol.x.muc.Destroy));
+			AddElementType("x", URI.MUC, typeof(Protocol.X.muc.Muc));
+			AddElementType("x", URI.MUC_USER, typeof(Protocol.X.muc.User));
+			AddElementType("item", URI.MUC_USER, typeof(Protocol.X.muc.Item));
+			AddElementType("status", URI.MUC_USER, typeof(Protocol.X.muc.Status));
+			AddElementType("invite", URI.MUC_USER, typeof(Protocol.X.muc.Invite));
+			AddElementType("decline", URI.MUC_USER, typeof(Protocol.X.muc.Decline));
+			AddElementType("actor", URI.MUC_USER, typeof(Protocol.X.muc.Actor));
+			AddElementType("history", URI.MUC, typeof(Protocol.X.muc.History));
+			AddElementType("query", URI.MUC_ADMIN, typeof(Protocol.X.muc.iq.admin.Admin));
+			AddElementType("item", URI.MUC_ADMIN, typeof(Protocol.X.muc.iq.admin.Item));
+			AddElementType("query", URI.MUC_OWNER, typeof(Protocol.X.muc.iq.owner.Owner));
+			AddElementType("destroy", URI.MUC_OWNER, typeof(Protocol.X.muc.Destroy));
 
 
 			//Jabber RPC JEP 0009            
@@ -285,7 +285,7 @@ namespace AgsXMPP.Factory
 			AddElementType("close", URI.IBB, typeof(Protocol.Extensions.IBB.Close));
 
 			// XEP-0153: vCard-Based Avatars
-			AddElementType("x", URI.VCARD_UPDATE, typeof(Protocol.x.vcard.VCardUpdate));
+			AddElementType("x", URI.VCARD_UPDATE, typeof(Protocol.X.vcard.VCardUpdate));
 
 			// AMP
 			AddElementType("amp", URI.AMP, typeof(Protocol.Extensions.Amp.Amp));

@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	/// <summary>
 	/// Summary description for Item.
@@ -99,8 +99,8 @@ namespace AgsXMPP.Protocol.x.muc
 		/// </summary>
 		public Role Role
 		{
-			get { return (Role)this.GetAttributeEnum("role", typeof(Role)); }
-			set { this.SetAttribute("role", value.ToString()); }
+			get => this.GetAttributeEnum<Role>("role");
+			set => this.SetAttributeEnum("role", value);
 		}
 
 		/// <summary>
@@ -108,22 +108,16 @@ namespace AgsXMPP.Protocol.x.muc
 		/// </summary>
 		public Affiliation Affiliation
 		{
-			get { return (Affiliation)this.GetAttributeEnum("affiliation", typeof(Affiliation)); }
-			set { this.SetAttribute("affiliation", value.ToString()); }
+			get => this.GetAttributeEnum<Affiliation>("affiliation");
+			set => this.SetAttributeEnum("affiliation", value);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public string Nickname
 		{
 			get { return this.GetAttribute("nick"); }
 			set { this.SetAttribute("nick", value); }
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public string Reason
 		{
 			set { this.SetTag("reason", value); }

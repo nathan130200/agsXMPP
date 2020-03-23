@@ -22,7 +22,7 @@
 using AgsXMPP.Xml.Dom;
 
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	public class Actor : Element
 	{

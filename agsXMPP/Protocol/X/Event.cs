@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.x
+namespace AgsXMPP.Protocol.X
 {
 	/// <summary>
 	/// JEP-0022: Message Events

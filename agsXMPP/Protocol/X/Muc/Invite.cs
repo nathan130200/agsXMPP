@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Extensions.Nickname;
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	/*
     <message

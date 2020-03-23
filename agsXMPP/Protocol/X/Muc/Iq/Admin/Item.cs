@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.muc.iq.admin
+namespace AgsXMPP.Protocol.X.muc.iq.admin
 {
 	public class Item : muc.Item
 	{

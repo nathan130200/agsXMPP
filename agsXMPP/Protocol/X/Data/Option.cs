@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.x.data
+namespace AgsXMPP.Protocol.X.data
 {
 	/*
 	<x xmlns='jabber:x:data'

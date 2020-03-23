@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.x.roster
+namespace AgsXMPP.Protocol.X.roster
 {
 	public enum RosterAction
 	{

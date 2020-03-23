@@ -19,11 +19,11 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using AgsXMPP.Protocol.Client;
-using AgsXMPP.Protocol.x.data;
-using AgsXMPP.Protocol.x.muc.iq.admin;
-using AgsXMPP.Protocol.x.muc.iq.owner;
+using AgsXMPP.Protocol.X.data;
+using AgsXMPP.Protocol.X.muc.iq.admin;
+using AgsXMPP.Protocol.X.muc.iq.owner;
 
-namespace AgsXMPP.Protocol.x.muc
+namespace AgsXMPP.Protocol.X.muc
 {
 	/// <summary>
 	/// A helper class for Multi User Chat
@@ -458,7 +458,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg">Callback which is invoked with the result to this iq</param>
 		public void KickOccupant(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeRole(Role.none, room, nickname, reason, cb, cbArg);
+			this.ChangeRole(Role.None, room, nickname, reason, cb, cbArg);
 		}
 
 		/*
@@ -520,7 +520,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void GrantVoice(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeRole(Role.participant, room, nickname, reason, cb, cbArg);
+			this.ChangeRole(Role.Participant, room, nickname, reason, cb, cbArg);
 		}
 
 		/*
@@ -584,7 +584,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RevokeVoice(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeRole(Role.visitor, room, nickname, reason, cb, cbArg);
+			this.ChangeRole(Role.Visitor, room, nickname, reason, cb, cbArg);
 		}
 
 		/*
@@ -656,7 +656,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RequestVoiceList(Jid room, IqCB cb, object cbArg)
 		{
-			this.RequestList(Role.participant, room, cb, cbArg);
+			this.RequestList(Role.Participant, room, cb, cbArg);
 		}
 
 		/*
@@ -719,7 +719,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void BanUser(Jid room, Jid user, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeAffiliation(Affiliation.outcast, room, user, null, reason, cb, cbArg);
+			this.ChangeAffiliation(Affiliation.Outcast, room, user, null, reason, cb, cbArg);
 		}
 
 		/*
@@ -783,7 +783,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RequestBanList(Jid room, IqCB cb, object cbArg)
 		{
-			this.RequestList(Affiliation.outcast, room, cb, cbArg);
+			this.RequestList(Affiliation.Outcast, room, cb, cbArg);
 		}
 
 
@@ -836,7 +836,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void GrantAdminPrivileges(Jid room, Jid user, IqCB cb, object cbArg)
 		{
-			this.ChangeAffiliation(Affiliation.admin, room, user, cb, cbArg);
+			this.ChangeAffiliation(Affiliation.Admin, room, user, cb, cbArg);
 		}
 
 
@@ -919,7 +919,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void GrantMembership(Jid room, Jid user, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeAffiliation(Affiliation.member, room, user, null, reason, cb, cbArg);
+			this.ChangeAffiliation(Affiliation.Member, room, user, null, reason, cb, cbArg);
 		}
 
 		/// <summary>
@@ -981,7 +981,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void GrantMembership(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeAffiliation(Affiliation.member, room, nickname, reason, cb, cbArg);
+			this.ChangeAffiliation(Affiliation.Member, room, nickname, reason, cb, cbArg);
 		}
 
 
@@ -1006,7 +1006,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="user"></param>
 		public void GrantOwnershipPrivileges(Jid room, Jid user)
 		{
-			this.ChangeAffiliation(Affiliation.owner, room, user, null, null);
+			this.ChangeAffiliation(Affiliation.Owner, room, user, null, null);
 		}
 
 		/// <summary>
@@ -1017,7 +1017,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cb"></param>
 		public void GrantOwnershipPrivileges(Jid room, Jid user, IqCB cb)
 		{
-			this.ChangeAffiliation(Affiliation.owner, room, user, cb, null);
+			this.ChangeAffiliation(Affiliation.Owner, room, user, cb, null);
 		}
 
 		/// <summary>
@@ -1029,7 +1029,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void GrantOwnershipPrivileges(Jid room, Jid user, IqCB cb, object cbArg)
 		{
-			this.ChangeAffiliation(Affiliation.owner, room, user, cb, cbArg);
+			this.ChangeAffiliation(Affiliation.Owner, room, user, cb, cbArg);
 		}
 
 		/*
@@ -1097,7 +1097,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RevokeMembership(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeAffiliation(Affiliation.none, room, nickname, reason, cb, cbArg);
+			this.ChangeAffiliation(Affiliation.None, room, nickname, reason, cb, cbArg);
 		}
 
 
@@ -1147,7 +1147,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RequestAdminList(Jid room, IqCB cb, object cbArg)
 		{
-			this.RequestList(Affiliation.admin, room, cb, cbArg);
+			this.RequestList(Affiliation.Admin, room, cb, cbArg);
 		}
 
 		/*
@@ -1194,7 +1194,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RequestOwnerList(Jid room, IqCB cb, object cbArg)
 		{
-			this.RequestList(Affiliation.owner, room, cb, cbArg);
+			this.RequestList(Affiliation.Owner, room, cb, cbArg);
 		}
 
 		/*
@@ -1259,7 +1259,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void RequestMemberList(Jid room, IqCB cb, object cbArg)
 		{
-			this.RequestList(Affiliation.member, room, cb, cbArg);
+			this.RequestList(Affiliation.Member, room, cb, cbArg);
 		}
 
 		/*
@@ -1328,7 +1328,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArg"></param>
 		public void GrantModeratorPrivileges(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeRole(Role.moderator, room, nickname, reason, cb, cbArg);
+			this.ChangeRole(Role.Moderator, room, nickname, reason, cb, cbArg);
 		}
 
 		/*
@@ -1366,7 +1366,7 @@ namespace AgsXMPP.Protocol.x.muc
 
 		public void RevokeModerator(Jid room, string nickname, string reason, IqCB cb, object cbArg)
 		{
-			this.ChangeRole(Role.participant, room, nickname, reason, cb, cbArg);
+			this.ChangeRole(Role.Participant, room, nickname, reason, cb, cbArg);
 		}
 
 		/*
@@ -1399,7 +1399,7 @@ namespace AgsXMPP.Protocol.x.muc
 
 		public void RequestModeratorList(Jid room, IqCB cb, object cbArg)
 		{
-			this.RequestList(Role.moderator, room, cb, cbArg);
+			this.RequestList(Role.Moderator, room, cb, cbArg);
 		}
 
 

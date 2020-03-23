@@ -140,13 +140,13 @@ namespace AgsXMPP.Protocol.Client
 			set { this.SetTag("priority", value.ToString()); }
 		}
 
-		public x.Delay XDelay
+		public X.Delay XDelay
 		{
-			get { return this.SelectSingleElement(typeof(x.Delay)) as x.Delay; }
+			get { return this.SelectSingleElement(typeof(X.Delay)) as X.Delay; }
 			set
 			{
-				if (this.HasTag(typeof(x.Delay)))
-					this.RemoveTag(typeof(x.Delay));
+				if (this.HasTag(typeof(X.Delay)))
+					this.RemoveTag(typeof(X.Delay));
 
 				if (value != null)
 					this.AddChild(value);
@@ -171,13 +171,13 @@ namespace AgsXMPP.Protocol.Client
 		/// <summary>
 		/// 
 		/// </summary>
-		public x.muc.User MucUser
+		public X.muc.User MucUser
 		{
-			get { return this.SelectSingleElement(typeof(x.muc.User)) as x.muc.User; }
+			get { return this.SelectSingleElement(typeof(X.muc.User)) as X.muc.User; }
 			set
 			{
-				if (this.HasTag(typeof(x.muc.User)))
-					this.RemoveTag(typeof(x.muc.User));
+				if (this.HasTag(typeof(X.muc.User)))
+					this.RemoveTag(typeof(X.muc.User));
 
 				if (value != null)
 					this.AddChild(value);

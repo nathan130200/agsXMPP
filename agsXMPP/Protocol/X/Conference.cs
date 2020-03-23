@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.x
+namespace AgsXMPP.Protocol.X
 {
 	/*
 	<message from='crone1@shakespeare.lit/desktop' to='hecate@shakespeare.lit'>
