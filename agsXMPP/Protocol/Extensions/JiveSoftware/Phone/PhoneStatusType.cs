@@ -29,9 +29,16 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 	/// </summary>
 	public enum PhoneStatusType
 	{
-		RING,
-		DIALED,
-		ON_PHONE,
-		HANG_UP
+		[XmppEnumMember("RING")]
+		Ring,
+
+		[XmppEnumMember("DIALED")]
+		Dialed,
+
+		[XmppEnumMember("ON_PHONE")]
+		OnPhone,
+
+		[XmppEnumMember("HANG_UP")]
+		HangUp
 	}
 }

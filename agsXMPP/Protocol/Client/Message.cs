@@ -235,7 +235,7 @@ namespace AgsXMPP.Protocol.Client
 				if (value == MessageType.None)
 					this.RemoveAttribute("type");
 				else
-					this.SetAttribute("type", value.ToString());
+					this.SetAttributeEnum("type", value);
 			}
 		}
 

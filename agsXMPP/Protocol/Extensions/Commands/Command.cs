@@ -73,7 +73,7 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 		{
 			get
 			{
-				return (Action)this.GetAttributeEnum("action", typeof(Action));
+				return this.GetAttributeEnum<Action>("action");
 			}
 			set
 			{
@@ -88,14 +88,14 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 		{
 			get
 			{
-				return (Status)this.GetAttributeEnum("status", typeof(Status));
+				return this.GetAttributeEnum<Status>("status");
 			}
 			set
 			{
-				if (value == Status.NONE)
+				if (value == Status.None)
 					this.RemoveAttribute("status");
 				else
-					this.SetAttribute("status", value.ToString());
+					this.SetAttributeEnum("status", value);
 			}
 		}
 

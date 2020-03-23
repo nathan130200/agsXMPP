@@ -26,10 +26,16 @@ namespace AgsXMPP.Protocol.Component
 {
 	public enum RouteType
 	{
-		NONE = -1,
-		error,
-		auth,
-		session
+		None = -1,
+
+		[XmppEnumMember("error")]
+		Error,
+
+		[XmppEnumMember("auth")]
+		Auth,
+
+		[XmppEnumMember("session")]
+		Session
 	}
 
 	/// <summary>
@@ -70,14 +76,14 @@ namespace AgsXMPP.Protocol.Component
 		{
 			get
 			{
-				return (RouteType)this.GetAttributeEnum("type", typeof(RouteType));
+				return this.GetAttributeEnum<RouteType>("type");
 			}
 			set
 			{
-				if (value == RouteType.NONE)
+				if (value == RouteType.None)
 					this.RemoveAttribute("type");
 				else
-					this.SetAttribute("type", value.ToString());
+					this.SetAttributeEnum("type", value);
 			}
 		}
 

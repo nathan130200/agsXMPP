@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.Client
 		/// Used to accept a subscription request.
 		/// </summary>		
 		[XmppEnumMember("subscribed")]
-		subscribed,
+		Subscribed,
 
 		/// <summary>
 		/// Used to unsubscribe someone from your presence. 

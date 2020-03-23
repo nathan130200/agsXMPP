@@ -63,7 +63,7 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 			}
 			set
 			{
-				if (value == Action.Unknown)
+				if (value == Action.None)
 					this.RemoveAttribute("action");
 				else
 					this.SetAttribute("action", value.ToString());

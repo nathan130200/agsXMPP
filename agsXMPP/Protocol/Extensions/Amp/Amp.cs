@@ -56,14 +56,14 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 		{
 			get
 			{
-				return (Action)this.GetAttributeEnum("status", typeof(Action));
+				return this.GetAttributeEnum<Action>("status");
 			}
 			set
 			{
-				if (value == Action.Unknown)
+				if (value == Action.None)
 					this.RemoveAttribute("status");
 				else
-					this.SetAttribute("status", value.ToString());
+					this.SetAttributeEnum("status", value);
 			}
 		}
 

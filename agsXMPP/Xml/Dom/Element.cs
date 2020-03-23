@@ -150,6 +150,7 @@ namespace AgsXMPP.Xml.Dom
 		}
 
 		public void SetAttributeEnum<T>(string name, T value)
+			where T : struct
 		{
 			var field = typeof(T).GetFields()
 				.Where(x => x.GetCustomAttribute<XmppEnumMemberAttribute>() != null)

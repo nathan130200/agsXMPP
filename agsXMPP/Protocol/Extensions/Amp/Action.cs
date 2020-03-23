@@ -23,10 +23,18 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 {
 	public enum Action
 	{
-		Unknown = -1,
-		alert,
-		drop,
-		error,
-		notify
+		None = -1,
+
+		[XmppEnumMember("alert")]
+		Alert,
+
+		[XmppEnumMember("drop")]
+		Drop,
+
+		[XmppEnumMember("error")]
+		Error,
+
+		[XmppEnumMember("notify")]
+		Notify
 	}
 }

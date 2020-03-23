@@ -34,9 +34,15 @@ namespace AgsXMPP.Protocol.Extensions.Commands
     */
 	public enum Status
 	{
-		NONE = -1,
-		canceled,
-		completed,
-		executing
+		None = -1,
+
+		[XmppEnumMember("canceled")]
+		Canceled,
+
+		[XmppEnumMember("completed")]
+		Completed,
+
+		[XmppEnumMember("executing")]
+		Executing
 	}
 }

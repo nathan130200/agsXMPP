@@ -89,7 +89,7 @@ namespace AgsXMPP.Protocol.Client
 		{
 			// <presence to='contact@example.org' type='subscribe'/>
 			var pres = new Presence();
-			pres.Type = PresenceType.subscribed;
+			pres.Type = PresenceType.Subscribed;
 			pres.To = to;
 
 			this.m_connection.Send(pres);

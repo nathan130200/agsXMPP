@@ -70,38 +70,32 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 
 		public string CallId
 		{
-			get { return this.GetAttribute("callID"); }
-			set { this.SetAttribute("callID", value); }
+			get => this.GetAttribute("callID");
+			set => this.SetAttribute("callID", value);
 		}
 
 		public string Device
 		{
-			get { return this.GetAttribute("device"); }
-			set { this.SetAttribute("device", value); }
+			get => this.GetAttribute("device");
+			set => this.SetAttribute("device", value);
 		}
 
 		public PhoneStatusType Type
 		{
-			set
-			{
-				this.SetAttribute("type", value.ToString());
-			}
-			get
-			{
-				return (PhoneStatusType)this.GetAttributeEnum("type", typeof(PhoneStatusType));
-			}
+			get => this.GetAttributeEnum<PhoneStatusType>("type");
+			set => this.SetAttribute("type", value.ToString());
 		}
 
 		public string CallerId
 		{
-			get { return this.GetTag("callerID"); }
-			set { this.SetTag("callerID", value); }
+			get => this.GetTag("callerID");
+			set => this.SetTag("callerID", value);
 		}
 
 		public string CallerIdName
 		{
-			get { return this.GetTag("callerIDName"); }
-			set { this.SetTag("callerIDName", value); }
+			get => this.GetTag("callerIDName");
+			set => this.SetTag("callerIDName", value);
 		}
 	}
 }

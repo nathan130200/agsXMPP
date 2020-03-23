@@ -51,7 +51,6 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
          *
          */
 
-
 		#region << Constructors >>
 		/// <summary>
 		/// 
@@ -80,14 +79,8 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 
 		public ActionType Type
 		{
-			set
-			{
-				this.SetAttribute("type", value.ToString());
-			}
-			get
-			{
-				return (ActionType)this.GetAttributeEnum("type", typeof(ActionType));
-			}
+			get => this.GetAttributeEnum<ActionType>("type");
+			set => this.SetAttributeEnum("type", value);
 		}
 
 		public string Extension
@@ -101,6 +94,5 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 			get { return new Jid(this.GetTag("jid")); }
 			set { this.SetTag("jid", value.ToString()); }
 		}
-
 	}
 }

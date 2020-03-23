@@ -18,6 +18,7 @@
  * For general enquiries visit our website at:										 *
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+using System;
 using AgsXMPP.Xml.Dom;
 
 // JEP-0086: Error Condition Mappings
@@ -252,6 +253,7 @@ namespace AgsXMPP.Protocol.Client
 			}
 		}
 
+		[Obsolete("Use error condition instead.")]
 		public ErrorCode Code
 		{
 			get
@@ -272,7 +274,7 @@ namespace AgsXMPP.Protocol.Client
 			}
 			set
 			{
-				this.SetAttribute("type", value.ToString());
+				this.SetAttributeEnum("type", value);
 			}
 		}
 

@@ -77,10 +77,8 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 
 		public NoteType Type
 		{
-			get { return (NoteType)this.GetAttributeEnum("type", typeof(NoteType)); }
-			set { this.SetAttribute("type", value.ToString()); }
+			get { return this.GetAttributeEnum<NoteType>("type"); }
+			set { this.SetAttributeEnum("type", value); }
 		}
-
-
 	}
 }

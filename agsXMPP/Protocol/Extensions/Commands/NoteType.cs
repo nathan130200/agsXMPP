@@ -23,8 +23,13 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 {
 	public enum NoteType
 	{
-		error,
-		info,
-		warn
+		[XmppEnumMember("error")]
+		Error,
+
+		[XmppEnumMember("info")]
+		Information,
+
+		[XmppEnumMember("warn")]
+		Warning
 	}
 }

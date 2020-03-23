@@ -26,13 +26,10 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 	/// </summary>
 	public enum ActionType
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		DIAL,
-		/// <summary>
-		/// 
-		/// </summary>
-		FORWARD
+		[XmppEnumMember("DIAL")]
+		Dial,
+
+		[XmppEnumMember("FORWARD")]
+		Forward
 	}
 }
