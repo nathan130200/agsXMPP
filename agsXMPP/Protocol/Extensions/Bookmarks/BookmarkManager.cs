@@ -57,7 +57,7 @@ namespace AgsXMPP.Protocol.Extensions.Bookmarks
 		/// <param name="cbArgs"></param>
 		public void RequestBookmarks(IqCB cb, object cbArgs)
 		{
-			var siq = new StorageIq(IQType.get);
+			var siq = new StorageIq(IQType.Get);
 
 			if (cb == null)
 				this.m_connection.Send(siq);
@@ -158,7 +158,7 @@ namespace AgsXMPP.Protocol.Extensions.Bookmarks
 		/// <param name="cbArgs"></param>
 		public void StoreBookmarks(Url[] urls, Conference[] conferences, IqCB cb, object cbArgs)
 		{
-			var siq = new StorageIq(IQType.set);
+			var siq = new StorageIq(IQType.Set);
 
 			if (urls != null)
 				siq.Query.Storage.AddUrls(urls);

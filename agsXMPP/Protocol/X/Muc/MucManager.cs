@@ -331,8 +331,8 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArgs"></param>
 		public void AcceptDefaultConfiguration(Jid room, IqCB cb, object cbArgs)
 		{
-			var oIq = new OwnerIq(IQType.set, room);
-			oIq.Query.AddChild(new data.Data(XDataFormType.submit));
+			var oIq = new OwnerIq(IQType.Set, room);
+			oIq.Query.AddChild(new Data(XDataFormType.submit));
 
 			if (cb == null)
 				this.m_connection.Send(oIq);
@@ -384,7 +384,7 @@ namespace AgsXMPP.Protocol.x.muc
 		/// <param name="cbArgs"></param>
 		public void RequestConfigurationForm(Jid room, IqCB cb, object cbArgs)
 		{
-			var oIq = new OwnerIq(IQType.get, room);
+			var oIq = new OwnerIq(IQType.Get, room);
 
 			this.m_connection.IqGrabber.SendIq(oIq, cb, cbArgs);
 		}
@@ -1407,7 +1407,7 @@ namespace AgsXMPP.Protocol.x.muc
 		{
 			var aIq = new AdminIq();
 			aIq.To = room;
-			aIq.Type = IQType.get;
+			aIq.Type = IQType.Get;
 
 			aIq.Query.AddItem(new iq.admin.Item(affiliation));
 
@@ -1421,7 +1421,7 @@ namespace AgsXMPP.Protocol.x.muc
 		{
 			var aIq = new AdminIq();
 			aIq.To = room;
-			aIq.Type = IQType.get;
+			aIq.Type = IQType.Get;
 
 			aIq.Query.AddItem(new iq.admin.Item(role));
 
@@ -1479,7 +1479,7 @@ namespace AgsXMPP.Protocol.x.muc
             */
 
 			var iq = new OwnerIq();
-			iq.Type = IQType.get;
+			iq.Type = IQType.Get;
 			iq.To = room;
 
 			if (cb == null)
@@ -1549,7 +1549,7 @@ namespace AgsXMPP.Protocol.x.muc
             */
 
 			var iq = new OwnerIq();
-			iq.Type = IQType.set;
+			iq.Type = IQType.Set;
 			iq.To = room;
 
 			var destroy = new Destroy();
@@ -1584,7 +1584,7 @@ namespace AgsXMPP.Protocol.x.muc
 		{
 			var aIq = new AdminIq();
 			aIq.To = room;
-			aIq.Type = IQType.set;
+			aIq.Type = IQType.Set;
 
 			foreach (var itm in items)
 			{
@@ -1604,7 +1604,7 @@ namespace AgsXMPP.Protocol.x.muc
 		{
 			var aIq = new AdminIq();
 			aIq.To = room;
-			aIq.Type = IQType.set;
+			aIq.Type = IQType.Set;
 
 			var itm = new iq.admin.Item();
 			itm.Role = role;
@@ -1625,7 +1625,7 @@ namespace AgsXMPP.Protocol.x.muc
 		{
 			var aIq = new AdminIq();
 			aIq.To = room;
-			aIq.Type = IQType.set;
+			aIq.Type = IQType.Set;
 
 			var itm = new iq.admin.Item();
 			itm.Affiliation = affiliation;
@@ -1653,7 +1653,7 @@ namespace AgsXMPP.Protocol.x.muc
 		{
 			var aIq = new AdminIq();
 			aIq.To = room;
-			aIq.Type = IQType.set;
+			aIq.Type = IQType.Set;
 
 			var itm = new iq.admin.Item();
 			itm.Affiliation = affiliation;

@@ -256,26 +256,14 @@ namespace AgsXMPP.Protocol.Client
 		[Obsolete("Use error condition instead.")]
 		public ErrorCode Code
 		{
-			get
-			{
-				return (ErrorCode)this.GetAttributeInt("code");
-			}
-			set
-			{
-				this.SetAttribute("code", (int)value);
-			}
+			get => (ErrorCode)this.GetAttributeInt("code");
+			set => this.SetAttribute("code", (int)value);
 		}
 
 		public ErrorType Type
 		{
-			get
-			{
-				return this.GetAttributeEnum<ErrorType>("type");
-			}
-			set
-			{
-				this.SetAttributeEnum("type", value);
-			}
+			get => this.GetAttributeEnum<ErrorType>("type");
+			set => this.SetAttributeEnum("type", value);
 		}
 
 		public ErrorCondition Condition
@@ -412,13 +400,13 @@ namespace AgsXMPP.Protocol.Client
 						this.SetTag("subscription-required", "", URI.STANZAS);
 						this.Type = ErrorType.Auth;
 						break;
-					case ErrorCondition.UndefinedCondition:
-						this.SetTag("undefined-condition", "", URI.STANZAS);
-						// could be any
-						break;
 					case ErrorCondition.UnexpectedRequest:
 						this.SetTag("unexpected-request", "", URI.STANZAS);
 						this.Type = ErrorType.Wait;
+						break;
+					case ErrorCondition.UndefinedCondition:
+					default:
+						this.SetTag("undefined-condition", "", URI.STANZAS);
 						break;
 
 				}

@@ -183,7 +183,7 @@ namespace AgsXMPP.Protocol.Extensions.Bosh
 
 		public BoshType Type
 		{
-			get { return (BoshType)this.GetAttributeEnum("type", typeof(BoshType)); }
+			get => this.GetAttributeEnum<BoshType>("type"); }
 			set
 			{
 				if (value == BoshType.NONE)

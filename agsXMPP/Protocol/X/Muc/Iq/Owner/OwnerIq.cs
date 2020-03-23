@@ -41,7 +41,7 @@ namespace AgsXMPP.Protocol.x.muc.iq.owner
 	/// <summary>
 	/// 
 	/// </summary>
-	public class OwnerIq : Client.IQ
+	public class OwnerIq : IQ
 	{
 		private Owner m_Owner = new Owner();
 

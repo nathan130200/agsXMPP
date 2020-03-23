@@ -26,9 +26,16 @@ namespace AgsXMPP.Protocol.Client
 	/// </summary>
 	public enum IQType
 	{
-		get,
-		set,
-		result,
-		error
+		[XmppEnumMember("get")]
+		Get,
+
+		[XmppEnumMember("set")]
+		Set,
+
+		[XmppEnumMember("result")]
+		Result,
+
+		[XmppEnumMember("error")]
+		Error
 	}
 }

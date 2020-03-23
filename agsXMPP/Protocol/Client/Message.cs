@@ -21,7 +21,7 @@
 
 using System;
 using AgsXMPP.Protocol.Extensions.ChatStates;
-using AgsXMPP.Protocol.Extensions.nickname;
+using AgsXMPP.Protocol.Extensions.Nickname;
 using AgsXMPP.Protocol.Extensions.Shim;
 using AgsXMPP.Protocol.Extensions.XHtml;
 using AgsXMPP.Protocol.x;
@@ -226,10 +226,7 @@ namespace AgsXMPP.Protocol.Client
 		/// </summary>
 		public MessageType Type
 		{
-			get
-			{
-				return this.GetAttributeEnum<MessageType>("type");
-			}
+			get => this.GetAttributeEnum<MessageType>("type");
 			set
 			{
 				if (value == MessageType.None)

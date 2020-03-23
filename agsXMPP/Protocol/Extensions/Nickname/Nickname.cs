@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.nickname
+namespace AgsXMPP.Protocol.Extensions.Nickname
 {
 	// <nick xmlns='http://jabber.org/protocol/nick'>Ishmael</nick>
 	public class Nickname : Element

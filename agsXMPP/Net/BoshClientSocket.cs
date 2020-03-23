@@ -610,7 +610,7 @@ namespace AgsXMPP.Net
 			lock (this.m_SendQueue)
 			{
 				if (this.terminate && this.m_SendQueue.Count == 1)
-					body.Type = BoshType.terminate;
+					body.Type = BoshType.Terminate;
 
 				if (this.m_SendQueue.Count > 0)
 				{

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.primary
+namespace AgsXMPP.Protocol.Extensions.Primary
 {
 	/// <summary>
 	/// http://www.jabber.org/jeps/inbox/primary.html

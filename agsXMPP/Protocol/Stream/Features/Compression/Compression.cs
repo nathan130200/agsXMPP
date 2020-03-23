@@ -58,7 +58,7 @@ namespace AgsXMPP.Protocol.stream.features.Compression
 			}
 			get
 			{
-				return this.GetTagEnum<Extensions.Compression.CompressionMethod>("method");
+				return this.GetTagEnum<CompressionMethod>("method");
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace AgsXMPP.Protocol.stream.features.Compression
 		/// Add a compression method/algorithm
 		/// </summary>
 		/// <param name="method"></param>
-		public void AddMethod(Extensions.Compression.CompressionMethod method)
+		public void AddMethod(CompressionMethod method)
 		{
 			if (!this.SupportsMethod(method))
 				this.AddChild(new Method(method));
@@ -77,7 +77,7 @@ namespace AgsXMPP.Protocol.stream.features.Compression
 		/// </summary>
 		/// <param name="method"></param>
 		/// <returns></returns>
-		public bool SupportsMethod(Extensions.Compression.CompressionMethod method)
+		public bool SupportsMethod(CompressionMethod method)
 		{
 			var nList = this.SelectElements(typeof(Method));
 			foreach (Method m in nList)

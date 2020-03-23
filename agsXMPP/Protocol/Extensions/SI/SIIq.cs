@@ -41,7 +41,7 @@ namespace AgsXMPP.Protocol.Extensions.SI
 	/// <summary>
 	/// 
 	/// </summary>
-	public class SIIq : Client.IQ
+	public class SIIq : IQ
 	{
 		private SI m_SI = new SI();
 

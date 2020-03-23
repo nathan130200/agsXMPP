@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Extensions.ping
+namespace AgsXMPP.Protocol.Extensions.Ping
 {
 	/// <summary>
 	/// 

@@ -54,10 +54,7 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 		/// </summary>
 		public Action Status
 		{
-			get
-			{
-				return this.GetAttributeEnum<Action>("status");
-			}
+			get => this.GetAttributeEnum<Action>("status");
 			set
 			{
 				if (value == Action.None)

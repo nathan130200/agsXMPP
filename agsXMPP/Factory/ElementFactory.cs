@@ -43,48 +43,48 @@ namespace AgsXMPP.Factory
 			AddElementType("presence", URI.CLIENT, typeof(Protocol.Client.Presence));
 			AddElementType("error", URI.CLIENT, typeof(Protocol.Client.Error));
 
-			AddElementType("agent", URI.IQ_AGENTS, typeof(Protocol.Iq.agent.Agent));
+			AddElementType("agent", URI.IQ_AGENTS, typeof(Protocol.Query.Agent.Agent));
 
-			AddElementType("item", URI.IQ_ROSTER, typeof(Protocol.Iq.roster.RosterItem));
+			AddElementType("item", URI.IQ_ROSTER, typeof(Protocol.Query.roster.RosterItem));
 			AddElementType("group", URI.IQ_ROSTER, typeof(Protocol.Base.Group));
 			AddElementType("group", URI.X_ROSTERX, typeof(Protocol.Base.Group));
 
-			AddElementType("item", URI.IQ_SEARCH, typeof(Protocol.Iq.search.SearchItem));
+			AddElementType("item", URI.IQ_SEARCH, typeof(Protocol.Query.search.SearchItem));
 
 			// Stream stuff
 			AddElementType("stream", URI.STREAM, typeof(Protocol.XmppStream));
 			AddElementType("error", URI.STREAM, typeof(Protocol.XmppStreamError));
 
-			AddElementType("query", URI.IQ_AUTH, typeof(Protocol.Iq.auth.Auth));
-			AddElementType("query", URI.IQ_AGENTS, typeof(Protocol.Iq.agent.Agents));
-			AddElementType("query", URI.IQ_ROSTER, typeof(Protocol.Iq.roster.Roster));
-			AddElementType("query", URI.IQ_LAST, typeof(Protocol.Iq.last.Last));
-			AddElementType("query", URI.IQ_VERSION, typeof(Protocol.Iq.version.Version));
-			AddElementType("query", URI.IQ_TIME, typeof(Protocol.Iq.time.Time));
-			AddElementType("query", URI.IQ_OOB, typeof(Protocol.Iq.oob.Oob));
-			AddElementType("query", URI.IQ_SEARCH, typeof(Protocol.Iq.search.Search));
-			AddElementType("query", URI.IQ_BROWSE, typeof(Protocol.Iq.browse.Browse));
-			AddElementType("query", URI.IQ_AVATAR, typeof(Protocol.Iq.avatar.Avatar));
-			AddElementType("query", URI.IQ_REGISTER, typeof(Protocol.Iq.register.Register));
-			AddElementType("query", URI.IQ_PRIVATE, typeof(Protocol.Iq.@private.Private));
+			AddElementType("query", URI.IQ_AUTH, typeof(Protocol.Query.Auth.Auth));
+			AddElementType("query", URI.IQ_AGENTS, typeof(Protocol.Query.Agent.Agents));
+			AddElementType("query", URI.IQ_ROSTER, typeof(Protocol.Query.roster.Roster));
+			AddElementType("query", URI.IQ_LAST, typeof(Protocol.Query.Last.Last));
+			AddElementType("query", URI.IQ_VERSION, typeof(Protocol.Query.version.Version));
+			AddElementType("query", URI.IQ_TIME, typeof(Protocol.Query.time.Time));
+			AddElementType("query", URI.IQ_OOB, typeof(Protocol.Query.Oob.Oob));
+			AddElementType("query", URI.IQ_SEARCH, typeof(Protocol.Query.search.Search));
+			AddElementType("query", URI.IQ_BROWSE, typeof(Protocol.Query.Browse.Browse));
+			AddElementType("query", URI.IQ_AVATAR, typeof(Protocol.Query.Avatar.Avatar));
+			AddElementType("query", URI.IQ_REGISTER, typeof(Protocol.Query.register.Register));
+			AddElementType("query", URI.IQ_PRIVATE, typeof(Protocol.Query.@private.Private));
 
 			// Privacy Lists
-			AddElementType("query", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Privacy));
-			AddElementType("item", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Item));
-			AddElementType("list", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.List));
-			AddElementType("active", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Active));
-			AddElementType("default", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Default));
+			AddElementType("query", URI.IQ_PRIVACY, typeof(Protocol.Query.Privacy.Privacy));
+			AddElementType("item", URI.IQ_PRIVACY, typeof(Protocol.Query.Privacy.Item));
+			AddElementType("list", URI.IQ_PRIVACY, typeof(Protocol.Query.Privacy.List));
+			AddElementType("active", URI.IQ_PRIVACY, typeof(Protocol.Query.Privacy.Active));
+			AddElementType("default", URI.IQ_PRIVACY, typeof(Protocol.Query.Privacy.Default));
 
 			// Browse
-			AddElementType("service", URI.IQ_BROWSE, typeof(Protocol.Iq.browse.Service));
-			AddElementType("item", URI.IQ_BROWSE, typeof(Protocol.Iq.browse.BrowseItem));
+			AddElementType("service", URI.IQ_BROWSE, typeof(Protocol.Query.Browse.Service));
+			AddElementType("item", URI.IQ_BROWSE, typeof(Protocol.Query.Browse.BrowseItem));
 
 			// Service Discovery			
-			AddElementType("query", URI.DISCO_ITEMS, typeof(Protocol.Iq.Disco.DiscoItems));
-			AddElementType("query", URI.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoInfo));
-			AddElementType("feature", URI.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoFeature));
-			AddElementType("identity", URI.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoIdentity));
-			AddElementType("item", URI.DISCO_ITEMS, typeof(Protocol.Iq.Disco.DiscoItem));
+			AddElementType("query", URI.DISCO_ITEMS, typeof(Protocol.Query.Disco.DiscoItems));
+			AddElementType("query", URI.DISCO_INFO, typeof(Protocol.Query.Disco.DiscoInfo));
+			AddElementType("feature", URI.DISCO_INFO, typeof(Protocol.Query.Disco.DiscoFeature));
+			AddElementType("identity", URI.DISCO_INFO, typeof(Protocol.Query.Disco.DiscoIdentity));
+			AddElementType("item", URI.DISCO_ITEMS, typeof(Protocol.Query.Disco.DiscoItem));
 
 			AddElementType("x", URI.X_DELAY, typeof(Protocol.x.Delay));
 			AddElementType("x", URI.X_AVATAR, typeof(Protocol.x.Avatar));
@@ -108,8 +108,8 @@ namespace AgsXMPP.Factory
 			AddElementType("compression", URI.FEATURE_COMPRESS, typeof(Protocol.stream.features.Compression.Compression));
 			AddElementType("method", URI.FEATURE_COMPRESS, typeof(Protocol.stream.features.Compression.Method));
 
-			AddElementType("bind", URI.BIND, typeof(Protocol.Iq.bind.Bind));
-			AddElementType("session", URI.SESSION, typeof(Protocol.Iq.session.Session));
+			AddElementType("bind", URI.BIND, typeof(Protocol.Query.Bind.Bind));
+			AddElementType("session", URI.SESSION, typeof(Protocol.Query.session.Session));
 
 			// TLS stuff
 			AddElementType("failure", URI.TLS, typeof(Protocol.tls.Failure));
@@ -149,9 +149,9 @@ namespace AgsXMPP.Factory
 			//Extensions (JEPS)
 			AddElementType("headers", URI.SHIM, typeof(Protocol.Extensions.Shim.Header));
 			AddElementType("header", URI.SHIM, typeof(Protocol.Extensions.Shim.Headers));
-			AddElementType("roster", URI.ROSTER_DELIMITER, typeof(Protocol.Iq.roster.Delimiter));
-			AddElementType("p", URI.PRIMARY, typeof(Protocol.Extensions.primary.Primary));
-			AddElementType("nick", URI.NICK, typeof(Protocol.Extensions.nickname.Nickname));
+			AddElementType("roster", URI.ROSTER_DELIMITER, typeof(Protocol.Query.roster.Delimiter));
+			AddElementType("p", URI.PRIMARY, typeof(Protocol.Extensions.Primary.Primary));
+			AddElementType("nick", URI.NICK, typeof(Protocol.Extensions.Nickname.Nickname));
 
 			AddElementType("item", URI.X_ROSTERX, typeof(Protocol.x.roster.RosterItem));
 			AddElementType("x", URI.X_ROSTERX, typeof(Protocol.x.roster.Roster));
@@ -196,9 +196,9 @@ namespace AgsXMPP.Factory
 
 
 			//Jabber RPC JEP 0009            
-			AddElementType("query", URI.IQ_RPC, typeof(Protocol.Iq.rpc.Rpc));
-			AddElementType("methodCall", URI.IQ_RPC, typeof(Protocol.Iq.rpc.MethodCall));
-			AddElementType("methodResponse", URI.IQ_RPC, typeof(Protocol.Iq.rpc.MethodResponse));
+			AddElementType("query", URI.IQ_RPC, typeof(Protocol.Query.rpc.Rpc));
+			AddElementType("methodCall", URI.IQ_RPC, typeof(Protocol.Query.rpc.MethodCall));
+			AddElementType("methodResponse", URI.IQ_RPC, typeof(Protocol.Query.rpc.MethodResponse));
 
 			// Chatstates Jep-0085
 			AddElementType("active", URI.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Active));
@@ -221,7 +221,7 @@ namespace AgsXMPP.Factory
 			AddElementType("geoloc", URI.GEOLOC, typeof(Protocol.Extensions.GeoLoc.GeoLocation));
 
 			// Xmpp Ping
-			AddElementType("ping", URI.PING, typeof(Protocol.Extensions.ping.Ping));
+			AddElementType("ping", URI.PING, typeof(Protocol.Extensions.Ping.Ping));
 
 			//Ad-Hock Commands
 			AddElementType("command", URI.COMMANDS, typeof(Protocol.Extensions.Commands.Command));

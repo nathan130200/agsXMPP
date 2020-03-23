@@ -23,7 +23,7 @@ using System;
 using System.Collections;
 using System.Text;
 
-using AgsXMPP.Protocol.Iq.Disco;
+using AgsXMPP.Protocol.Query.Disco;
 using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Protocol.Extensions.Caps

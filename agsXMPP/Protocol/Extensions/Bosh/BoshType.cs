@@ -23,8 +23,12 @@ namespace AgsXMPP.Protocol.Extensions.Bosh
 {
 	public enum BoshType
 	{
-		NONE = -1,
-		error,
-		terminate
+		None = -1,
+
+		[XmppEnumMember("error")]
+		Error,
+
+		[XmppEnumMember("terminate")]
+		Terminate
 	}
 }

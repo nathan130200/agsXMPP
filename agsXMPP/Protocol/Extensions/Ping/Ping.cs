@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.ping
+namespace AgsXMPP.Protocol.Extensions.Ping
 {
 	/*
      * <iq from='capulet.com' to='juliet@capulet.com/balcony' id='ping123' type='get'>

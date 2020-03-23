@@ -20,8 +20,8 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-using AgsXMPP.Protocol.Iq.bind;
-using AgsXMPP.Protocol.Iq.session;
+using AgsXMPP.Protocol.Query.Bind;
+using AgsXMPP.Protocol.Query.session;
 using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Protocol.Client
@@ -59,14 +59,8 @@ namespace AgsXMPP.Protocol.Client
 
 		public IQType Type
 		{
-			set
-			{
-				this.SetAttribute("type", value.ToString());
-			}
-			get
-			{
-				return (IQType)Enum.Parse(typeof(IQType), this.GetAttribute("type"));
-			}
+			get => this.GetAttributeEnum<IQType>("type");
+			set => this.SetAttributeEnum("type", value);
 		}
 
 		/// <summary>

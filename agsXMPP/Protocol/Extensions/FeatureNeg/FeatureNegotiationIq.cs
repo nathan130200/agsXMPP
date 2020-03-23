@@ -27,7 +27,7 @@ namespace AgsXMPP.Protocol.Extensions.FeatureNeg
 	/// JEP-0020: Feature Negotiation
 	/// This JEP defines a A protocol that enables two Jabber entities to mutually negotiate feature options.
 	/// </summary>
-	public class FeatureNegotiationIq : Client.IQ
+	public class FeatureNegotiationIq : IQ
 	{
 		public FeatureNegotiation FeatureNeg { get; } = new FeatureNegotiation();
 

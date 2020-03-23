@@ -74,10 +74,7 @@ namespace AgsXMPP.Protocol.Component
 		/// </summary>
 		public RouteType Type
 		{
-			get
-			{
-				return this.GetAttributeEnum<RouteType>("type");
-			}
+			get => this.GetAttributeEnum<RouteType>("type");
 			set
 			{
 				if (value == RouteType.None)

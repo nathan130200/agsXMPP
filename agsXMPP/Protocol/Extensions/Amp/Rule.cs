@@ -57,16 +57,13 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 		/// </summary>
 		public Action Action
 		{
-			get
-			{
-				return (Action)this.GetAttributeEnum("action", typeof(Action));
-			}
+			get => this.GetAttributeEnum<Action>("action");
 			set
 			{
 				if (value == Action.None)
 					this.RemoveAttribute("action");
 				else
-					this.SetAttribute("action", value.ToString());
+					this.SetAttributeEnum("action", value);
 			}
 		}
 

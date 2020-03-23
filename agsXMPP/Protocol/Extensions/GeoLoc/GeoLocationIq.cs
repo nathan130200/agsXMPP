@@ -26,7 +26,7 @@ namespace AgsXMPP.Protocol.Extensions.GeoLoc
 	/// <summary>
 	/// a GeoLoc InfoQuery
 	/// </summary>
-	public class GeoLocationIq : Client.IQ
+	public class GeoLocationIq : IQ
 	{
 		public GeoLocationIq()
 		{

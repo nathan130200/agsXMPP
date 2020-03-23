@@ -143,7 +143,7 @@ namespace AgsXMPP.Xml.Dom
 				.Select(x => new { attr = x.GetCustomAttribute<XmppEnumMemberAttribute>().Value, name = x.Name })
 				.FirstOrDefault(x => x.name.Equals(attr));
 
-			if (Enum.TryParse<T>(field.name, out value))
+			if (Enum.TryParse(field.name, out value))
 				return value;
 
 			return default;

@@ -20,7 +20,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using AgsXMPP.Protocol.Client;
-using AgsXMPP.Protocol.Iq.@private;
+using AgsXMPP.Protocol.Query.@private;
 
 namespace AgsXMPP.Protocol.Extensions.Bookmarks
 {

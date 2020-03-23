@@ -20,7 +20,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-using System.Runtime.Serialization;
 using AgsXMPP.Protocol.Base;
 
 namespace AgsXMPP
@@ -83,10 +82,7 @@ namespace AgsXMPP.Protocol.Component
 		/// </summary>
 		public LogType Type
 		{
-			get
-			{
-				return this.GetAttributeEnum<LogType>("type");
-			}
+			get => this.GetAttributeEnum<LogType>("type"); 
 			set
 			{
 				if (value == LogType.None)

@@ -35,7 +35,7 @@ namespace AgsXMPP.Protocol.storage
 	/// <summary>
 	/// Summary description for AvatarIq.
 	/// </summary>
-	public class AvatarIq : Client.IQ
+	public class AvatarIq : IQ
 	{
 		private Avatar m_Avatar = new Avatar();
 

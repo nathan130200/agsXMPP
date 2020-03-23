@@ -19,8 +19,8 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using AgsXMPP.Protocol.Extensions.nickname;
-using AgsXMPP.Protocol.Extensions.primary;
+using AgsXMPP.Protocol.Extensions.Nickname;
+using AgsXMPP.Protocol.Extensions.Primary;
 
 namespace AgsXMPP.Protocol.Client
 {
@@ -68,13 +68,9 @@ namespace AgsXMPP.Protocol.Client
 		/// </summary>
 		public PresenceType Type
 		{
-			get
-			{
-				return this.GetAttributeEnum<PresenceType>("type");
-			}
+			get => this.GetAttributeEnum<PresenceType>("type");
 			set
 			{
-				// dont add type="available"
 				if (value == PresenceType.Available)
 					this.RemoveAttribute("type");
 				else

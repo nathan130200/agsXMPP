@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using AgsXMPP.Protocol.Iq.bind;
+using AgsXMPP.Protocol.Query.Bind;
 using AgsXMPP.Protocol.stream.features;
 using AgsXMPP.Protocol.stream.features.Compression;
 using AgsXMPP.Protocol.tls;
