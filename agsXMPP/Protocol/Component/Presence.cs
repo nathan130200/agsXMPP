@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.Component
 		#region << Constructors >>
 		public Presence() : base()
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Presence(Client.ShowType show, string status) : this()

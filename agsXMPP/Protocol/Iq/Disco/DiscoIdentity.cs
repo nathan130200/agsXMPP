@@ -55,7 +55,7 @@ namespace AgsXMPP.Protocol.Iq.Disco
 		public DiscoIdentity()
 		{
 			this.TagName = "identity";
-			this.Namespace = Namespaces.DISCO_INFO;
+			this.Namespace = URI.DISCO_INFO;
 		}
 
 		public DiscoIdentity(string type, string name, string category) : this()

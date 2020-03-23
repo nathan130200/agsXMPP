@@ -36,7 +36,7 @@ namespace AgsXMPP.Protocol.Extensions.ByteStreams
 		public UdpSuccess(string dstaddr)
 		{
 			this.TagName = "udpsuccess";
-			this.Namespace = Namespaces.BYTESTREAMS;
+			this.Namespace = URI.BYTESTREAMS;
 
 			this.DestinationAddress = dstaddr;
 		}

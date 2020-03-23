@@ -21,14 +21,14 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Event
+namespace AgsXMPP.Protocol.Extensions.PubSub.Event
 {
 	public class Event : Element
 	{
 		public Event()
 		{
 			this.TagName = "event";
-			this.Namespace = Namespaces.PUBSUB_EVENT;
+			this.Namespace = URI.PUBSUB_EVENT;
 		}
 
 

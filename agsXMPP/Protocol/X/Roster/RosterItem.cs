@@ -42,7 +42,7 @@ namespace AgsXMPP.Protocol.x.roster
 
 		public RosterItem() : base()
 		{
-			this.Namespace = Namespaces.X_ROSTERX;
+			this.Namespace = URI.X_ROSTERX;
 		}
 
 		public RosterItem(Jid jid) : this()

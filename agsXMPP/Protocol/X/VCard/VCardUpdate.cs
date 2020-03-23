@@ -41,7 +41,7 @@ namespace AgsXMPP.Protocol.x.vcard
 		public VCardUpdate()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.VCARD_UPDATE;
+			this.Namespace = URI.VCARD_UPDATE;
 		}
 
 

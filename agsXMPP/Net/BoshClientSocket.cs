@@ -234,10 +234,10 @@ namespace AgsXMPP.Net
 				sb.Append("<stream:stream");
 
 				sb.Append(" xmlns='");
-				sb.Append(Namespaces.CLIENT);
+				sb.Append(URI.CLIENT);
 
 				sb.Append("' xmlns:stream='");
-				sb.Append(Namespaces.STREAM);
+				sb.Append(URI.STREAM);
 
 				sb.Append("' id='");
 				sb.Append(this.sid);

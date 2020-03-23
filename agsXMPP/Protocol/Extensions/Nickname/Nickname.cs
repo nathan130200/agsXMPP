@@ -29,7 +29,7 @@ namespace AgsXMPP.Protocol.Extensions.nickname
 		public Nickname()
 		{
 			this.TagName = "nick";
-			this.Namespace = Namespaces.NICK;
+			this.Namespace = URI.NICK;
 		}
 
 		public Nickname(string nick) : this()

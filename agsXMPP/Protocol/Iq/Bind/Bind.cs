@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.Iq.bind
 		public Bind()
 		{
 			this.TagName = "bind";
-			this.Namespace = Namespaces.BIND;
+			this.Namespace = URI.BIND;
 		}
 
 		public Bind(string resource) : this()

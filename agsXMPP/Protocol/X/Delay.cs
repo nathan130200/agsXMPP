@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.x
 		public Delay()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.X_DELAY;
+			this.Namespace = URI.X_DELAY;
 		}
 
 		public Jid From

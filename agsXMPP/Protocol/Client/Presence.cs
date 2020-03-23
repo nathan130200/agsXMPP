@@ -33,7 +33,7 @@ namespace AgsXMPP.Protocol.Client
 		public Presence()
 		{
 			this.TagName = "presence";
-			this.Namespace = Namespaces.CLIENT;
+			this.Namespace = URI.CLIENT;
 		}
 
 		public Presence(ShowType show, string status) : this()

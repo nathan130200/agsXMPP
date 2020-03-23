@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
+namespace AgsXMPP.Protocol.Extensions.JiveSoftware.Phone
 {
 	/// <summary>
 	/// A user's presence is updated when on a phone call.
@@ -43,19 +43,13 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 		public PhoneStatus()
 		{
 			this.TagName = "phone-status";
-			this.Namespace = Namespaces.JIVESOFTWARE_PHONE;
+			this.Namespace = URI.JIVESOFTWARE_PHONE;
 		}
 
 		public PhoneStatusType Status
 		{
-			set
-			{
-				this.SetAttribute("status", value.ToString());
-			}
-			get
-			{
-				return (PhoneStatusType)this.GetAttributeEnum("status", typeof(PhoneStatusType));
-			}
+			get => this.GetAttributeEnum<PhoneStatusType>("status");
+			set => this.SetAttributeEnum("status", value);
 		}
 	}
 }

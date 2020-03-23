@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol.x.data
 		public Reported()
 		{
 			this.TagName = "reported";
-			this.Namespace = Namespaces.X_DATA;
+			this.Namespace = URI.X_DATA;
 		}
 		#endregion
 	}

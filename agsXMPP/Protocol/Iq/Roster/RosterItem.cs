@@ -61,7 +61,7 @@ namespace AgsXMPP.Protocol.Iq.roster
 	{
 		public RosterItem() : base()
 		{
-			this.Namespace = Namespaces.IQ_ROSTER;
+			this.Namespace = URI.IQ_ROSTER;
 		}
 
 		public RosterItem(Jid jid) : this()

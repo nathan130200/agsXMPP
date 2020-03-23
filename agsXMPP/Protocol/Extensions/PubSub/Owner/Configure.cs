@@ -23,7 +23,7 @@ using AgsXMPP.Protocol.x.data;
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 {
 	public class Configure : Element
 	{
@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
 		public Configure()
 		{
 			this.TagName = "configure";
-			this.Namespace = Namespaces.PUBSUB_OWNER;
+			this.Namespace = URI.PUBSUB_OWNER;
 		}
 
 		public Configure(string node)

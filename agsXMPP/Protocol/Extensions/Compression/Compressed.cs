@@ -33,7 +33,7 @@ namespace AgsXMPP.Protocol.Extensions.Compression
 		public Compressed()
 		{
 			this.TagName = "compressed";
-			this.Namespace = Namespaces.COMPRESS;
+			this.Namespace = URI.COMPRESS;
 		}
 	}
 }

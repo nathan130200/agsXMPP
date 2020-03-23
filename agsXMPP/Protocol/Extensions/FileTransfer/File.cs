@@ -67,7 +67,7 @@ namespace AgsXMPP.Protocol.Extensions.FileTransfer
 		public File()
 		{
 			this.TagName = "file";
-			this.Namespace = Namespaces.SI_FILE_TRANSFER;
+			this.Namespace = URI.SI_FILE_TRANSFER;
 		}
 
 		public File(string name, long size) : this()

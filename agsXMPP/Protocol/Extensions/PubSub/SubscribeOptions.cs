@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 
 	/*
@@ -60,7 +60,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public SubscribeOptions()
 		{
 			this.TagName = "subscribe-options";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 
 		public SubscribeOptions(bool required)

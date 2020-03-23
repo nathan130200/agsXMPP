@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
+namespace AgsXMPP.Protocol.Extensions.JiveSoftware.Phone
 {
 	public class PhoneAction : Element
 	{
@@ -58,7 +58,7 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 		public PhoneAction()
 		{
 			this.TagName = "phone-action";
-			this.Namespace = Namespaces.JIVESOFTWARE_PHONE;
+			this.Namespace = URI.JIVESOFTWARE_PHONE;
 		}
 
 		public PhoneAction(ActionType type) : this()

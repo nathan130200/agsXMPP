@@ -215,8 +215,8 @@ namespace AgsXMPP
 			if (this.m_ComponentJid != null)
 				sb.Append(" to='" + this.m_ComponentJid.ToString() + "'");
 
-			sb.Append(" xmlns='" + Namespaces.ACCEPT + "'");
-			sb.Append(" xmlns:stream='" + Namespaces.STREAM + "'");
+			sb.Append(" xmlns='" + URI.ACCEPT + "'");
+			sb.Append(" xmlns:stream='" + URI.STREAM + "'");
 
 			sb.Append(">");
 

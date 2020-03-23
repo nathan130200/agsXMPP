@@ -29,7 +29,7 @@ namespace AgsXMPP.Protocol.x.muc
 	{
 		public Invitation()
 		{
-			this.Namespace = Namespaces.MUC_USER;
+			this.Namespace = URI.MUC_USER;
 		}
 
 		/// <summary>

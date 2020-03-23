@@ -65,7 +65,7 @@ namespace AgsXMPP.Protocol.Component
 		public Log()
 		{
 			this.TagName = "log";
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		/// <summary>

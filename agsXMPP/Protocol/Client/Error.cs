@@ -201,7 +201,7 @@ namespace AgsXMPP.Protocol.Client
 		#region << Constructors >>
 		public Error()
 		{
-			this.Namespace = Namespaces.CLIENT;
+			this.Namespace = URI.CLIENT;
 			this.TagName = "error";
 		}
 
@@ -333,91 +333,91 @@ namespace AgsXMPP.Protocol.Client
 				switch (value)
 				{
 					case ErrorCondition.BadRequest:
-						this.SetTag("bad-request", "", Namespaces.STANZAS);
+						this.SetTag("bad-request", "", URI.STANZAS);
 						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.Conflict:
-						this.SetTag("conflict", "", Namespaces.STANZAS);
+						this.SetTag("conflict", "", URI.STANZAS);
 						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.FeatureNotImplemented:
-						this.SetTag("feature-not-implemented", "", Namespaces.STANZAS);
+						this.SetTag("feature-not-implemented", "", URI.STANZAS);
 						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.Forbidden:
-						this.SetTag("forbidden", "", Namespaces.STANZAS);
+						this.SetTag("forbidden", "", URI.STANZAS);
 						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.Gone:
-						this.SetTag("gone", "", Namespaces.STANZAS);
+						this.SetTag("gone", "", URI.STANZAS);
 						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.InternalServerError:
-						this.SetTag("internal-server-error", "", Namespaces.STANZAS);
+						this.SetTag("internal-server-error", "", URI.STANZAS);
 						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.ItemNotFound:
-						this.SetTag("item-not-found", "", Namespaces.STANZAS);
+						this.SetTag("item-not-found", "", URI.STANZAS);
 						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.JidMalformed:
-						this.SetTag("jid-malformed", "", Namespaces.STANZAS);
+						this.SetTag("jid-malformed", "", URI.STANZAS);
 						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.NotAcceptable:
-						this.SetTag("not-acceptable", "", Namespaces.STANZAS);
+						this.SetTag("not-acceptable", "", URI.STANZAS);
 						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.NotAllowed:
-						this.SetTag("not-allowed", "", Namespaces.STANZAS);
+						this.SetTag("not-allowed", "", URI.STANZAS);
 						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.NotAuthorized:
-						this.SetTag("not-authorized", "", Namespaces.STANZAS);
+						this.SetTag("not-authorized", "", URI.STANZAS);
 						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.PaymentRequired:
-						this.SetTag("payment-required", "", Namespaces.STANZAS);
+						this.SetTag("payment-required", "", URI.STANZAS);
 						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.RecipientUnavailable:
-						this.SetTag("recipient-unavailable", "", Namespaces.STANZAS);
+						this.SetTag("recipient-unavailable", "", URI.STANZAS);
 						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.Redirect:
-						this.SetTag("redirect", "", Namespaces.STANZAS);
+						this.SetTag("redirect", "", URI.STANZAS);
 						this.Type = ErrorType.Modify;
 						break;
 					case ErrorCondition.RegistrationRequired:
-						this.SetTag("registration-required", "", Namespaces.STANZAS);
+						this.SetTag("registration-required", "", URI.STANZAS);
 						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.RemoteServerNotFound:
-						this.SetTag("remote-server-not-found", "", Namespaces.STANZAS);
+						this.SetTag("remote-server-not-found", "", URI.STANZAS);
 						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.RemoteServerTimeout:
-						this.SetTag("remote-server-timeout", "", Namespaces.STANZAS);
+						this.SetTag("remote-server-timeout", "", URI.STANZAS);
 						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.ResourceConstraint:
-						this.SetTag("resource-constraint", "", Namespaces.STANZAS);
+						this.SetTag("resource-constraint", "", URI.STANZAS);
 						this.Type = ErrorType.Wait;
 						break;
 					case ErrorCondition.ServiceUnavailable:
-						this.SetTag("service-unavailable", "", Namespaces.STANZAS);
+						this.SetTag("service-unavailable", "", URI.STANZAS);
 						this.Type = ErrorType.Cancel;
 						break;
 					case ErrorCondition.SubscriptionRequired:
-						this.SetTag("subscription-required", "", Namespaces.STANZAS);
+						this.SetTag("subscription-required", "", URI.STANZAS);
 						this.Type = ErrorType.Auth;
 						break;
 					case ErrorCondition.UndefinedCondition:
-						this.SetTag("undefined-condition", "", Namespaces.STANZAS);
+						this.SetTag("undefined-condition", "", URI.STANZAS);
 						// could be any
 						break;
 					case ErrorCondition.UnexpectedRequest:
-						this.SetTag("unexpected-request", "", Namespaces.STANZAS);
+						this.SetTag("unexpected-request", "", URI.STANZAS);
 						this.Type = ErrorType.Wait;
 						break;
 

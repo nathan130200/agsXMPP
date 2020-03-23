@@ -32,7 +32,7 @@ namespace AgsXMPP.Protocol.x
 		public Event()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.X_EVENT;
+			this.Namespace = URI.X_EVENT;
 		}
 
 		/// <summary>

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	/*
         <iq type='result'
@@ -45,7 +45,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public Affiliations()
 		{
 			this.TagName = "affiliations";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 		#endregion
 

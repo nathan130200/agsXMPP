@@ -37,7 +37,7 @@ namespace AgsXMPP.Protocol.Extensions.Shim
 		public Header()
 		{
 			this.TagName = "header";
-			this.Namespace = Namespaces.SHIM;
+			this.Namespace = URI.SHIM;
 		}
 
 		public Header(string name, string val) : this()

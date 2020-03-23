@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.Iq.time
 		public Time()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_TIME;
+			this.Namespace = URI.IQ_TIME;
 		}
 
 

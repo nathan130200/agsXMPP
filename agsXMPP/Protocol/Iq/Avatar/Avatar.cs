@@ -36,7 +36,7 @@ namespace AgsXMPP.Protocol.Iq.avatar
 	{
 		public Avatar() : base()
 		{
-			this.Namespace = Namespaces.IQ_AVATAR;
+			this.Namespace = URI.IQ_AVATAR;
 		}
 	}
 }

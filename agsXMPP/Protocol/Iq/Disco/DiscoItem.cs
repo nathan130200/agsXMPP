@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.Iq.Disco
 		public DiscoItem()
 		{
 			this.TagName = "item";
-			this.Namespace = Namespaces.DISCO_ITEMS;
+			this.Namespace = URI.DISCO_ITEMS;
 		}
 
 		public Jid Jid

@@ -36,7 +36,7 @@ namespace AgsXMPP.Protocol.Extensions.Bookmarks
 		public Url()
 		{
 			this.TagName = "url";
-			this.Namespace = Namespaces.STORAGE_BOOKMARKS;
+			this.Namespace = URI.STORAGE_BOOKMARKS;
 		}
 
 		public Url(string address, string name) : this()

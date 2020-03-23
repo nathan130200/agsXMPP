@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 {
 	/*
         <iq type='result'
@@ -53,7 +53,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
 		public Affiliates()
 		{
 			this.TagName = "affiliates";
-			this.Namespace = Namespaces.PUBSUB_OWNER;
+			this.Namespace = URI.PUBSUB_OWNER;
 		}
 
 		public Affiliates(string node) : this()

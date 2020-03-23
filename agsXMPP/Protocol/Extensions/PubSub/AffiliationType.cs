@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	/// <summary>
 	/// 
@@ -29,9 +29,25 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		/// <summary>
 		/// the absence of an affiliation
 		/// </summary>
-		none,
-		owner,
-		publisher,
-		outcast
+		[XmppEnumMember("none")]
+		None,
+
+		/// <summary>
+		/// Owner affiliation role.
+		/// </summary>
+		[XmppEnumMember("owner")]
+		Owner,
+
+		/// <summary>
+		/// Publisher affiliation role.
+		/// </summary>
+		[XmppEnumMember("publisher")]
+		Publisher,
+
+		/// <summary>
+		/// Outcast affiliation role.
+		/// </summary>
+		[XmppEnumMember("outcast")]
+		Outcast
 	}
 }

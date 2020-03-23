@@ -37,7 +37,7 @@ namespace AgsXMPP.Protocol.Client
 		public Message()
 		{
 			this.TagName = "message";
-			this.Namespace = Namespaces.CLIENT;
+			this.Namespace = URI.CLIENT;
 		}
 
 		public Message(Jid to) : this()

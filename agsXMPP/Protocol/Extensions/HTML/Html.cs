@@ -39,7 +39,7 @@ namespace AgsXMPP.Protocol.Extensions.XHtml
 		public Html()
 		{
 			this.TagName = "html";
-			this.Namespace = Namespaces.XHTML_IM;
+			this.Namespace = URI.XHTML_IM;
 		}
 
 		/// <summary>

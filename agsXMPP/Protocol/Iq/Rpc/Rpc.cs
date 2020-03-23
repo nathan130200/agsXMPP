@@ -66,7 +66,7 @@ namespace AgsXMPP.Protocol.Iq.rpc
 		public Rpc()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_RPC;
+			this.Namespace = URI.IQ_RPC;
 		}
 
 

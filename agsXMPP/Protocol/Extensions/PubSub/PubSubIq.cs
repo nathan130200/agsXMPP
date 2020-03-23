@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	public class PubSubIq : Client.IQ
 	{

@@ -54,7 +54,7 @@ namespace AgsXMPP.Protocol.stream
 		{
 			this.Prefix = "stream";
 			this.TagName = "features";
-			this.Namespace = Namespaces.STREAM;
+			this.Namespace = URI.STREAM;
 		}
 
 		public StartTls StartTls

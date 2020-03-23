@@ -46,7 +46,7 @@ namespace AgsXMPP.Protocol.Extensions.Bookmarks
 		public Conference()
 		{
 			this.TagName = "conference";
-			this.Namespace = Namespaces.STORAGE_BOOKMARKS;
+			this.Namespace = URI.STORAGE_BOOKMARKS;
 		}
 
 		public Conference(Jid jid, string name) : this()

@@ -30,7 +30,7 @@ namespace AgsXMPP.Protocol.Extensions.IBB
 	{
 		public Base()
 		{
-			this.Namespace = Namespaces.IBB;
+			this.Namespace = URI.IBB;
 		}
 
 		/// <summary>

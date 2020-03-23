@@ -1416,7 +1416,7 @@ namespace AgsXMPP
 			{
 				// this is a hack to not send the xmlns="jabber:client" with all packets
 				var dummyEl = new Element("a");
-				dummyEl.Namespace = Namespaces.CLIENT;
+				dummyEl.Namespace = URI.CLIENT;
 
 				dummyEl.AddChild(e);
 				var toSend = dummyEl.ToString();

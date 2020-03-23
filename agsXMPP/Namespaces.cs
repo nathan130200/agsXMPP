@@ -22,7 +22,7 @@
 namespace AgsXMPP
 {
 
-	public class Namespaces
+	public class URI
 	{
 		public const string STREAM = "http://etherx.jabber.org/streams";
 		public const string CLIENT = "jabber:client";

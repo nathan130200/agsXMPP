@@ -62,7 +62,7 @@ namespace AgsXMPP.Protocol.Extensions.ByteStreams
 		public ByteStream()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.BYTESTREAMS;
+			this.Namespace = URI.BYTESTREAMS;
 		}
 
 		public string Sid

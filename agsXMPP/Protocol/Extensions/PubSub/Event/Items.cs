@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Event
+namespace AgsXMPP.Protocol.Extensions.PubSub.Event
 {
 	/*
         <message from='pubsub.shakespeare.lit' to='francisco@denmark.lit' id='foo'>
@@ -64,7 +64,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub.Event
 		public Items()
 		{
 			this.TagName = "items";
-			this.Namespace = Namespaces.PUBSUB_EVENT;
+			this.Namespace = URI.PUBSUB_EVENT;
 		}
 
 		public Items(string node) : this()

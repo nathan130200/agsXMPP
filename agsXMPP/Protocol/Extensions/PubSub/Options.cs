@@ -23,7 +23,7 @@ using AgsXMPP.Protocol.x.data;
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 
 	/*
@@ -54,7 +54,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public Options()
 		{
 			this.TagName = "options";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 
 		public Options(Jid jid) : this()

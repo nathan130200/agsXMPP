@@ -56,7 +56,7 @@ namespace AgsXMPP.Protocol.Iq.rpc
 		public MethodResponse()
 		{
 			this.TagName = "methodResponse";
-			this.Namespace = Namespaces.IQ_RPC;
+			this.Namespace = URI.IQ_RPC;
 		}
 
 		/// <summary>

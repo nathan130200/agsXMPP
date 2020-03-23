@@ -52,7 +52,7 @@ namespace AgsXMPP.Protocol.x.roster
 		public Roster()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.X_ROSTERX;
+			this.Namespace = URI.X_ROSTERX;
 		}
 
 

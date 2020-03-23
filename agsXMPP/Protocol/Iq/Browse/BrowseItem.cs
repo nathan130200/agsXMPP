@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.Iq.browse
 		*/
 		public BrowseItem() : base()
 		{
-			this.Namespace = Namespaces.IQ_BROWSE;
+			this.Namespace = URI.IQ_BROWSE;
 		}
 
 		public string Category

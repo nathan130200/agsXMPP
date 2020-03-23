@@ -21,14 +21,14 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 {
 	public class PubSub : Element
 	{
 		public PubSub()
 		{
 			this.TagName = "pubsub";
-			this.Namespace = Namespaces.PUBSUB_OWNER;
+			this.Namespace = URI.PUBSUB_OWNER;
 		}
 
 		public Delete Delete

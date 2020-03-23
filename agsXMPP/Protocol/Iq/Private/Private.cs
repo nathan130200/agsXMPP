@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.Iq.@private
 		public Private()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_PRIVATE;
+			this.Namespace = URI.IQ_PRIVATE;
 		}
 
 		/// <summary>

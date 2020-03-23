@@ -82,7 +82,7 @@ namespace AgsXMPP.Protocol.Extensions.Caps
 		public Capabilities()
 		{
 			this.TagName = "c";
-			this.Namespace = Namespaces.CAPS;
+			this.Namespace = URI.CAPS;
 		}
 
 		/// <summary>

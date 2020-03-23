@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.Extensions.Shim
 		public Headers()
 		{
 			this.TagName = "headers";
-			this.Namespace = Namespaces.SHIM;
+			this.Namespace = URI.SHIM;
 		}
 
 		/// <summary>

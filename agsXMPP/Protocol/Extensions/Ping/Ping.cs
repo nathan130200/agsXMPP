@@ -33,7 +33,7 @@ namespace AgsXMPP.Protocol.Extensions.ping
 		public Ping()
 		{
 			this.TagName = "ping";
-			this.Namespace = Namespaces.PING;
+			this.Namespace = URI.PING;
 		}
 	}
 }

@@ -52,7 +52,7 @@ namespace AgsXMPP.Protocol.x.data
 		public Data()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.X_DATA;
+			this.Namespace = URI.X_DATA;
 		}
 
 		public Data(XDataFormType type) : this()

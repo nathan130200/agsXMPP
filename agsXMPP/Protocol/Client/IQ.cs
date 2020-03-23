@@ -35,7 +35,7 @@ namespace AgsXMPP.Protocol.Client
 		public IQ()
 		{
 			this.TagName = "iq";
-			this.Namespace = Namespaces.CLIENT;
+			this.Namespace = URI.CLIENT;
 		}
 
 		public IQ(IQType type) : this()

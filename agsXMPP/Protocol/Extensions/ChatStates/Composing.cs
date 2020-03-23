@@ -33,7 +33,7 @@ namespace AgsXMPP.Protocol.Extensions.ChatStates
 		public Composing()
 		{
 			this.TagName = ChatStateType.composing.ToString(); ;
-			this.Namespace = Namespaces.CHATSTATES;
+			this.Namespace = URI.CHATSTATES;
 		}
 	}
 }

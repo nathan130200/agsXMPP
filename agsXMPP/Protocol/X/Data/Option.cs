@@ -59,7 +59,7 @@ namespace AgsXMPP.Protocol.x.data
 		public Option()
 		{
 			this.TagName = "option";
-			this.Namespace = Namespaces.X_DATA;
+			this.Namespace = URI.X_DATA;
 		}
 
 		public Option(string label, string val) : this()

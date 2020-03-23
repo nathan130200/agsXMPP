@@ -56,7 +56,7 @@ namespace AgsXMPP.Protocol.Extensions.GeoLoc
 		public GeoLocation()
 		{
 			this.TagName = "geoloc";
-			this.Namespace = Namespaces.GEOLOC;
+			this.Namespace = URI.GEOLOC;
 		}
 
 		/// <summary>

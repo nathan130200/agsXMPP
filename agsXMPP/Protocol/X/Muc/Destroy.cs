@@ -47,7 +47,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public Destroy()
 		{
 			this.TagName = "destroy";
-			this.Namespace = Namespaces.MUC_OWNER;
+			this.Namespace = URI.MUC_OWNER;
 		}
 
 		public Destroy(string reason) : this()

@@ -73,7 +73,7 @@ namespace AgsXMPP.Protocol.Iq.browse
 		public Service()
 		{
 			this.TagName = "service";
-			this.Namespace = Namespaces.IQ_BROWSE;
+			this.Namespace = URI.IQ_BROWSE;
 		}
 
 

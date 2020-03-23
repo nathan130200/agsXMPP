@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.x
 		public Avatar()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.X_AVATAR;
+			this.Namespace = URI.X_AVATAR;
 		}
 
 		public Avatar(string hash) : this()

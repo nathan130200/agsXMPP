@@ -34,22 +34,22 @@ namespace AgsXMPP.Protocol.Component
 		#region << Constructors >>
 		public IQ() : base()
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public IQ(Client.IQType type) : base(type)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public IQ(Jid from, Jid to) : base(from, to)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public IQ(Client.IQType type, Jid from, Jid to) : base(type, from, to)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 		#endregion
 

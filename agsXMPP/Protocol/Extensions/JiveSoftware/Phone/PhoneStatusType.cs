@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
+namespace AgsXMPP.Protocol.Extensions.JiveSoftware.Phone
 {
 	/// <summary>
 	/// Events are sent to the user when their phone is ringing, 

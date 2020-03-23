@@ -40,7 +40,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public Muc()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.MUC;
+			this.Namespace = URI.MUC;
 		}
 		#endregion
 

@@ -25,7 +25,7 @@ namespace AgsXMPP.Protocol.server
 	{
 		public Stream() : base()
 		{
-			this.Namespace = Namespaces.STREAM;
+			this.Namespace = URI.STREAM;
 			this.Prefix = "stream";
 		}
 	}

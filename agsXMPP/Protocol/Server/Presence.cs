@@ -25,7 +25,7 @@ namespace AgsXMPP.Protocol.server
 	{
 		public Presence()
 		{
-			this.Namespace = Namespaces.SERVER;
+			this.Namespace = URI.SERVER;
 		}
 	}
 }

@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol.Iq.session
 		public Session()
 		{
 			this.TagName = "session";
-			this.Namespace = Namespaces.SESSION;
+			this.Namespace = URI.SESSION;
 		}
 	}
 }

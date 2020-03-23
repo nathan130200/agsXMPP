@@ -43,7 +43,7 @@ namespace AgsXMPP.Protocol.stream.features.Compression
 		public Compression()
 		{
 			this.TagName = "compression";
-			this.Namespace = Namespaces.FEATURE_COMPRESS;
+			this.Namespace = URI.FEATURE_COMPRESS;
 		}
 
 		/// <summary>

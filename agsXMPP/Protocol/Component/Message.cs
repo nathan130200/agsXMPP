@@ -35,127 +35,127 @@ namespace AgsXMPP.Protocol.Component
 		public Message()
 			: base()
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to)
 			: base(to)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, string body)
 			: base(to, body)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from)
 			: base(to, from)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(string to, string body)
 			: base(to, body)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, string body, string subject)
 			: base(to, body, subject)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(string to, string body, string subject)
 			: base(to, body, subject)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(string to, string body, string subject, string thread)
 			: base(to, body, subject, thread)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, string body, string subject, string thread)
 			: base(to, body, subject, thread)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(string to, Client.MessageType type, string body)
 			: base(to, type, body)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Client.MessageType type, string body)
 			: base(to, type, body)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(string to, Client.MessageType type, string body, string subject)
 			: base(to, type, body, subject)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Client.MessageType type, string body, string subject)
 			: base(to, type, body, subject)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(string to, Client.MessageType type, string body, string subject, string thread)
 			: base(to, type, body, subject, thread)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Client.MessageType type, string body, string subject, string thread)
 			: base(to, type, body, subject, thread)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from, string body)
 			: base(to, from, body)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from, string body, string subject)
 			: base(to, from, body, subject)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from, string body, string subject, string thread)
 			: base(to, from, body, subject, thread)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from, Client.MessageType type, string body)
 			: base(to, from, type, body)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from, Client.MessageType type, string body, string subject)
 			: base(to, from, type, body, subject)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Message(Jid to, Jid from, Client.MessageType type, string body, string subject, string thread)
 			: base(to, from, type, body, subject, thread)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 		#endregion
 

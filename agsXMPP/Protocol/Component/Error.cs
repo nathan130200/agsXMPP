@@ -28,25 +28,25 @@ namespace AgsXMPP.Protocol.Component
 	{
 		public Error() : base()
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Error(int code)
 			: base(code)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Error(Client.ErrorCode code)
 			: base(code)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Error(Client.ErrorType type)
 			: base(type)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		/// <summary>
@@ -58,7 +58,7 @@ namespace AgsXMPP.Protocol.Component
 		public Error(Client.ErrorCondition condition)
 			: base(condition)
 		{
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 	}
 }

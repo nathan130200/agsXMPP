@@ -28,7 +28,7 @@ namespace AgsXMPP.Protocol.Extensions.ByteStreams
 		public Activate()
 		{
 			this.TagName = "activate";
-			this.Namespace = Namespaces.BYTESTREAMS;
+			this.Namespace = URI.BYTESTREAMS;
 		}
 
 		public Activate(Jid jid) : this()

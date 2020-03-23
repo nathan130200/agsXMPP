@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol
 		public XmppStreamError()
 		{
 			this.TagName = "error";
-			this.Namespace = Namespaces.STREAM;
+			this.Namespace = URI.STREAM;
 		}
 
 		public XmppStreamError(XmppStreamErrorCondition condition) : this()
@@ -119,76 +119,76 @@ namespace AgsXMPP.Protocol
 				switch (value)
 				{
 					case XmppStreamErrorCondition.BadFormat:
-						this.SetTag("bad-format", "", Namespaces.STREAMS);
+						this.SetTag("bad-format", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.BadNamespacePrefix:
-						this.SetTag("bad-namespace-prefix", "", Namespaces.STREAMS);
+						this.SetTag("bad-namespace-prefix", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.Conflict:
-						this.SetTag("conflict", "", Namespaces.STREAMS);
+						this.SetTag("conflict", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.ConnectionTimeout:
-						this.SetTag("connection-timeout", "", Namespaces.STREAMS);
+						this.SetTag("connection-timeout", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.HostGone:
-						this.SetTag("host-gone", "", Namespaces.STREAMS);
+						this.SetTag("host-gone", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.HostUnknown:
-						this.SetTag("host-unknown", "", Namespaces.STREAMS);
+						this.SetTag("host-unknown", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.ImproperAddressing:
-						this.SetTag("improper-addressing", "", Namespaces.STREAMS);
+						this.SetTag("improper-addressing", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.InternalServerError:
-						this.SetTag("internal-server-error", "", Namespaces.STREAMS);
+						this.SetTag("internal-server-error", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.InvalidFrom:
-						this.SetTag("invalid-from", "", Namespaces.STREAMS);
+						this.SetTag("invalid-from", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.InvalidId:
-						this.SetTag("invalid-id", "", Namespaces.STREAMS);
+						this.SetTag("invalid-id", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.InvalidNamespace:
-						this.SetTag("invalid-namespace", "", Namespaces.STREAMS);
+						this.SetTag("invalid-namespace", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.InvalidXml:
-						this.SetTag("invalid-xml", "", Namespaces.STREAMS);
+						this.SetTag("invalid-xml", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.NotAuthorized:
-						this.SetTag("not-authorized", "", Namespaces.STREAMS);
+						this.SetTag("not-authorized", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.PolicyViolation:
-						this.SetTag("policy-violation", "", Namespaces.STREAMS);
+						this.SetTag("policy-violation", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.RemoteConnectionFailed:
-						this.SetTag("remote-connection-failed", "", Namespaces.STREAMS);
+						this.SetTag("remote-connection-failed", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.ResourceConstraint:
-						this.SetTag("resource-constraint", "", Namespaces.STREAMS);
+						this.SetTag("resource-constraint", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.RestrictedXml:
-						this.SetTag("restricted-xml", "", Namespaces.STREAMS);
+						this.SetTag("restricted-xml", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.SeeOtherHost:
-						this.SetTag("see-other-host", "", Namespaces.STREAMS);
+						this.SetTag("see-other-host", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.SystemShutdown:
-						this.SetTag("system-shutdown", "", Namespaces.STREAMS);
+						this.SetTag("system-shutdown", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.UndefinedCondition:
-						this.SetTag("undefined-condition", "", Namespaces.STREAMS);
+						this.SetTag("undefined-condition", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.UnsupportedEncoding:
-						this.SetTag("unsupported-encoding", "", Namespaces.STREAMS);
+						this.SetTag("unsupported-encoding", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.UnsupportedStanzaType:
-						this.SetTag("unsupported-stanza-type", "", Namespaces.STREAMS);
+						this.SetTag("unsupported-stanza-type", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.UnsupportedVersion:
-						this.SetTag("unsupported-version", "", Namespaces.STREAMS);
+						this.SetTag("unsupported-version", "", URI.STREAMS);
 						break;
 					case XmppStreamErrorCondition.XmlNotWellFormed:
-						this.SetTag("xml-not-well-formed", "", Namespaces.STREAMS);
+						this.SetTag("xml-not-well-formed", "", URI.STREAMS);
 						break;
 					default:
 						return;
@@ -213,7 +213,7 @@ namespace AgsXMPP.Protocol
 			get { return this.GetTag("text"); }
 			set
 			{
-				this.SetTag("text", value, Namespaces.STREAMS);
+				this.SetTag("text", value, URI.STREAMS);
 			}
 		}
 

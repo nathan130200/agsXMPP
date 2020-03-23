@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Abort()
 		{
 			this.TagName = "abort";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 	}
 }

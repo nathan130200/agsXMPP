@@ -88,7 +88,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Mechanism()
 		{
 			this.TagName = "mechanism";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 
 		public Mechanism(MechanismType mechanism) : this()

@@ -35,7 +35,7 @@ namespace AgsXMPP.Protocol.Extensions.ChatStates
 		public Paused()
 		{
 			this.TagName = ChatStateType.paused.ToString(); ;
-			this.Namespace = Namespaces.CHATSTATES;
+			this.Namespace = URI.CHATSTATES;
 		}
 	}
 }

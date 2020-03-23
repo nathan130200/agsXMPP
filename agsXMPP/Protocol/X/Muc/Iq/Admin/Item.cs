@@ -28,7 +28,7 @@ namespace AgsXMPP.Protocol.x.muc.iq.admin
 		/// </summary>
 		public Item() : base()
 		{
-			this.Namespace = Namespaces.MUC_ADMIN;
+			this.Namespace = URI.MUC_ADMIN;
 		}
 
 		/// <summary>

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	/*
       <xs:element name='item'>
@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public Item()
 		{
 			this.TagName = "item";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 
 		public Item(string id) : this()

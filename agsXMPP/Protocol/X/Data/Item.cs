@@ -32,7 +32,7 @@ namespace AgsXMPP.Protocol.x.data
 		public Item()
 		{
 			this.TagName = "item";
-			this.Namespace = Namespaces.X_DATA;
+			this.Namespace = URI.X_DATA;
 		}
 		#endregion
 	}

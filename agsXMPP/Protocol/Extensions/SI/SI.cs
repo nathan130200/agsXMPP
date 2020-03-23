@@ -33,7 +33,7 @@ namespace AgsXMPP.Protocol.Extensions.SI
 		public SI()
 		{
 			this.TagName = "si";
-			this.Namespace = Namespaces.SI;
+			this.Namespace = URI.SI;
 		}
 
 		//id='a0'

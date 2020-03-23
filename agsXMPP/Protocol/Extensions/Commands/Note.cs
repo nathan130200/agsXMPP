@@ -53,7 +53,7 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 		public Note()
 		{
 			this.TagName = "note";
-			this.Namespace = Namespaces.COMMANDS;
+			this.Namespace = URI.COMMANDS;
 		}
 
 		/// <summary>

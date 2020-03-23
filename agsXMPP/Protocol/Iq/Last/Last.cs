@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.Iq.last
 		public Last()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_LAST;
+			this.Namespace = URI.IQ_LAST;
 		}
 
 		/// <summary>

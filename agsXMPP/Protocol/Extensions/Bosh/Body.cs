@@ -29,7 +29,7 @@ namespace AgsXMPP.Protocol.Extensions.Bosh
 		public Body()
 		{
 			this.TagName = "body";
-			this.Namespace = Namespaces.HTTP_BIND;
+			this.Namespace = URI.HTTP_BIND;
 		}
 
 		/*

@@ -45,7 +45,7 @@ namespace AgsXMPP.Protocol.Extensions.Bookmarks
 		public Storage()
 		{
 			this.TagName = "storage";
-			this.Namespace = Namespaces.STORAGE_BOOKMARKS;
+			this.Namespace = URI.STORAGE_BOOKMARKS;
 		}
 
 		/// <summary>

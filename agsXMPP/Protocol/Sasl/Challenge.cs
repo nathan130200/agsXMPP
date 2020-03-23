@@ -35,7 +35,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Challenge()
 		{
 			this.TagName = "challenge";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 	}
 }

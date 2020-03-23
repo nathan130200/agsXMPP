@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.x.data;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	public class Configure : PubSubAction
 	{
@@ -49,16 +49,13 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 
 		public Access Access
 		{
-			get
-			{
-				return (Access)this.GetAttributeEnum("access", typeof(Access));
-			}
+			get => this.GetAttributeEnum<Access>("access");
 			set
 			{
-				if (value == Access.NONE)
+				if (value == Access.None)
 					this.RemoveAttribute("access");
 				else
-					this.SetAttribute("access", value.ToString());
+					this.SetAttributeEnum("access", value);
 			}
 		}
 

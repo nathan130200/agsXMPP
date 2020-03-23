@@ -30,7 +30,7 @@ namespace AgsXMPP.Protocol.Extensions.Commands
 		public Command()
 		{
 			this.TagName = "command";
-			this.Namespace = Namespaces.COMMANDS;
+			this.Namespace = URI.COMMANDS;
 		}
 
 		public Command(string node) : this()

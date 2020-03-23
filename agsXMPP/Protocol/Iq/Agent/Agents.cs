@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.Iq.agent
 		public Agents()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_AGENTS;
+			this.Namespace = URI.IQ_AGENTS;
 		}
 
 

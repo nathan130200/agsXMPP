@@ -49,7 +49,7 @@ namespace AgsXMPP.Protocol.x.data
 		public Field()
 		{
 			this.TagName = "field";
-			this.Namespace = Namespaces.X_DATA;
+			this.Namespace = URI.X_DATA;
 		}
 
 		public Field(FieldType type) : this()

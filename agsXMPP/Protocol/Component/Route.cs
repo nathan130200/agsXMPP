@@ -46,7 +46,7 @@ namespace AgsXMPP.Protocol.Component
 		public Route()
 		{
 			this.TagName = "route";
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Route(Element route) : this()

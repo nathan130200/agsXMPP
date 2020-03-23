@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Event
+namespace AgsXMPP.Protocol.Extensions.PubSub.Event
 {
 	public class Delete : Element
 	{
@@ -29,7 +29,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub.Event
 		public Delete()
 		{
 			this.TagName = "delete";
-			this.Namespace = Namespaces.PUBSUB_EVENT;
+			this.Namespace = URI.PUBSUB_EVENT;
 		}
 
 		public Delete(string node) : this()

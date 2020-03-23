@@ -42,7 +42,7 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 		public Amp()
 		{
 			this.TagName = "amp";
-			this.Namespace = Namespaces.AMP;
+			this.Namespace = URI.AMP;
 		}
 
 		/// <summary>

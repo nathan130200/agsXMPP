@@ -32,7 +32,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Auth()
 		{
 			this.TagName = "auth";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 
 		public Auth(MechanismType type) : this()

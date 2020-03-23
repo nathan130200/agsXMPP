@@ -39,7 +39,7 @@ namespace AgsXMPP.Protocol.stream.features
 		public Register()
 		{
 			this.TagName = "register";
-			this.Namespace = Namespaces.FEATURE_IQ_REGISTER;
+			this.Namespace = URI.FEATURE_IQ_REGISTER;
 		}
 	}
 }

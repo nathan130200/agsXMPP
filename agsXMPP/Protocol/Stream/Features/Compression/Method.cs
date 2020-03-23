@@ -45,7 +45,7 @@ namespace AgsXMPP.Protocol.stream.features.Compression
 		public Method()
 		{
 			this.TagName = "method";
-			this.Namespace = Namespaces.FEATURE_COMPRESS;
+			this.Namespace = URI.FEATURE_COMPRESS;
 		}
 
 		public Method(Extensions.Compression.CompressionMethod method) : this()

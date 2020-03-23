@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	/*
      Example 9. Entity publishes an item with an ItemID of the Payload Type UserTune
@@ -51,7 +51,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public Publish()
 		{
 			this.TagName = "publish";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 
 		/// <summary>

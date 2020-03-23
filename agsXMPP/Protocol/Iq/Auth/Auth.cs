@@ -41,7 +41,7 @@ namespace AgsXMPP.Protocol.Iq.auth
 		public Auth()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_AUTH;
+			this.Namespace = URI.IQ_AUTH;
 		}
 		#endregion
 

@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.Component
 		public Handshake()
 		{
 			this.TagName = "handshake";
-			this.Namespace = Namespaces.ACCEPT;
+			this.Namespace = URI.ACCEPT;
 		}
 
 		public Handshake(string password, string streamid) : this()

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	public class Subscription : Element
 	{
@@ -86,7 +86,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public Subscription()
 		{
 			this.TagName = "subscription";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 
 		public Subscription(Jid jid) : this()

@@ -28,7 +28,7 @@ namespace AgsXMPP.Protocol.Iq.privacy
 		public List()
 		{
 			this.TagName = "list";
-			this.Namespace = Namespaces.IQ_PRIVACY;
+			this.Namespace = URI.IQ_PRIVACY;
 		}
 
 		public List(string name) : this()

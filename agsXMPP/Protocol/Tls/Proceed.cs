@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.tls
 		public Proceed()
 		{
 			this.TagName = "proceed";
-			this.Namespace = Namespaces.TLS;
+			this.Namespace = URI.TLS;
 		}
 	}
 }

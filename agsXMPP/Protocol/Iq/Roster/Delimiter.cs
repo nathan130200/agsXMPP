@@ -55,7 +55,7 @@ namespace AgsXMPP.Protocol.Iq.roster
 		public Delimiter()
 		{
 			this.TagName = "roster";
-			this.Namespace = Namespaces.ROSTER_DELIMITER;
+			this.Namespace = URI.ROSTER_DELIMITER;
 		}
 
 		public Delimiter(string delimiter) : this()

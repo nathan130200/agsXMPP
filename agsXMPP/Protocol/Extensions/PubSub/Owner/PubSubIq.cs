@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 {
 	public class PubSubIq : Client.IQ
 	{

@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol
 		public XmppStream()
 		{
 			this.Prefix = "stream";
-			this.Namespace = Namespaces.STREAM;
+			this.Namespace = URI.STREAM;
 		}
 	}
 }

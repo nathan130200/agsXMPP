@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	/*
         <xs:attribute name='access' use='optional' default='open'>
@@ -36,11 +36,21 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
     */
 	public enum Access
 	{
-		NONE = -1,
-		open,
-		authorize,
-		presence,
-		roster,
-		whitelist
+		None = -1,
+
+		[XmppEnumMember("open")]
+		Open,
+
+		[XmppEnumMember("authorize")]
+		Authorize,
+
+		[XmppEnumMember("presence")]
+		Presence,
+
+		[XmppEnumMember("roster")]
+		Roster,
+
+		[XmppEnumMember("whitelist")]
+		Whitelist
 	}
 }

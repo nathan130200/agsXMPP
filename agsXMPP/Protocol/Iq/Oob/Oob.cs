@@ -40,7 +40,7 @@ namespace AgsXMPP.Protocol.Iq.oob
 		public Oob()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_OOB;
+			this.Namespace = URI.IQ_OOB;
 		}
 
 		public string Url

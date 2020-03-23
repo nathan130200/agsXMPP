@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Event
+namespace AgsXMPP.Protocol.Extensions.PubSub.Event
 {
 	public class Purge : Element
 	{
@@ -29,7 +29,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub.Event
 		public Purge()
 		{
 			this.TagName = "purge";
-			this.Namespace = Namespaces.PUBSUB_EVENT;
+			this.Namespace = URI.PUBSUB_EVENT;
 		}
 
 		public Purge(string node) : this()

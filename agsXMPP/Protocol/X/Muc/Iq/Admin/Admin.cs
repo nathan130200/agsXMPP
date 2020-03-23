@@ -39,7 +39,7 @@ namespace AgsXMPP.Protocol.x.muc.iq.admin
 		public Admin()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.MUC_ADMIN;
+			this.Namespace = URI.MUC_ADMIN;
 		}
 
 		/// <summary>

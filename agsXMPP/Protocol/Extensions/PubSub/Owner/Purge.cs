@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
+namespace AgsXMPP.Protocol.Extensions.PubSub.Owner
 {
 	// Only the Namespace is different to Purge in the Event Namespace
 	public class Purge : Event.Purge
@@ -27,7 +27,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub.Owner
 		#region << Constructors >>
 		public Purge() : base()
 		{
-			this.Namespace = Namespaces.PUBSUB_OWNER;
+			this.Namespace = URI.PUBSUB_OWNER;
 		}
 
 		public Purge(string node) : this()

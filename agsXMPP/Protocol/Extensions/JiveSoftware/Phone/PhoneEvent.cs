@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
+namespace AgsXMPP.Protocol.Extensions.JiveSoftware.Phone
 {
 	/* 
      *
@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 		public PhoneEvent()
 		{
 			this.TagName = "phone-event";
-			this.Namespace = Namespaces.JIVESOFTWARE_PHONE;
+			this.Namespace = URI.JIVESOFTWARE_PHONE;
 		}
 
 		public PhoneEvent(PhoneStatusType status) : this()
@@ -83,7 +83,7 @@ namespace AgsXMPP.Protocol.Extensions.jivesoftware.Phone
 		public PhoneStatusType Type
 		{
 			get => this.GetAttributeEnum<PhoneStatusType>("type");
-			set => this.SetAttribute("type", value.ToString());
+			set => this.SetAttributeEnum("type", value);
 		}
 
 		public string CallerId

@@ -46,7 +46,7 @@ namespace AgsXMPP.Protocol.Extensions.ByteStreams
 		public StreamHost()
 		{
 			this.TagName = "streamhost";
-			this.Namespace = Namespaces.BYTESTREAMS;
+			this.Namespace = URI.BYTESTREAMS;
 		}
 
 		public StreamHost(Jid jid, string host) : this()

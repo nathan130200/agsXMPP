@@ -37,7 +37,7 @@ namespace AgsXMPP.Protocol.Iq.roster
 		public Roster()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_ROSTER;
+			this.Namespace = URI.IQ_ROSTER;
 		}
 
 		public RosterItem[] GetRoster()

@@ -50,7 +50,7 @@ namespace AgsXMPP.Protocol.Extensions.Compression
 		public Failure()
 		{
 			this.TagName = "failure";
-			this.Namespace = Namespaces.COMPRESS;
+			this.Namespace = URI.COMPRESS;
 		}
 	}
 }

@@ -55,7 +55,7 @@ namespace AgsXMPP.Protocol.Iq.search
 		public SearchItem()
 		{
 			this.TagName = "item";
-			this.Namespace = Namespaces.IQ_SEARCH;
+			this.Namespace = URI.IQ_SEARCH;
 		}
 
 		public Jid Jid

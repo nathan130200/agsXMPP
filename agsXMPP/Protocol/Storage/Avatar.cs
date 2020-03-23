@@ -37,7 +37,7 @@ namespace AgsXMPP.Protocol.storage
 	{
 		public Avatar() : base()
 		{
-			this.Namespace = Namespaces.STORAGE_AVATAR;
+			this.Namespace = URI.STORAGE_AVATAR;
 		}
 	}
 }

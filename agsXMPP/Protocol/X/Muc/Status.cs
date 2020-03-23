@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public Status()
 		{
 			this.TagName = "status";
-			this.Namespace = Namespaces.MUC_USER;
+			this.Namespace = URI.MUC_USER;
 		}
 
 		public Status(StatusCode code) : this()

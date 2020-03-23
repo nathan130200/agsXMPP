@@ -29,7 +29,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public Actor()
 		{
 			this.TagName = "actor";
-			this.Namespace = Namespaces.MUC_USER;
+			this.Namespace = URI.MUC_USER;
 		}
 
 		public Jid Jid

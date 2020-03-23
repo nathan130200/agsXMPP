@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.Extensions.primary
 		public Primary()
 		{
 			this.TagName = "p";
-			this.Namespace = Namespaces.PRIMARY;
+			this.Namespace = URI.PRIMARY;
 		}
 	}
 }

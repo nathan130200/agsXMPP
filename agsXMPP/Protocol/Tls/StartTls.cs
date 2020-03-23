@@ -35,7 +35,7 @@ namespace AgsXMPP.Protocol.tls
 		public StartTls()
 		{
 			this.TagName = "starttls";
-			this.Namespace = Namespaces.TLS;
+			this.Namespace = URI.TLS;
 		}
 
 		public bool Required

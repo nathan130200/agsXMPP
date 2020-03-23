@@ -56,7 +56,7 @@ namespace AgsXMPP.Protocol.Extensions.FeatureNeg
 		public FeatureNegotiation()
 		{
 			this.TagName = "feature";
-			this.Namespace = Namespaces.FEATURE_NEG;
+			this.Namespace = URI.FEATURE_NEG;
 		}
 
 		/// <summary>

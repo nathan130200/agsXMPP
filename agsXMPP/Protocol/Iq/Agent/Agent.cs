@@ -37,7 +37,7 @@ namespace AgsXMPP.Protocol.Iq.agent
 		public Agent()
 		{
 			this.TagName = "agent";
-			this.Namespace = Namespaces.IQ_AGENTS;
+			this.Namespace = URI.IQ_AGENTS;
 		}
 
 		public Jid Jid

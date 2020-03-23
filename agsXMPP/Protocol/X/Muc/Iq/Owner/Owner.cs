@@ -36,7 +36,7 @@ namespace AgsXMPP.Protocol.x.muc.iq.owner
 		public Owner()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.MUC_OWNER;
+			this.Namespace = URI.MUC_OWNER;
 		}
 	}
 }

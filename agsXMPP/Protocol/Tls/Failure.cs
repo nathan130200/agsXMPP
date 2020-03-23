@@ -36,7 +36,7 @@ namespace AgsXMPP.Protocol.tls
 		public Failure()
 		{
 			this.TagName = "failure";
-			this.Namespace = Namespaces.TLS;
+			this.Namespace = URI.TLS;
 		}
 	}
 }

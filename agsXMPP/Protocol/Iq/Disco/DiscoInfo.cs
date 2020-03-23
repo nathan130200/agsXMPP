@@ -80,7 +80,7 @@ namespace AgsXMPP.Protocol.Iq.Disco
 		public DiscoInfo()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.DISCO_INFO;
+			this.Namespace = URI.DISCO_INFO;
 		}
 
 		/// <summary>

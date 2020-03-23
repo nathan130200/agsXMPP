@@ -28,7 +28,7 @@ namespace AgsXMPP.Protocol.Extensions.Amp
 		public Rule()
 		{
 			this.TagName = "rule";
-			this.Namespace = Namespaces.AMP;
+			this.Namespace = URI.AMP;
 		}
 
 		public Rule(Condition condition, string val, Action action)

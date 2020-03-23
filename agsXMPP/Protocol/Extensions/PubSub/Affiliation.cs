@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.pubsub
+namespace AgsXMPP.Protocol.Extensions.PubSub
 {
 	/*
         <affiliation node='node1' jid='francisco@denmark.lit' affiliation='owner'/>
@@ -32,7 +32,7 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 		public Affiliation()
 		{
 			this.TagName = "affiliation";
-			this.Namespace = Namespaces.PUBSUB;
+			this.Namespace = URI.PUBSUB;
 		}
 
 		public Affiliation(Jid jid, AffiliationType affiliation)
@@ -71,14 +71,8 @@ namespace AgsXMPP.Protocol.Extensions.pubsub
 
 		public AffiliationType AffiliationType
 		{
-			get
-			{
-				return (AffiliationType)this.GetAttributeEnum("affiliation", typeof(AffiliationType));
-			}
-			set
-			{
-				this.SetAttribute("affiliation", value.ToString());
-			}
+			get => this.GetAttributeEnum<AffiliationType>("affiliation");
+			set => this.SetAttributeEnum("affiliation", value);
 		}
 	}
 }

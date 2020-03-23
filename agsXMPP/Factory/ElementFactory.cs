@@ -38,258 +38,258 @@ namespace AgsXMPP.Factory
 
 		static ElementFactory()
 		{
-			AddElementType("iq", Namespaces.CLIENT, typeof(Protocol.Client.IQ));
-			AddElementType("message", Namespaces.CLIENT, typeof(Protocol.Client.Message));
-			AddElementType("presence", Namespaces.CLIENT, typeof(Protocol.Client.Presence));
-			AddElementType("error", Namespaces.CLIENT, typeof(Protocol.Client.Error));
+			AddElementType("iq", URI.CLIENT, typeof(Protocol.Client.IQ));
+			AddElementType("message", URI.CLIENT, typeof(Protocol.Client.Message));
+			AddElementType("presence", URI.CLIENT, typeof(Protocol.Client.Presence));
+			AddElementType("error", URI.CLIENT, typeof(Protocol.Client.Error));
 
-			AddElementType("agent", Namespaces.IQ_AGENTS, typeof(Protocol.Iq.agent.Agent));
+			AddElementType("agent", URI.IQ_AGENTS, typeof(Protocol.Iq.agent.Agent));
 
-			AddElementType("item", Namespaces.IQ_ROSTER, typeof(Protocol.Iq.roster.RosterItem));
-			AddElementType("group", Namespaces.IQ_ROSTER, typeof(Protocol.Base.Group));
-			AddElementType("group", Namespaces.X_ROSTERX, typeof(Protocol.Base.Group));
+			AddElementType("item", URI.IQ_ROSTER, typeof(Protocol.Iq.roster.RosterItem));
+			AddElementType("group", URI.IQ_ROSTER, typeof(Protocol.Base.Group));
+			AddElementType("group", URI.X_ROSTERX, typeof(Protocol.Base.Group));
 
-			AddElementType("item", Namespaces.IQ_SEARCH, typeof(Protocol.Iq.search.SearchItem));
+			AddElementType("item", URI.IQ_SEARCH, typeof(Protocol.Iq.search.SearchItem));
 
 			// Stream stuff
-			AddElementType("stream", Namespaces.STREAM, typeof(Protocol.XmppStream));
-			AddElementType("error", Namespaces.STREAM, typeof(Protocol.XmppStreamError));
+			AddElementType("stream", URI.STREAM, typeof(Protocol.XmppStream));
+			AddElementType("error", URI.STREAM, typeof(Protocol.XmppStreamError));
 
-			AddElementType("query", Namespaces.IQ_AUTH, typeof(Protocol.Iq.auth.Auth));
-			AddElementType("query", Namespaces.IQ_AGENTS, typeof(Protocol.Iq.agent.Agents));
-			AddElementType("query", Namespaces.IQ_ROSTER, typeof(Protocol.Iq.roster.Roster));
-			AddElementType("query", Namespaces.IQ_LAST, typeof(Protocol.Iq.last.Last));
-			AddElementType("query", Namespaces.IQ_VERSION, typeof(Protocol.Iq.version.Version));
-			AddElementType("query", Namespaces.IQ_TIME, typeof(Protocol.Iq.time.Time));
-			AddElementType("query", Namespaces.IQ_OOB, typeof(Protocol.Iq.oob.Oob));
-			AddElementType("query", Namespaces.IQ_SEARCH, typeof(Protocol.Iq.search.Search));
-			AddElementType("query", Namespaces.IQ_BROWSE, typeof(Protocol.Iq.browse.Browse));
-			AddElementType("query", Namespaces.IQ_AVATAR, typeof(Protocol.Iq.avatar.Avatar));
-			AddElementType("query", Namespaces.IQ_REGISTER, typeof(Protocol.Iq.register.Register));
-			AddElementType("query", Namespaces.IQ_PRIVATE, typeof(Protocol.Iq.@private.Private));
+			AddElementType("query", URI.IQ_AUTH, typeof(Protocol.Iq.auth.Auth));
+			AddElementType("query", URI.IQ_AGENTS, typeof(Protocol.Iq.agent.Agents));
+			AddElementType("query", URI.IQ_ROSTER, typeof(Protocol.Iq.roster.Roster));
+			AddElementType("query", URI.IQ_LAST, typeof(Protocol.Iq.last.Last));
+			AddElementType("query", URI.IQ_VERSION, typeof(Protocol.Iq.version.Version));
+			AddElementType("query", URI.IQ_TIME, typeof(Protocol.Iq.time.Time));
+			AddElementType("query", URI.IQ_OOB, typeof(Protocol.Iq.oob.Oob));
+			AddElementType("query", URI.IQ_SEARCH, typeof(Protocol.Iq.search.Search));
+			AddElementType("query", URI.IQ_BROWSE, typeof(Protocol.Iq.browse.Browse));
+			AddElementType("query", URI.IQ_AVATAR, typeof(Protocol.Iq.avatar.Avatar));
+			AddElementType("query", URI.IQ_REGISTER, typeof(Protocol.Iq.register.Register));
+			AddElementType("query", URI.IQ_PRIVATE, typeof(Protocol.Iq.@private.Private));
 
 			// Privacy Lists
-			AddElementType("query", Namespaces.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Privacy));
-			AddElementType("item", Namespaces.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Item));
-			AddElementType("list", Namespaces.IQ_PRIVACY, typeof(Protocol.Iq.privacy.List));
-			AddElementType("active", Namespaces.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Active));
-			AddElementType("default", Namespaces.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Default));
+			AddElementType("query", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Privacy));
+			AddElementType("item", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Item));
+			AddElementType("list", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.List));
+			AddElementType("active", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Active));
+			AddElementType("default", URI.IQ_PRIVACY, typeof(Protocol.Iq.privacy.Default));
 
 			// Browse
-			AddElementType("service", Namespaces.IQ_BROWSE, typeof(Protocol.Iq.browse.Service));
-			AddElementType("item", Namespaces.IQ_BROWSE, typeof(Protocol.Iq.browse.BrowseItem));
+			AddElementType("service", URI.IQ_BROWSE, typeof(Protocol.Iq.browse.Service));
+			AddElementType("item", URI.IQ_BROWSE, typeof(Protocol.Iq.browse.BrowseItem));
 
 			// Service Discovery			
-			AddElementType("query", Namespaces.DISCO_ITEMS, typeof(Protocol.Iq.Disco.DiscoItems));
-			AddElementType("query", Namespaces.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoInfo));
-			AddElementType("feature", Namespaces.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoFeature));
-			AddElementType("identity", Namespaces.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoIdentity));
-			AddElementType("item", Namespaces.DISCO_ITEMS, typeof(Protocol.Iq.Disco.DiscoItem));
+			AddElementType("query", URI.DISCO_ITEMS, typeof(Protocol.Iq.Disco.DiscoItems));
+			AddElementType("query", URI.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoInfo));
+			AddElementType("feature", URI.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoFeature));
+			AddElementType("identity", URI.DISCO_INFO, typeof(Protocol.Iq.Disco.DiscoIdentity));
+			AddElementType("item", URI.DISCO_ITEMS, typeof(Protocol.Iq.Disco.DiscoItem));
 
-			AddElementType("x", Namespaces.X_DELAY, typeof(Protocol.x.Delay));
-			AddElementType("x", Namespaces.X_AVATAR, typeof(Protocol.x.Avatar));
-			AddElementType("x", Namespaces.X_CONFERENCE, typeof(Protocol.x.Conference));
-			AddElementType("x", Namespaces.X_EVENT, typeof(Protocol.x.Event));
+			AddElementType("x", URI.X_DELAY, typeof(Protocol.x.Delay));
+			AddElementType("x", URI.X_AVATAR, typeof(Protocol.x.Avatar));
+			AddElementType("x", URI.X_CONFERENCE, typeof(Protocol.x.Conference));
+			AddElementType("x", URI.X_EVENT, typeof(Protocol.x.Event));
 
-			AddElementType("x", Namespaces.STORAGE_AVATAR, typeof(Protocol.storage.Avatar));
-			AddElementType("query", Namespaces.STORAGE_AVATAR, typeof(Protocol.storage.Avatar));
+			AddElementType("x", URI.STORAGE_AVATAR, typeof(Protocol.storage.Avatar));
+			AddElementType("query", URI.STORAGE_AVATAR, typeof(Protocol.storage.Avatar));
 
 			// XData Stuff
-			AddElementType("x", Namespaces.X_DATA, typeof(Protocol.x.data.Data));
-			AddElementType("field", Namespaces.X_DATA, typeof(Protocol.x.data.Field));
-			AddElementType("option", Namespaces.X_DATA, typeof(Protocol.x.data.Option));
-			AddElementType("value", Namespaces.X_DATA, typeof(Protocol.x.data.Value));
-			AddElementType("reported", Namespaces.X_DATA, typeof(Protocol.x.data.Reported));
-			AddElementType("item", Namespaces.X_DATA, typeof(Protocol.x.data.Item));
+			AddElementType("x", URI.X_DATA, typeof(Protocol.x.data.Data));
+			AddElementType("field", URI.X_DATA, typeof(Protocol.x.data.Field));
+			AddElementType("option", URI.X_DATA, typeof(Protocol.x.data.Option));
+			AddElementType("value", URI.X_DATA, typeof(Protocol.x.data.Value));
+			AddElementType("reported", URI.X_DATA, typeof(Protocol.x.data.Reported));
+			AddElementType("item", URI.X_DATA, typeof(Protocol.x.data.Item));
 
-			AddElementType("features", Namespaces.STREAM, typeof(Protocol.stream.StreamFeatures));
+			AddElementType("features", URI.STREAM, typeof(Protocol.stream.StreamFeatures));
 
-			AddElementType("register", Namespaces.FEATURE_IQ_REGISTER, typeof(Protocol.stream.features.Register));
-			AddElementType("compression", Namespaces.FEATURE_COMPRESS, typeof(Protocol.stream.features.Compression.Compression));
-			AddElementType("method", Namespaces.FEATURE_COMPRESS, typeof(Protocol.stream.features.Compression.Method));
+			AddElementType("register", URI.FEATURE_IQ_REGISTER, typeof(Protocol.stream.features.Register));
+			AddElementType("compression", URI.FEATURE_COMPRESS, typeof(Protocol.stream.features.Compression.Compression));
+			AddElementType("method", URI.FEATURE_COMPRESS, typeof(Protocol.stream.features.Compression.Method));
 
-			AddElementType("bind", Namespaces.BIND, typeof(Protocol.Iq.bind.Bind));
-			AddElementType("session", Namespaces.SESSION, typeof(Protocol.Iq.session.Session));
+			AddElementType("bind", URI.BIND, typeof(Protocol.Iq.bind.Bind));
+			AddElementType("session", URI.SESSION, typeof(Protocol.Iq.session.Session));
 
 			// TLS stuff
-			AddElementType("failure", Namespaces.TLS, typeof(Protocol.tls.Failure));
-			AddElementType("proceed", Namespaces.TLS, typeof(Protocol.tls.Proceed));
-			AddElementType("starttls", Namespaces.TLS, typeof(Protocol.tls.StartTls));
+			AddElementType("failure", URI.TLS, typeof(Protocol.tls.Failure));
+			AddElementType("proceed", URI.TLS, typeof(Protocol.tls.Proceed));
+			AddElementType("starttls", URI.TLS, typeof(Protocol.tls.StartTls));
 
 			// SASL stuff
-			AddElementType("mechanisms", Namespaces.SASL, typeof(Protocol.sasl.Mechanisms));
-			AddElementType("mechanism", Namespaces.SASL, typeof(Protocol.sasl.Mechanism));
-			AddElementType("auth", Namespaces.SASL, typeof(Protocol.sasl.Auth));
-			AddElementType("response", Namespaces.SASL, typeof(Protocol.sasl.Response));
-			AddElementType("challenge", Namespaces.SASL, typeof(Protocol.sasl.Challenge));
+			AddElementType("mechanisms", URI.SASL, typeof(Protocol.sasl.Mechanisms));
+			AddElementType("mechanism", URI.SASL, typeof(Protocol.sasl.Mechanism));
+			AddElementType("auth", URI.SASL, typeof(Protocol.sasl.Auth));
+			AddElementType("response", URI.SASL, typeof(Protocol.sasl.Response));
+			AddElementType("challenge", URI.SASL, typeof(Protocol.sasl.Challenge));
 
 			// TODO, this is a dirty hacks for the buggy BOSH Proxy
 			// BEGIN
-			AddElementType("challenge", Namespaces.CLIENT, typeof(Protocol.sasl.Challenge));
-			AddElementType("success", Namespaces.CLIENT, typeof(Protocol.sasl.Success));
+			AddElementType("challenge", URI.CLIENT, typeof(Protocol.sasl.Challenge));
+			AddElementType("success", URI.CLIENT, typeof(Protocol.sasl.Success));
 			// END
 
-			AddElementType("failure", Namespaces.SASL, typeof(Protocol.sasl.Failure));
-			AddElementType("abort", Namespaces.SASL, typeof(Protocol.sasl.Abort));
-			AddElementType("success", Namespaces.SASL, typeof(Protocol.sasl.Success));
+			AddElementType("failure", URI.SASL, typeof(Protocol.sasl.Failure));
+			AddElementType("abort", URI.SASL, typeof(Protocol.sasl.Abort));
+			AddElementType("success", URI.SASL, typeof(Protocol.sasl.Success));
 
 			// Server stuff
-			AddElementType("stream", Namespaces.SERVER, typeof(Protocol.server.Stream));
-			AddElementType("message", Namespaces.SERVER, typeof(Protocol.server.Message));
+			AddElementType("stream", URI.SERVER, typeof(Protocol.server.Stream));
+			AddElementType("message", URI.SERVER, typeof(Protocol.server.Message));
 
 			// Component stuff
-			AddElementType("handshake", Namespaces.ACCEPT, typeof(Protocol.Component.Handshake));
-			AddElementType("log", Namespaces.ACCEPT, typeof(Protocol.Component.Log));
-			AddElementType("route", Namespaces.ACCEPT, typeof(Protocol.Component.Route));
-			AddElementType("iq", Namespaces.ACCEPT, typeof(Protocol.Component.IQ));
-			AddElementType("message", Namespaces.ACCEPT, typeof(Protocol.Component.Message));
-			AddElementType("presence", Namespaces.ACCEPT, typeof(Protocol.Component.Presence));
-			AddElementType("error", Namespaces.ACCEPT, typeof(Protocol.Component.Error));
+			AddElementType("handshake", URI.ACCEPT, typeof(Protocol.Component.Handshake));
+			AddElementType("log", URI.ACCEPT, typeof(Protocol.Component.Log));
+			AddElementType("route", URI.ACCEPT, typeof(Protocol.Component.Route));
+			AddElementType("iq", URI.ACCEPT, typeof(Protocol.Component.IQ));
+			AddElementType("message", URI.ACCEPT, typeof(Protocol.Component.Message));
+			AddElementType("presence", URI.ACCEPT, typeof(Protocol.Component.Presence));
+			AddElementType("error", URI.ACCEPT, typeof(Protocol.Component.Error));
 
 			//Extensions (JEPS)
-			AddElementType("headers", Namespaces.SHIM, typeof(Protocol.Extensions.Shim.Header));
-			AddElementType("header", Namespaces.SHIM, typeof(Protocol.Extensions.Shim.Headers));
-			AddElementType("roster", Namespaces.ROSTER_DELIMITER, typeof(Protocol.Iq.roster.Delimiter));
-			AddElementType("p", Namespaces.PRIMARY, typeof(Protocol.Extensions.primary.Primary));
-			AddElementType("nick", Namespaces.NICK, typeof(Protocol.Extensions.nickname.Nickname));
+			AddElementType("headers", URI.SHIM, typeof(Protocol.Extensions.Shim.Header));
+			AddElementType("header", URI.SHIM, typeof(Protocol.Extensions.Shim.Headers));
+			AddElementType("roster", URI.ROSTER_DELIMITER, typeof(Protocol.Iq.roster.Delimiter));
+			AddElementType("p", URI.PRIMARY, typeof(Protocol.Extensions.primary.Primary));
+			AddElementType("nick", URI.NICK, typeof(Protocol.Extensions.nickname.Nickname));
 
-			AddElementType("item", Namespaces.X_ROSTERX, typeof(Protocol.x.roster.RosterItem));
-			AddElementType("x", Namespaces.X_ROSTERX, typeof(Protocol.x.roster.Roster));
+			AddElementType("item", URI.X_ROSTERX, typeof(Protocol.x.roster.RosterItem));
+			AddElementType("x", URI.X_ROSTERX, typeof(Protocol.x.roster.Roster));
 
 			// Filetransfer stuff
-			AddElementType("file", Namespaces.SI_FILE_TRANSFER, typeof(Protocol.Extensions.FileTransfer.File));
-			AddElementType("range", Namespaces.SI_FILE_TRANSFER, typeof(Protocol.Extensions.FileTransfer.Range));
+			AddElementType("file", URI.SI_FILE_TRANSFER, typeof(Protocol.Extensions.FileTransfer.File));
+			AddElementType("range", URI.SI_FILE_TRANSFER, typeof(Protocol.Extensions.FileTransfer.Range));
 
 			// FeatureNeg
-			AddElementType("feature", Namespaces.FEATURE_NEG, typeof(Protocol.Extensions.FeatureNeg.FeatureNegotiation));
+			AddElementType("feature", URI.FEATURE_NEG, typeof(Protocol.Extensions.FeatureNeg.FeatureNegotiation));
 
 			// Bytestreams
-			AddElementType("query", Namespaces.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.ByteStream));
-			AddElementType("streamhost", Namespaces.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.StreamHost));
-			AddElementType("streamhost-used", Namespaces.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.StreamHostUsed));
-			AddElementType("activate", Namespaces.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.Activate));
-			AddElementType("udpsuccess", Namespaces.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.UdpSuccess));
+			AddElementType("query", URI.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.ByteStream));
+			AddElementType("streamhost", URI.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.StreamHost));
+			AddElementType("streamhost-used", URI.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.StreamHostUsed));
+			AddElementType("activate", URI.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.Activate));
+			AddElementType("udpsuccess", URI.BYTESTREAMS, typeof(Protocol.Extensions.ByteStreams.UdpSuccess));
 
 
-			AddElementType("si", Namespaces.SI, typeof(Protocol.Extensions.SI.SI));
+			AddElementType("si", URI.SI, typeof(Protocol.Extensions.SI.SI));
 
-			AddElementType("html", Namespaces.XHTML_IM, typeof(Protocol.Extensions.XHtml.Html));
-			AddElementType("body", Namespaces.XHTML, typeof(Protocol.Extensions.XHtml.Body));
+			AddElementType("html", URI.XHTML_IM, typeof(Protocol.Extensions.XHtml.Html));
+			AddElementType("body", URI.XHTML, typeof(Protocol.Extensions.XHtml.Body));
 
-			AddElementType("compressed", Namespaces.COMPRESS, typeof(Protocol.Extensions.Compression.Compressed));
-			AddElementType("compress", Namespaces.COMPRESS, typeof(Protocol.Extensions.Compression.Compress));
-			AddElementType("failure", Namespaces.COMPRESS, typeof(Protocol.Extensions.Compression.Failure));
+			AddElementType("compressed", URI.COMPRESS, typeof(Protocol.Extensions.Compression.Compressed));
+			AddElementType("compress", URI.COMPRESS, typeof(Protocol.Extensions.Compression.Compress));
+			AddElementType("failure", URI.COMPRESS, typeof(Protocol.Extensions.Compression.Failure));
 
 			// MUC (JEP-0045 Multi User Chat)
-			AddElementType("x", Namespaces.MUC, typeof(Protocol.x.muc.Muc));
-			AddElementType("x", Namespaces.MUC_USER, typeof(Protocol.x.muc.User));
-			AddElementType("item", Namespaces.MUC_USER, typeof(Protocol.x.muc.Item));
-			AddElementType("status", Namespaces.MUC_USER, typeof(Protocol.x.muc.Status));
-			AddElementType("invite", Namespaces.MUC_USER, typeof(Protocol.x.muc.Invite));
-			AddElementType("decline", Namespaces.MUC_USER, typeof(Protocol.x.muc.Decline));
-			AddElementType("actor", Namespaces.MUC_USER, typeof(Protocol.x.muc.Actor));
-			AddElementType("history", Namespaces.MUC, typeof(Protocol.x.muc.History));
-			AddElementType("query", Namespaces.MUC_ADMIN, typeof(Protocol.x.muc.iq.admin.Admin));
-			AddElementType("item", Namespaces.MUC_ADMIN, typeof(Protocol.x.muc.iq.admin.Item));
-			AddElementType("query", Namespaces.MUC_OWNER, typeof(Protocol.x.muc.iq.owner.Owner));
-			AddElementType("destroy", Namespaces.MUC_OWNER, typeof(Protocol.x.muc.Destroy));
+			AddElementType("x", URI.MUC, typeof(Protocol.x.muc.Muc));
+			AddElementType("x", URI.MUC_USER, typeof(Protocol.x.muc.User));
+			AddElementType("item", URI.MUC_USER, typeof(Protocol.x.muc.Item));
+			AddElementType("status", URI.MUC_USER, typeof(Protocol.x.muc.Status));
+			AddElementType("invite", URI.MUC_USER, typeof(Protocol.x.muc.Invite));
+			AddElementType("decline", URI.MUC_USER, typeof(Protocol.x.muc.Decline));
+			AddElementType("actor", URI.MUC_USER, typeof(Protocol.x.muc.Actor));
+			AddElementType("history", URI.MUC, typeof(Protocol.x.muc.History));
+			AddElementType("query", URI.MUC_ADMIN, typeof(Protocol.x.muc.iq.admin.Admin));
+			AddElementType("item", URI.MUC_ADMIN, typeof(Protocol.x.muc.iq.admin.Item));
+			AddElementType("query", URI.MUC_OWNER, typeof(Protocol.x.muc.iq.owner.Owner));
+			AddElementType("destroy", URI.MUC_OWNER, typeof(Protocol.x.muc.Destroy));
 
 
 			//Jabber RPC JEP 0009            
-			AddElementType("query", Namespaces.IQ_RPC, typeof(Protocol.Iq.rpc.Rpc));
-			AddElementType("methodCall", Namespaces.IQ_RPC, typeof(Protocol.Iq.rpc.MethodCall));
-			AddElementType("methodResponse", Namespaces.IQ_RPC, typeof(Protocol.Iq.rpc.MethodResponse));
+			AddElementType("query", URI.IQ_RPC, typeof(Protocol.Iq.rpc.Rpc));
+			AddElementType("methodCall", URI.IQ_RPC, typeof(Protocol.Iq.rpc.MethodCall));
+			AddElementType("methodResponse", URI.IQ_RPC, typeof(Protocol.Iq.rpc.MethodResponse));
 
 			// Chatstates Jep-0085
-			AddElementType("active", Namespaces.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Active));
-			AddElementType("inactive", Namespaces.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Inactive));
-			AddElementType("composing", Namespaces.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Composing));
-			AddElementType("paused", Namespaces.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Paused));
-			AddElementType("gone", Namespaces.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Gone));
+			AddElementType("active", URI.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Active));
+			AddElementType("inactive", URI.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Inactive));
+			AddElementType("composing", URI.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Composing));
+			AddElementType("paused", URI.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Paused));
+			AddElementType("gone", URI.CHATSTATES, typeof(Protocol.Extensions.ChatStates.Gone));
 
 			// Jivesoftware Extenstions
-			AddElementType("phone-event", Namespaces.JIVESOFTWARE_PHONE, typeof(Protocol.Extensions.jivesoftware.Phone.PhoneEvent));
-			AddElementType("phone-action", Namespaces.JIVESOFTWARE_PHONE, typeof(Protocol.Extensions.jivesoftware.Phone.PhoneAction));
-			AddElementType("phone-status", Namespaces.JIVESOFTWARE_PHONE, typeof(Protocol.Extensions.jivesoftware.Phone.PhoneStatus));
+			AddElementType("phone-event", URI.JIVESOFTWARE_PHONE, typeof(Protocol.Extensions.JiveSoftware.Phone.PhoneEvent));
+			AddElementType("phone-action", URI.JIVESOFTWARE_PHONE, typeof(Protocol.Extensions.JiveSoftware.Phone.PhoneAction));
+			AddElementType("phone-status", URI.JIVESOFTWARE_PHONE, typeof(Protocol.Extensions.JiveSoftware.Phone.PhoneStatus));
 
 			// Jingle stuff is in heavy development, we commit this once the most changes on the Jeps are done            
 			//AddElementType("jingle",            Uri.JINGLE,                 typeof(agsXMPP.protocol.extensions.jingle.Jingle));
 			//AddElementType("candidate",         Uri.JINGLE,                 typeof(agsXMPP.protocol.extensions.jingle.Candidate));
 
-			AddElementType("c", Namespaces.CAPS, typeof(Protocol.Extensions.Caps.Capabilities));
+			AddElementType("c", URI.CAPS, typeof(Protocol.Extensions.Caps.Capabilities));
 
-			AddElementType("geoloc", Namespaces.GEOLOC, typeof(Protocol.Extensions.GeoLoc.GeoLocation));
+			AddElementType("geoloc", URI.GEOLOC, typeof(Protocol.Extensions.GeoLoc.GeoLocation));
 
 			// Xmpp Ping
-			AddElementType("ping", Namespaces.PING, typeof(Protocol.Extensions.ping.Ping));
+			AddElementType("ping", URI.PING, typeof(Protocol.Extensions.ping.Ping));
 
 			//Ad-Hock Commands
-			AddElementType("command", Namespaces.COMMANDS, typeof(Protocol.Extensions.Commands.Command));
-			AddElementType("actions", Namespaces.COMMANDS, typeof(Protocol.Extensions.Commands.Actions));
-			AddElementType("note", Namespaces.COMMANDS, typeof(Protocol.Extensions.Commands.Note));
+			AddElementType("command", URI.COMMANDS, typeof(Protocol.Extensions.Commands.Command));
+			AddElementType("actions", URI.COMMANDS, typeof(Protocol.Extensions.Commands.Actions));
+			AddElementType("note", URI.COMMANDS, typeof(Protocol.Extensions.Commands.Note));
 
 			// **********
 			// * PubSub *
 			// **********
 			// Owner namespace
-			AddElementType("affiliate", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Affiliate));
-			AddElementType("affiliates", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Affiliates));
-			AddElementType("configure", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Configure));
-			AddElementType("delete", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Delete));
-			AddElementType("pending", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Pending));
-			AddElementType("pubsub", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.PubSub));
-			AddElementType("purge", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Purge));
-			AddElementType("subscriber", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Subscriber));
-			AddElementType("subscribers", Namespaces.PUBSUB_OWNER, typeof(Protocol.Extensions.pubsub.Owner.Subscribers));
+			AddElementType("affiliate", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Affiliate));
+			AddElementType("affiliates", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Affiliates));
+			AddElementType("configure", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Configure));
+			AddElementType("delete", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Delete));
+			AddElementType("pending", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Pending));
+			AddElementType("pubsub", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.PubSub));
+			AddElementType("purge", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Purge));
+			AddElementType("subscriber", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Subscriber));
+			AddElementType("subscribers", URI.PUBSUB_OWNER, typeof(Protocol.Extensions.PubSub.Owner.Subscribers));
 
 			// Event namespace
-			AddElementType("delete", Namespaces.PUBSUB_EVENT, typeof(Protocol.Extensions.pubsub.Event.Delete));
-			AddElementType("event", Namespaces.PUBSUB_EVENT, typeof(Protocol.Extensions.pubsub.Event.Event));
-			AddElementType("item", Namespaces.PUBSUB_EVENT, typeof(Protocol.Extensions.pubsub.Event.Item));
-			AddElementType("items", Namespaces.PUBSUB_EVENT, typeof(Protocol.Extensions.pubsub.Event.Items));
-			AddElementType("purge", Namespaces.PUBSUB_EVENT, typeof(Protocol.Extensions.pubsub.Event.Purge));
+			AddElementType("delete", URI.PUBSUB_EVENT, typeof(Protocol.Extensions.PubSub.Event.Delete));
+			AddElementType("event", URI.PUBSUB_EVENT, typeof(Protocol.Extensions.PubSub.Event.Event));
+			AddElementType("item", URI.PUBSUB_EVENT, typeof(Protocol.Extensions.PubSub.Event.Item));
+			AddElementType("items", URI.PUBSUB_EVENT, typeof(Protocol.Extensions.PubSub.Event.Items));
+			AddElementType("purge", URI.PUBSUB_EVENT, typeof(Protocol.Extensions.PubSub.Event.Purge));
 
 			// Main Pubsub namespace
-			AddElementType("affiliation", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Affiliation));
-			AddElementType("affiliations", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Affiliations));
-			AddElementType("configure", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Configure));
-			AddElementType("create", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Create));
-			AddElementType("configure", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Configure));
-			AddElementType("item", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Item));
-			AddElementType("items", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Items));
-			AddElementType("options", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Options));
-			AddElementType("publish", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Publish));
-			AddElementType("pubsub", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.PubSub));
-			AddElementType("retract", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Retract));
-			AddElementType("subscribe", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Subscribe));
-			AddElementType("subscribe-options", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.SubscribeOptions));
-			AddElementType("subscription", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Subscription));
-			AddElementType("subscriptions", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Subscriptions));
-			AddElementType("unsubscribe", Namespaces.PUBSUB, typeof(Protocol.Extensions.pubsub.Unsubscribe));
+			AddElementType("affiliation", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Affiliation));
+			AddElementType("affiliations", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Affiliations));
+			AddElementType("configure", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Configure));
+			AddElementType("create", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Create));
+			AddElementType("configure", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Configure));
+			AddElementType("item", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Item));
+			AddElementType("items", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Items));
+			AddElementType("options", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Options));
+			AddElementType("publish", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Publish));
+			AddElementType("pubsub", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.PubSub));
+			AddElementType("retract", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Retract));
+			AddElementType("subscribe", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Subscribe));
+			AddElementType("subscribe-options", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.SubscribeOptions));
+			AddElementType("subscription", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Subscription));
+			AddElementType("subscriptions", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Subscriptions));
+			AddElementType("unsubscribe", URI.PUBSUB, typeof(Protocol.Extensions.PubSub.Unsubscribe));
 
 			// HTTP Binding XEP-0124
-			AddElementType("body", Namespaces.HTTP_BIND, typeof(Protocol.Extensions.Bosh.Body));
+			AddElementType("body", URI.HTTP_BIND, typeof(Protocol.Extensions.Bosh.Body));
 
 			// Message receipts XEP-0184
-			AddElementType("received", Namespaces.MSG_RECEIPT, typeof(Protocol.Extensions.msgreceipts.Received));
-			AddElementType("request", Namespaces.MSG_RECEIPT, typeof(Protocol.Extensions.msgreceipts.Request));
+			AddElementType("received", URI.MSG_RECEIPT, typeof(Protocol.Extensions.MsgReceipts.Received));
+			AddElementType("request", URI.MSG_RECEIPT, typeof(Protocol.Extensions.MsgReceipts.Request));
 
 			// Bookmark storage XEP-0048         
-			AddElementType("storage", Namespaces.STORAGE_BOOKMARKS, typeof(Protocol.Extensions.Bookmarks.Storage));
-			AddElementType("url", Namespaces.STORAGE_BOOKMARKS, typeof(Protocol.Extensions.Bookmarks.Url));
-			AddElementType("conference", Namespaces.STORAGE_BOOKMARKS, typeof(Protocol.Extensions.Bookmarks.Conference));
+			AddElementType("storage", URI.STORAGE_BOOKMARKS, typeof(Protocol.Extensions.Bookmarks.Storage));
+			AddElementType("url", URI.STORAGE_BOOKMARKS, typeof(Protocol.Extensions.Bookmarks.Url));
+			AddElementType("conference", URI.STORAGE_BOOKMARKS, typeof(Protocol.Extensions.Bookmarks.Conference));
 
 			// XEP-0047: In-Band Bytestreams (IBB)
-			AddElementType("open", Namespaces.IBB, typeof(Protocol.Extensions.IBB.Open));
-			AddElementType("data", Namespaces.IBB, typeof(Protocol.Extensions.IBB.Data));
-			AddElementType("close", Namespaces.IBB, typeof(Protocol.Extensions.IBB.Close));
+			AddElementType("open", URI.IBB, typeof(Protocol.Extensions.IBB.Open));
+			AddElementType("data", URI.IBB, typeof(Protocol.Extensions.IBB.Data));
+			AddElementType("close", URI.IBB, typeof(Protocol.Extensions.IBB.Close));
 
 			// XEP-0153: vCard-Based Avatars
-			AddElementType("x", Namespaces.VCARD_UPDATE, typeof(Protocol.x.vcard.VCardUpdate));
+			AddElementType("x", URI.VCARD_UPDATE, typeof(Protocol.x.vcard.VCardUpdate));
 
 			// AMP
-			AddElementType("amp", Namespaces.AMP, typeof(Protocol.Extensions.Amp.Amp));
-			AddElementType("rule", Namespaces.AMP, typeof(Protocol.Extensions.Amp.Rule));
+			AddElementType("amp", URI.AMP, typeof(Protocol.Extensions.Amp.Amp));
+			AddElementType("rule", URI.AMP, typeof(Protocol.Extensions.Amp.Rule));
 
 		}
 

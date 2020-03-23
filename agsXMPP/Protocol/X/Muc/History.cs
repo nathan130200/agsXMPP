@@ -71,7 +71,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public History()
 		{
 			this.TagName = "history";
-			this.Namespace = Namespaces.MUC;
+			this.Namespace = URI.MUC;
 		}
 
 		/// <summary>

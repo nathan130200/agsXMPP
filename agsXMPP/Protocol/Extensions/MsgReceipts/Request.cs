@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Extensions.msgreceipts
+namespace AgsXMPP.Protocol.Extensions.MsgReceipts
 {
 	/// <summary>
 	/// 
@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.Extensions.msgreceipts
 		public Request()
 		{
 			this.TagName = "request";
-			this.Namespace = Namespaces.MSG_RECEIPT;
+			this.Namespace = URI.MSG_RECEIPT;
 		}
 	}
 }

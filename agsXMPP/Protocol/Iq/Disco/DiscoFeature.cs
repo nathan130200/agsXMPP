@@ -58,7 +58,7 @@ namespace AgsXMPP.Protocol.Iq.Disco
 		public DiscoFeature()
 		{
 			this.TagName = "feature";
-			this.Namespace = Namespaces.DISCO_INFO;
+			this.Namespace = URI.DISCO_INFO;
 		}
 
 		public DiscoFeature(string var) : this()

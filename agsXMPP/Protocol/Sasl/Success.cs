@@ -32,7 +32,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Success()
 		{
 			this.TagName = "success";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 	}
 }

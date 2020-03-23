@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Response()
 		{
 			this.TagName = "response";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 
 		public Response(string text) : this()

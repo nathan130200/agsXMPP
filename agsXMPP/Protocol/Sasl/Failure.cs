@@ -34,7 +34,7 @@ namespace AgsXMPP.Protocol.sasl
 		public Failure()
 		{
 			this.TagName = "failure";
-			this.Namespace = Namespaces.SASL;
+			this.Namespace = URI.SASL;
 		}
 
 		public Failure(FailureCondition cond) : this()

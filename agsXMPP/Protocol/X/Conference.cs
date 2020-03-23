@@ -38,7 +38,7 @@ namespace AgsXMPP.Protocol.x
 		public Conference()
 		{
 			this.TagName = "x";
-			this.Namespace = Namespaces.X_CONFERENCE;
+			this.Namespace = URI.X_CONFERENCE;
 		}
 
 		public Conference(Jid room) : this()

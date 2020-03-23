@@ -28,7 +28,7 @@ namespace AgsXMPP.Protocol.Iq.privacy
 		public Privacy()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_PRIVACY;
+			this.Namespace = URI.IQ_PRIVACY;
 		}
 
 		/// <summary>

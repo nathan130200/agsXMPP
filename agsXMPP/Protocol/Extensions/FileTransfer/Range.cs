@@ -37,7 +37,7 @@ namespace AgsXMPP.Protocol.Extensions.FileTransfer
 		public Range()
 		{
 			this.TagName = "range";
-			this.Namespace = Namespaces.SI_FILE_TRANSFER;
+			this.Namespace = URI.SI_FILE_TRANSFER;
 		}
 
 		public Range(long offset, long length) : this()

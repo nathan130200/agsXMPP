@@ -42,7 +42,7 @@ namespace AgsXMPP.Protocol.Iq.register
 		public Register()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_REGISTER;
+			this.Namespace = URI.IQ_REGISTER;
 		}
 
 		public Register(string username, string password) : this()

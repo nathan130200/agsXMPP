@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol.x.data
 		public Value()
 		{
 			this.TagName = "value";
-			this.Namespace = Namespaces.X_DATA;
+			this.Namespace = URI.X_DATA;
 		}
 
 		public Value(string val) : this()

@@ -44,7 +44,7 @@ namespace AgsXMPP.Protocol.Iq.version
 		public Version()
 		{
 			this.TagName = "query";
-			this.Namespace = Namespaces.IQ_VERSION;
+			this.Namespace = URI.IQ_VERSION;
 		}
 
 		public string Name

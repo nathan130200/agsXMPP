@@ -52,7 +52,7 @@ namespace AgsXMPP.Protocol.x.muc
 		public Item() : base()
 		{
 			this.TagName = "item";
-			this.Namespace = Namespaces.MUC_USER;
+			this.Namespace = URI.MUC_USER;
 		}
 
 		/// <summary>
