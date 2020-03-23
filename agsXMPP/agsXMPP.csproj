@@ -1,14 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net452;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <RootNamespace>AgsXMPP</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
     <DefineConstants>SSL</DefineConstants>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <Version>1.4.7</Version>
+    <Version>1.5.0</Version>
     <PackageProjectUrl>https://www.ag-software.net/agsxmpp-sdk/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/StormDevelopmentSoftware/agsXMPP</RepositoryUrl>
     <Description>.NET Core Port to agsXMPP a XMPP library without vCard support.</Description>
