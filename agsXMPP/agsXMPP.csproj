@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>AgsXMPP</RootNamespace>
   </PropertyGroup>
-
   <PropertyGroup>
     <DefineConstants>SSL</DefineConstants>
     <SignAssembly>false</SignAssembly>
@@ -20,11 +18,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>agsXMPP.NetCore</PackageId>
   </PropertyGroup>
-  
   <ItemGroup>
     <Compile Remove="key.snk" />
   </ItemGroup>
-
   <ItemGroup Condition="$(BCCRYPTO) == ''">
     <Compile Remove="Net/SslStream.cs" />
   </ItemGroup>
