@@ -27,29 +27,35 @@ namespace AgsXMPP.Protocol.Query.Browse
 	/// </summary>
 	public class BrowseIq : IQ
 	{
+		[System.Obsolete]
 		private Browse m_Browse = new Browse();
 
+		[System.Obsolete]
 		public BrowseIq()
 		{
 			base.Query = this.m_Browse;
 			this.GenerateId();
 		}
 
+		[System.Obsolete]
 		public BrowseIq(IQType type) : this()
 		{
 			this.Type = type;
 		}
 
+		[System.Obsolete]
 		public BrowseIq(IQType type, Jid to) : this(type)
 		{
 			this.To = to;
 		}
 
+		[System.Obsolete]
 		public BrowseIq(IQType type, Jid to, Jid from) : this(type, to)
 		{
 			this.From = from;
 		}
 
+		[System.Obsolete]
 		public new Browse Query
 		{
 			get
