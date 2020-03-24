@@ -33,9 +33,9 @@ namespace AgsXMPP
 
 	public delegate void XmppConnectionStateHandler(object sender, XmppConnectionState state);
 	/// <summary>
-	/// abstract base class XmppConnection.
+	/// Abstract base class XmppConnection.
 	/// </summary>
-	public abstract class XmppConnection
+	public abstract class XmppConnection : IXmppConnection
 	{
 
 		private Timer m_KeepaliveTimer = null;
@@ -160,7 +160,7 @@ namespace AgsXMPP
 			set { this.m_StreamVersion = value; }
 		}
 
-		public XmppConnectionState XmppConnectionState
+		public XmppConnectionState State
 		{
 			get { return this.m_ConnectionState; }
 		}
@@ -183,7 +183,7 @@ namespace AgsXMPP
 			get { return this.m_StreamParser; }
 		}
 
-		public SocketConnectionType SocketConnectionType
+		public SocketConnectionType SocketType
 		{
 			get { return this.m_SocketConnectionType; }
 			set

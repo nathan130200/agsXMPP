@@ -540,7 +540,7 @@ namespace AgsXMPP
 
 		public XmppClientConnection(SocketConnectionType type) : this()
 		{
-			this.SocketConnectionType = type;
+			this.SocketType = type;
 		}
 
 		public XmppClientConnection(string server) : this()
@@ -684,7 +684,7 @@ namespace AgsXMPP
 			//if (m_KeepAlive)
 			//    CreateKeepAliveTimer();
 
-			if (this.SocketConnectionType == SocketConnectionType.Direct && this.AutoResolveConnectServer)
+			if (this.SocketType == SocketConnectionType.Direct && this.AutoResolveConnectServer)
 				this.ResolveSrv();
 
 			this.OpenSocket();
