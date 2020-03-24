@@ -37,7 +37,7 @@ namespace AgsXMPP.Test
 			//Debug.WriteLine("\nCurrent: " + xml);
 			//Debug.WriteLine("\nIs Match: " + excepted.Equals(xml));
 
-			Assert.AreEqual(excepted, xml, "Mismatch xml");
+			Assert.AreEqual(excepted, xml);
 		}
 
 		[TestMethod]
@@ -78,7 +78,7 @@ namespace AgsXMPP.Test
 			Assert.AreEqual(excepted, xml);
 		}
 
-		[TestMethod]
+		[TestMethod, TestCategory("Generic Enum Attribute")]
 		[DataRow(IQType.Get, "get")]
 		[DataRow(IQType.Set, "set")]
 		[DataRow(IQType.Result, "result")]
@@ -98,19 +98,35 @@ namespace AgsXMPP.Test
 				.GetValue(connection) as EventEmitter<T>;
 		}
 
-		[TestMethod]
-		public void TestCorruptedComponentEventHandlers()
+		[TestMethod, TestCategory("Event Handlers")]
+		public void TestCorruptedEventHandlers()
 		{
 			var m_OnIq = this.GetEventEmitter<AgsXMPP.Protocol.Component.IqHandler>(this.Component, "OnIq");
 			Assert.IsNotNull(m_OnIq);
 			Assert.AreEqual(1, m_OnIq.Handlers.Count);
-			Debug.WriteLine("Handlers: " + m_OnIq.Handlers.Count.ToString());
+			Debug.WriteLine("Handlers Before: " + m_OnIq.Handlers.Count.ToString());
 
 			this.Component.OnIq += this.OnComponentIq;
 			this.Component.OnIq += (s, e) => { };
 
 			Assert.AreEqual(3, m_OnIq.Handlers.Count);
-			Debug.WriteLine("Handlers: " + m_OnIq.Handlers.Count.ToString());
+			Debug.WriteLine("Handlers After: " + m_OnIq.Handlers.Count.ToString());
+		}
+
+		[TestMethod, TestCategory("Event Handlers")]
+		public void TestCorruptedEventHandlersWithSameBaseType()
+		{
+			var m_OnIq = this.GetEventEmitter<AgsXMPP.Protocol.Component.IqHandler>(this.Component, "OnIq");
+			Assert.IsNotNull(m_OnIq);
+			Assert.AreEqual(1, m_OnIq.Handlers.Count);
+			Debug.WriteLine("Handlers Before: " + m_OnIq.Handlers.Count.ToString());
+
+			this.Component.OnIq += this.OnClientIq; // AgsXMPP.Protocol.Component.IQ iq is subclass of AgsXMPP.Protocol.Client.IQ
+			this.Component.OnIq += this.OnComponentIq;
+			this.Component.OnIq += (s, e) => { };
+
+			Assert.AreEqual(4, m_OnIq.Handlers.Count);
+			Debug.WriteLine("Handlers After: " + m_OnIq.Handlers.Count.ToString());
 		}
 
 		void OnComponentIq(object sender, AgsXMPP.Protocol.Component.IQ iq)
