@@ -19,7 +19,6 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using System;
 using AgsXMPP.Net;
 using AgsXMPP.Xml;
 using AgsXMPP.Xml.Dom;
@@ -42,9 +41,9 @@ namespace AgsXMPP
 		XmppConnectionState State { get; }
 
 		event ErrorHandler OnError;
-		event BaseSocket.OnSocketDataHandler OnReadSocketData;
+		event SocketDataEventHandler OnReadSocketData;
 		event XmlHandler OnReadXml;
-		event BaseSocket.OnSocketDataHandler OnWriteSocketData;
+		event SocketDataEventHandler OnWriteSocketData;
 		event XmlHandler OnWriteXml;
 		event XmppConnectionStateHandler OnXmppConnectionStateChanged;
 

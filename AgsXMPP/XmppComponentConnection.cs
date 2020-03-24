@@ -21,7 +21,7 @@
 
 using System;
 using System.Text;
-
+using AgsXMPP.Events;
 using AgsXMPP.Protocol.Component;
 using AgsXMPP.Xml.Dom;
 
@@ -41,8 +41,6 @@ namespace AgsXMPP
 		// This route stuff is old undocumented jabberd(2) stuff. hopefully we can get rid of this one day
 		// or somebody writes up and XEP
 		public delegate void RouteHandler(object sender, Route r);
-
-		public delegate void ComponentIQHandler(object sender, IQ iq);
 
 		private bool m_CleanUpDone;
 		private bool m_StreamStarted;
@@ -120,56 +118,100 @@ namespace AgsXMPP
 		#endregion
 
 		#region << Events >>
-		// public event ErrorHandler			OnError;
+		protected internal EventEmitter<ObjectHandler> m_OnLogin = new EventEmitter<ObjectHandler>();
+		protected internal EventEmitter<ObjectHandler> m_OnClose = new EventEmitter<ObjectHandler>();
+		protected internal EventEmitter<RouteHandler> m_OnRoute = new EventEmitter<RouteHandler>();
+		protected internal EventEmitter<XmppElementHandler> m_OnAuthError = new EventEmitter<XmppElementHandler>();
+		protected internal EventEmitter<XmppElementHandler> m_OnStreamError = new EventEmitter<XmppElementHandler>();
+		protected internal EventEmitter<ErrorHandler> m_OnSocketError = new EventEmitter<ErrorHandler>();
+		protected internal EventEmitter<IqHandler> m_OnIq = new EventEmitter<IqHandler>();
+		protected internal EventEmitter<MessageHandler> m_OnMessage = new EventEmitter<MessageHandler>();
+		protected internal EventEmitter<PresenceHandler> m_OnPresence = new EventEmitter<PresenceHandler>();
 
 		/// <summary>
 		/// connection is authenticated now and ready for receiving Route, Log and Xdb Packets
 		/// </summary>
-		public event ObjectHandler OnLogin;
+		public event ObjectHandler OnLogin
+		{
+			add => this.m_OnLogin.Register(value);
+			remove => this.m_OnLogin.Unregister(value);
+		}
 
 		/// <summary>
 		/// Fired when connection closes.
 		/// </summary>
-		public event ObjectHandler OnClose;
+		public event ObjectHandler OnClose
+		{
+			add => this.m_OnClose.Register(value);
+			remove => this.m_OnClose.Unregister(value);
+		}
 
 		/// <summary>
 		/// handler for incoming routet packtes from the server
 		/// </summary>
-		public event RouteHandler OnRoute;
+		public event RouteHandler OnRoute
+		{
+			add => this.m_OnRoute.Register(value);
+			remove => this.m_OnRoute.Unregister(value);
+		}
 
 		/// <summary>
 		/// Event that occurs on authentication errors
 		/// e.g. wrong password, user doesnt exist etc...
 		/// </summary>
-		public event XmppElementHandler OnAuthError;
+		public event XmppElementHandler OnAuthError
+		{
+			add => this.m_OnAuthError.Register(value);
+			remove => this.m_OnAuthError.Unregister(value);
+		}
 
 		/// <summary>
 		/// Stream errors &lt;stream:error/&gt;
 		/// </summary>
-		public event XmppElementHandler OnStreamError;
+		public event XmppElementHandler OnStreamError
+		{
+			add => this.m_OnStreamError.Register(value);
+			remove => this.m_OnStreamError.Unregister(value);
+		}
 
 		/// <summary>
 		/// Event occurs on Socket Errors
 		/// </summary>
-		public event ErrorHandler OnSocketError;
+		public event ErrorHandler OnSocketError
+		{
+			add => this.m_OnSocketError.Register(value);
+			remove => this.m_OnSocketError.Unregister(value);
+		}
 
 		/// <summary>
 		/// Event occurs on IQ arrives.
 		/// </summary>        
-		public event ComponentIQHandler OnIq;
+		public event IqHandler OnIq
+		{
+			add => this.m_OnIq.Register(value);
+			remove => this.m_OnIq.Unregister(value);
+		}
 
 		/// <summary>
 		/// We received a message. This could be a chat message, headline, normal message or a groupchat message. 
 		/// There are also XMPP extension which are embedded in messages. 
 		/// e.g. X-Data forms.
 		/// </summary>
-		public event MessageHandler OnMessage;
+		public event MessageHandler OnMessage
+		{
+			add => this.m_OnMessage.Register(value);
+			remove => this.m_OnMessage.Unregister(value);
+		}
 
 		/// <summary>
 		/// We received a presence from a contact or chatroom.
 		/// Also subscriptions is handles in this event.
 		/// </summary>
-		public event PresenceHandler OnPresence;
+		public event PresenceHandler OnPresence
+		{
+			add => this.m_OnPresence.Register(value);
+			remove => this.m_OnPresence.Unregister(value);
+		}
 
 		#endregion
 
@@ -255,42 +297,39 @@ namespace AgsXMPP
 			{
 				this.m_Authenticated = true;
 
-				OnLogin?.Invoke(this);
+				this.m_OnLogin.Invoke(this);
 
 				if (this.KeepAlive)
 					this.CreateKeepAliveTimer();
 			}
 			else if (e is Route)
 			{
-				OnRoute?.Invoke(this, e as Route);
+				this.m_OnRoute.Invoke(this, e as Route);
 			}
 			else if (e is Protocol.XmppStreamError)
 			{
 				var streamErr = e as Protocol.XmppStreamError;
 				switch (streamErr.Condition)
 				{
-					// Auth errors are important for the users here, so throw catch auth errors
-					// in a separate event here
 					case Protocol.XmppStreamErrorCondition.NotAuthorized:
-						// Authentication Error
-						OnAuthError?.Invoke(this, e as Element);
+						this.m_OnAuthError.Invoke(this, e as Element);
 						break;
 					default:
-						OnStreamError?.Invoke(this, e as Element);
+						this.m_OnStreamError.Invoke(this, e as Element);
 						break;
 				}
 			}
 			else if (e is Message)
 			{
-				OnMessage?.Invoke(this, e as Message);
+				this.m_OnMessage.Invoke(this, e as Message);
 			}
 			else if (e is Presence)
 			{
-				OnPresence?.Invoke(this, e as Presence);
+				this.m_OnPresence.Invoke(this, e as Presence);
 			}
 			else if (e is IQ)
 			{
-				OnIq?.Invoke(this, e as IQ);
+				this.m_OnIq?.Invoke(this, e as IQ);
 			}
 
 		}
@@ -319,23 +358,14 @@ namespace AgsXMPP
 			if (this.m_StreamStarted && !this.m_CleanUpDone)
 				this.CleanupSession();
 
-			OnSocketError?.Invoke(this, ex);
+			this.m_OnSocketError.Invoke(this, ex);
 
 		}
 		#endregion
 
 		public override void Send(Element e)
 		{
-			// this is a hack to not send the xmlns="jabber:component:accept" with all packets                
-			//var dummyEl = new Element("a");
-			//dummyEl.Namespace = Namespaces.ACCEPT;
-
-			//dummyEl.AddChild(e);
-			//var toSend = dummyEl.ToString();
-
-			//this.Send(toSend.Substring(35, toSend.Length - 35 - 4));
-
-			this.Send(e.ToString());
+			this.Send(e.ToString(false));
 		}
 
 		private void CleanupSession()
@@ -347,7 +377,7 @@ namespace AgsXMPP
 
 			this.m_IqGrabber.Clear();
 
-			OnClose?.Invoke(this);
+			this.m_OnClose.Invoke(this);
 		}
 	}
 }

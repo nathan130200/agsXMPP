@@ -25,6 +25,8 @@ using AgsXMPP.Protocol.X.Muc.iq.owner;
 
 namespace AgsXMPP.Protocol.X.Muc
 {
+	using IqCB = PacketGrabberCallback<IqGrabber, IQ>;
+
 	/// <summary>
 	/// A helper class for Multi User Chat
 	/// </summary>

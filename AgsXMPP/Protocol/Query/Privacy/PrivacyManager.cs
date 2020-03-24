@@ -19,8 +19,12 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+using AgsXMPP.Protocol.Client;
+
 namespace AgsXMPP.Protocol.Query.Privacy
 {
+	using IqCB = PacketGrabberCallback<IqGrabber, IQ>;
+
 	/// <summary>
 	/// Helper class for managing server side privacy lists (blocking communication)
 	/// </summary>

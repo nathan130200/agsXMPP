@@ -20,59 +20,70 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-
-#if SSL
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-#endif
+using AgsXMPP.Events;
 
 namespace AgsXMPP.Net
 {
+	public delegate void SocketDataEventHandler(object sender, byte[] data, int count);
+	public delegate void SocketRemoteCertificateValidation(object sender, RemoteCertificateValidationEventArgs e);
+
+	public class RemoteCertificateValidationEventArgs
+	{
+		public X509Certificate Certificate { get; internal set; }
+		public X509Chain Chain { get; internal set; }
+		public SslPolicyErrors Erros { get; internal set; }
+		public bool Cancel { get; internal set; }
+	}
+
 	/// <summary>
 	/// Base Socket class
 	/// </summary>
 	public abstract class BaseSocket
 	{
-		public delegate void OnSocketDataHandler(object sender, byte[] data, int count);
+		protected internal EventEmitter<SocketRemoteCertificateValidation> m_OnValidateCertificate = new EventEmitter<SocketRemoteCertificateValidation>();
+		protected internal EventEmitter<SocketDataEventHandler> m_OnReceive = new EventEmitter<SocketDataEventHandler>();
+		protected internal EventEmitter<SocketDataEventHandler> m_OnSend = new EventEmitter<SocketDataEventHandler>();
+		protected internal EventEmitter<ObjectHandler> m_OnConnect = new EventEmitter<ObjectHandler>();
+		protected internal EventEmitter<ObjectHandler> m_OnDisconnect = new EventEmitter<ObjectHandler>();
+		protected internal EventEmitter<ErrorHandler> m_OnError = new EventEmitter<ErrorHandler>();
 
-		//public delegate void OnSocketCompressionDebugHandler(object sender, byte[] CompData, int CompCount, byte[] UncompData, int UncompCount);
+		public event SocketRemoteCertificateValidation OnCertificateValidation
+		{
+			add => this.m_OnValidateCertificate.Register(value);
+			remove => this.m_OnValidateCertificate.Unregister(value);
+		}
 
-		/*
-        // for compression debug statistics
-        public event OnSocketCompressionDebugHandler OnIncomingCompressionDebug;
-        public event OnSocketCompressionDebugHandler OnOutgoingCompressionDebug;
-        
-        protected void FireOnInComingCompressionDebug(object sender, byte[] CompData, int CompCount, byte[] UncompData, int UncompCount)
-        {
-            if (OnIncomingCompressionDebug != null)
-                OnIncomingCompressionDebug(sender, CompData, CompCount, UncompData, UncompCount);
-        }
-        
-        protected void FireOnOutgoingCompressionDebug(object sender, byte[] CompData, int CompCount, byte[] UncompData, int UncompCount)
-        {
-            if (OnOutgoingCompressionDebug != null)
-                OnOutgoingCompressionDebug(sender, CompData, CompCount, UncompData, UncompCount);
-        }
-        */
+		public event SocketDataEventHandler OnReceive
+		{
+			add => this.m_OnReceive.Register(value);
+			remove => this.m_OnReceive.Unregister(value);
+		}
 
-#if MONOSSL
-        public delegate bool CertificateValidationCallback(X509Certificate certificate, int[] certificateErrors);
-        public event CertificateValidationCallback	OnValidateCertificate;
-#endif
+		public event SocketDataEventHandler OnSend
+		{
+			add => this.m_OnSend.Register(value);
+			remove => this.m_OnSend.Unregister(value);
+		}
 
-#if SSL
-		public event RemoteCertificateValidationCallback OnValidateCertificate;
-#endif
+		public event ObjectHandler OnConnect
+		{
+			add => this.m_OnConnect.Register(value);
+			remove => this.m_OnConnect.Unregister(value);
+		}
 
-#if BCCRYPTO
-        public delegate bool CertificateValidationCallback(Org.BouncyCastle.Asn1.X509.X509CertificateStructure[] certs);
-        public event CertificateValidationCallback OnValidateCertificate;
-#endif
-		public event OnSocketDataHandler OnReceive;
-		public event OnSocketDataHandler OnSend;
-		public event ObjectHandler OnConnect;
-		public event ObjectHandler OnDisconnect;
-		public event ErrorHandler OnError;
+		public event ObjectHandler OnDisconnect
+		{
+			add => this.m_OnDisconnect.Register(value);
+			remove => this.m_OnDisconnect.Unregister(value);
+		}
+
+		public event ErrorHandler OnError
+		{
+			add => this.m_OnError.Register(value);
+			remove => this.m_OnError.Unregister(value);
+		}
 
 		private string m_Address = null;
 		private int m_Port = 0;
@@ -99,79 +110,50 @@ namespace AgsXMPP.Net
 
 		protected void FireOnConnect()
 		{
-			OnConnect?.Invoke(this);
+			this.m_OnConnect.Invoke(this);
 		}
 
 		protected void FireOnDisconnect()
 		{
-			OnDisconnect?.Invoke(this);
+			this.m_OnDisconnect.Invoke(this);
 		}
 
 		protected void FireOnReceive(byte[] b, int length)
 		{
-			OnReceive?.Invoke(this, b, length);
+			this.m_OnReceive.Invoke(this, b, length);
 		}
 
 		protected void FireOnSend(byte[] b, int length)
 		{
-			OnSend?.Invoke(this, b, length);
+			this.m_OnSend.Invoke(this, b, length);
 		}
 
 		protected void FireOnError(Exception ex)
 		{
-			OnError?.Invoke(this, ex);
+			this.m_OnError.Invoke(this, ex);
 		}
 
-#if SSL
-		// The following method is invoked by the RemoteCertificateValidationDelegate.
 		protected bool FireOnValidateCertificate(
 			  object sender,
 			  X509Certificate certificate,
 			  X509Chain chain,
-			  SslPolicyErrors sslPolicyErrors)
+			  SslPolicyErrors erros)
 		{
-			if (OnValidateCertificate != null)
-				return OnValidateCertificate(sender, certificate, chain, sslPolicyErrors);
-			else
-				return true;
+			var evt = new RemoteCertificateValidationEventArgs
+			{
+				Certificate = certificate,
+				Chain = chain,
+				Erros = erros
+			};
 
-			//if (sslPolicyErrors == SslPolicyErrors.None)
-			//    return true;
+			this.m_OnValidateCertificate.Invoke(this, evt);
 
-			//Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+			if (evt.Cancel)
+				return false;
 
-			// Do not allow this client to communicate with unauthenticated servers.
-			//return false;
+			return true;
 		}
-#endif
-#if MONOSSL
-        protected bool FireOnValidateCertificate(X509Certificate certificate, int[] certificateErrors)
-        {
-            if (OnValidateCertificate != null)
-                return OnValidateCertificate(certificate, certificateErrors);
-            else
-                return true;
 
-            // Console.WriteLine (certificate.ToString (true));			
-            // Console.WriteLine ("\tValid From:  {0}", certificate.GetEffectiveDateString ());
-            // Console.WriteLine ("\tValid Until: {0}{1}", certificate.GetExpirationDateString (), Environment.NewLine);
-            // // multiple errors are possible using SslClientStream
-            // foreach (int error in certificateErrors) 
-            // {
-            //	ShowCertificateError (error);
-            // }
-        }
-#endif
-#if BCCRYPTO
-        protected bool FireOnValidateCertificate(Org.BouncyCastle.Asn1.X509.X509CertificateStructure[] certs)
-        {
-            if (OnValidateCertificate != null)
-                return OnValidateCertificate(certs);
-            else
-                return true;
-
-        }
-#endif
 		public virtual bool Connected
 		{
 			get { return false; }
@@ -233,6 +215,7 @@ namespace AgsXMPP.Net
 		{
 
 		}
+
 		#endregion
 	}
 }

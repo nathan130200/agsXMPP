@@ -109,7 +109,12 @@ namespace AgsXMPP.Xml.Dom
 		/// </summary>
 		public override string ToString()
 		{
-			return this.BuildXml(this, Formatting.None, 0, ' ');
+			return BuildXml(this, Formatting.None, 0, ' ');
+		}
+
+		public string ToString(bool format, int size = 2)
+		{
+			return BuildXml(this, !format ? Formatting.None : Formatting.Indented, size, ' ');
 		}
 
 		public string ToString(Encoding enc)
@@ -120,9 +125,7 @@ namespace AgsXMPP.Xml.Dom
 				var w = new XmlTextWriter(tw);
 				w.Formatting = Formatting.Indented;
 				w.Indentation = 2;
-
-				this.WriteTree(this, w, null);
-
+				WriteTree(this, w, null);
 				return tw.ToString();
 			}
 			else
@@ -138,7 +141,7 @@ namespace AgsXMPP.Xml.Dom
 		/// <returns></returns>
 		public string ToString(Formatting format)
 		{
-			return this.BuildXml(this, format, 3, ' ');
+			return BuildXml(this, format, 3, ' ');
 		}
 
 		/// <summary>
@@ -149,12 +152,12 @@ namespace AgsXMPP.Xml.Dom
 		/// <returns></returns>
 		public string ToString(Formatting format, int indent)
 		{
-			return this.BuildXml(this, format, indent, ' ');
+			return BuildXml(this, format, indent, ' ');
 		}
 
 		#region << Xml Serializer Functions >>
 
-		private string BuildXml(Node e, Formatting format, int indent, char indentchar)
+		static string BuildXml(Node e, Formatting format, int indent, char indentchar)
 		{
 			if (e == null)
 				return string.Empty;
@@ -166,13 +169,13 @@ namespace AgsXMPP.Xml.Dom
 				w.Indentation = indent;
 				w.IndentChar = indentchar;
 
-				this.WriteTree(this, w, null);
+				WriteTree(e, w, null);
 
 				return tw.ToString();
 			}
 		}
 
-		private void WriteTree(Node e, XmlTextWriter tw, Node parent)
+		static void WriteTree(Node e, XmlTextWriter tw, Node parent)
 		{
 			if (e.NodeType == NodeType.Document)
 			{
@@ -195,7 +198,7 @@ namespace AgsXMPP.Xml.Dom
 
 				foreach (var n in e.ChildNodes.GetNodes())
 				{
-					this.WriteTree(n, tw, e);
+					WriteTree(n, tw, e);
 				}
 			}
 			else if (e.NodeType == NodeType.Text)
@@ -230,7 +233,7 @@ namespace AgsXMPP.Xml.Dom
 				if (el.ChildNodes.Count > 0)
 				{
 					foreach (var n in el.ChildNodes.GetNodes())
-						this.WriteTree(n, tw, e);
+						WriteTree(n, tw, e);
 				}
 
 				tw.WriteEndElement();

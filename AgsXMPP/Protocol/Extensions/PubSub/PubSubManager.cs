@@ -23,6 +23,8 @@ using AgsXMPP.Protocol.Client;
 
 namespace AgsXMPP.Protocol.Extensions.PubSub
 {
+	using IqCB = PacketGrabberCallback<IqGrabber, IQ>;
+
 	public class PubSubManager
 	{
 		private XmppClientConnection m_connection = null;

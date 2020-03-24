@@ -23,7 +23,6 @@ using System.Collections;
 using System.Linq;
 using AgsXMPP.Collections;
 using AgsXMPP.Protocol.Client;
-using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP
 {

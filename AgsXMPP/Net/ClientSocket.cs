@@ -20,28 +20,15 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using System.IO;
-using System.Text;
 using System.Collections;
-
-#if SSL
+using System.IO;
+using System.Net;
 using System.Net.Security;
+using System.Net.Sockets;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
-#endif
-
-#if MONOSSL
-using System.Security.Cryptography.X509Certificates;
-using Mono.Security.Protocol.Tls;
-#endif
-
-#if BCCRYPTO
-using Org.BouncyCastle.Crypto.Tls;
-#endif
-
+using System.Text;
+using System.Threading;
 using AgsXMPP.IO.Compression;
 
 namespace AgsXMPP.Net
@@ -58,13 +45,8 @@ namespace AgsXMPP.Net
 	/// </summary>
 	public class ClientSocket : BaseSocket
 	{
-		Socket _socket;
-#if SSL
+		Socket m_socket;
 		SslStream m_SSLStream;
-#endif
-#if MONOSSL
-        SslClientStream		m_SSLStream;
-#endif
 		NetworkStream m_Stream;
 		Stream m_NetworkStream = null;
 
@@ -81,8 +63,8 @@ namespace AgsXMPP.Net
 		/// is compression used for this connection
 		/// </summary>
 		private bool m_Compressed = false;
-
 		private bool m_ConnectTimedOut = false;
+
 		/// <summary>
 		/// is used to compress data
 		/// </summary>
@@ -91,7 +73,6 @@ namespace AgsXMPP.Net
 		/// is used to decompress data
 		/// </summary>
 		private Inflater inflater = null;
-
 		private Timer connectTimeoutTimer;
 
 
@@ -106,25 +87,10 @@ namespace AgsXMPP.Net
 		public bool SSL
 		{
 			get { return this.m_SSL; }
-#if SSL || MONOSSL
 			set { this.m_SSL = value; }
-#endif
 		}
 
-		public override bool SupportsStartTls
-		{
-#if SSL || MONOSSL
-			get
-			{
-				return true;
-			}
-#else
-			get
-			{
-				return false;
-			}
-#endif
-		}
+		public override bool SupportsStartTls => true;
 
 		/// <summary>
 		/// Returns true if the socket is connected to the server. The property 
@@ -136,10 +102,10 @@ namespace AgsXMPP.Net
 			get
 			{
 				// return right away if have not created socket
-				if (this._socket == null)
+				if (this.m_socket == null)
 					return false;
 
-				return this._socket.Connected;
+				return this.m_socket.Connected;
 
 				// commented this out because it caused problems on some machines.
 				// return the connected property of the socket now
@@ -204,8 +170,8 @@ namespace AgsXMPP.Net
 				var timerDelegate = new TimerCallback(this.connectTimeoutTimerDelegate);
 				this.connectTimeoutTimer = new Timer(timerDelegate, null, this.ConnectTimeout, this.ConnectTimeout);
 
-				this._socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-				this._socket.BeginConnect(endPoint, new AsyncCallback(this.EndConnect), null);
+				this.m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+				this.m_socket.BeginConnect(endPoint, new AsyncCallback(this.EndConnect), null);
 			}
 			catch (Exception ex)
 			{
@@ -227,16 +193,12 @@ namespace AgsXMPP.Net
 					this.connectTimeoutTimer.Dispose();
 
 					// pass connection status with event
-					this._socket.EndConnect(ar);
-
-					this.m_Stream = new NetworkStream(this._socket, false);
-
+					this.m_socket.EndConnect(ar);
+					this.m_Stream = new NetworkStream(this.m_socket, false);
 					this.m_NetworkStream = this.m_Stream;
 
-#if SSL || MONOSSL
 					if (this.m_SSL)
 						this.InitSSL();
-#endif
 
 					this.FireOnConnect();
 
@@ -259,10 +221,9 @@ namespace AgsXMPP.Net
 			// for compression debug statisticsConsole.WriteLine("Connect Timeout");
 			this.connectTimeoutTimer.Dispose();
 			this.m_ConnectTimedOut = true;
-			this._socket.Close();
+			this.m_socket.Close();
 		}
 
-#if SSL
 		/// <summary>
 		/// Starts TLS on a "normal" connection
 		/// </summary>
@@ -376,82 +337,6 @@ namespace AgsXMPP.Net
 		{
 			return this.FireOnValidateCertificate(sender, certificate, chain, sslPolicyErrors);
 		}
-#endif
-
-#if MONOSSL
-        /// <summary>
-		/// Starts TLS on a "normal" connection
-		/// </summary>
-		public override void StartTls()
-		{
-			base.StartTls();
-
-			Mono.Security.Protocol.Tls.SecurityProtocolType protocol = Mono.Security.Protocol.Tls.SecurityProtocolType.Tls;
-			InitSSL(protocol);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private void InitSSL()
-		{
-			InitSSL(Mono.Security.Protocol.Tls.SecurityProtocolType.Default);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="protocol"></param>
-		private void InitSSL(Mono.Security.Protocol.Tls.SecurityProtocolType protocol)
-		{
-			m_SSLStream = new SslClientStream(m_Stream, Address, false, protocol, null);				
-			m_SSLStream.ServerCertValidationDelegate = new Mono.Security.Protocol.Tls.CertificateValidationCallback(ValidateCertificate);
-			m_NetworkStream = m_SSLStream;	
-			m_SSL = true;
-			// Send a whitespace to start the encryption of the connection now
-			Send(" ");
-		}
-
-		/// <summary>
-		/// Validate the SSL certificate here
-		/// for now we dont stop the SSL connection an return always true
-		/// </summary>
-		/// <param name="certificate"></param>
-		/// <param name="certificateErrors"></param>
-		/// <returns></returns>
-		private bool ValidateCertificate (X509Certificate certificate, int[] certificateErrors) 
-		{
-			return base.FireOnValidateCertificate(certificate, certificateErrors);
-		}
-#endif
-
-#if BCCRYPTO
-        /// <summary>
-        /// Starts TLS on a "normal" connection
-        /// </summary>
-        public override void StartTls()
-        {
-            base.StartTls();
-
-            //TlsProtocolHandler protocolHandler = new TlsProtocolHandler(m_NetworkStream, m_NetworkStream);
-            //Stream st = new NetworkStream(_socket, false);
-            TlsProtocolHandler protocolHandler = new TlsProtocolHandler(m_Stream, m_Stream);
-            //TlsProtocolHandler protocolHandler = new TlsProtocolHandler(st, st);
-
-            CertificateVerifier certVerify = new CertificateVerifier();
-            certVerify.OnVerifyCertificate += new CertificateValidationCallback(certVerify_OnVerifyCertificate);
-
-            protocolHandler.Connect(certVerify);
-
-            m_NetworkStream = new SslStream(protocolHandler.InputStream, protocolHandler.OutputStream);
-            m_SSL = true;
-        }
-
-        internal bool certVerify_OnVerifyCertificate(Org.BouncyCastle.Asn1.X509.X509CertificateStructure[] certs)
-        {
-            return base.FireOnValidateCertificate(certs);
-        }
-#endif
 
 		/// <summary>
 		/// Start Compression on the socket
@@ -490,13 +375,13 @@ namespace AgsXMPP.Net
 			}
 
 			// return right away if have not created socket
-			if (this._socket == null)
+			if (this.m_socket == null)
 				return;
 
 			try
 			{
 				// first, shutdown the socket
-				this._socket.Shutdown(SocketShutdown.Both);
+				this.m_socket.Shutdown(SocketShutdown.Both);
 			}
 			catch { }
 
@@ -504,7 +389,7 @@ namespace AgsXMPP.Net
 			{
 				// next, close the socket which terminates any pending
 				// async operations
-				this._socket.Close();
+				this.m_socket.Close();
 			}
 			catch { }
 

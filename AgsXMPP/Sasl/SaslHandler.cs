@@ -20,7 +20,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System;
-
+using AgsXMPP.Events;
 using AgsXMPP.Protocol.Client;
 using AgsXMPP.Protocol.Query.Bind;
 using AgsXMPP.Protocol.Query.Session;
@@ -32,24 +32,36 @@ using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Sasl
 {
+	using IqCB = PacketGrabberCallback<IqGrabber, IQ>;
+
 	/// <summary>
 	/// Summary description for SaslHandler.
 	/// </summary>
 	internal class SaslHandler : IDisposable
 	{
-		public event SaslEventHandler OnSaslStart;
-		public event ObjectHandler OnSaslEnd;
+		protected internal EventEmitter<SaslEventHandler> m_OnSaslStart = new EventEmitter<SaslEventHandler>();
+		protected internal EventEmitter<ObjectHandler> m_OnSaslEnd = new EventEmitter<ObjectHandler>();
 
-		private XmppClientConnection m_XmppClient = null;
+		public event SaslEventHandler OnSaslStart
+		{
+			add => this.m_OnSaslStart.Register(value);
+			remove => this.m_OnSaslStart.Unregister(value);
+		}
+
+		public event ObjectHandler OnSaslEnd
+		{
+			add => this.m_OnSaslEnd.Register(value);
+			remove => this.m_OnSaslEnd.Unregister(value);
+		}
+
+		private XmppClientConnection m_connection = null;
 		private Mechanism m_Mechanism = null;
-		// Track whether Dispose has been called.
 		private bool disposed = false;
 
 		public SaslHandler(XmppClientConnection conn)
 		{
-			this.m_XmppClient = conn;
-
-			this.m_XmppClient.StreamParser.OnStreamElement += new StreamHandler(this.OnStreamElement);
+			this.m_connection = conn;
+			this.m_connection.StreamParser.OnStreamElement += new StreamHandler(this.OnStreamElement);
 		}
 
 		// Use C# destructor syntax for finalization code.
@@ -67,14 +79,14 @@ namespace AgsXMPP.Sasl
 
 		internal void OnStreamElement(object sender, Node e)
 		{
-			if (this.m_XmppClient.State == XmppConnectionState.Securing
-				|| this.m_XmppClient.State == XmppConnectionState.StartCompression)
+			if (this.m_connection.State == XmppConnectionState.Securing
+				|| this.m_connection.State == XmppConnectionState.StartCompression)
 				return;
 
 			if (e.GetType() == typeof(StreamFeatures))
 			{
 				var f = e as StreamFeatures;
-				if (!this.m_XmppClient.Authenticated)
+				if (!this.m_connection.Authenticated)
 				{
 					// RECV: <stream:features><mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
 					//			<mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism>
@@ -86,14 +98,14 @@ namespace AgsXMPP.Sasl
 
 					var args = new SaslEventArgs(f.Mechanisms);
 
-					OnSaslStart?.Invoke(this, args);
+					this.m_OnSaslStart.Invoke(this, args);
 
 					if (args.Auto == true)
 					{
 						// Library handles the Sasl stuff
 						if (f.Mechanisms != null)
 						{
-							if (this.m_XmppClient.UseStartTLS == false && this.m_XmppClient.UseSSL == false
+							if (this.m_connection.UseStartTLS == false && this.m_connection.UseSSL == false
 								&& f.Mechanisms.SupportsMechanism(MechanismType.X_GOOGLE_TOKEN))
 							{
 								// This is the only way to connect to GTalk on a unsecure Socket for now
@@ -126,37 +138,37 @@ namespace AgsXMPP.Sasl
 					{
 						this.m_Mechanism = Factory.SaslFactory.GetMechanism(args.Mechanism);
 						// Set properties for the SASL mechanism
-						this.m_Mechanism.Username = this.m_XmppClient.Username;
-						this.m_Mechanism.Password = this.m_XmppClient.Password;
-						this.m_Mechanism.Server = this.m_XmppClient.Server;
+						this.m_Mechanism.Username = this.m_connection.Username;
+						this.m_Mechanism.Password = this.m_connection.Password;
+						this.m_Mechanism.Server = this.m_connection.Server;
 						// Call Init Method on the mechanism
-						this.m_Mechanism.Init(this.m_XmppClient);
+						this.m_Mechanism.Init(this.m_connection);
 					}
 					else
 					{
-						this.m_XmppClient.RequestLoginInfo();
+						this.m_connection.RequestLoginInfo();
 					}
 				}
-				else if (!this.m_XmppClient.Binded)
+				else if (!this.m_connection.Binded)
 				{
 					if (f.SupportsBind)
 					{
-						this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.Binding);
+						this.m_connection.DoChangeXmppConnectionState(XmppConnectionState.Binding);
 
 						BindIq bIq;
-						if (this.m_XmppClient.Resource == null || this.m_XmppClient.Resource.Length == 0)
-							bIq = new BindIq(IQType.Set, new Jid(this.m_XmppClient.Server));
+						if (this.m_connection.Resource == null || this.m_connection.Resource.Length == 0)
+							bIq = new BindIq(IQType.Set, new Jid(this.m_connection.Server));
 						else
-							bIq = new BindIq(IQType.Set, new Jid(this.m_XmppClient.Server), this.m_XmppClient.Resource);
+							bIq = new BindIq(IQType.Set, new Jid(this.m_connection.Server), this.m_connection.Resource);
 
-						this.m_XmppClient.IqGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
+						this.m_connection.IqGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
 					}
 				}
 
 			}
 			else if (e.GetType() == typeof(Challenge))
 			{
-				if (this.m_Mechanism != null && !this.m_XmppClient.Authenticated)
+				if (this.m_Mechanism != null && !this.m_connection.Authenticated)
 				{
 					this.m_Mechanism.Parse(e);
 				}
@@ -164,32 +176,29 @@ namespace AgsXMPP.Sasl
 			else if (e.GetType() == typeof(Success))
 			{
 				// SASL authentication was successfull
-				OnSaslEnd?.Invoke(this);
-
-				this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.Authenticated);
-
+				this.m_OnSaslEnd?.Invoke(this);
+				this.m_connection.DoChangeXmppConnectionState(XmppConnectionState.Authenticated);
 				this.m_Mechanism = null;
-
-				this.m_XmppClient.Reset();
+				this.m_connection.Reset();
 			}
 			else if (e.GetType() == typeof(Failure))
 			{
 				// Authentication failure
-				this.m_XmppClient.FireOnAuthError(e as Element);
+				this.m_connection.FireOnAuthError(e as Element);
 			}
 		}
 
 		internal void DoBind()
 		{
-			this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.Binding);
+			this.m_connection.DoChangeXmppConnectionState(XmppConnectionState.Binding);
 
-			BindIq bIq;
-			if (this.m_XmppClient.Resource == null || this.m_XmppClient.Resource.Length == 0)
-				bIq = new BindIq(IQType.Set, new Jid(this.m_XmppClient.Server));
+			BindIq iq;
+			if (this.m_connection.Resource == null || this.m_connection.Resource.Length == 0)
+				iq = new BindIq(IQType.Set, new Jid(this.m_connection.Server));
 			else
-				bIq = new BindIq(IQType.Set, new Jid(this.m_XmppClient.Server), this.m_XmppClient.Resource);
+				iq = new BindIq(IQType.Set, new Jid(this.m_connection.Server), this.m_connection.Resource);
 
-			this.m_XmppClient.IqGrabber.SendIq(bIq, new IqCB(this.BindResult), null);
+			this.m_connection.IqGrabber.SendIq(iq, new IqCB(this.BindResult), null);
 		}
 
 		private void BindResult(object sender, IQ iq, object data)
@@ -213,19 +222,18 @@ namespace AgsXMPP.Sasl
 				if (bind != null)
 				{
 					var jid = ((Bind)bind).Jid;
-					this.m_XmppClient.Resource = jid.Resource;
-					this.m_XmppClient.Username = jid.User;
+					this.m_connection.Resource = jid.Resource;
+					this.m_connection.Username = jid.User;
 				}
 
-				this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.Binded);
-				this.m_XmppClient.m_Binded = true;
-
-				this.m_XmppClient.DoRaiseEventBinded();
+				this.m_connection.m_Binded = true;
+				this.m_connection.DoChangeXmppConnectionState(XmppConnectionState.Binded);
+				this.m_connection.DoRaiseEventBinded();
 
 				// success, so start the session now
-				this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.StartSession);
-				var sIq = new SessionIq(IQType.Set, new Jid(this.m_XmppClient.Server));
-				this.m_XmppClient.IqGrabber.SendIq(sIq, new IqCB(this.SessionResult), null);
+				this.m_connection.DoChangeXmppConnectionState(XmppConnectionState.StartSession);
+				var sIq = new SessionIq(IQType.Set, new Jid(this.m_connection.Server));
+				this.m_connection.IqGrabber.SendIq(sIq, new IqCB(this.SessionResult), null);
 
 			}
 			else if (iq.Type == IQType.Error)
@@ -238,8 +246,8 @@ namespace AgsXMPP.Sasl
 		{
 			if (iq.Type == IQType.Result)
 			{
-				this.m_XmppClient.DoChangeXmppConnectionState(XmppConnectionState.SessionStarted);
-				this.m_XmppClient.RaiseOnLogin();
+				this.m_connection.DoChangeXmppConnectionState(XmppConnectionState.SessionStarted);
+				this.m_connection.RaiseOnLogin();
 
 			}
 			else if (iq.Type == IQType.Error)
@@ -273,8 +281,8 @@ namespace AgsXMPP.Sasl
 				{
 					// Dispose managed resources.
 					// Remove the event handler or we will be in trouble with too many events
-					this.m_XmppClient.StreamParser.OnStreamElement -= new StreamHandler(this.OnStreamElement);
-					this.m_XmppClient = null;
+					this.m_connection.StreamParser.OnStreamElement -= new StreamHandler(this.OnStreamElement);
+					this.m_connection = null;
 					this.m_Mechanism = null;
 				}
 

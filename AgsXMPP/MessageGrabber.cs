@@ -26,8 +26,8 @@ using AgsXMPP.Protocol.Client;
 
 namespace AgsXMPP
 {
-	using MessageGrabberInfo = PacketGrabberInfo<MessageGrabber, Message>;
 	using MessageGrabberCallback = PacketGrabberCallback<MessageGrabber, Message>;
+	using MessageGrabberInfo = PacketGrabberInfo<MessageGrabber, Message>;
 
 	public class MessageGrabber : PacketGrabber<XmppClientConnection, Message, MessageGrabber>
 	{

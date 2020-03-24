@@ -23,6 +23,8 @@ using AgsXMPP.Protocol.Client;
 
 namespace AgsXMPP.Protocol.Query.Disco
 {
+	using IqCB = PacketGrabberCallback<IqGrabber, IQ>;
+
 	public class DiscoManager
 	{
 		private XmppClientConnection xmppConnection = null;

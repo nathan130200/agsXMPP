@@ -22,6 +22,7 @@
 using System;
 using System.Text;
 using System.Threading;
+using AgsXMPP.Events;
 using AgsXMPP.Net;
 using AgsXMPP.Xml;
 using AgsXMPP.Xml.Dom;
@@ -37,6 +38,12 @@ namespace AgsXMPP
 	/// </summary>
 	public abstract class XmppConnection : IXmppConnection
 	{
+		protected internal EventEmitter<XmppConnectionStateHandler> m_OnXmppConnectionStateChanged = new EventEmitter<XmppConnectionStateHandler>();
+		protected internal EventEmitter<XmlHandler> m_OnReadXml = new EventEmitter<XmlHandler>();
+		protected internal EventEmitter<XmlHandler> m_OnWriteXml = new EventEmitter<XmlHandler>();
+		protected internal EventEmitter<ErrorHandler> m_OnError = new EventEmitter<ErrorHandler>();
+		protected internal EventEmitter<SocketDataEventHandler> m_OnReadSocketData = new EventEmitter<SocketDataEventHandler>();
+		protected internal EventEmitter<SocketDataEventHandler> m_OnWriteSocketData = new EventEmitter<SocketDataEventHandler>();
 
 		private Timer m_KeepaliveTimer = null;
 
@@ -44,29 +51,54 @@ namespace AgsXMPP
 		/// <summary>
 		/// This event just informs about the current state of the XmppConnection
 		/// </summary>
-		public event XmppConnectionStateHandler OnXmppConnectionStateChanged;
+		public event XmppConnectionStateHandler OnXmppConnectionStateChanged
+		{
+			add => this.m_OnXmppConnectionStateChanged.Register(value);
+			remove => this.m_OnXmppConnectionStateChanged.Unregister(value);
+		}
 
 		/// <summary>
 		/// a XML packet or text is received. 
 		/// This are no winsock events. The Events get generated from the XML parser
 		/// </summary>
-		public event XmlHandler OnReadXml;
+		public event XmlHandler OnReadXml
+		{
+			add => this.m_OnReadXml.Register(value);
+			remove => this.m_OnReadXml.Unregister(value);
+		}
+
 		/// <summary>
 		/// XML or Text is written to the Socket this includes also the keep alive packages (a single space)		
 		/// </summary>
-		public event XmlHandler OnWriteXml;
+		public event XmlHandler OnWriteXml
+		{
+			add => this.m_OnWriteXml.Register(value);
+			remove => this.m_OnWriteXml.Unregister(value);
+		}
 
-		public event ErrorHandler OnError;
+		public event ErrorHandler OnError
+		{
+			add => this.m_OnError.Register(value);
+			remove => this.m_OnError.Unregister(value);
+		}
 
 		/// <summary>
 		/// Data received from the Socket
 		/// </summary>
-		public event BaseSocket.OnSocketDataHandler OnReadSocketData;
+		public event SocketDataEventHandler OnReadSocketData
+		{
+			add => this.m_OnReadSocketData.Register(value);
+			remove => this.m_OnReadSocketData.Unregister(value);
+		}
 
 		/// <summary>
 		/// Data was sent to the socket for sending
 		/// </summary>
-		public event BaseSocket.OnSocketDataHandler OnWriteSocketData;
+		public event SocketDataEventHandler OnWriteSocketData
+		{
+			add => this.m_OnWriteSocketData.Register(value);
+			remove => this.m_OnWriteSocketData.Unregister(value);
+		}
 
 		#endregion
 
@@ -80,7 +112,6 @@ namespace AgsXMPP
 			this.m_StreamParser.OnStreamEnd += new StreamHandler(this.StreamParserOnStreamEnd);
 			this.m_StreamParser.OnStreamElement += new StreamHandler(this.StreamParserOnStreamElement);
 			this.m_StreamParser.OnStreamError += new StreamError(this.StreamParserOnStreamError);
-			this.m_StreamParser.OnError += new ErrorHandler(this.StreamParserOnError);
 		}
 
 		public XmppConnection(SocketConnectionType type) : this()
@@ -250,7 +281,7 @@ namespace AgsXMPP
 		public virtual void SocketOnReceive(object sender, byte[] data, int count)
 		{
 
-			OnReadSocketData?.Invoke(sender, data, count);
+			this.m_OnReadSocketData.Invoke(sender, data, count);
 
 			// put the received bytes to the parser
 			lock (this)
@@ -313,7 +344,7 @@ namespace AgsXMPP
 		{
 			this.m_ConnectionState = state;
 
-			OnXmppConnectionStateChanged?.Invoke(this, state);
+			this.m_OnXmppConnectionStateChanged.Invoke(this, state);
 		}
 
 		private void InitSocket()
@@ -330,7 +361,7 @@ namespace AgsXMPP
 
 			this.m_ClientSocket.OnConnect += new ObjectHandler(this.SocketOnConnect);
 			this.m_ClientSocket.OnDisconnect += new ObjectHandler(this.SocketOnDisconnect);
-			this.m_ClientSocket.OnReceive += new BaseSocket.OnSocketDataHandler(this.SocketOnReceive);
+			this.m_ClientSocket.OnReceive += new SocketDataEventHandler(this.SocketOnReceive);
 			this.m_ClientSocket.OnError += new ErrorHandler(this.SocketOnError);
 		}
 
@@ -364,7 +395,7 @@ namespace AgsXMPP
 			this.FireOnWriteXml(this, xml);
 			this.m_ClientSocket.Send(xml);
 
-			OnWriteSocketData?.Invoke(this, Encoding.UTF8.GetBytes(xml), xml.Length);
+			this.m_OnWriteSocketData.Invoke(this, Encoding.UTF8.GetBytes(xml), xml.Length);
 
 			// reset keep alive timer if active to make sure the interval is always idle time from the last 
 			// outgoing packet
@@ -396,17 +427,23 @@ namespace AgsXMPP
 
 		protected void FireOnReadXml(object sender, string xml)
 		{
-			OnReadXml?.Invoke(sender, xml);
+			if (string.IsNullOrEmpty(xml) || string.IsNullOrWhiteSpace(xml))
+				return;
+
+			this.m_OnReadXml.Invoke(sender, xml);
 		}
 
 		protected void FireOnWriteXml(object sender, string xml)
 		{
-			OnWriteXml?.Invoke(sender, xml);
+			if (string.IsNullOrEmpty(xml) || string.IsNullOrWhiteSpace(xml))
+				return;
+
+			this.m_OnWriteXml.Invoke(sender, xml);
 		}
 
 		protected void FireOnError(object sender, Exception ex)
 		{
-			OnError?.Invoke(sender, ex);
+			this.m_OnError.Invoke(sender, ex);
 		}
 
 		#region << Keepalive Timer functions >>

@@ -22,10 +22,11 @@ using AgsXMPP.Protocol.Client;
 
 namespace AgsXMPP.Protocol.Extensions.Bookmarks
 {
+	using IqCB = PacketGrabberCallback<IqGrabber, IQ>;
+
 	public class BookmarkManager
 	{
 		private XmppClientConnection m_connection = null;
-
 
 		public BookmarkManager(XmppClientConnection con)
 		{

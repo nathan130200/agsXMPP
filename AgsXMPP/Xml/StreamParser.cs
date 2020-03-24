@@ -21,7 +21,7 @@
 
 using System;
 using System.Collections;
-
+using AgsXMPP.Events;
 using AgsXMPP.Factory;
 using AgsXMPP.Xml.Dom;
 using AgsXMPP.Xml.Xpnet;
@@ -36,20 +36,38 @@ namespace AgsXMPP.Xml
 	/// </summary>
 	public class StreamParser
 	{
+		protected internal EventEmitter<StreamHandler> m_OnStreamStart = new EventEmitter<StreamHandler>();
+		protected internal EventEmitter<StreamHandler> m_OnStreamEnd = new EventEmitter<StreamHandler>();
+		protected internal EventEmitter<StreamHandler> m_OnStreamElement = new EventEmitter<StreamHandler>();
+		protected internal EventEmitter<StreamError> m_OnStreamError = new EventEmitter<StreamError>();
+
 		// Stream Event Handlers
-		public event StreamHandler OnStreamStart;
-		public event StreamHandler OnStreamEnd;
-		public event StreamHandler OnStreamElement;
+		public event StreamHandler OnStreamStart
+		{
+			add => this.m_OnStreamStart.Register(value);
+			remove => this.m_OnStreamStart.Unregister(value);
+		}
+
+		public event StreamHandler OnStreamEnd
+		{
+			add => this.m_OnStreamEnd.Register(value);
+			remove => this.m_OnStreamEnd.Unregister(value);
+		}
+
+		public event StreamHandler OnStreamElement
+		{
+			add => this.m_OnStreamElement.Register(value);
+			remove => this.m_OnStreamElement.Unregister(value);
+		}
 
 		/// <summary>
 		/// Event for XML-Stream errors
 		/// </summary>
-		public event StreamError OnStreamError;
-
-		/// <summary>
-		/// Event for general errors
-		/// </summary>
-		public event ErrorHandler OnError;
+		public event StreamError OnStreamError
+		{
+			add => this.m_OnStreamError.Register(value);
+			remove => this.m_OnStreamError.Unregister(value);
+		}
 
 		private int m_Depth = 0;
 		private Node m_root = null;
@@ -201,7 +219,7 @@ namespace AgsXMPP.Xml
 			}
 			catch (Exception ex)
 			{
-				OnStreamError?.Invoke(this, ex);
+				this.m_OnStreamError.Invoke(this, ex);
 			}
 			finally
 			{
@@ -286,8 +304,7 @@ namespace AgsXMPP.Xml
 			if (this.m_root == null)
 			{
 				this.m_root = newel;
-				//FireOnDocumentStart(m_root);
-				OnStreamStart?.Invoke(this, this.m_root);
+				this.m_OnStreamStart.Invoke(this, this.m_root);
 			}
 			else
 			{
@@ -303,9 +320,8 @@ namespace AgsXMPP.Xml
 			this.m_ns.PopScope();
 
 			if (this.current == null)
-			{// end of doc
-				OnStreamEnd?.Invoke(this, this.m_root);
-				//				FireOnDocumentEnd();
+			{
+				this.m_OnStreamEnd.Invoke(this, this.m_root);
 				return;
 			}
 
@@ -349,11 +365,11 @@ namespace AgsXMPP.Xml
 		{
 			try
 			{
-				OnStreamElement?.Invoke(this, this.current);
+				this.m_OnStreamElement?.Invoke(this, this.current);
 			}
 			catch (Exception ex)
 			{
-				OnError?.Invoke(this, ex);
+				this.m_OnStreamError.Invoke(this, ex);
 			}
 		}
 
@@ -412,7 +428,7 @@ namespace AgsXMPP.Xml
 			}
 			catch (Exception ex)
 			{
-				OnStreamError?.Invoke(this, ex);
+				this.m_OnStreamError.Invoke(this, ex);
 			}
 			finally
 			{
