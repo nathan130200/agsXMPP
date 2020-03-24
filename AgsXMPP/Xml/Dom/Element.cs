@@ -141,7 +141,7 @@ namespace AgsXMPP.Xml.Dom
 			var field = typeof(T).GetFields()
 				.Where(x => x.GetCustomAttribute<XmppEnumMemberAttribute>() != null)
 				.Select(x => new { attr = x.GetCustomAttribute<XmppEnumMemberAttribute>().Value, name = x.Name })
-				.FirstOrDefault(x => x.name.Equals(attr));
+				.FirstOrDefault(x => x.attr.Equals(attr));
 
 			if (Enum.TryParse(field.name, out value))
 				return value;
