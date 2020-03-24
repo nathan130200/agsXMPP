@@ -17,7 +17,7 @@
     <Authors>AG-Software, FRNathan13</Authors>
     <Copyright>2003-2020 (C) AG-Software, FRNathan13</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>AgsXMPP.NetCore</PackageId>
+    <PackageId>agsXMPP.NetCore</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="key.snk" />
