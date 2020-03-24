@@ -20,30 +20,39 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System.Collections;
+using System.Collections.Concurrent;
+using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP
 {
+	public delegate void PacketGrabberCallback<in TGrabber, in TPacket>(TGrabber sender, TPacket packet, object data)
+		where TPacket : Element;
+
+	public sealed class PacketGrabberInfo<TGrabber, TPacket>
+		where TPacket : Element
+	{
+		public PacketGrabberCallback<TGrabber, TPacket> Callback { get; internal set; }
+		public object UserData { get; internal set; }
+		public IComparer Comparer { get; internal set; }
+	}
+
 	/// <summary>
 	/// Summary description for Grabber.
 	/// </summary>
-	public class PacketGrabber
+	public class PacketGrabber<TConnection, TPacket, TGrabber>
+		where TPacket : Element
+		where TConnection : XmppConnection
 	{
-		internal Hashtable m_grabbing = new Hashtable();
-		internal XmppConnection m_connection = null;
+		public ConcurrentDictionary<string, PacketGrabberInfo<TGrabber, TPacket>> Queue { get; internal set; }
+		public TConnection Connection { get; internal set; }
 
 		public PacketGrabber()
 		{
+			this.Queue = new ConcurrentDictionary<string, PacketGrabberInfo<TGrabber, TPacket>>();
 		}
 
 		public void Clear()
-		{
-			// need locking here to make sure that we dont acces the Hashtable
-			// from another thread
-			lock (this)
-			{
-				this.m_grabbing.Clear();
-			}
-		}
+			=> this.Queue.Clear();
 
 		/// <summary>
 		/// Pending request can be removed.
@@ -51,10 +60,7 @@ namespace AgsXMPP
 		/// we are not interested anymore at the result.
 		/// </summary>
 		/// <param name="id">ID of the Iq we are not interested anymore</param>
-		public void Remove(string id)
-		{
-			if (this.m_grabbing.ContainsKey(id))
-				this.m_grabbing.Remove(id);
-		}
+		public virtual void Remove(string id)
+			=> this.Queue.TryRemove(id, out var _);
 	}
 }

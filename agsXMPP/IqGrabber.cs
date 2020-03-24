@@ -19,175 +19,77 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using System.Threading;
 using AgsXMPP.Protocol.Client;
 
 namespace AgsXMPP
 {
-	public delegate void IqCB(object sender, IQ iq, object data);
+	using IqGrabberCallback = PacketGrabberCallback<IqGrabber, IQ>;
+	using IqGrabberInfo = PacketGrabberInfo<IqGrabber, IQ>;
 
-	public class IqGrabber : PacketGrabber
+	public class IqGrabber : PacketGrabber<XmppConnection, IQ, IqGrabber>
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="conn"></param>
-		public IqGrabber(XmppClientConnection conn)
+		public IqGrabber(XmppClientConnection connection)
 		{
-			this.m_connection = conn;
-			conn.OnIq += new IqHandler(this.OnIq);
+			this.Connection = connection;
+			((XmppClientConnection)this.Connection).OnIq += this.OnIq;
 		}
 
-		public IqGrabber(XmppComponentConnection conn)
+		public IqGrabber(XmppComponentConnection connection)
 		{
-			this.m_connection = conn;
-#if MONOSSL
-            conn.OnIq += new agsXMPP.protocol.component.IqHandler(OnIqComponent);
-#else
-			conn.OnIq += new XmppComponentConnection.ComponentIQHandler(this.OnIq);
-#endif
+			this.Connection = connection;
+			((XmppComponentConnection)this.Connection).OnIq += this.OnComponentIq;
 		}
 
-#if !CF
-		private IQ synchronousResponse = null;
+		void OnComponentIq(object sender, Protocol.Component.IQ iq)
+			=> this.OnIq(sender, iq as IQ);
 
-		private int m_SynchronousTimeout = 5000;
-
-		/// <summary>
-		/// Timeout for synchronous requests, default value is 5000 (5 seconds)
-		/// </summary>
-		public int SynchronousTimeout
-		{
-			get { return this.m_SynchronousTimeout; }
-			set { this.m_SynchronousTimeout = value; }
-		}
-#endif
-
-#if MONOSSL
-		private void OnIqComponent(object sender, agsXMPP.protocol.component.IQ iq)
-		{
-			OnIq(sender, iq);
-		}
-#endif
-
-		/// <summary>
-		/// An IQ Element is received. Now check if its one we are looking for and
-		/// raise the event in this case.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		public void OnIq(object sender, IQ iq)
+		void OnIq(object sender, IQ iq)
 		{
 			if (iq == null)
 				return;
 
-			var id = iq.Id;
-			if (id == null)
+			if (iq.Id == null)
 				return;
 
-			TrackerData td;
+			if (!this.Queue.TryRemove(iq.Id, out var info))
+				return;
 
-			lock (this.m_grabbing)
-			{
-				td = (TrackerData)this.m_grabbing[id];
+			if (info == null || info.Callback == null)
+				return;
 
-				if (td == null)
-				{
-					return;
-				}
-				this.m_grabbing.Remove(id);
-			}
-
-			td.cb(this, iq, td.data);
+			info.Callback(this, iq, info.UserData);
 		}
 
 		/// <summary>
 		/// Send an IQ Request and store the object with callback in the Hashtable
 		/// </summary>
 		/// <param name="iq">The iq to send</param>
-		/// <param name="cb">the callback function which gets raised for the response</param>
-		public void SendIq(IQ iq, IqCB cb)
+		/// <param name="callback">the callback function which gets raised for the response</param>
+		public void SendIq(IQ iq, IqGrabberCallback callback)
 		{
-			this.SendIq(iq, cb, null);
+			this.SendIq(iq, callback, null);
 		}
 
 		/// <summary>
 		/// Send an IQ Request and store the object with callback in the Hashtable
 		/// </summary>
 		/// <param name="iq">The iq to send</param>
-		/// <param name="cb">the callback function which gets raised for the response</param>
-		/// <param name="cbArg">additional object for arguments</param>
-		public void SendIq(IQ iq, IqCB cb, object cbArg)
+		/// <param name="callback">the callback function which gets raised for the response</param>
+		/// <param name="data">additional object for arguments</param>
+		public void SendIq(IQ iq, IqGrabberCallback callback, object data)
 		{
-			// check if the callback is null, in case of wrong usage of this class
-			if (cb != null)
+			if (callback != null)
 			{
-				var td = new TrackerData();
-				td.cb = cb;
-				td.data = cbArg;
-
-				this.m_grabbing[iq.Id] = td;
-			}
-			this.m_connection.Send(iq);
-		}
-
-#if !CF
-		/// <summary>
-		/// Sends an Iq synchronous and return the response or null on timeout
-		/// </summary>
-		/// <param name="iq">The IQ to send</param>
-		/// <param name="timeout"></param>
-		/// <returns>The response IQ or null on timeout</returns>
-		public IQ SendIq(IQ iq, int timeout)
-		{
-			this.synchronousResponse = null;
-			var are = new AutoResetEvent(false);
-
-			this.SendIq(iq, new IqCB(this.SynchronousIqResult), are);
-
-			if (!are.WaitOne(timeout, true))
-			{
-				// Timed out
-				lock (this.m_grabbing)
+				var info = new IqGrabberInfo
 				{
-					if (this.m_grabbing.ContainsKey(iq.Id))
-						this.m_grabbing.Remove(iq.Id);
-				}
-				return null;
+					Callback = callback,
+					UserData = data
+				};
+
+				this.Queue.AddOrUpdate(iq.Id, info, (key, old) => info);
 			}
 
-			return this.synchronousResponse;
-		}
-
-		/// <summary>
-		/// Sends an Iq synchronous and return the response or null on timeout.
-		/// Timeout time used is <see cref="SynchronousTimeout"/>
-		/// </summary>
-		/// <param name="iq">The IQ to send</param>        
-		/// <returns>The response IQ or null on timeout</returns>
-		public IQ SendIq(IQ iq)
-		{
-			return this.SendIq(iq, this.m_SynchronousTimeout);
-		}
-
-		/// <summary>
-		/// Callback for synchronous iq grabbing
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="iq"></param>
-		/// <param name="data"></param>
-		private void SynchronousIqResult(object sender, IQ iq, object data)
-		{
-			this.synchronousResponse = iq;
-
-			var are = data as AutoResetEvent;
-			are.Set();
-		}
-#endif
-		private class TrackerData
-		{
-			public IqCB cb;
-			public object data;
+			this.Connection.Send(iq);
 		}
 	}
 }

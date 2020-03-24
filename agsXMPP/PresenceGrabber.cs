@@ -20,15 +20,17 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using System.Collections;
-
+using System.Linq;
 using AgsXMPP.Collections;
 using AgsXMPP.Protocol.Client;
+using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP
 {
-	public delegate void PresenceCB(object sender, Presence pres, object data);
+	using PresenceGrabberCallback = PacketGrabberCallback<PresenceGrabber, Presence>;
+	using PresenceGrabberInfo = PacketGrabberInfo<PresenceGrabber, Presence>;
 
-	public class PresenceGrabber : PacketGrabber
+	public class PresenceGrabber : PacketGrabber<XmppClientConnection, Presence, PresenceGrabber>
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PresenceGrabber"/> class.
@@ -36,27 +38,23 @@ namespace AgsXMPP
 		/// <param name="conn">The conn.</param>
 		public PresenceGrabber(XmppClientConnection conn)
 		{
-			this.m_connection = conn;
-			conn.OnPresence += new PresenceHandler(this.m_connection_OnPresence);
+			this.Connection = conn;
+			this.Connection.OnPresence += this.OnPresence;
 		}
 
-		public void Add(Jid jid, PresenceCB cb, object cbArg)
+		public void Add(Jid jid, PresenceGrabberCallback cb, object data)
 		{
-			lock (this.m_grabbing)
-			{
-				if (this.m_grabbing.ContainsKey(jid.ToString()))
-					return;
-			}
+			if (this.Queue.ContainsKey(jid.ToString()))
+				return;
 
-			var td = new TrackerData();
-			td.cb = cb;
-			td.data = cbArg;
-			td.comparer = new BareJidComparer();
-
-			lock (this.m_grabbing)
+			var info = new PresenceGrabberInfo
 			{
-				this.m_grabbing.Add(jid.ToString(), td);
-			}
+				Callback = cb,
+				UserData = data,
+				Comparer = BareJidComparer.Instance
+			};
+
+			this.Queue.AddOrUpdate(jid.ToString(), info, (key, old) => info);
 		}
 
 		/// <summary>
@@ -64,25 +62,21 @@ namespace AgsXMPP
 		/// </summary>
 		/// <param name="jid">The jid.</param>
 		/// <param name="comparer">The comparer.</param>
-		/// <param name="cb">The callback.</param>
-		/// <param name="cbArg">The callback Arguments.</param>
-		public void Add(Jid jid, IComparer comparer, PresenceCB cb, object cbArg)
+		/// <param name="callback">The callback.</param>
+		/// <param name="data">The callback Arguments.</param>
+		public void Add(Jid jid, IComparer comparer, PresenceGrabberCallback callback, object data)
 		{
-			lock (this.m_grabbing)
-			{
-				if (this.m_grabbing.ContainsKey(jid.ToString()))
-					return;
-			}
+			if (this.Queue.ContainsKey(jid.ToString()))
+				return;
 
-			var td = new TrackerData();
-			td.cb = cb;
-			td.data = cbArg;
-			td.comparer = comparer;
-
-			lock (this.m_grabbing)
+			var info = new PresenceGrabberInfo
 			{
-				this.m_grabbing.Add(jid.ToString(), td);
-			}
+				Callback = callback,
+				UserData = data,
+				Comparer = comparer
+			};
+
+			this.Queue.AddOrUpdate(jid.ToString(), info, (key, old) => info);
 		}
 
 		/// <summary>
@@ -92,47 +86,21 @@ namespace AgsXMPP
 		/// </summary>
 		/// <param name="id">ID of the Iq we are not interested anymore</param>
 		public void Remove(Jid jid)
-		{
-			lock (this.m_grabbing)
-			{
-				if (this.m_grabbing.ContainsKey(jid.ToString()))
-					this.m_grabbing.Remove(jid.ToString());
-			}
-		}
-
-		private class TrackerData
-		{
-			public PresenceCB cb;
-			public object data;
-			// by default the Bare Jid is compared
-			public IComparer comparer;
-
-		}
+			=> this.Queue.TryRemove(jid.ToString(), out var _);
 
 		/// <summary>
 		/// A presence is received. Now check if its from a Jid we are looking for and
 		/// raise the event in this case.
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="pres"></param>
-		private void m_connection_OnPresence(object sender, Presence pres)
+		protected void OnPresence(object sender, Presence presence)
 		{
-			if (pres == null)
+			if (presence == null)
 				return;
 
-			lock (this.m_grabbing)
+			foreach (var (jid, item) in this.Queue.Select(x => x))
 			{
-				var myEnum = this.m_grabbing.GetEnumerator();
-
-				while (myEnum.MoveNext())
-				{
-					var t = myEnum.Value as TrackerData;
-					if (t.comparer.Compare(new Jid((string)myEnum.Key), pres.From) == 0)
-					{
-						// Execute the callback
-						t.cb(this, pres, t.data);
-					}
-				}
+				if (item.Comparer.Compare(jid, presence.From) == 0)
+					item.Callback?.Invoke(this, presence, item.UserData);
 			}
 		}
 	}
