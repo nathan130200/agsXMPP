@@ -16,7 +16,7 @@
     <Authors>AG-Software, FRNathan13</Authors>
     <Copyright>2003-2020 (C) AG-Software, FRNathan13</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>agsXMPP.NetCore</PackageId>
+    <PackageId>AgsXMPP.NetCore</PackageId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="key.snk" />
@@ -24,15 +24,12 @@
   <ItemGroup Condition="$(BCCRYPTO) == ''">
     <Compile Remove="Net/SslStream.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Net/SynchronousAsyncResult.cs" />
   </ItemGroup>
-  
   <ItemGroup Condition="$(CF) == '' Or $(CF_2) == ''">
     <Compile Remove="Util\WinCeApi.cs" />
     <Compile Remove="Util\RNGCryptoServiceProvider.cs" />
     <Compile Remove="Util\RandomNumberGenerator.cs" />
   </ItemGroup>
-
 </Project>

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.tls
+namespace AgsXMPP.Protocol.Tls
 {
 	// Step 5 (alt): Server informs client that TLS negotiation has failed and closes both stream and TCP connection:
 

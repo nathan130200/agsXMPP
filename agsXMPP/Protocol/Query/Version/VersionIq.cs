@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Query.version
+namespace AgsXMPP.Protocol.Query.Version
 {
 	/// <summary>
 	/// Summary description for VersionIq.

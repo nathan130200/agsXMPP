@@ -26,7 +26,7 @@ using System.Globalization;
 using AgsXMPP.Exceptions;
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Query.rpc
+namespace AgsXMPP.Protocol.Query.RPC
 {
 	/// <summary>
 	/// The method Response element. 

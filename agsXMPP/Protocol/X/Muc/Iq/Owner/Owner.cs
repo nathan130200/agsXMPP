@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.muc.iq.owner
+namespace AgsXMPP.Protocol.X.Muc.iq.owner
 {
 	/*
         <iq id="jcl_110" to="xxxxxx@conference.jabber.org" type="set">

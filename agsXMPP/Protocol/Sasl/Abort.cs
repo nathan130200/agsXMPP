@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 	/// <summary>
 	/// Summary description for Abort.

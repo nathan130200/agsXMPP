@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.data
+namespace AgsXMPP.Protocol.X.Data
 {
 	/// <summary>
 	/// Bass class for all xdata classes that contain xData fields

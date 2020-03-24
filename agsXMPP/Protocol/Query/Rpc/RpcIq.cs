@@ -22,7 +22,7 @@
 using AgsXMPP.Protocol.Client;
 
 
-namespace AgsXMPP.Protocol.Query.rpc
+namespace AgsXMPP.Protocol.Query.RPC
 {
 	/// <summary>
 	/// RpcIq.

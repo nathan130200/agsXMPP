@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using AgsXMPP.Protocol.X.data;
+using AgsXMPP.Protocol.X.Data;
 
 using AgsXMPP.Xml.Dom;
 

@@ -19,9 +19,8 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using System;
 using AgsXMPP.Protocol.Query.Bind;
-using AgsXMPP.Protocol.Query.session;
+using AgsXMPP.Protocol.Query.Session;
 using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Protocol.Client

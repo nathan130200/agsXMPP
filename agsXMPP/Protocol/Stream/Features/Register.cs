@@ -29,7 +29,7 @@ using AgsXMPP.Xml.Dom;
 //<register xmlns='http://jabber.org/features/iq-register'/>
 //...
 
-namespace AgsXMPP.Protocol.stream.features
+namespace AgsXMPP.Protocol.Stream.Features
 {
 	/// <summary>
 	/// 

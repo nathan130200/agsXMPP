@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.X.muc
+namespace AgsXMPP.Protocol.X.Muc
 {
 	public enum StatusCode
 	{

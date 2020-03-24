@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.muc
+namespace AgsXMPP.Protocol.X.Muc
 {
 	/// <summary>
 	/// Summary description for MucUser.

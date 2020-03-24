@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.muc
+namespace AgsXMPP.Protocol.X.Muc
 {
 	/*
     <x xmlns='http://jabber.org/protocol/muc#user'>
@@ -54,14 +54,8 @@ namespace AgsXMPP.Protocol.X.muc
 
 		public StatusCode Code
 		{
-			get
-			{
-				return (StatusCode)this.GetAttributeEnum("code", typeof(StatusCode));
-			}
-			set
-			{
-				this.SetAttribute("code", value.ToString());
-			}
+			get => (StatusCode)this.GetAttributeInt("code");
+			set => this.SetAttribute("code", (int)value);
 		}
 	}
 

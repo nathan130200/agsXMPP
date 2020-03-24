@@ -19,14 +19,20 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.X.roster
+namespace AgsXMPP.Protocol.X.Roster
 {
 	public enum RosterAction
 	{
 		None = -1,
-		add,
-		remove,
-		modify
+
+		[XmppEnumMember("add")]
+		Add,
+
+		[XmppEnumMember("remove")]
+		Remove,
+
+		[XmppEnumMember("modify")]
+		Modify
 	}
 
 	/// <summary>
@@ -62,12 +68,8 @@ namespace AgsXMPP.Protocol.X.roster
 
 		public RosterAction Action
 		{
-			get
-			{
-				return (RosterAction)this.GetAttributeEnum("action", typeof(RosterAction));
-			}
-			set { this.SetAttribute("action", value.ToString()); }
+			get => this.GetAttributeEnum<RosterAction>("action");
+			set => this.SetAttributeEnum("action", value);
 		}
-
 	}
 }

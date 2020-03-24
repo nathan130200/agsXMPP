@@ -25,7 +25,7 @@ using AgsXMPP.Xml.Dom;
 //		<mechanism>DIGEST-MD5</mechanism>
 //		<mechanism>PLAIN</mechanism>
 //	</mechanisms>
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 	/// <summary>
 	/// Summary description for Mechanisms.

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Query.@private
+namespace AgsXMPP.Protocol.Query.Private
 {
 	/// <summary>
 	/// Summary description for PrivateIq.

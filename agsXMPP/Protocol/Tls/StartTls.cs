@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.tls
+namespace AgsXMPP.Protocol.Tls
 {
 
 	// Step 4: Client sends the STARTTLS command to server:

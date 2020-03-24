@@ -31,7 +31,7 @@ namespace AgsXMPP.Protocol.X
 	*/
 
 	/// <summary>
-	/// is used for inviting somebody to a chatroom
+	/// That is used for inviting somebody to a chatroom
 	/// </summary>
 	public class Conference : Element
 	{

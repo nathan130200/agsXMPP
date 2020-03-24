@@ -24,7 +24,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-using AgsXMPP.Protocol.sasl;
+using AgsXMPP.Protocol.Sasl;
 using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Sasl.XGoogleToken

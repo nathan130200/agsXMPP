@@ -23,7 +23,7 @@ using System;
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.muc
+namespace AgsXMPP.Protocol.X.Muc
 {
 	/*
         Example 29. User Requests Limit on Number of Messages in History

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Query.session
+namespace AgsXMPP.Protocol.Query.Session
 {
 	/// <summary>
 	/// Summary description for Session.

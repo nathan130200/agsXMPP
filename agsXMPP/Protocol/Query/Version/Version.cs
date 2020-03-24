@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Query.version
+namespace AgsXMPP.Protocol.Query.Version
 {
 	// Send:<iq type='get' id='MX_6' to='jfrankel@coversant.net/SoapBox'>
 	//			<query xmlns='jabber:iq:version'></query>

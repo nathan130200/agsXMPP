@@ -31,7 +31,7 @@ using AgsXMPP.Protocol.Client;
 //		<query xmlns='jabber:iq:search'/>
 //	</iq>
 
-namespace AgsXMPP.Protocol.Query.search
+namespace AgsXMPP.Protocol.Query.Search
 {
 	/// <summary>
 	/// Summary description for SearchIq.

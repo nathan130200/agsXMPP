@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.X.muc
+namespace AgsXMPP.Protocol.X.Muc
 {
 	/// <summary>
 	/// Summary description for Item.
@@ -94,18 +94,12 @@ namespace AgsXMPP.Protocol.X.muc
 			this.Reason = reason;
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public Role Role
 		{
 			get => this.GetAttributeEnum<Role>("role");
 			set => this.SetAttributeEnum("role", value);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
 		public Affiliation Affiliation
 		{
 			get => this.GetAttributeEnum<Affiliation>("affiliation");

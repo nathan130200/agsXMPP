@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using AgsXMPP.Protocol.X.data;
+using AgsXMPP.Protocol.X.Data;
 
 using AgsXMPP.Xml.Dom;
 
@@ -55,7 +55,7 @@ using AgsXMPP.Xml.Dom;
 //		</query>
 //	</iq>    
 
-namespace AgsXMPP.Protocol.Query.search
+namespace AgsXMPP.Protocol.Query.Search
 {
 	/// <summary>
 	/// http://www.jabber.org/jeps/jep-0055.html

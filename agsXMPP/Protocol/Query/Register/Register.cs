@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using AgsXMPP.Protocol.X.data;
+using AgsXMPP.Protocol.X.Data;
 using AgsXMPP.Xml.Dom;
 
 // Sample 1
@@ -31,7 +31,7 @@ using AgsXMPP.Xml.Dom;
 // <RECV> <iq xmlns="jabber:client" id="agsXMPP_1" type="result"><query xmlns="jabber:iq:register"><username>test1</username><password>mysecret</password><password /><instructions>Choose a username and password to register with this server.</instructions><name /><email /><username /></query></iq>
 
 
-namespace AgsXMPP.Protocol.Query.register
+namespace AgsXMPP.Protocol.Query.Register
 {
 	/// <summary>
 	/// Used for registering new usernames on Jabber/XMPP Servers

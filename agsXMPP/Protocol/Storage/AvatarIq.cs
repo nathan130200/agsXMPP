@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.storage
+namespace AgsXMPP.Protocol.Storage
 {
 
 	//	Once such data has been set, the avatar can be retrieved by any requesting client from the avatar-generating client's public XML storage:

@@ -22,7 +22,7 @@
 using AgsXMPP.Xml.Dom;
 
 // <success xmlns='urn:ietf:params:xml:ns:xmpp-sasl'/>
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 	/// <summary>
 	/// Summary description for Success.

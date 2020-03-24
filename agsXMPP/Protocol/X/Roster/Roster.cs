@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.roster
+namespace AgsXMPP.Protocol.X.Roster
 {
 	/// <summary>
 	/// Roster Item Exchange (JEP-0144)

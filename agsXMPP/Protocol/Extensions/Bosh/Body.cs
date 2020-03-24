@@ -156,7 +156,7 @@ namespace AgsXMPP.Protocol.Extensions.Bosh
 		/// <summary>
 		/// <para>
 		/// Specifies the highest version of the BOSH protocol that the client supports. 
-		/// The numbering scheme is "<major>.<minor>" (where the minor number MAY be incremented higher than a single digit, 
+		/// The numbering scheme is "&lt;major&gt;.&lt;minor&gt;" (where the minor number MAY be incremented higher than a single digit, 
 		/// so it MUST be treated as a separate integer).
 		/// </para>
 		/// <remarks>
@@ -183,13 +183,13 @@ namespace AgsXMPP.Protocol.Extensions.Bosh
 
 		public BoshType Type
 		{
-			get => this.GetAttributeEnum<BoshType>("type"); }
+			get => this.GetAttributeEnum<BoshType>("type");
 			set
 			{
-				if (value == BoshType.NONE)
+				if (value == BoshType.None)
 					this.RemoveAttribute("type");
 				else
-					this.SetAttribute("type", value.ToString());
+					this.SetAttributeEnum("type", value);
 			}
 		}
 

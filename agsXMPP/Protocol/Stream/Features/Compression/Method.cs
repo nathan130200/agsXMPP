@@ -24,7 +24,7 @@ using System;
 using AgsXMPP.Protocol.Extensions.Compression;
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.stream.features.Compression
+namespace AgsXMPP.Protocol.Stream.Features.Compression
 {
 	public class Method : Element
 	{

@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.X.muc.iq.owner
+namespace AgsXMPP.Protocol.X.Muc.iq.owner
 {
 	/*
         Example 72. Moderator Kicks Occupant

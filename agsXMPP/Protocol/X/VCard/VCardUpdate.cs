@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.vcard
+namespace AgsXMPP.Protocol.X.VCard
 {
 	/// <summary>
 	/// <code>

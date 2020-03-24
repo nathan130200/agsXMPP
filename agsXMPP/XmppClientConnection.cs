@@ -33,9 +33,9 @@ using AgsXMPP.Protocol.Extensions.Compression;
 using AgsXMPP.Protocol.Query.Agent;
 using AgsXMPP.Protocol.Query.Auth;
 using AgsXMPP.Protocol.Query.Disco;
-using AgsXMPP.Protocol.Query.register;
+using AgsXMPP.Protocol.Query.Register;
 using AgsXMPP.Protocol.Query.Roster;
-using AgsXMPP.Protocol.stream;
+using AgsXMPP.Protocol.Stream;
 using AgsXMPP.Sasl;
 using AgsXMPP.Xml.Dom;
 
@@ -44,7 +44,7 @@ using  Mono.Security.Protocol.Tls;
 #endif
 
 #if SSL || MONOSSL || BCCRYPTO
-using AgsXMPP.Protocol.tls;
+using AgsXMPP.Protocol.Tls;
 #endif
 
 namespace AgsXMPP

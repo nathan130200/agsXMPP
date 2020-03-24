@@ -19,7 +19,6 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using System;
 using AgsXMPP.Protocol.Base;
 
 namespace AgsXMPP.Protocol.Component
@@ -70,7 +69,7 @@ namespace AgsXMPP.Protocol.Component
 		/// </summary>
 		public LogType Type
 		{
-			get => this.GetAttributeEnum<LogType>("type"); 
+			get => this.GetAttributeEnum<LogType>("type");
 			set
 			{
 				if (value == LogType.None)

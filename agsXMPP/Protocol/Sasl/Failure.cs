@@ -24,7 +24,7 @@ using AgsXMPP.Xml.Dom;
 // <failure xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>
 //		<incorrect-encoding/>
 // </failure>
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 	/// <summary>
 	/// Summary description for Failure.

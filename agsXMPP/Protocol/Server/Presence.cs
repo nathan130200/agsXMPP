@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.server
+namespace AgsXMPP.Protocol.Server
 {
 	public class Presence : Client.Presence
 	{

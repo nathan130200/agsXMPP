@@ -42,7 +42,7 @@ namespace AgsXMPP.Sasl.Plain
 			this.m_XmppClient = con;
 
 			// <auth mechanism="PLAIN" xmlns="urn:ietf:params:xml:ns:xmpp-sasl">$Message</auth>
-			this.m_XmppClient.Send(new Protocol.sasl.Auth(Protocol.sasl.MechanismType.PLAIN, this.Message()));
+			this.m_XmppClient.Send(new Protocol.Sasl.Auth(Protocol.Sasl.MechanismType.PLAIN, this.Message()));
 		}
 
 		public override void Parse(Node e)

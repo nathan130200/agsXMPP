@@ -23,9 +23,9 @@ using System;
 
 using AgsXMPP.Protocol.Client;
 using AgsXMPP.Protocol.Query.Bind;
-using AgsXMPP.Protocol.Query.session;
-using AgsXMPP.Protocol.sasl;
-using AgsXMPP.Protocol.stream;
+using AgsXMPP.Protocol.Query.Session;
+using AgsXMPP.Protocol.Sasl;
+using AgsXMPP.Protocol.Stream;
 
 using AgsXMPP.Xml;
 using AgsXMPP.Xml.Dom;
@@ -99,15 +99,15 @@ namespace AgsXMPP.Sasl
 								// This is the only way to connect to GTalk on a unsecure Socket for now
 								// Secure authentication is done over https requests to pass the
 								// authentication credentials on a secure connection
-								args.Mechanism = Protocol.sasl.Mechanism.GetMechanismName(MechanismType.X_GOOGLE_TOKEN);
+								args.Mechanism = Protocol.Sasl.Mechanism.GetMechanismName(MechanismType.X_GOOGLE_TOKEN);
 							}
 							else if (f.Mechanisms.SupportsMechanism(MechanismType.DIGEST_MD5))
 							{
-								args.Mechanism = Protocol.sasl.Mechanism.GetMechanismName(MechanismType.DIGEST_MD5);
+								args.Mechanism = Protocol.Sasl.Mechanism.GetMechanismName(MechanismType.DIGEST_MD5);
 							}
 							else if (f.Mechanisms.SupportsMechanism(MechanismType.PLAIN))
 							{
-								args.Mechanism = Protocol.sasl.Mechanism.GetMechanismName(MechanismType.PLAIN);
+								args.Mechanism = Protocol.Sasl.Mechanism.GetMechanismName(MechanismType.PLAIN);
 							}
 							else
 							{

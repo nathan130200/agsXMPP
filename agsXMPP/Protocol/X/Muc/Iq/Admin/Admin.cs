@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.X.muc.iq.admin
+namespace AgsXMPP.Protocol.X.Muc.iq.admin
 {
 	/*
         <query xmlns='http://jabber.org/protocol/muc#admin'>

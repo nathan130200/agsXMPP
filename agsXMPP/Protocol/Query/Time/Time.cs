@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Query.time
+namespace AgsXMPP.Protocol.Query.Time
 {
 
 	// Send:<iq type='get' id='MX_7' to='jfrankel@coversant.net/SoapBox'>

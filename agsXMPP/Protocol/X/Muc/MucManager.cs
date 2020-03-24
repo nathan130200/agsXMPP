@@ -19,11 +19,11 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using AgsXMPP.Protocol.Client;
-using AgsXMPP.Protocol.X.data;
-using AgsXMPP.Protocol.X.muc.iq.admin;
-using AgsXMPP.Protocol.X.muc.iq.owner;
+using AgsXMPP.Protocol.X.Data;
+using AgsXMPP.Protocol.X.Muc.iq.admin;
+using AgsXMPP.Protocol.X.Muc.iq.owner;
 
-namespace AgsXMPP.Protocol.X.muc
+namespace AgsXMPP.Protocol.X.Muc
 {
 	/// <summary>
 	/// A helper class for Multi User Chat
@@ -332,7 +332,7 @@ namespace AgsXMPP.Protocol.X.muc
 		public void AcceptDefaultConfiguration(Jid room, IqCB cb, object cbArgs)
 		{
 			var oIq = new OwnerIq(IQType.Set, room);
-			oIq.Query.AddChild(new Data(XDataFormType.Submit));
+			oIq.Query.AddChild(new Data.Data(XDataFormType.Submit));
 
 			if (cb == null)
 				this.m_connection.Send(oIq);

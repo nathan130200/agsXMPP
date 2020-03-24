@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Query.search
+namespace AgsXMPP.Protocol.Query.Search
 {
 	// jabber:iq:search
 	//	Example 4. Receiving Search Results

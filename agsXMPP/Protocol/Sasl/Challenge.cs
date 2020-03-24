@@ -25,7 +25,7 @@ using AgsXMPP.Xml.Dom;
 //cmVhbG09InNvbWVyZWFsbSIsbm9uY2U9Ik9BNk1HOXRFUUdtMmhoIixxb3A9ImF1dGgi
 //LGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNzCg==
 //</challenge>
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 	/// <summary>
 	/// Summary description for Challenge.

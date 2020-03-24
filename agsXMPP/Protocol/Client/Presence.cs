@@ -171,13 +171,13 @@ namespace AgsXMPP.Protocol.Client
 		/// <summary>
 		/// 
 		/// </summary>
-		public X.muc.User MucUser
+		public X.Muc.User MucUser
 		{
-			get { return this.SelectSingleElement(typeof(X.muc.User)) as X.muc.User; }
+			get { return this.SelectSingleElement(typeof(X.Muc.User)) as X.Muc.User; }
 			set
 			{
-				if (this.HasTag(typeof(X.muc.User)))
-					this.RemoveTag(typeof(X.muc.User));
+				if (this.HasTag(typeof(X.Muc.User)))
+					this.RemoveTag(typeof(X.Muc.User));
 
 				if (value != null)
 					this.AddChild(value);

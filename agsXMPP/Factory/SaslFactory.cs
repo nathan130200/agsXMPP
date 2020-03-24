@@ -45,10 +45,10 @@ namespace AgsXMPP.Factory
 
 		static SaslFactory()
 		{
-			AddMechanism(Protocol.sasl.Mechanism.GetMechanismName(Protocol.sasl.MechanismType.PLAIN), typeof(PlainMechanism));
-			AddMechanism(Protocol.sasl.Mechanism.GetMechanismName(Protocol.sasl.MechanismType.DIGEST_MD5), typeof(DigestMD5Mechanism));
-			AddMechanism(Protocol.sasl.Mechanism.GetMechanismName(Protocol.sasl.MechanismType.ANONYMOUS), typeof(AnonymousMechanism));
-			AddMechanism(Protocol.sasl.Mechanism.GetMechanismName(Protocol.sasl.MechanismType.X_GOOGLE_TOKEN), typeof(XGoogleTokenMechanism));
+			AddMechanism(Protocol.Sasl.Mechanism.GetMechanismName(Protocol.Sasl.MechanismType.PLAIN), typeof(PlainMechanism));
+			AddMechanism(Protocol.Sasl.Mechanism.GetMechanismName(Protocol.Sasl.MechanismType.DIGEST_MD5), typeof(DigestMD5Mechanism));
+			AddMechanism(Protocol.Sasl.Mechanism.GetMechanismName(Protocol.Sasl.MechanismType.ANONYMOUS), typeof(AnonymousMechanism));
+			AddMechanism(Protocol.Sasl.Mechanism.GetMechanismName(Protocol.Sasl.MechanismType.X_GOOGLE_TOKEN), typeof(XGoogleTokenMechanism));
 		}
 
 

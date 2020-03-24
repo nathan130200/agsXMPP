@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.tls
+namespace AgsXMPP.Protocol.Tls
 {
 	// Step 5: Server informs client that it is allowed to proceed:
 	// <proceed xmlns='urn:ietf:params:xml:ns:xmpp-tls'/>

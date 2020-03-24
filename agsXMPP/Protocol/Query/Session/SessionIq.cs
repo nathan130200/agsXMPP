@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Query.session
+namespace AgsXMPP.Protocol.Query.Session
 {
 	/// <summary>
 	/// Starting the session, this is done after resource binding

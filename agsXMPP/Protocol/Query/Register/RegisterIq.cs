@@ -20,7 +20,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Query.register
+namespace AgsXMPP.Protocol.Query.Register
 {
 	/// <summary>
 	/// Used for registering new usernames on Jabber/XMPP Servers

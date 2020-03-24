@@ -49,7 +49,7 @@ using AgsXMPP.Xml.Dom;
 //KERBEROS_V5          COMMON   [Josefsson] Simon Josefsson <simon@josefsson.org>
 //NMAS-SAMBA-AUTH      LIMITED  [Brimhall]  Vince Brimhall <vbrimhall@novell.com>
 
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 
 	public enum MechanismType

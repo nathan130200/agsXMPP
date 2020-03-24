@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.storage
+namespace AgsXMPP.Protocol.Storage
 {
 
 	//	<iq id='0' type='set' to='user@server'>

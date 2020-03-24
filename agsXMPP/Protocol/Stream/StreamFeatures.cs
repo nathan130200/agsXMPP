@@ -20,9 +20,9 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 using AgsXMPP.Protocol.Query.Bind;
-using AgsXMPP.Protocol.stream.features;
-using AgsXMPP.Protocol.stream.features.Compression;
-using AgsXMPP.Protocol.tls;
+using AgsXMPP.Protocol.Stream.Features;
+using AgsXMPP.Protocol.Stream.Features.Compression;
+using AgsXMPP.Protocol.Tls;
 using AgsXMPP.Xml.Dom;
 
 //</stream:features>
@@ -43,7 +43,7 @@ using AgsXMPP.Xml.Dom;
 //		</mechanisms>
 // </stream:features>
 
-namespace AgsXMPP.Protocol.stream
+namespace AgsXMPP.Protocol.Stream
 {
 	/// <summary>
 	/// Summary description for Features.
@@ -133,16 +133,16 @@ namespace AgsXMPP.Protocol.stream
 			}
 		}
 
-		public sasl.Mechanisms Mechanisms
+		public Sasl.Mechanisms Mechanisms
 		{
 			get
 			{
-				return this.SelectSingleElement(typeof(sasl.Mechanisms)) as sasl.Mechanisms;
+				return this.SelectSingleElement(typeof(Sasl.Mechanisms)) as Sasl.Mechanisms;
 			}
 			set
 			{
-				if (this.HasTag(typeof(sasl.Mechanisms)))
-					this.RemoveTag(typeof(sasl.Mechanisms));
+				if (this.HasTag(typeof(Sasl.Mechanisms)))
+					this.RemoveTag(typeof(Sasl.Mechanisms));
 
 				if (value != null)
 					this.AddChild(value);

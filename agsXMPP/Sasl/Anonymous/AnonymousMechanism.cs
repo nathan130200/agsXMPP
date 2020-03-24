@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-using AgsXMPP.Protocol.sasl;
+using AgsXMPP.Protocol.Sasl;
 using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Sasl.Anonymous

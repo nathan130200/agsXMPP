@@ -21,7 +21,7 @@
 
 using AgsXMPP.Xml.Dom;
 
-namespace AgsXMPP.Protocol.Query.rpc
+namespace AgsXMPP.Protocol.Query.RPC
 {
 
 	/*         

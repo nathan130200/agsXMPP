@@ -28,7 +28,7 @@ using AgsXMPP.Xml.Dom;
 //LHJlc3BvbnNlPWQzODhkYWQ5MGQ0YmJkNzYwYTE1MjMyMWYyMTQzYWY3LGNo
 //YXJzZXQ9dXRmLTgK
 //</response>
-namespace AgsXMPP.Protocol.sasl
+namespace AgsXMPP.Protocol.Sasl
 {
 	/// <summary>
 	/// Summary description for Response.

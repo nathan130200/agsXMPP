@@ -19,7 +19,7 @@
  * http://www.ag-software.de														 *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-namespace AgsXMPP.Protocol.Query.register
+namespace AgsXMPP.Protocol.Query.Register
 {
 	public delegate void RegisterEventHandler(object sender, RegisterEventArgs args);
 

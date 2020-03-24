@@ -21,7 +21,7 @@
 
 using AgsXMPP.Protocol.Client;
 
-namespace AgsXMPP.Protocol.Query.time
+namespace AgsXMPP.Protocol.Query.Time
 {
 	/// <summary>
 	/// Summary description for TimeIq.
