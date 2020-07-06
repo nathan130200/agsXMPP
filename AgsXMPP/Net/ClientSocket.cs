@@ -50,6 +50,7 @@ namespace AgsXMPP.Net
 		NetworkStream m_Stream;
 		Stream m_NetworkStream = null;
 
+		public bool UseDnsResolution { get; set; }
 
 		const int BUFFERSIZE = 1024;
 		private byte[] m_ReadBuffer = null;
@@ -158,20 +159,26 @@ namespace AgsXMPP.Net
 
 			try
 			{
-				var ipHostInfo = System.Net.Dns.GetHostEntry(this.Address);
-				var ipAddress = ipHostInfo.AddressList[0];// IPAddress.Parse(address);
-				var endPoint = new IPEndPoint(ipAddress, this.Port);
-
 				// Timeout
 				// .NET supports no timeout for connect, and the default timeout is very high, so it could
 				// take very long to establish the connection with the default timeout. So we handle custom
 				// connect timeouts with a timer
 				this.m_ConnectTimedOut = false;
-				var timerDelegate = new TimerCallback(this.connectTimeoutTimerDelegate);
+				var timerDelegate = new TimerCallback(this.OnConnectionTimedOut);
 				this.connectTimeoutTimer = new Timer(timerDelegate, null, this.ConnectTimeout, this.ConnectTimeout);
 
-				this.m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-				this.m_socket.BeginConnect(endPoint, new AsyncCallback(this.EndConnect), null);
+				this.m_socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
+
+				if (this.UseDnsResolution)
+				{
+
+					var ipHostInfo = System.Net.Dns.GetHostEntry(this.Address);
+					var ipAddress = ipHostInfo.AddressList[0];// IPAddress.Parse(address);
+					var endPoint = new IPEndPoint(ipAddress, this.Port);
+					this.m_socket.BeginConnect(endPoint, new AsyncCallback(this.EndConnect), null);
+				}
+				else
+					this.m_socket.BeginConnect(this.Address, this.Port, new AsyncCallback(this.EndConnect), null);
 			}
 			catch (Exception ex)
 			{
@@ -216,7 +223,7 @@ namespace AgsXMPP.Net
 		/// Connect Timeout Timer Callback
 		/// </summary>
 		/// <param name="stateInfo"></param>
-		private void connectTimeoutTimerDelegate(object stateInfo)
+		private void OnConnectionTimedOut(object stateInfo)
 		{
 			// for compression debug statisticsConsole.WriteLine("Connect Timeout");
 			this.connectTimeoutTimer.Dispose();
@@ -329,9 +336,6 @@ namespace AgsXMPP.Net
 		/// Validate the SSL certificate here
 		/// for now we dont stop the SSL connection an return always true
 		/// </summary>
-		/// <param name="certificate"></param>
-		/// <param name="certificateErrors"></param>
-		/// <returns></returns>
 		//private bool ValidateCertificate (X509Certificate certificate, int[] certificateErrors) 
 		private bool ValidateCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
 		{
@@ -395,6 +399,8 @@ namespace AgsXMPP.Net
 
 			this.FireOnDisconnect();
 		}
+
+		public void A() { }
 
 		/// <summary>
 		/// 
