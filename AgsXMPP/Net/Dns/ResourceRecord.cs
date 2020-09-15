@@ -88,11 +88,11 @@ namespace AgsXMPP.Net.Dns
 					break;
 
 				default:
-				{
-					// move the pointer over this unrecognised record
-					pointer.Position += recordLength;
-					break;
-				}
+					{
+						// move the pointer over this unrecognised record
+						pointer.Position += recordLength;
+						break;
+					}
 			}
 		}
 	}

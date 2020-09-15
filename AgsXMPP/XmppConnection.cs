@@ -268,17 +268,17 @@ namespace AgsXMPP
 		#endregion
 
 		#region << Socket handers >>
-		public virtual void SocketOnConnect(object sender)
+		protected virtual void SocketOnConnect(object sender)
 		{
 			this.DoChangeXmppConnectionState(XmppConnectionState.Connected);
 		}
 
-		public virtual void SocketOnDisconnect(object sender)
+		protected virtual void SocketOnDisconnect(object sender)
 		{
 
 		}
 
-		public virtual void SocketOnReceive(object sender, byte[] data, int count)
+		protected virtual void SocketOnReceive(object sender, byte[] data, int count)
 		{
 
 			this.m_OnReadSocketData.Invoke(sender, data, count);
@@ -290,21 +290,28 @@ namespace AgsXMPP
 			}
 		}
 
-		public virtual void SocketOnError(object sender, Exception ex)
+		protected virtual void SocketOnError(object sender, Exception ex)
 		{
 
 		}
 		#endregion
 
 		#region << StreamParser Events >>
-		public virtual void StreamParserOnStreamStart(object sender, Node e)
+		protected virtual void StreamParserOnStreamStart(object sender, Node e)
 		{
-			var xml = e.ToString().Trim();
-			xml = xml.Substring(0, xml.Length - 2) + ">";
+			var xst = e as Protocol.XmppStream;
 
-			this.FireOnReadXml(this, xml);
+			//var xml = e.ToString().Trim();
+			//xml = xml.Substring(0, xml.Length - 2) + ">";
 
-			var xst = (Protocol.XmppStream)e;
+			this.FireOnReadXml(this, xst.StartTag());
+
+			//if (e is Protocol.XmppStreamError error)
+			//{
+			//	this.FireOnError(this, new InvalidOperationException($"Stream error received: <{error.Condition}/>"));
+			//	return;
+			//}
+
 			if (xst != null)
 			{
 				this.m_StreamId = xst.StreamId;
@@ -312,38 +319,41 @@ namespace AgsXMPP
 			}
 		}
 
-		public virtual void StreamParserOnStreamEnd(object sender, Node e)
+		protected virtual void StreamParserOnStreamEnd(object sender, Node e)
 		{
-			var tag = e as Element;
+			//var tag = e as Element;
 
-			string qName;
-			if (tag.Prefix == null)
-				qName = tag.TagName;
-			else
-				qName = tag.Prefix + ":" + tag.TagName;
+			//string qName;
+			//if (tag.Prefix == null)
+			//	qName = tag.TagName;
+			//else
+			//	qName = tag.Prefix + ":" + tag.TagName;
 
-			var xml = "</" + qName + ">";
+			//var xml = "</" + qName + ">";
 
-			this.FireOnReadXml(this, xml);
+			this.FireOnReadXml(this, ((Protocol.XmppStream)e).EndTag());
 		}
 
-		public virtual void StreamParserOnStreamElement(object sender, Node e)
+		protected virtual void StreamParserOnStreamElement(object sender, Node e)
 		{
-			this.FireOnReadXml(this, e.ToString());
+			this.FireOnReadXml(this, e.ToString(true));
 		}
-		public virtual void StreamParserOnStreamError(object sender, Exception ex)
-		{
-		}
-		public virtual void StreamParserOnError(object sender, Exception ex)
+
+		protected virtual void StreamParserOnStreamError(object sender, Exception ex)
 		{
 			this.FireOnError(sender, ex);
 		}
+
+		protected virtual void StreamParserOnError(object sender, Exception ex)
+		{
+			this.FireOnError(sender, ex);
+		}
+
 		#endregion
 
 		internal void DoChangeXmppConnectionState(XmppConnectionState state)
 		{
 			this.m_ConnectionState = state;
-
 			this.m_OnXmppConnectionStateChanged.Invoke(this, state);
 		}
 
@@ -368,26 +378,26 @@ namespace AgsXMPP
 		/// <summary>
 		/// Starts connecting of the socket
 		/// </summary>
-		public virtual void SocketConnect()
+		protected virtual void SocketConnect()
 		{
 			this.DoChangeXmppConnectionState(XmppConnectionState.Connecting);
 			this.ClientSocket.Connect();
 		}
 
-		public void SocketConnect(string server, int port)
+		protected void SocketConnect(string server, int port)
 		{
 			this.ClientSocket.Address = server;
 			this.ClientSocket.Port = port;
 			this.SocketConnect();
 		}
 
-		public void SocketDisconnect()
+		protected void SocketDisconnect()
 		{
 			this.m_ClientSocket.Disconnect();
 		}
 
 		/// <summary>
-		/// Send a xml string over the XmppConnection
+		/// Send a raw xml element over connection.
 		/// </summary>
 		/// <param name="xml"></param>
 		public void Send(string xml)
@@ -404,12 +414,22 @@ namespace AgsXMPP
 		}
 
 		/// <summary>
-		/// Send a xml element over the XmppConnection
+		/// Send a xml element over the connection.
 		/// </summary>
-		/// <param name="e"></param>
+		/// <param name="e">Xml element to send.</param>
 		public virtual void Send(Element e)
 		{
-			this.Send(e.ToString());
+			string xml = e.ToString(false);
+
+			this.FireOnWriteXml(this, e.ToString(true));
+			this.m_ClientSocket.Send(xml);
+
+			this.m_OnWriteSocketData.Invoke(this, Encoding.UTF8.GetBytes(xml), xml.Length);
+
+			// reset keep alive timer if active to make sure the interval is always idle time from the last 
+			// outgoing packet
+			if (this.m_KeepAlive && this.m_KeepaliveTimer != null)
+				this.m_KeepaliveTimer.Change(this.m_KeepAliveInterval * 1000, this.m_KeepAliveInterval * 1000);
 		}
 
 		public void Open(string xml)

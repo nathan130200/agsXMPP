@@ -16,11 +16,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
-    <Version>1.5.2</Version>
+    <Version>1.5.3</Version>
     <PackageProjectUrl>https://github.com/nathan130200/AgsXMPP</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nathan130200/AgsXMPP</RepositoryUrl>
-    <Description>.NET Core Port to agsXMPP a XMPP library without vCard support.</Description>
-    <PackageTags>xmpp, xmpp-client, xmpp-component, xmpp-server, xmpp-service</PackageTags>
+    <Description>.NET Core Port to agsXMPP a XMPP library.</Description>
+    <PackageTags>xmpp, xmpp-client, xmpp-component, xmpp-server, xmpp-service, jabber, xmpp-core</PackageTags>
     <PackageReleaseNotes />
     <Authors>AG-Software, FRNathan13</Authors>
     <Copyright>2003-2020 (C) AG-Software, FRNathan13</Copyright>

@@ -121,7 +121,8 @@ namespace AgsXMPP
 		/// </summary>
 		/// <param name="user">XMPP User part</param>
 		/// <param name="server">XMPP Domain part</param>
-		/// <param name="resource">XMPP Resource part</param>        
+		/// <param name="resource">XMPP Resource part</param>
+		/// <param name="stringprep">Should validate jid to correct form.</param>
 		public Jid(string user, string server, string resource, bool stringprep = false)
 		{
 			if (!stringprep)
@@ -144,7 +145,6 @@ namespace AgsXMPP
 				if (user != null)
 				{
 					user = EscapeNode(user);
-
 					this.m_User = Stringprep.NodePrep(user);
 				}
 

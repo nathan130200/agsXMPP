@@ -107,7 +107,6 @@ namespace AgsXMPP
 		/// <summary>
 		/// The prefered Client Language Attribute
 		/// </summary>
-		/// <seealso cref="Base.XmppPacket.Language"/>
 		public string ClientLanguage
 		{
 			get { return this.m_ClientLanguage; }
@@ -117,7 +116,6 @@ namespace AgsXMPP
 		/// <summary>
 		/// The language which the server decided to use.
 		/// </summary>
-		/// <seealso cref="Base.XmppPacket.Language"/>
 		public string ServerLanguage
 		{
 			get { return this.m_ServerLanguage; }
@@ -565,7 +563,6 @@ namespace AgsXMPP
 		/// This event returns always a single AgentItem from a agents query result.
 		/// This is from the old jabber protocol. Instead of agents Disco (Service Discovery) should be used in modern
 		/// application. But still lots of servers use Agents.
-		/// <seealso cref=""/>
 		/// </summary>
 		/// <remarks>see also OnAgentStart and OnAgentEnd</remarks>
 		public event AgentHandler OnAgentItem
@@ -716,14 +713,14 @@ namespace AgsXMPP
 		}
 
 		#region << Socket handers >>
-		public override void SocketOnConnect(object sender)
+		protected override void SocketOnConnect(object sender)
 		{
 			base.SocketOnConnect(sender);
 
 			this.SendStreamHeader(true);
 		}
 
-		public override void SocketOnDisconnect(object sender)
+		protected override void SocketOnDisconnect(object sender)
 		{
 			base.SocketOnDisconnect(sender);
 
@@ -731,7 +728,7 @@ namespace AgsXMPP
 				this.CleanupSession();
 		}
 
-		public override void SocketOnError(object sender, Exception ex)
+		protected override void SocketOnError(object sender, Exception ex)
 		{
 			base.SocketOnError(sender, ex);
 
@@ -1076,7 +1073,7 @@ namespace AgsXMPP
 		/// <summary>
 		/// requests the registration fields
 		/// </summary>
-		/// <param name="obj">object which contains the features node which we need later for login again</param>
+		/// <param name="data">Object which contains the features node which we need later for login again</param>
 		private void GetRegistrationFields(object data)
 		{
 			// <iq type='get' id='reg1'>
@@ -1173,14 +1170,8 @@ namespace AgsXMPP
 		/// </summary>
 		private Jid BuildMyJid()
 		{
-			var jid = new Jid(null);
-
-			jid.m_User = this.m_Username;
-			jid.m_Server = this.Server;
-			jid.m_Resource = this.m_Resource;
-
+			var jid = new Jid(this.m_Username, this.Server, this.m_Resource);
 			jid.BuildJid();
-
 			return jid;
 		}
 
@@ -1256,7 +1247,7 @@ namespace AgsXMPP
 			=> this.m_OnAuthError.Invoke(this, e);
 
 		#region << StreamParser Events >>
-		public override void StreamParserOnStreamStart(object sender, Node e)
+		protected override void StreamParserOnStreamStart(object sender, Node e)
 		{
 			base.StreamParserOnStreamStart(this, e);
 
@@ -1309,7 +1300,7 @@ namespace AgsXMPP
 			}
 		}
 
-		public override void StreamParserOnStreamEnd(object sender, Node e)
+		protected override void StreamParserOnStreamEnd(object sender, Node e)
 		{
 			base.StreamParserOnStreamEnd(sender, e);
 
@@ -1317,7 +1308,7 @@ namespace AgsXMPP
 				this.CleanupSession();
 		}
 
-		public override void StreamParserOnStreamElement(object sender, Node e)
+		protected override void StreamParserOnStreamElement(object sender, Node e)
 		{
 			base.StreamParserOnStreamElement(sender, e);
 
@@ -1393,7 +1384,7 @@ namespace AgsXMPP
 				this.m_OnStreamError.Invoke(this, e as Element);
 		}
 
-		public override void StreamParserOnStreamError(object sender, Exception ex)
+		protected override void StreamParserOnStreamError(object sender, Exception ex)
 		{
 			base.StreamParserOnStreamError(sender, ex);
 

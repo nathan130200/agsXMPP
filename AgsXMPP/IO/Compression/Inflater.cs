@@ -509,43 +509,43 @@ namespace AgsXMPP.IO.Compression
 					return true;
 
 				case DECODE_STORED_LEN1:
-				{
-					if ((this.uncomprLen = this.input.PeekBits(16)) < 0)
 					{
-						return false;
+						if ((this.uncomprLen = this.input.PeekBits(16)) < 0)
+						{
+							return false;
+						}
+						this.input.DropBits(16);
+						this.mode = DECODE_STORED_LEN2;
 					}
-					this.input.DropBits(16);
-					this.mode = DECODE_STORED_LEN2;
-				}
-				goto case DECODE_STORED_LEN2; /* fall through */
+					goto case DECODE_STORED_LEN2; /* fall through */
 
 				case DECODE_STORED_LEN2:
-				{
-					var nlen = this.input.PeekBits(16);
-					if (nlen < 0)
 					{
-						return false;
+						var nlen = this.input.PeekBits(16);
+						if (nlen < 0)
+						{
+							return false;
+						}
+						this.input.DropBits(16);
+						if (nlen != (this.uncomprLen ^ 0xffff))
+						{
+							throw new SharpZipBaseException("broken uncompressed block");
+						}
+						this.mode = DECODE_STORED;
 					}
-					this.input.DropBits(16);
-					if (nlen != (this.uncomprLen ^ 0xffff))
-					{
-						throw new SharpZipBaseException("broken uncompressed block");
-					}
-					this.mode = DECODE_STORED;
-				}
-				goto case DECODE_STORED;/* fall through */
+					goto case DECODE_STORED;/* fall through */
 
 				case DECODE_STORED:
-				{
-					var more = this.outputWindow.CopyStored(this.input, this.uncomprLen);
-					this.uncomprLen -= more;
-					if (this.uncomprLen == 0)
 					{
-						this.mode = DECODE_BLOCKS;
-						return true;
+						var more = this.outputWindow.CopyStored(this.input, this.uncomprLen);
+						this.uncomprLen -= more;
+						if (this.uncomprLen == 0)
+						{
+							this.mode = DECODE_BLOCKS;
+							return true;
+						}
+						return !this.input.IsNeedingInput;
 					}
-					return !this.input.IsNeedingInput;
-				}
 
 				case DECODE_DYN_HEADER:
 					if (!this.dynHeader.Decode(this.input))

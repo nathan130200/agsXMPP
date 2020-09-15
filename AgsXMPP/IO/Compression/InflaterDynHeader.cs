@@ -135,14 +135,66 @@ namespace AgsXMPP.IO.Compression
 						this.mode = LENS;
 						goto case LENS; // fall through
 					case LENS:
-					{
-						int symbol;
-						while (((symbol = this.blTree.GetSymbol(input)) & ~15) == 0)
 						{
-							/* Normal case: symbol in [0..15] */
+							int symbol;
+							while (((symbol = this.blTree.GetSymbol(input)) & ~15) == 0)
+							{
+								/* Normal case: symbol in [0..15] */
 
-							//  		  System.err.println("litdistLens["+ptr+"]: "+symbol);
-							this.litdistLens[this.ptr++] = this.lastLen = (byte)symbol;
+								//  		  System.err.println("litdistLens["+ptr+"]: "+symbol);
+								this.litdistLens[this.ptr++] = this.lastLen = (byte)symbol;
+
+								if (this.ptr == this.num)
+								{
+									/* Finished */
+									return true;
+								}
+							}
+
+							/* need more input ? */
+							if (symbol < 0)
+							{
+								return false;
+							}
+
+							/* otherwise repeat code */
+							if (symbol >= 17)
+							{
+								/* repeat zero */
+								//  		  System.err.println("repeating zero");
+								this.lastLen = 0;
+							}
+							else
+							{
+								if (this.ptr == 0)
+								{
+									throw new SharpZipBaseException();
+								}
+							}
+							this.repSymbol = symbol - 16;
+						}
+						this.mode = REPS;
+						goto case REPS; // fall through
+					case REPS:
+						{
+							var bits = repBits[this.repSymbol];
+							var count = input.PeekBits(bits);
+							if (count < 0)
+							{
+								return false;
+							}
+							input.DropBits(bits);
+							count += repMin[this.repSymbol];
+							//  	      System.err.println("litdistLens repeated: "+count);
+
+							if (this.ptr + count > this.num)
+							{
+								throw new SharpZipBaseException();
+							}
+							while (count-- > 0)
+							{
+								this.litdistLens[this.ptr++] = this.lastLen;
+							}
 
 							if (this.ptr == this.num)
 							{
@@ -150,60 +202,8 @@ namespace AgsXMPP.IO.Compression
 								return true;
 							}
 						}
-
-						/* need more input ? */
-						if (symbol < 0)
-						{
-							return false;
-						}
-
-						/* otherwise repeat code */
-						if (symbol >= 17)
-						{
-							/* repeat zero */
-							//  		  System.err.println("repeating zero");
-							this.lastLen = 0;
-						}
-						else
-						{
-							if (this.ptr == 0)
-							{
-								throw new SharpZipBaseException();
-							}
-						}
-						this.repSymbol = symbol - 16;
-					}
-					this.mode = REPS;
-					goto case REPS; // fall through
-					case REPS:
-					{
-						var bits = repBits[this.repSymbol];
-						var count = input.PeekBits(bits);
-						if (count < 0)
-						{
-							return false;
-						}
-						input.DropBits(bits);
-						count += repMin[this.repSymbol];
-						//  	      System.err.println("litdistLens repeated: "+count);
-
-						if (this.ptr + count > this.num)
-						{
-							throw new SharpZipBaseException();
-						}
-						while (count-- > 0)
-						{
-							this.litdistLens[this.ptr++] = this.lastLen;
-						}
-
-						if (this.ptr == this.num)
-						{
-							/* Finished */
-							return true;
-						}
-					}
-					this.mode = LENS;
-					goto decode_loop;
+						this.mode = LENS;
+						goto decode_loop;
 				}
 			}
 		}

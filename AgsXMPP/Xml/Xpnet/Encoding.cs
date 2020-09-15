@@ -1493,180 +1493,180 @@ namespace AgsXMPP.Xml.Xpnet
 						/* fall through */
 						goto case BT_EQUALS;
 					case BT_EQUALS:
-					{
-						if (NameEnd < 0)
-							NameEnd = off;
-						int open;
-						for (; ; )
 						{
+							if (NameEnd < 0)
+								NameEnd = off;
+							int open;
+							for (; ; )
+							{
 
+								off += this.minBPC;
+								if (off == end)
+									throw new PartialTokenException();
+								open = this.byteType(buf, off);
+								if (open == BT_QUOT || open == BT_APOS)
+									break;
+								switch (open)
+								{
+									case BT_S:
+									case BT_LF:
+									case BT_CR:
+										break;
+									default:
+										throw new InvalidTokenException(off);
+								}
+							}
+							off += this.minBPC;
+							var valueStart = off;
+							var normalized = true;
+							int t;
+							/* in attribute value */
+							for (; ; )
+							{
+								if (off == end)
+									throw new PartialTokenException();
+								t = this.byteType(buf, off);
+								if (t == open)
+									break;
+								switch (t)
+								{
+									case BT_NONXML:
+									case BT_MALFORM:
+										throw new InvalidTokenException(off);
+									case BT_LEAD2:
+										if (end - off < 2)
+											throw new PartialCharException(off);
+										this.check2(buf, off);
+										off += 2;
+										break;
+									case BT_LEAD3:
+										if (end - off < 3)
+											throw new PartialCharException(off);
+										this.check3(buf, off);
+										off += 3;
+										break;
+									case BT_LEAD4:
+										if (end - off < 4)
+											throw new PartialCharException(off);
+										this.check4(buf, off);
+										off += 4;
+										break;
+									case BT_AMP:
+										{
+											normalized = false;
+											var saveNameEnd = token.NameEnd;
+											this.scanRef(buf, off + this.minBPC, end, token);
+											token.NameEnd = saveNameEnd;
+											off = token.TokenEnd;
+											break;
+										}
+									case BT_S:
+										if (normalized
+											&& (off == valueStart
+												|| this.byteToAscii(buf, off) != ' '
+												|| (off + this.minBPC != end
+													&& (this.byteToAscii(buf, off + this.minBPC) == ' '
+														|| this.byteType(buf, off + this.minBPC) == open))))
+											normalized = false;
+										off += this.minBPC;
+										break;
+									case BT_LT:
+										throw new InvalidTokenException(off);
+									case BT_LF:
+									case BT_CR:
+										normalized = false;
+										/* fall through */
+										goto default;
+									default:
+										off += this.minBPC;
+										break;
+								}
+							}
+							token.appendAttribute(nameStart, NameEnd, valueStart,
+												  off,
+												  normalized);
 							off += this.minBPC;
 							if (off == end)
 								throw new PartialTokenException();
-							open = this.byteType(buf, off);
-							if (open == BT_QUOT || open == BT_APOS)
-								break;
-							switch (open)
-							{
-								case BT_S:
-								case BT_LF:
-								case BT_CR:
-									break;
-								default:
-									throw new InvalidTokenException(off);
-							}
-						}
-						off += this.minBPC;
-						var valueStart = off;
-						var normalized = true;
-						int t;
-						/* in attribute value */
-						for (; ; )
-						{
-							if (off == end)
-								throw new PartialTokenException();
 							t = this.byteType(buf, off);
-							if (t == open)
-								break;
 							switch (t)
 							{
-								case BT_NONXML:
-								case BT_MALFORM:
-									throw new InvalidTokenException(off);
-								case BT_LEAD2:
-									if (end - off < 2)
-										throw new PartialCharException(off);
-									this.check2(buf, off);
-									off += 2;
-									break;
-								case BT_LEAD3:
-									if (end - off < 3)
-										throw new PartialCharException(off);
-									this.check3(buf, off);
-									off += 3;
-									break;
-								case BT_LEAD4:
-									if (end - off < 4)
-										throw new PartialCharException(off);
-									this.check4(buf, off);
-									off += 4;
-									break;
-								case BT_AMP:
-								{
-									normalized = false;
-									var saveNameEnd = token.NameEnd;
-									this.scanRef(buf, off + this.minBPC, end, token);
-									token.NameEnd = saveNameEnd;
-									off = token.TokenEnd;
-									break;
-								}
 								case BT_S:
-									if (normalized
-										&& (off == valueStart
-											|| this.byteToAscii(buf, off) != ' '
-											|| (off + this.minBPC != end
-												&& (this.byteToAscii(buf, off + this.minBPC) == ' '
-													|| this.byteType(buf, off + this.minBPC) == open))))
-										normalized = false;
-									off += this.minBPC;
-									break;
-								case BT_LT:
-									throw new InvalidTokenException(off);
-								case BT_LF:
 								case BT_CR:
-									normalized = false;
-									/* fall through */
-									goto default;
-								default:
+								case BT_LF:
 									off += this.minBPC;
+									if (off == end)
+										throw new PartialTokenException();
+									t = this.byteType(buf, off);
 									break;
+								case BT_GT:
+								case BT_SOL:
+									break;
+								default:
+									throw new InvalidTokenException(off);
 							}
-						}
-						token.appendAttribute(nameStart, NameEnd, valueStart,
-											  off,
-											  normalized);
-						off += this.minBPC;
-						if (off == end)
-							throw new PartialTokenException();
-						t = this.byteType(buf, off);
-						switch (t)
-						{
-							case BT_S:
-							case BT_CR:
-							case BT_LF:
+							/* off points to closing quote */
+							for (; ; )
+							{
+								switch (t)
+								{
+									case BT_NMSTRT:
+										nameStart = off;
+										off += this.minBPC;
+										goto skipToName;
+									case BT_LEAD2:
+										if (end - off < 2)
+											throw new PartialCharException(off);
+										if (this.byteType2(buf, off) != BT_NMSTRT)
+											throw new InvalidTokenException(off);
+										nameStart = off;
+										off += 2;
+										goto skipToName;
+									case BT_LEAD3:
+										if (end - off < 3)
+											throw new PartialCharException(off);
+										if (this.byteType3(buf, off) != BT_NMSTRT)
+											throw new InvalidTokenException(off);
+										nameStart = off;
+										off += 3;
+										goto skipToName;
+									case BT_LEAD4:
+										if (end - off < 4)
+											throw new PartialCharException(off);
+										if (this.byteType4(buf, off) != BT_NMSTRT)
+											throw new InvalidTokenException(off);
+										nameStart = off;
+										off += 4;
+										goto skipToName;
+									case BT_S:
+									case BT_CR:
+									case BT_LF:
+										break;
+									case BT_GT:
+										token.checkAttributeUniqueness(buf);
+										token.TokenEnd = off + this.minBPC;
+										return TOK.START_TAG_WITH_ATTS;
+									case BT_SOL:
+										off += this.minBPC;
+										if (off == end)
+											throw new PartialTokenException();
+										this.checkCharMatches(buf, off, '>');
+										token.checkAttributeUniqueness(buf);
+										token.TokenEnd = off + this.minBPC;
+										return TOK.EMPTY_ELEMENT_WITH_ATTS;
+									default:
+										throw new InvalidTokenException(off);
+								}
 								off += this.minBPC;
 								if (off == end)
 									throw new PartialTokenException();
 								t = this.byteType(buf, off);
-								break;
-							case BT_GT:
-							case BT_SOL:
-								break;
-							default:
-								throw new InvalidTokenException(off);
-						}
-						/* off points to closing quote */
-						for (; ; )
-						{
-							switch (t)
-							{
-								case BT_NMSTRT:
-									nameStart = off;
-									off += this.minBPC;
-									goto skipToName;
-								case BT_LEAD2:
-									if (end - off < 2)
-										throw new PartialCharException(off);
-									if (this.byteType2(buf, off) != BT_NMSTRT)
-										throw new InvalidTokenException(off);
-									nameStart = off;
-									off += 2;
-									goto skipToName;
-								case BT_LEAD3:
-									if (end - off < 3)
-										throw new PartialCharException(off);
-									if (this.byteType3(buf, off) != BT_NMSTRT)
-										throw new InvalidTokenException(off);
-									nameStart = off;
-									off += 3;
-									goto skipToName;
-								case BT_LEAD4:
-									if (end - off < 4)
-										throw new PartialCharException(off);
-									if (this.byteType4(buf, off) != BT_NMSTRT)
-										throw new InvalidTokenException(off);
-									nameStart = off;
-									off += 4;
-									goto skipToName;
-								case BT_S:
-								case BT_CR:
-								case BT_LF:
-									break;
-								case BT_GT:
-									token.checkAttributeUniqueness(buf);
-									token.TokenEnd = off + this.minBPC;
-									return TOK.START_TAG_WITH_ATTS;
-								case BT_SOL:
-									off += this.minBPC;
-									if (off == end)
-										throw new PartialTokenException();
-									this.checkCharMatches(buf, off, '>');
-									token.checkAttributeUniqueness(buf);
-									token.TokenEnd = off + this.minBPC;
-									return TOK.EMPTY_ELEMENT_WITH_ATTS;
-								default:
-									throw new InvalidTokenException(off);
 							}
-							off += this.minBPC;
-							if (off == end)
-								throw new PartialTokenException();
-							t = this.byteType(buf, off);
-						}
 
-					skipToName:
-						NameEnd = -1;
-						break;
-					}
+						skipToName:
+							NameEnd = -1;
+							break;
+						}
 					default:
 						throw new InvalidTokenException(off);
 				}
@@ -2436,25 +2436,25 @@ namespace AgsXMPP.Xml.Xpnet
 				case BT_APOS:
 					return this.scanLit(BT_APOS, buf, off + this.minBPC, end, token);
 				case BT_LT:
-				{
-					off += this.minBPC;
-					if (off == end)
-						throw new PartialTokenException();
-					switch (this.byteType(buf, off))
 					{
-						case BT_EXCL:
-							return this.scanDecl(buf, off + this.minBPC, end, token);
-						case BT_QUEST:
-							return this.scanPi(buf, off + this.minBPC, end, token);
-						case BT_NMSTRT:
-						case BT_LEAD2:
-						case BT_LEAD3:
-						case BT_LEAD4:
-							token.TokenEnd = off - this.minBPC;
-							throw new EndOfPrologException();
+						off += this.minBPC;
+						if (off == end)
+							throw new PartialTokenException();
+						switch (this.byteType(buf, off))
+						{
+							case BT_EXCL:
+								return this.scanDecl(buf, off + this.minBPC, end, token);
+							case BT_QUEST:
+								return this.scanPi(buf, off + this.minBPC, end, token);
+							case BT_NMSTRT:
+							case BT_LEAD2:
+							case BT_LEAD3:
+							case BT_LEAD4:
+								token.TokenEnd = off - this.minBPC;
+								throw new EndOfPrologException();
+						}
+						throw new InvalidTokenException(off);
 					}
-					throw new InvalidTokenException(off);
-				}
 				case BT_CR:
 					if (off + this.minBPC == end)
 						throw new ExtensibleTokenException(TOK.PROLOG_S);

@@ -47,7 +47,7 @@ namespace AgsXMPP
 		}
 
 		private static volatile int m_id = 0;
-		private static string m_Prefix = "agsXMPP_";
+		private static string m_Prefix = "uid";
 		private static IdType m_Type = IdType.Numeric;
 
 		public static IdType Type
@@ -65,11 +65,11 @@ namespace AgsXMPP
 			if (m_Type == IdType.Numeric)
 			{
 				m_id++;
-				return m_Prefix + m_id.ToString();
+				return $"{m_Prefix}{m_id:x8}";
 			}
 			else
 			{
-				return m_Prefix + Guid.NewGuid().ToString();
+				return Guid.NewGuid().ToString("N");
 			}
 		}
 #else

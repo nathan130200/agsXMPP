@@ -272,16 +272,21 @@ namespace AgsXMPP
 		}
 
 		#region << Stream Parser events >>
-		public override void StreamParserOnStreamStart(object sender, Node e)
+		protected override void StreamParserOnStreamStart(object sender, Node e)
 		{
+			if (e is Protocol.XmppStreamError error)
+			{
+				this.FireOnReadXml(this, error.ToString(true));
+				this.FireOnError(this, new InvalidOperationException($"Stream error received: <{error.Condition}/>"));
+				return;
+			}
+
 			base.StreamParserOnStreamStart(sender, e);
-
 			this.m_StreamStarted = true;
-
 			this.Login();
 		}
 
-		public override void StreamParserOnStreamEnd(object sender, Node e)
+		protected override void StreamParserOnStreamEnd(object sender, Node e)
 		{
 			base.StreamParserOnStreamEnd(sender, e);
 
@@ -289,7 +294,7 @@ namespace AgsXMPP
 				this.CleanupSession();
 		}
 
-		public override void StreamParserOnStreamElement(object sender, Node e)
+		protected override void StreamParserOnStreamElement(object sender, Node e)
 		{
 			base.StreamParserOnStreamElement(sender, e);
 
@@ -336,14 +341,14 @@ namespace AgsXMPP
 		#endregion
 
 		#region << ClientSocket Events >>
-		public override void SocketOnConnect(object sender)
+		protected override void SocketOnConnect(object sender)
 		{
 			base.SocketOnConnect(sender);
 
 			this.SendOpenStream();
 		}
 
-		public override void SocketOnDisconnect(object sender)
+		protected override void SocketOnDisconnect(object sender)
 		{
 			base.SocketOnDisconnect(sender);
 
@@ -351,7 +356,7 @@ namespace AgsXMPP
 				this.CleanupSession();
 		}
 
-		public override void SocketOnError(object sender, Exception ex)
+		protected override void SocketOnError(object sender, Exception ex)
 		{
 			base.SocketOnError(sender, ex);
 
