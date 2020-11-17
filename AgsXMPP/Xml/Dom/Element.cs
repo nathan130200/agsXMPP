@@ -52,7 +52,7 @@ namespace AgsXMPP.Xml.Dom
 			}
 		}
 
-		public string GetAttribute(string name)
+		public string GetAttributeRaw(string name)
 		{
 			if (this.Attributes.TryGetValue(name, out var value))
 				return value;
@@ -60,20 +60,20 @@ namespace AgsXMPP.Xml.Dom
 			return null;
 		}
 
-		public void SetAttribute(string name, string value)
+		public void SetAttributeRaw(string name, string value)
 		{
 			lock (this.RawAttributes)
 				this.RawAttributes[name] = value;
 		}
 
-		public Jid GetAttributeJid(string name)
+		public void SetAttribute<T>(string name, T value, IAttributeConverter<T> converter = default)
 		{
-			var value = this.GetAttribute(name);
 
-			if (!string.IsNullOrEmpty(value))
-				return new Jid(value);
+		}
 
-			return default;
+		public T GetAttribute<T>(string name, IAttributeConverter<T> converter = default)
+		{
+			return converter.ConvertFrom(this.GetAttributeRaw(name)).Value;
 		}
 	}
 }

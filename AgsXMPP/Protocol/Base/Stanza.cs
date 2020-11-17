@@ -3,22 +3,12 @@ using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Protocol.Base
 {
-	[XmppFactory("iq", Namespaces.CLIENT)]
-	[XmppFactory("iq", Namespaces.ACCEPT)]
-	public class Iq : Stanza
-	{
-		public Iq() : base("iq")
-		{
-
-		}
-	}
-
 	public abstract class Stanza : DirectionalElement
 	{
 		public string Id
 		{
-			get => this.GetAttribute("id");
-			set => this.SetAttribute("id", value);
+			get => this.GetAttributeRaw("id");
+			set => this.SetAttributeRaw("id", value);
 		}
 
 		public Stanza(string name, string xmlns = null) : base(name, xmlns)

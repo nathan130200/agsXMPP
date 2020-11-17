@@ -31,7 +31,7 @@ namespace AgsXMPP.Factory
 
 		static bool TryExtractElementsFromType(Type type, out IEnumerable<ElementFactoryInfo> elements)
 		{
-			elements = type.GetCustomAttributes<XmppFactoryAttribute>()
+			elements = type.GetCustomAttributes<XmppElementFactoryAttribute>()
 				.Select(x => ElementFactoryInfo.Create(x.Name, x.Namespace));
 
 			return elements.Any();
