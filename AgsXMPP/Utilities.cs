@@ -66,9 +66,9 @@ namespace AgsXMPP
 				var el = e as Element;
 
 				if (string.IsNullOrEmpty(el.Prefix))
-					tw.WriteStartElement(el.TagName);
+					tw.WriteStartElement(el.Name);
 				else
-					tw.WriteStartElement(el.Prefix + ":" + el.TagName);
+					tw.WriteStartElement(el.Prefix + ":" + el.Name);
 
 				if ((parent == null || parent.Namespace != el.Namespace) && !string.IsNullOrEmpty(el.Namespace))
 				{

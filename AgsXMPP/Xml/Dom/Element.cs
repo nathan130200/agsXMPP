@@ -6,15 +6,23 @@ namespace AgsXMPP.Xml.Dom
 	public class Element : Node
 	{
 		public string Prefix { get; set; }
-		public string TagName { get; set; }
+		public string Name { get; set; }
 		public bool IsRootElement => this.Parent == null;
 		protected Dictionary<string, string> RawAttributes;
 
-		public Element(string tagname, string xmlns = default, string text = default) : base(NodeType.Element)
+		protected Element() : base(NodeType.Element)
 		{
 			this.RawAttributes = new Dictionary<string, string>();
-			this.TagName = tagname;
+		}
+
+		public Element(string name, string xmlns = default) : this()
+		{
+			this.Name = name;
 			this.Namespace = xmlns;
+		}
+
+		public Element(string name, string xmlns = default, string text = default) : this(name, xmlns)
+		{
 			this.Value = text;
 		}
 
@@ -42,6 +50,30 @@ namespace AgsXMPP.Xml.Dom
 
 				return temp.ToDictionary(x => x.Key, x => x.Value);
 			}
+		}
+
+		public string GetAttribute(string name)
+		{
+			if (this.Attributes.TryGetValue(name, out var value))
+				return value;
+
+			return null;
+		}
+
+		public void SetAttribute(string name, string value)
+		{
+			lock (this.RawAttributes)
+				this.RawAttributes[name] = value;
+		}
+
+		public Jid GetAttributeJid(string name)
+		{
+			var value = this.GetAttribute(name);
+
+			if (!string.IsNullOrEmpty(value))
+				return new Jid(value);
+
+			return default;
 		}
 	}
 }

@@ -1,0 +1,76 @@
+namespace AgsXMPP
+{
+	public class Namespaces
+	{
+		public const string STREAM = "http://etherx.jabber.org/streams";
+		public const string CLIENT = "jabber:client";
+		public const string SERVER = "jabber:server";
+		public const string IQ_AGENTS = "jabber:iq:agents";
+		public const string IQ_ROSTER = "jabber:iq:roster";
+		public const string IQ_AUTH = "jabber:iq:auth";
+		public const string IQ_REGISTER = "jabber:iq:register";
+		public const string IQ_OOB = "jabber:iq:oob";
+		public const string IQ_LAST = "jabber:iq:last";
+		public const string IQ_TIME = "jabber:iq:time";
+		public const string IQ_VERSION = "jabber:iq:version";
+		public const string IQ_BROWSE = "jabber:iq:browse";
+		public const string IQ_SEARCH = "jabber:iq:search";
+		public const string IQ_AVATAR = "jabber:iq:avatar";
+		public const string IQ_PRIVATE = "jabber:iq:private";
+		public const string IQ_PRIVACY = "jabber:iq:privacy";
+		public const string IQ_RPC = "jabber:iq:rpc";
+		public const string X_DELAY = "jabber:x:delay";
+		public const string X_EVENT = "jabber:x:event";
+		public const string X_AVATAR = "jabber:x:avatar";
+		public const string X_CONFERENCE = "jabber:x:conference";
+		public const string X_DATA = "jabber:x:data";
+		public const string X_ROSTERX = "http://jabber.org/protocol/rosterx";
+		public const string MUC = "http://jabber.org/protocol/muc";
+		public const string MUC_USER = "http://jabber.org/protocol/muc#user";
+		public const string MUC_ADMIN = "http://jabber.org/protocol/muc#admin";
+		public const string MUC_OWNER = "http://jabber.org/protocol/muc#owner";
+		public const string DISCO_ITEMS = "http://jabber.org/protocol/disco#items";
+		public const string DISCO_INFO = "http://jabber.org/protocol/disco#info";
+		public const string STORAGE_AVATAR = "storage:client:avatar";
+		public const string VCARD = "vcard-temp";
+		public const string STREAMS = "urn:ietf:params:xml:ns:xmpp-streams";
+		public const string STANZAS = "urn:ietf:params:xml:ns:xmpp-stanzas";
+		public const string TLS = "urn:ietf:params:xml:ns:xmpp-tls";
+		public const string SASL = "urn:ietf:params:xml:ns:xmpp-sasl";
+		public const string SESSION = "urn:ietf:params:xml:ns:xmpp-session";
+		public const string BIND = "urn:ietf:params:xml:ns:xmpp-bind";
+		public const string ACCEPT = "jabber:component:accept";
+		public const string FEATURE_IQ_REGISTER = "http://jabber.org/features/iq-register";
+		public const string FEATURE_COMPRESS = "http://jabber.org/features/compress";
+		public const string SHIM = "http://jabber.org/protocol/shim";
+		public const string PRIMARY = "http://jabber.org/protocol/primary";
+		public const string NICK = "http://jabber.org/protocol/nick";
+		public const string CHATSTATES = "http://jabber.org/protocol/chatstates";
+		public const string COMPRESS = "http://jabber.org/protocol/compress";
+		public const string FEATURE_NEG = "http://jabber.org/protocol/feature-neg";
+		public const string SI = "http://jabber.org/protocol/si";
+		public const string SI_FILE_TRANSFER = "http://jabber.org/protocol/si/profile/file-transfer";
+		public const string BYTESTREAMS = "http://jabber.org/protocol/bytestreams";
+		public const string ROSTER_DELIMITER = "roster:delimiter";
+		public const string JIVESOFTWARE_PHONE = "http://jivesoftware.com/xmlns/phone";
+		public const string XHTML_IM = "http://jabber.org/protocol/xhtml-im";
+		public const string XHTML = "http://www.w3.org/1999/xhtml";
+		public const string CAPS = "http://jabber.org/protocol/caps";
+		public const string JINGLE = "http://jabber.org/protocol/jingle";
+		public const string JINGLE_AUDIO_DESCRIPTION = "http://jabber.org/protocol/jingle/description/audio";
+		public const string JINGLE_AUDIO_INFO = "http://jabber.org/protocol/jingle/info/audio";
+		public const string JINGLE_VIDEO_DESCRIPTION = "http://jabber.org/protocol/jingle/description/video";
+		public const string GEOLOC = "http://jabber.org/protocol/geoloc";
+		public const string PING = "urn:xmpp:ping";
+		public const string COMMANDS = "http://jabber.org/protocol/commands";
+		public const string PUBSUB = "http://jabber.org/protocol/pubsub";
+		public const string PUBSUB_EVENT = "http://jabber.org/protocol/pubsub#event";
+		public const string PUBSUB_OWNER = "http://jabber.org/protocol/pubsub#owner";
+		public const string HTTP_BIND = "http://jabber.org/protocol/httpbind";
+		public const string MSG_RECEIPT = "urn:xmpp:receipts";
+		public const string STORAGE_BOOKMARKS = "storage:bookmarks";
+		public const string IBB = "http://jabber.org/protocol/ibb";
+		public const string AMP = "http://jabber.org/protocol/amp";
+		public const string VCARD_UPDATE = "vcard-temp:x:update";
+	}
+}
