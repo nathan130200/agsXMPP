@@ -23,11 +23,11 @@ namespace AgsXMPP.Idn
 				// U+D7A3. Should this be changed?
 				if (code >= 0xAC00 && code <= 0xD7AF)
 				{
-					sbOut.Append(decomposeHangul(code));
+					sbOut.Append(DecomposeHangul(code));
 				}
 				else
 				{
-					var index = decomposeIndex(code);
+					var index = DecomposeIndex(code);
 					if (index == -1)
 					{
 						sbOut.Append(code);
@@ -40,7 +40,7 @@ namespace AgsXMPP.Idn
 			}
 
 			// Bring the stringbuffer into canonical order.
-			canonicalOrdering(sbOut);
+			CanonicalOrdering(sbOut);
 
 			// Do the canonical composition.
 			var last_cc = 0;
@@ -48,7 +48,7 @@ namespace AgsXMPP.Idn
 
 			for (var i = 0; i < sbOut.Length; i++)
 			{
-				var cc = combiningClass(sbOut[i]);
+				var cc = CombiningClass(sbOut[i]);
 
 				if (i > 0 && (last_cc == 0 || last_cc != cc))
 				{
@@ -56,7 +56,7 @@ namespace AgsXMPP.Idn
 					var a = sbOut[last_start];
 					var b = sbOut[i];
 
-					var c = compose(a, b);
+					var c = Compose(a, b);
 
 					if (c != -1)
 					{
@@ -71,7 +71,7 @@ namespace AgsXMPP.Idn
 						}
 						else
 						{
-							last_cc = combiningClass(sbOut[i - 1]);
+							last_cc = CombiningClass(sbOut[i - 1]);
 						}
 						continue;
 					}
@@ -95,7 +95,7 @@ namespace AgsXMPP.Idn
 		/// </summary>
 		/// <param name="c">Character to look up.</param>
 		/// <returns> Index if found, -1 otherwise.</returns>
-		internal static int decomposeIndex(char c)
+		internal static int DecomposeIndex(char c)
 		{
 			var start = 0;
 			var end = DecompositionKeys.k.Length / 2;
@@ -130,15 +130,15 @@ namespace AgsXMPP.Idn
 		/// </summary>
 		/// <param name="c">The character.</param>
 		/// <returns> The combining class.</returns>
-		internal static int combiningClass(char c)
+		internal static int CombiningClass(char c)
 		{
 			var h = c >> 8;
 			var l = c & 0xff;
 
-			var i = CombiningClass.i[h];
+			var i = Idn.CombiningClass.i[h];
 			if (i > -1)
 			{
-				return CombiningClass.c[i, l];
+				return Idn.CombiningClass.c[i, l];
 			}
 			else
 			{
@@ -151,7 +151,7 @@ namespace AgsXMPP.Idn
 		/// canonical ordering properties.
 		/// </summary>
 		/// <param name="The">StringBuffer to rearrange.</param>
-		internal static void canonicalOrdering(StringBuilder sbIn)
+		internal static void CanonicalOrdering(StringBuilder sbIn)
 		{
 			var isOrdered = false;
 
@@ -163,16 +163,16 @@ namespace AgsXMPP.Idn
 				// 24.10.2005
 				var lastCC = 0;
 				if (sbIn.Length > 0)
-					lastCC = combiningClass(sbIn[0]);
+					lastCC = CombiningClass(sbIn[0]);
 
 				for (var i = 0; i < sbIn.Length - 1; i++)
 				{
-					var nextCC = combiningClass(sbIn[i + 1]);
+					var nextCC = CombiningClass(sbIn[i + 1]);
 					if (nextCC != 0 && lastCC > nextCC)
 					{
 						for (var j = i + 1; j > 0; j--)
 						{
-							if (combiningClass(sbIn[j - 1]) <= nextCC)
+							if (CombiningClass(sbIn[j - 1]) <= nextCC)
 							{
 								break;
 							}
@@ -193,7 +193,7 @@ namespace AgsXMPP.Idn
 		/// </summary>
 		/// <param name="a">Character to look up.</param>
 		/// <returns> Index if found, -1 otherwise.</returns>
-		internal static int composeIndex(char a)
+		internal static int ComposeIndex(char a)
 		{
 			if (a >> 8 >= Composition.composePage.Length)
 			{
@@ -213,15 +213,15 @@ namespace AgsXMPP.Idn
 		/// <param name="a">First character.</param>
 		/// <param name="b">Second character.</param>
 		/// <returns> The composed character or -1 if no composition could be found.</returns>
-		internal static int compose(char a, char b)
+		internal static int Compose(char a, char b)
 		{
-			var h = composeHangul(a, b);
+			var h = ComposeHangul(a, b);
 			if (h != -1)
 			{
 				return h;
 			}
 
-			var ai = composeIndex(a);
+			var ai = ComposeIndex(a);
 
 			if (ai >= Composition.singleFirstStart && ai < Composition.singleSecondStart)
 			{
@@ -236,7 +236,7 @@ namespace AgsXMPP.Idn
 			}
 
 
-			var bi = composeIndex(b);
+			var bi = ComposeIndex(b);
 
 			if (bi >= Composition.singleSecondStart)
 			{
@@ -295,7 +295,7 @@ namespace AgsXMPP.Idn
 		/// <returns> A string containing the hangul decomposition of the input
 		/// character. If no hangul decomposition can be found, a string
 		/// containing the character itself is returned.</returns>
-		internal static string decomposeHangul(char s)
+		internal static string DecomposeHangul(char s)
 		{
 			var SIndex = s - SBase;
 			if (SIndex < 0 || SIndex >= SCount)
@@ -319,7 +319,7 @@ namespace AgsXMPP.Idn
 		/// <param name="a">First character.</param>
 		/// <param name="b">Second character.</param>
 		/// <returns> Returns the composed character or -1 if the two characters cannot be composed.</returns>
-		internal static int composeHangul(char a, char b)
+		internal static int ComposeHangul(char a, char b)
 		{
 			// 1. check to see if two current characters are L and V
 			var LIndex = a - LBase;

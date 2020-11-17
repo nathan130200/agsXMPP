@@ -2,15 +2,17 @@ namespace AgsXMPP.Xml.Converters
 {
 	public class JidAttributeConverter : IAttributeConverter<Jid>
 	{
-		public Optional<Jid> ConvertFrom(string value)
+		public Optional<Jid> Deserialize(string value)
 		{
 			if (string.IsNullOrEmpty(value))
 				return Optional.FromNonValue<Jid>();
 
-			return new Jid(value);
+			return Jid.TryParse(value, out var temp)
+				? Optional.FromValue(temp)
+				: Optional.FromNonValue<Jid>();
 		}
 
-		public string ConvertTo(Jid value)
+		public string Serialize(Jid value)
 			=> value.ToString();
 	}
 }

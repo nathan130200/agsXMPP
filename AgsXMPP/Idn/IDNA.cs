@@ -236,7 +236,7 @@ namespace AgsXMPP.Idn
 
 			// Step 4: Remove the ACE prefix.
 
-			input = input.Substring(ACE_PREFIX.Length);
+			input = input[ACE_PREFIX.Length..];
 
 			// Step 5: Decode using punycode
 

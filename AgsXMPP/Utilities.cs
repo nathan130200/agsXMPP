@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -28,6 +29,9 @@ namespace AgsXMPP
 				return tw.ToString();
 			}
 		}
+
+		public static string AsString(this ReadOnlySpan<char> span)
+			=> new string(span);
 
 		internal static void WriteTree(Node e, XmlTextWriter tw, Node parent = default)
 		{

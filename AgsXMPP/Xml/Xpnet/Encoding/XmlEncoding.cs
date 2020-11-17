@@ -42,7 +42,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 
 		public static Utf8XmlEncoding UTF8 { get; } = new Utf8XmlEncoding();
 
-		[Obsolete("Only UTF-8 is implemented.")]
+		[Obsolete("Use UTF8 static instead.")]
 		protected static XmlEncoding GetEncoding(byte enc)
 		{
 			return enc switch
@@ -110,7 +110,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 		/// <param name="buf"></param>
 		/// <param name="off"></param>
 		/// <returns></returns>
-		protected int GetByteType3(byte[] buf, int off)
+		protected virtual int GetByteType3(byte[] buff, int off)
 		{
 			return BT_OTHER;
 		}
@@ -121,7 +121,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 		/// <param name="buf"></param>
 		/// <param name="off"></param>
 		/// <returns></returns>
-		protected int GetByteType4(byte[] buf, int off)
+		protected virtual int GetByteType4(byte[] buff, int off)
 		{
 			return BT_OTHER;
 		}
@@ -1131,7 +1131,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 										break;
 								}
 							}
-							token.appendAttribute(nameStart, NameEnd, valueStart,
+							token.AppendAttribute(nameStart, NameEnd, valueStart,
 												  off,
 												  normalized);
 							off += this.MinBytesPerCharacter;
@@ -1192,7 +1192,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 									case BT_LF:
 										break;
 									case BT_GT:
-										token.checkAttributeUniqueness(buf);
+										token.CheckAttributeUniqueness(buf);
 										token.TokenEnd = off + this.MinBytesPerCharacter;
 										return TokenType.START_TAG_WITH_ATTS;
 									case BT_SOL:
@@ -1200,7 +1200,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 										if (off == end)
 											throw new PartialTokenException();
 										this.CheckIfCharMatches(buf, off, '>');
-										token.checkAttributeUniqueness(buf);
+										token.CheckAttributeUniqueness(buf);
 										token.TokenEnd = off + this.MinBytesPerCharacter;
 										return TokenType.EMPTY_ELEMENT_WITH_ATTS;
 									default:
@@ -1273,7 +1273,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 			}
 			/* we have a start-tag */
 			token.NameEnd = -1;
-			token.clearAttributes();
+			token.ClearAttributes();
 			while (off != end)
 			{
 				switch (this.GetByteType(buf, off))
@@ -1864,6 +1864,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
          * by byte <code>b</code>; bytes that do not represent any
          * character should be mapped to <code>\uFFFD</code>
          */
+		[Obsolete("Use UTF8 static instead.")]
 		public XmlEncoding GetSingleByteEncoding(string map)
 			=> throw new NotImplementedException();
 
@@ -1873,85 +1874,13 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 		/// except that newlines are assumed to have been normalized
 		/// into line feed, so carriage return is treated like a space.
 		/// </summary>
+		[Obsolete("Use UTF8 static instead.")]
 		public static XmlEncoding GetInternalEncoding()
 			=> throw new NotImplementedException();
 
-		/**
-         * Scans the first token of a byte subarray that contains part of a
-         * prolog.
-         * Returns one of the following integers according to the type of token
-         * that the subarray starts with:
-         * <ul>
-         * <li><code>TOK.PI</code></li>
-         * <li><code>TOK.XML_DECL</code></li>
-         * <li><code>TOK.COMMENT</code></li>
-         * <li><code>TOK.PARAM_ENTITY_REF</code></li>
-         * <li><code>TOK.PROLOG_S</code></li>
-         * <li><code>TOK.DECL_OPEN</code></li>
-         * <li><code>TOK.DECL_CLOSE</code></li>
-         * <li><code>TOK.NAME</code></li>
-         * <li><code>TOK.NMTOKEN</code></li>
-         * <li><code>TOK.POUND_NAME</code></li>
-         * <li><code>TOK.OR</code></li>
-         * <li><code>TOK.PERCENT</code></li>
-         * <li><code>TOK.OPEN_PAREN</code></li>
-         * <li><code>TOK.CLOSE_PAREN</code></li>
-         * <li><code>TOK.OPEN_BRACKET</code></li>
-         * <li><code>TOK.CLOSE_BRACKET</code></li>
-         * <li><code>TOK.LITERAL</code></li>
-         * <li><code>TOK.NAME_QUESTION</code></li>
-         * <li><code>TOK.NAME_ASTERISK</code></li>
-         * <li><code>TOK.NAME_PLUS</code></li>
-         * <li><code>TOK.COND_SECT_OPEN</code></li>
-         * <li><code>TOK.COND_SECT_CLOSE</code></li>
-         * <li><code>TOK.CLOSE_PAREN_QUESTION</code></li>
-         * <li><code>TOK.CLOSE_PAREN_ASTERISK</code></li>
-         * <li><code>TOK.CLOSE_PAREN_PLUS</code></li>
-         * <li><code>TOK.COMMA</code></li>
-         * </ul>
-         * @exception EmptyTokenException if the subarray is empty
-         * @exception PartialTokenException if the subarray contains only part of
-         * a legal token
-         * @exception InvalidTokenException if the subarrary does not start
-         * with a legal token or part of one
-         * @exception EndOfPrologException if the subarray starts with the document
-         * element; <code>tokenizeContent</code> should be used on the remainder
-         * of the entity
-         * @exception ExtensibleTokenException if the subarray is a legal token
-         * but subsequent bytes in the same entity could be part of the token
-         * @see #TOK.PI
-         * @see #TOK.XML_DECL
-         * @see #TOK.COMMENT
-         * @see #TOK.PARAM_ENTITY_REF
-         * @see #TOK.PROLOG_S
-         * @see #TOK.DECL_OPEN
-         * @see #TOK.DECL_CLOSE
-         * @see #TOK.NAME
-         * @see #TOK.NMTOKEN
-         * @see #TOK.POUND_NAME
-         * @see #TOK.OR
-         * @see #TOK.PERCENT
-         * @see #TOK.OPEN_PAREN
-         * @see #TOK.CLOSE_PAREN
-         * @see #TOK.OPEN_BRACKET
-         * @see #TOK.CLOSE_BRACKET
-         * @see #TOK.LITERAL
-         * @see #TOK.NAME_QUESTION
-         * @see #TOK.NAME_ASTERISK
-         * @see #TOK.NAME_PLUS
-         * @see #TOK.COND_SECT_OPEN
-         * @see #TOK.COND_SECT_CLOSE
-         * @see #TOK.CLOSE_PAREN_QUESTION
-         * @see #TOK.CLOSE_PAREN_ASTERISK
-         * @see #TOK.CLOSE_PAREN_PLUS
-         * @see #TOK.COMMA
-         * @see ContentToken
-         * @see EmptyTokenException
-         * @see PartialTokenException
-         * @see InvalidTokenException
-         * @see ExtensibleTokenException
-         * @see EndOfPrologException
-         */
+		/// <summary>
+		/// Scans the first token of a byte subarray that contains part of a prolog.
+		/// <summary>
 		public TokenType TokenizeProlog(byte[] buf, int off, int end, Token token)
 		{
 			TokenType tok;
@@ -2536,7 +2465,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 						goto case BT_CR;
 					case BT_CR:
 					case BT_LF:
-						if (sbuf.Length > 0 && sbuf[sbuf.Length - 1] != ' ')
+						if (sbuf.Length > 0 && sbuf[^1] != ' ')
 							sbuf.Append(' ');
 						break;
 					case BT_NAME:
@@ -2560,7 +2489,7 @@ namespace AgsXMPP.Xml.Xpnet.Encoding
 						break;
 				}
 			}
-			if (sbuf.Length > 0 && sbuf[sbuf.Length - 1] == ' ')
+			if (sbuf.Length > 0 && sbuf[^1] == ' ')
 				sbuf.Length -= 1;
 			return sbuf.ToString();
 		}

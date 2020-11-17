@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using AgsXMPP.Factory;
 
 namespace AgsXMPP.Xml.Dom
 {
@@ -66,14 +68,22 @@ namespace AgsXMPP.Xml.Dom
 				this.RawAttributes[name] = value;
 		}
 
-		public void SetAttribute<T>(string name, T value, IAttributeConverter<T> converter = default)
+		public void SetAttribute<T>(string name, T value)
 		{
+			var rawValue = AttributeConverterFactory.SerializeValue(value);
 
+			lock (this.RawAttributes)
+				this.RawAttributes.Add(name, rawValue);
 		}
 
-		public T GetAttribute<T>(string name, IAttributeConverter<T> converter = default)
+		public T GetAttribute<T>(string name)
 		{
-			return converter.ConvertFrom(this.GetAttributeRaw(name)).Value;
+			var rawValue = this.GetAttributeRaw(name);
+
+			if (!string.IsNullOrEmpty(rawValue))
+				throw new NotImplementedException();
+
+			return default;
 		}
 	}
 }

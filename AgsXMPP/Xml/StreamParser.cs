@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using AgsXMPP.Factory;
 using AgsXMPP.Xml.Dom;
 

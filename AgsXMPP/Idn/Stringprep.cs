@@ -83,7 +83,7 @@ namespace AgsXMPP.Idn
 			// RFC 3454, section 6, requirement 3
 			if (r)
 			{
-				if (!Contains(s[0], RFC3454.D1) || !Contains(s[s.Length - 1], RFC3454.D1))
+				if (!Contains(s[0], RFC3454.D1) || !Contains(s[^1], RFC3454.D1))
 				{
 					throw new StringprepException(StringprepException.BIDI_LTRAL);
 				}
@@ -96,7 +96,7 @@ namespace AgsXMPP.Idn
 		* Characters prohibited by RFC3920 nodeprep that aren't defined as
 		* part of the RFC3454 tables.
 		*/
-		private static char[] RFC3920_NODEPREP_PROHIBIT = new char[] {
+		static readonly char[] RFC3920_NODEPREP_PROHIBIT = new char[] {
 				 '\u0022', '\u0026', '\'',     '\u002F',
 				 '\u003A', '\u003C', '\u003E', '\u0040'
 		 };
@@ -173,7 +173,7 @@ namespace AgsXMPP.Idn
 			// RFC 3454, section 6, requirement 3
 			if (r)
 			{
-				if (!Contains(s[0], RFC3454.D1) || !Contains(s[s.Length - 1], RFC3454.D1))
+				if (!Contains(s[0], RFC3454.D1) || !Contains(s[^1], RFC3454.D1))
 				{
 					throw new StringprepException(StringprepException.BIDI_LTRAL);
 				}
@@ -255,7 +255,7 @@ namespace AgsXMPP.Idn
 			// RFC 3454, section 6, requirement 3
 			if (r)
 			{
-				if (!Contains(s[0], RFC3454.D1) || !Contains(s[s.Length - 1], RFC3454.D1))
+				if (!Contains(s[0], RFC3454.D1) || !Contains(s[^1], RFC3454.D1))
 				{
 					throw new StringprepException(StringprepException.BIDI_LTRAL);
 				}

@@ -54,7 +54,7 @@ namespace AgsXMPP.Xml.Xpnet
 
 		public bool Equals(Position other)
 		{
-			if (ReferenceEquals(other, null))
+			if (other is null)
 				return false;
 
 			if (ReferenceEquals(other, this))

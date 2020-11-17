@@ -5,11 +5,6 @@ namespace AgsXMPP.Xml.Xpnet
 {
 	public class ContentToken : Token
 	{
-		internal ContentToken()
-		{
-
-		}
-
 		private const int INIT_ATT_COUNT = 8;
 		private int attCount = 0;
 		private int[] attNameStart = new int[INIT_ATT_COUNT];
@@ -18,63 +13,67 @@ namespace AgsXMPP.Xml.Xpnet
 		private int[] attValueEnd = new int[INIT_ATT_COUNT];
 		private bool[] attNormalized = new bool[INIT_ATT_COUNT];
 
+		internal ContentToken()
+		{
 
-		public int getAttributeSpecifiedCount()
+		}
+
+		public int GetAttributeSpecifiedCount()
 		{
 			return this.attCount;
 		}
 
-		public int getAttributeNameStart(int i)
+		public int GetAttributeNameStart(int i)
 		{
 			if (i >= this.attCount)
 				throw new IndexOutOfRangeException();
 			return this.attNameStart[i];
 		}
 
-		public int getAttributeNameEnd(int i)
+		public int GetAttributeNameEnd(int i)
 		{
 			if (i >= this.attCount)
 				throw new IndexOutOfRangeException();
 			return this.attNameEnd[i];
 		}
 
-		public int getAttributeValueStart(int i)
+		public int GetAttributeValueStart(int i)
 		{
 			if (i >= this.attCount)
 				throw new IndexOutOfRangeException();
 			return this.attValueStart[i];
 		}
 
-		public int getAttributeValueEnd(int i)
+		public int GetAttributeValueEnd(int i)
 		{
 			if (i >= this.attCount)
 				throw new IndexOutOfRangeException();
 			return this.attValueEnd[i];
 		}
 
-		public bool isAttributeNormalized(int i)
+		public bool IsAttributeNormalized(int i)
 		{
 			if (i >= this.attCount)
 				throw new IndexOutOfRangeException();
 			return this.attNormalized[i];
 		}
 
-		public void clearAttributes()
+		public void ClearAttributes()
 		{
 			this.attCount = 0;
 		}
 
-		public void appendAttribute(int nameStart, int nameEnd,
+		public void AppendAttribute(int nameStart, int nameEnd,
 			int valueStart, int valueEnd,
 			bool normalized)
 		{
 			if (this.attCount == this.attNameStart.Length)
 			{
-				this.attNameStart = grow(this.attNameStart);
-				this.attNameEnd = grow(this.attNameEnd);
-				this.attValueStart = grow(this.attValueStart);
-				this.attValueEnd = grow(this.attValueEnd);
-				this.attNormalized = grow(this.attNormalized);
+				this.attNameStart = Grow(this.attNameStart);
+				this.attNameEnd = Grow(this.attNameEnd);
+				this.attValueStart = Grow(this.attValueStart);
+				this.attValueEnd = Grow(this.attValueEnd);
+				this.attNormalized = Grow(this.attNormalized);
 			}
 			this.attNameStart[this.attCount] = nameStart;
 			this.attNameEnd[this.attCount] = nameEnd;
@@ -84,7 +83,7 @@ namespace AgsXMPP.Xml.Xpnet
 			++this.attCount;
 		}
 
-		public void checkAttributeUniqueness(byte[] buf)
+		public void CheckAttributeUniqueness(byte[] buf)
 		{
 			for (var i = 1; i < this.attCount; i++)
 			{
@@ -106,7 +105,7 @@ namespace AgsXMPP.Xml.Xpnet
 			}
 		}
 
-		private static int[] grow(int[] v)
+		private static int[] Grow(int[] v)
 		{
 			var tem = v;
 			v = new int[tem.Length << 1];
@@ -114,7 +113,7 @@ namespace AgsXMPP.Xml.Xpnet
 			return v;
 		}
 
-		private static bool[] grow(bool[] v)
+		private static bool[] Grow(bool[] v)
 		{
 			var tem = v;
 			v = new bool[tem.Length << 1];

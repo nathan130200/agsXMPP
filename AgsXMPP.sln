@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgsXMPP", "AgsXMPP\AgsXMPP.csproj", "{888A2DB4-F98B-42C6-A3D8-1B2D3B148733}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgsXMPP.Test", "AgsXMPP.Test\AgsXMPP.Test.csproj", "{595E32BC-806E-4912-B25D-52CD57BA4C2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{888A2DB4-F98B-42C6-A3D8-1B2D3B148733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{888A2DB4-F98B-42C6-A3D8-1B2D3B148733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{888A2DB4-F98B-42C6-A3D8-1B2D3B148733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{595E32BC-806E-4912-B25D-52CD57BA4C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595E32BC-806E-4912-B25D-52CD57BA4C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595E32BC-806E-4912-B25D-52CD57BA4C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595E32BC-806E-4912-B25D-52CD57BA4C2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

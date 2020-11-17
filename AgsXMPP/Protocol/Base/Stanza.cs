@@ -1,4 +1,3 @@
-using AgsXMPP.Attributes;
 using AgsXMPP.Xml.Dom;
 
 namespace AgsXMPP.Protocol.Base
